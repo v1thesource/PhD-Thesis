@@ -1,0 +1,165 @@
+\chapter{Crystallography}
+
+\label{ch:crystallography}
+
+\section{\zirconia\ phases and stabilisation}
+
+\begin{figure}[htp]
+\centering
+\includegraphics[height=6.2cm]{images/coordination.png}
+\caption{A monoclinic zirconia unit cell indicating the two different oxygen bond coordinations. Small spheres represent oxygen ions while large spheres represent zirconium ions. The dashed line (approximately 3.7\r{A} in length) shows the Zr-O bond which is broken when transitioning to monoclinic from the tetragonal phase. Taken from \cite{Xia2010}.
+\label{figure:coordination}}
+\end{figure}
+
+\subsection{Common and predicted crystal structures}
+
+Three common crystal structure at atmospheric conditions
+
+\begin{table}[htp]
+\centering
+\onehalfspacing
+\caption{\zirconia\ crystal structures and their stable temperatures at 1 atm \cite{Howard1988}.}
+\label{table:phases}
+\begin{tabular}{ccc}
+\hline
+{Crystal Structure} & {Space Group}    & {Temperature Range (K)} \\ \hline
+\multicolumn{1}{c|}{Monoclinic} & \multicolumn{1}{c|}{$P2_1/c$} & \multicolumn{1}{c}{$T$ \textless\ 1440}     \\
+\multicolumn{1}{c|}{Tetragonal} & \multicolumn{1}{c|}{$P4_2/nmc$} & \multicolumn{1}{c}{1440 \textless\ $T$ \textless\ 2640}        \\
+\multicolumn{1}{c|}{Cubic} & \multicolumn{1}{c|}{$Fm\overline{3}m$}     & \multicolumn{1}{c}{2640 \textless\ $T$ \textless\ 2950}      \\ \hline
+\end{tabular}
+\end{table}
+
+\subsubsection*{Volume expansion}
+
+The phase transitions in \zirconia\ are accompanied by a change in volume, where the monoclinic phase is the least dense and the cubic phase is the most dense (see Figure \ref{figure:zrobonddistance}). This is especially significant in the case of the martensitic t-\zirconia\ to m-\zirconia\ transition, where the volume increases by around 9\% \cite{Gupta1977}. This has substantial implications for the creation and opening of cracks as \zirconia\ is a ceramic material with low toughness. This is especially relevant in a reactor scenario where temperature cycling (shutdown/startup or load-following behaviour) may lead to fatigue if the phase transition threshold is passed.
+
+Another consequence of this large volume expansion is that a significant hysteresis effect is observed in the monoclinic/tetragonal phase transition, as shown in Figure \ref{fig:phasediagram}. 
+%as the resulting coherency strain is likely to result in reduced mobility of fission products that have been embedded in the bulk crystal. 
+
+\begin{figure}[htp]
+  \centering
+      \includegraphics[height=10cm]{images/zirconiaphasediagram.png}
+  \caption{Pressure-temperature phase diagram for \zirconia . Dash-dotted lines represent more recent data. Diamonds mark transition points during an increase in pressure/temperature, while open circles are used for a decrease in pressure/temperature. Solid circles represent transition points for a fresh, single crystal sample. Taken from \cite{gando2011partial}. \label{fig:phasediagram}}
+\end{figure}
+
+\begin{figure}
+\begin{center}
+\begin{tikzpicture}
+	\begin{axis}
+		[width=12cm, xlabel={Nearest neighbour Zr-O bond distance (\r{A})}, ylabel={Relative occurrence}, ymin=0, ymax=140, xmin=2.0, xmax=2.50, legend style={{draw=}, at={(0.95,0.95)}, anchor=north east, legend columns=1}]
+		\addplot[no marks] table [x=zr_o_dist, y=monoclinic,]{dat/zr_o_bond_distances.dat}; \addlegendentry{Monoclinic};
+        \addplot[no marks, dashed] table [x=zr_o_dist, y=tetragonal, ]{dat/zr_o_bond_distances.dat}; \addlegendentry{Tetragonal};
+        \addplot[no marks, densely dotted] table [x=zr_o_dist, y=cubic,]{dat/zr_o_bond_distances.dat}; \addlegendentry{Cubic};
+			\end{axis}
+		\end{tikzpicture}
+		\caption{Density plot of the nearest neighbour Zr-O bond distances in \zirconia\ for each crystal structure. Specific volumes from DFT simulations are 11.99, 11.51, and 11.13 \r{A}\textsuperscript{3}ion\textsuperscript{-1} for monoclinic, tetragonal, and cubic phases respectively.}
+		\label{figure:zrobonddistance}
+	\end{center}
+\end{figure}
+
+
+\subsection{Pressure stabilisation (isochoric + autostabilisation)}
+\subsection{Dopant stabilisation (lower valence cations)}
+
+
+\section{Defect energies and defect volumes}
+
+\subsection{Kr\"{o}ger-Vink notation}
+
+Kroger vink \cite{kroger1956relations} is a notation used for chemistry
+
+\subsection{Incorporation and defect formation energies}
+
+\subsubsection*{Isolated frenkel defects}
+
+Zr and O Frenkel defect formation energies were calculated via point defect DFT energies for the three structures. The formation energies of the isolated Frenkel defect pairs were defined as:
+% Interstitial iodine defects were simulated in the neutral charge state at different interstitial sites in each phase. The incorporation energy of these defects, assuming a perfect lattice, was calculated using Equation \ref{equation_incorporation}:
+
+\begin{equation}
+\label{equation_frenkel}
+E_{Frenkel} = E_{DFT}(V^{q}_{X}) + E_{DFT}(X^{-q}_{i}) - 2E_{DFT}(ZrO_2)% - \frac{E_{I_2}}{2}
+\end{equation}
+
+where $X$ is either Zr or O, $E_{DFT}(V^{q}_{X})$ is the energy of a supercell of \zirconia\ containing a single vacancy of charge $q$, $E_{DFT}(X^{-q}_{i})$ is the energy of a supercell of \zirconia\ containing a single interstitial with opposing charge $-q$, and $E_{DFT}(ZrO_2)$ is the energy of the non-defective supercell. Charges ranged from the fully charged case (+2 for oxygen vacancies, -4 for zirconium vacancies) to neutral. The interstitial sites, shown in Table \ref{table:interstitials}, were chosen based on standard vacant Wyckoff positions in each crystal structure \cite{theo1996international}.  In the case of oxygen vacancies in monoclinic \zirconia , a defect energy was obtained for both the (III) and (IV) co-ordinated oxygen sites, with the lowest energy value being used in the calculation of the Frenkel defect energy.
+
+\begin{table}[htp] % Wyckoff positions of interstitials
+\onehalfspacing
+\centering
+\caption{Wyckoff positions of interstitial sites used for each crystal structure.}
+\label{table:interstitials}
+\begin{tabular}{lcc}
+\hline
+\hspace{0.7 cm} {\bf Crystal Structure} \hspace{0.7 cm}                              & \hspace{0.7 cm} {\bf Interstitial Sites} \hspace{0.7 cm}                                               \\ \hline
+\multicolumn{1}{c|}{Monoclinic}              & $2a$, $2b$, $2c$, $2d$ \\
+\multicolumn{1}{c|}{Tetragonal}            & $2b$, $8e$                                   \\
+\multicolumn{1}{c|}{Cubic}       & $24d$, $4b$                                          \\ \hline
+\end{tabular}
+\end{table}
+
+\subsubsection*{Isolated Schottky Defects}
+
+Three Schottky energies were calculated for each structure, corresponding to fully charged, partially charged, and uncharged point defect energies. The Schottky formation energy was defined as:
+
+\begin{equation}
+\label{equation_schottky}
+E_{Schottky} = E_{DFT}(V^{-2q}_{Zr}) + 2E_{DFT}(V^{q}_{O}) -\frac{3(n-1)}{n}E_{DFT}(ZrO_2)% - \frac{E_{I_2}}{2}
+\end{equation}
+
+where $n$ denotes the number of atoms in the supercell, $V^{q}_{O}$ denotes an oxygen vacancy with charge $q$, and $q$ varies from 2 to 0. This form maintains both the mass and charge balance of the Schottky defect description for \zirconia :
+
+\begin{equation}
+\label{generic_schottky}
+Zr^{x}_{Zr} + 2O^{x}_{O} = V^{-2q}_{Zr} + 2V^{q}_{O} + ZrO_{2}
+\end{equation}
+
+This implies a rearrangement rather than complete removal of ions from the system. As with the Frenkel defects, the lowest energy vacancy energies were used to calculate Schottky formation energies. While there are multiple configurations of Schottky defects, such nuance cannot be accurately represented through a sum of individual vacancy defect energies. The values we present for Schottky defect formation energies should therefore be considered the lower bound for defect formation. 
+
+\subsubsection*{Bound Frenkel Defects}
+
+Bound Zr and O Frenkel defect formation energies in the three structures were calculated from DFT energies of supercells where a single ion was moved from its lattice site to an interstitial site. The formation energies of the bound Frenkel defect pairs were defined as:
+% Interstitial iodine defects were simulated in the neutral charge state at different interstitial sites in each phase. The incorporation energy of these defects, assuming a perfect lattice, was calculated using Equation \ref{equation_incorporation}:
+
+\begin{equation}
+\label{equation_frenkel_bound}
+E_{BoundFrenkel} = E_{DFT}(BoundFrenkel) - E_{DFT}(ZrO_2)% - \frac{E_{I_2}}{2}
+\end{equation}
+
+where $E_{DFT}(BoundFrenkel)$ is the energy of a supercell of \zirconia\ containing both a vacancy and interstitial defect of the same ion. The two defects were placed as far apart in the supercell as possible (7-8 \r{A}) to avoid recombination. The interstitial defect is assumed to fully compensate the charge of the vacancy defect, resulting in no overall charge on the supercell. The number and type of ions in the defective and non-defective supercell are the same, requiring no further steps to calculate the formation energy.
+%Charges ranged from the fully charged case (+2 for oxygen, -4 for zirconium) to neutral. The interstitial sites, shown in Table \ref{table:interstitials}, were chosen based on standard vacant Wyckoff positions in each crystal structure \cite{theo1996international}.  In the case of oxygen vacancies in monoclinic \zirconia , a defect energy was obtained for both the (III) and (IV) co-ordinated oxygen sites. The lowest energies were used in the calculation of the Frenkel defect energy.
+
+\subsubsection*{Bound Schottky Defects}
+
+\begin{figure}[htp] % Mono Zr centre
+\centering
+\includegraphics[height=6cm]{images/zr_centre_mono.png}
+\caption{Zirconium centre in monoclinic \zirconia\ showing nearest oxygen atoms and their respective bond co-ordinations. Zirconium atoms are shown in green and oxygen atoms in red.}
+\label{figure:monoschottky}
+\end{figure}
+
+\begin{figure}[htp] % Tet Zr centre
+\centering
+\includegraphics[height=6cm]{images/zr_centre_tet.png}
+\caption{Zirconium centre showing nearest oxygen atoms in tetragonal \zirconia. Schottky trios indicated by oxygen enumeration. Zirconium atoms are shown in green and oxygen atoms in red.}
+\label{figure:tetschottky}
+\end{figure}
+
+\begin{figure}[htp] % Cubic Zr centre
+\centering
+\includegraphics[height=6cm]{images/sd_cubic_zro2.png}
+\caption{Zirconium centre showing nearest oxygen atoms in cubic \zirconia. Schottky trios indicated by oxygen enumeration. Zirconium atoms are shown in green and oxygen atoms in red.}
+\label{figure:cubicschottky}
+\end{figure}
+
+Bound Schottky defects were modelled in a supercell of \zirconia\ by removing one Zr and two O atoms, in one of several possible nearest neighbour configurations as shown in Figures \ref{figure:monoschottky}, \ref{figure:tetschottky} and \ref{figure:cubicschottky}. Charge neutrality is maintained by the removal of a stoichiometric unit, therefore these defects were defined as neutral tri-vacancies (NTVs). The NTV formation energy was defined as:
+
+\begin{equation}
+\label{equation_NTV}
+E_{NTV} = E_{DFT}(NTV) - \frac{n-3}{n}E_{DFT}(ZrO_2)% - \frac{E_{I_2}}{2}
+\end{equation}
+
+Where $E_{DFT}(NTV)$ is the energy of a supercell containing the NTV defect. As the defective supercell contains three fewer ions than the non-defective cell, the energy of the non-defective cell was adjusted by a proportional factor in our calculation. This form maintains both mass and charge balance of the Schottky defect description for \zirconia\ described in Equation \ref{generic_schottky}.
+
+\section{Brouwer diagrams}
+\subsection{Defect equilibria}
+\subsection{Oxygen pressure dependence}
+\subsection{Brouwer diagram generation}

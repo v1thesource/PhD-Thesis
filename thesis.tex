@@ -1,0 +1,50 @@
+\documentclass[a4paper,12pt,twoside]{report}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=3cm]{geometry}
+%\usepackage{showframe}
+
+\include{thesis.preamble}
+
+
+\begin{document}
+
+\title{\LARGE {\bf Atomistic Simulation of Fission Products in Zirconia Polymorphs}\\
+ \vspace*{6mm}
+}
+
+\author{Alexandros Kenich}
+\submitdate{October 2018}
+
+\normallinespacing
+\maketitle
+
+\input{declaration}
+
+\preface
+\input{abstract/abstract}
+\input{acknowledgements/acknowledgements}
+%\input{dedication/dedication}
+%\input{quotes/quotes}
+
+\body
+
+% body of thesis comes here
+\doublespacing
+
+\input{introduction/introduction}
+\input{crystallography/crystallography}
+\input{compmethodology/compmethodology}
+\input{results1/results1}
+\input{results2/results2}
+\input{results3/results3}
+\input{future/future}
+
+\addcontentsline{toc}{chapter}{References}
+\label{References}
+\renewcommand\bibname{References}
+\bibliographystyle{unsrt}
+\bibliography{Mendeley}
+
+\appendix
+% appendices come here
+
+\end{document}

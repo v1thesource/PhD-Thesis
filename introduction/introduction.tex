@@ -1,0 +1,218 @@
+\chapter{Introduction}
+
+\section{Nuclear Power}
+
+It was only in the second half of the twentieth century that humanity first utilised the energy confined within the atomic nucleus for commercial electrical power. This marked a significant departure from previous forms of commercial energy production, which relied on less energetically lucrative sources such as combustion of coal, oil and gas. Indeed, the closest we had come to utilising nuclear energy commercially was through geothermal power, where the thermal energy is partly due to radiogenic heat from unstable isotopes in the Earth's mantle \cite{gando2011partial} . 
+%which relied on the chemical reactions of coal oil and gas
+%Combustion is a chemical process, where energy differences between reactants and products are exploited via electron exchange. Nuclear energy however, exploits the energy difference between nuclei. Both rely on the conversion of mass into energy, however, the amount of energy that can be extracted varies by several orders of magnitude
+Combustion is a chemical process where energy differences between reactants and products are exploited via electron exchange. Nuclear energy however, exploits the energy difference between nuclei. Both rely on the conversion of mass into energy, however, the amount of energy that can be extracted from the nucleus is several orders of magnitude greater.
+%Combustion is a chemical process, and its use in commercial energy production is fundamentally about exploiting the free energy difference when electrons are exchanged between some reactants to produce some products. Nuclear energy, however, is about the direct conversion of mass into energy. The difference between the two is staggering.
+
+Consider methane, with an enthalpy of combustion of −887.2 kJ/mol \cite{thornton1917xv}. This is the equivalent of 9.14 eV per particle. By comparison, the energy release from fission of one uranium-235 nucleus is at least $1.65 \times 10^{8}$ eV, as shown in Figure \ref{figure:fissionenergy}.
+
+\begin{figure}[htp]
+\centering
+\includegraphics[height=11cm]{images/fission_energy_total.png}
+\caption{Energy from thermal fission of U-235 as a function of mass ratios of daughter nuclei. Total energy release includes contributions from prompt neutrons and gamma rays. Taken from \cite{aras1965ranges}.}
+\label{figure:fissionenergy}
+\end{figure}
+
+Combustion-based power as a technology has matured over hundreds of years, with modern optimisations only looking to offer fractional percent gains in efficiency. By comparison, nuclear power technology is far from mature, with large improvements yet to be realised. One such feature is load-following, an enormously useful feature for a power plant which is currently unavailable in nuclear reactors. The biggest hurdle to achieving load-following in nuclear reactors is the issue of pellet-cladding interaction (PCI), which is the basis of the work in this thesis.
+
+\subsection{Fission}
+
+\begin{itemize}
+\item $e = mc^{2}$
+\item binding energy per nucleon curve
+\item uranium as a fuel, example fission reactions
+\end{itemize}
+
+Nuclear fission is the process that powers all current commercial nuclear power plants. 
+\subsection{Reactor design}
+
+\begin{itemize}
+\item LWRs vs other kinds of reactors
+\item Zirconium cladding used because of strength + low thermal neutron abs cross section
+\item Thermal energy transferred from fuel to coolant
+\item RPV is pressurised to 150 bar in PWRs, less in BWRs and even less in CANDU
+\end{itemize}
+
+\subsection{Nuclear reactor fuel pins}
+
+\begin{itemize}
+\item Zirconium cladding
+\item Ceramic fuel pellets
+\item Pellet-cladding gas gap
+\item Cladding failure (great review here \cite{alam2011review})
+\end{itemize}
+
+\subsection{Effects of radiation on materials and fuel}
+
+\begin{itemize}
+\item Radiation hardening
+\item Amorphisation
+\item Defects
+\item Radiolysis
+\item Activation
+\end{itemize}
+
+\subsection{Fission products, their distribution and decay chains}
+
+\begin{itemize}
+\item Bi-modal distribution of fission products due to binding energy gains (get a good binding energy per nucleon plot)
+\item Fission products are almost always neutron-rich and will decay by beta-
+\item Iodine is always paired with yttrium (53+39 protons). Yttrium happens to be a very good cubic phase stabiliser in \zirconia\ and decays into Zr.
+\item Iodine appears both from direct fission, and from decay of tellurium which is also a common fission product.
+\item The decay chain we are interested in is Te -> I -> Xe -> Cs
+\end{itemize}
+
+\section{Pellet-cladding interaction (PCI)}
+
+PCI has been known about since 1974. Many studies and reviews have been made \cite{alam2011review}
+
+\subsection{Effect of power ramps}
+B.Cox PCI failures of Zr alloy fuel cladding \cite{bcoxpelletclad1990} talks about how they found out that fission products were necessary for PCI failures on page 260 (citation 54)
+
+\subsection{Pellet-clad gap and bonding}
+
+\begin{itemize}
+\item At the beginning of life, there is a gas gap between the fuel pellet and the cladding, typically filled with an inert gas like helium during the manufacturing process.
+\item With increasing burnup, radiation damage in the fuel pellet causes it to swell and therefore reduce the pellet-cladding gap, eventually making contact (and exerting a force) with the cladding.
+\end{itemize}
+
+\subsection{Iodine corrosion of zirconium}
+
+\section{Oxidation of zirconium}
+
+The oxidation of zirconium to produce \zirconia\ occurs during manufacture of the fuel clad when the metal is exposed to oxygen in air. \zirconia\ is a ceramic with material properties that make it desirable in many industrial applications, including solid-oxide fuel cells \cite{radford1979zirconia}, refractory linings \cite{whittemore1952fused}, and nuclear waste storage \cite{wang2012ceramics}.
+
+\subsection{Oxygen solubility of zirconium}
+
+\begin{itemize}
+\item Oxygen is soluble in zirconium up to 29\% molar mass at "insert temperature".
+\item Several PCI studies have assumed a mechanism whereby the \zirconia\ layer is fractured, allowing iodine to attack fresh metal surface, but these studies always assume that the exposed metal is oxygen-depleted.
+\item It is not oxygen depleted, therefore they will always overestimate the amount of oxygen necessary to form a new passive oxide layer.
+\end{itemize}
+
+\subsection{Oxide growth mechanism}
+
+An oxide layer will typically form on the surface of zirconium metal even at very low oxygen partial pressures \cite{causey2005review}. The oxidation process is mainly driven by the ingress of oxygen ions. Initially, the oxide is highly protective, growing slowly into the metal until it reaches a thickness of approximately 2-3 $\mu$m \cite{garzarolli1991oxide,dawson1968kinetics}, after which the oxide growth mechanism enters a `post-transition' stage where the oxidation kinetics follow a cubic-rate law  \cite{porte1960oxidation}.
+
+\subsection{Outer oxide vs inner oxide}
+The fuel cladding of an LWR develops an oxide on both the inner and outer surfaces due to exposure to oxygen in air during manufacture. 
+\subsection{Sources of oxygen}
+
+\begin{itemize}
+\item Initial oxidation occurs due to exposure to oxygen in air during manufacturing
+\item Evolution of oxygen from UO2 fuel pellet
+\end{itemize}
+
+
+While \zirconia\ would ideally adopt the regular cubic fluorite structure, we only observe cubic stabilisation at elevated temperatures where the ionic radii of the zirconium ion increases (and possibly a stabilising phonon mode contribution). Yttrium is known to stabilise the cubic phase in \zirconia\ at standard conditions. This is accomplished by substituting a Zr\textsuperscript{4+} ion with Y\textsuperscript{3+} and the binding of two neighbouring oxygen vacancies, effectively producing a sub-unit of yttria (Y\textsubscript{2}O\textsubscript{3}) in the \zirconia\ lattice. This stabilising effect is observed because the yttrium ion is of the appropriate size to maintain the oxygen ions and vacancies in the VIII coordination at low temperatures, as can be seen from ionic radii values in Table \ref{figure:ionicradii}. 
+
+\begin{table}[htp]
+\onehalfspacing
+\centering
+\caption{Ionic radii of Zr\textsuperscript{4+} and Y\textsuperscript{3+} in various coordination environments. Values taken from \cite{Shannon1976}.}
+\label{figure:ionicradii}
+\begin{tabular}{ccc}
+\hline
+Ion & Coordination & Ionic Radius (\r{A}) \\ \hline
+\multicolumn{1}{c|}{\multirow{6}{*}{Zr\textsuperscript{4+}}} & \multicolumn{1}{c|}{IV} & 0.59 \\
+\multicolumn{1}{c|}{} & \multicolumn{1}{c|}{V} & 0.66 \\
+\multicolumn{1}{c|}{} & \multicolumn{1}{c|}{VI} & 0.72 \\
+\multicolumn{1}{c|}{} & \multicolumn{1}{c|}{VII} & 0.78 \\
+\multicolumn{1}{c|}{} & \multicolumn{1}{c|}{VIII} & 0.84 \\
+\multicolumn{1}{c|}{} & \multicolumn{1}{c|}{IX} & 0.89 \\ \hline
+\multicolumn{1}{c|}{\multirow{4}{*}{Y\textsuperscript{3+}}} & \multicolumn{1}{c|}{VI} & 0.90 \\
+\multicolumn{1}{c|}{} & \multicolumn{1}{c|}{VII} & 0.96 \\
+\multicolumn{1}{c|}{} & \multicolumn{1}{c|}{VIII} & 1.019 \\
+\multicolumn{1}{c|}{} & \multicolumn{1}{c|}{IX} & 1.075 \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{figure}[htp]
+\centering
+\includegraphics[height=11cm]{images/fissionyield.jpg}
+\caption{Plot of the percentage yield of nuclei with a given mass following a fission event. Range of masses corresponding to isotopes of iodine shown in purple and isotopes of yttrium shown in green.}
+% M. F. James, R. W. Mills and D. R. Weaver (1991) UKAEA Reports, AEA-TRS-1015, AEA-TRS-1018 
+         %  and AEA-TRS-1019.
+\label{figure:fissionyield}
+\end{figure}
+
+\subsection{Cubic phase stability}
+
+\begin{itemize}
+\item The existence of a cubic phase in undoped \zirconia\ is debated. The high temperatures required for stabilisation of the cubic phase and the similarity to the tetragonal phase make it difficult to discern as a third phase.
+\item Also due to the high temperature, the stability of the cubic phase in DFT calculations may be inaccurate. This is discussed further in Chapter 3.
+\end{itemize}
+
+\begin{figure}[htp]
+\centering
+\includegraphics[height=7cm]{images/tet_vs_cubic.png}
+\caption{\textbf{A}) Tetragonal \zirconia\ viewed along the [110] direction. \textbf{B}) Cubic \zirconia\ viewed along the [100] direction. Zirconium atoms are shown in green and oxygen atoms in red.}
+\label{figure:tetvscubic}
+\end{figure}
+
+\section{Atomistic Simulation}
+
+\subsection{Classical approach - molecular dynamics}
+
+\begin{itemize}
+\item Molecular dynamics allows for large system sizes (millions of atoms) compared to DFT because of the low computational cost of classical potentials. 
+\item These are mainly pair potentials (although many-bodied potentials are also used) which are some combination of a short-range repulsion term (Pauli exclusion, nuclear repulsion if van der waals is taken into account) and a long range Coulombic attraction term
+\end{itemize}
+
+\subsection{Quantum mechanical approach - DFT}
+
+\begin{itemize}
+\item Up to hundreds of atoms, but far more fundamental data such as electron density.
+\item Very computationally expensive, but with clever workarounds for bulk crystallographic systems.
+\end{itemize}
+
+\subsection{Band gap}
+
+\begin{itemize}
+\item Electron energy levels are quantised.
+\item In a crystal, large numbers of electrons and many possible configurations lead to electron energy 'bands' made up of many quantised energies (electron band theory). See http://hyperphysics.phy-astr.gsu.edu/hbase/Solids/band.html
+\item Non-metals exhibit an energy gap between valence and conduction electron bands, demarcating insulators and conductors.
+\end{itemize}
+
+\begin{figure}
+\begin{center}
+\begin{tikzpicture}
+	\begin{axis}
+		[width=11cm, xlabel={Energy (eV)}, ylabel={Electronic density of states}, ymin=0, ymax=12, xmin=0, xmax=16, legend style={{draw=}, at={(0.05,0.95)}, anchor=north west, legend columns=1}]
+% 		\addplot[no marks] table [x=log(pO2)/atm, y=Electrons,]{tetintrinsic.dat}; \addlegendentry{e\SPSB{$\prime$}{}};
+%         \addplot[no marks, dashed] table [x=log(pO2)/atm, y=Holes, ]{tetintrinsic.dat}; \addlegendentry{h\SPSB{\textbf{\textperiodcentered}}{}};
+%         \addplot[no marks, densely dotted, red] table [x=log(pO2)/atm, y=VO+2,]{tetintrinsic.dat}; \addlegendentry{V\SPSB{\textbf{\textperiodcentered\textperiodcentered}}{O}};
+%         \addplot[no marks, dashed, red] table [x=log(pO2)/atm, y=VO+1,]{tetintrinsic.dat}; \addlegendentry{V\SPSB{\textbf{\textperiodcentered}}{O}};
+%         \addplot[no marks, red] table [x=log(pO2)/atm, y=VO0,]{tetintrinsic.dat}; \addlegendentry{V\SPSB{$\times$}{O}};
+%         \addplot[no marks, densely dotted, blue] table [x=log(pO2)/atm, y=VM-4,]{tetintrinsic.dat}; \addlegendentry{V\SPSB{$\prime\prime\prime\prime$}{Zr}};
+%         %\addplot[no marks, dashed, blue] table [x=log(pO2)/atm, y=VM-3,]{tetintrinsic.dat}; \addlegendentry{V\SPSB{$\prime\prime\prime$}{Zr}};
+       \addplot[no marks] table [x=mono_x, y=mono_y,]{dat/eDOS.dat}; \addlegendentry{Monoclinic};
+       \addplot[no marks, dashed] table [x=tet_x, y=tet_y,]{dat/eDOS.dat}; \addlegendentry{Tetragonal};
+       \addplot[no marks, densely dotted] table [x=cubic_x, y=cubic_y,]{dat/eDOS.dat}; \addlegendentry{Cubic};
+
+			\end{axis}
+		\end{tikzpicture}
+		\caption{Electronic density of states for the different crystal structures of \zirconia\ showing the band gap predicted by DFT.}
+		\label{figure:densityofstates}
+	\end{center}
+\end{figure}
+
+\begin{table}[htp] % Band Gap
+\onehalfspacing
+\centering
+\caption{Experimentally determined band gaps alongside values calculated from DFT simulations for each crystal structure of zirconia. Experimental values taken from \cite{French1994}.}
+\begin{tabular}{ccc}
+{\bf }                                       & \multicolumn{2}{c}{{\bf Band gap (eV)}}      \\ \hline
+\multicolumn{1}{c}{{\bf Crystal Structure}} & \multicolumn{1}{c}{{\bf Expt.}} & {\bf DFT} \\ \hline
+\multicolumn{1}{c}{Monoclinic}              & \multicolumn{1}{c}{5.83}        & 3.45      \\
+\multicolumn{1}{c}{Tetragonal}              & \multicolumn{1}{c}{5.78}        & 4.00      \\
+\multicolumn{1}{c}{Cubic}                   & \multicolumn{1}{c}{6.10}         &   3.55 \\ \hline
+\label{table:bandgap}
+\end{tabular}
+\end{table}
+
+

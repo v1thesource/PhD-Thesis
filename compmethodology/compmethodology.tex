@@ -1,0 +1,401 @@
+\chapter{Computational Methodology}
+
+\label{ch:compmethodology}
+
+\section{Density functional theory}
+
+Quantum mechanics is the most complete modern theory which describes the behaviour of matter at the energy scale of atoms. It can be used to accurately predict things such as the energy levels of atoms, the interactions of light with matter, and the thermodynamic stability of systems of atoms. Ideally, the mathematical formalisms of quantum mechanics would be used to predict the properties and behaviour of all possible types of molecules and materials. In reality, this is far more difficult to achieve than it sounds, requiring several approximations and abstractions in order to produce a method which, in the end, sacrifices physical accuracy in order to be computationally feasible. The most successful field of study in this domain is that of density functional theory.
+% The mathematical formalisms of quantum mechanics must themselves be discretised to be used in computational simulation methods.
+
+\subsection{The Schr\"{o}dinger equation}
+
+
+
+\begin{equation}
+E\Psi(\textbf{r}) = \hat{H}\Psi(\textbf{r})
+\label{equation:schrodinger}
+\end{equation}
+
+Where $E$ is the total energy of the system, $\Psi$ is the wave function, and $\hat{H}$ is the energy Hamiltonian operator which includes the kinetic energy contributions ($\hat{T}$) and potential energy contributions ($\hat{V}$), shown in atomic units in equations \ref{equation:kineticcontribution} and \ref{equation:potentialcontribution} respectively:
+
+\begin{gather}
+\hat{H} = \hat{T} + \hat{V} \label{equation:hamiltonian}\\
+\hat{T} = -\sum_i{\frac{1}{2}}\nabla^2_{r_i} - \sum_i{\frac{1}{2M_i}}\nabla^2_{R_i} \label{equation:kineticcontribution} \\
+\hat{V} = \sum_{i,j=i+1}{\frac{1}{2|r_i - r_j|}} + \sum_{i,j=i+1}{\frac{Z_i Z_j}{2|R_i - R_j|}} - \sum_{i,j}{\frac{Z_i}{2|R_i - r_j|}} \label{equation:potentialcontribution}
+\end{gather}
+
+\subsection{Kohn-Sham Method}
+
+Density Functional Theory (DFT) was developed by Kohn and Sham in 1964 \cite{Kohn1965} as an ab initio method for solving the wave equation. The Kohn-Sham Hamiltonian (Equation \ref{equation:kohnsham}) is used in the Schr\"odinger equation.
+
+\begin{equation}
+\hat{H}(\rho(\textbf{r})) = E_{KE}(\rho(\textbf{r})) + E_{P}(\rho(\textbf{r})) + E_{XC}(\rho(\textbf{r}))
+\label{equation:kohnsham}
+\end{equation}
+
+Where $E_{KE}$ and $E_{P}$ are the kinetic and potential energy functionals (functions of functions), $\rho$ is the electron density, $E_{XC}$ is the exchange correlation functional, and \textbf{r} is the position vector. The main approximation is to consider that the electrons only interact with nuclei and not other electrons, thus allowing all the terms to be evaluated using the electron density rather than position. An exchange correlation term is then used to include the non-classical electron-electron interactions, namely electron exchange and correlation. Additionally, the exchange correlation term also includes the difference in kinetic energy found due to the use of non-interacting electrons. While Kohn and Sham did provide a proof for the existence of an exchange correlation function, a general form of the functional has not yet been found, although several forms have been considered, each with their own strengths and weaknesses in different systems.
+
+\subsection{Pseudopotentials}
+
+The electron-electron interaction component of the potential energy presents a problem when it comes to scaling experimental models. The number of terms in this interaction grows quadratically with the number of electrons in the system, and quickly becomes computationally intractable for even small systems. However, we know that in chemical reactions, the majority of chemical behaviour is determined by relatively few valence electrons, while the more numerous core electrons have a far smaller effect. Consider the zirconium atom with 40 electrons, of which 4 (4$d^2$5$s^2$) are typically involved in bonding and chemical reactions. A tenfold reduction in the number of electrons which are modelled would provide more than a tenfold reduction in computational requirements. This is what we aim to achieve by using the pseudopotential method. 
+
+
+
+
+
+
+\begin{itemize}
+\item Only valence electrons contribute to chemical reactions
+\item Core electrons influence the size of the ion, but would be too computationally expensive to model them all.
+\item Approximate core electron behaviour using an effective 'pseudopotential'.
+\end{itemize}
+
+\section{Periodic boundaries}
+\subsection{Modelling bulk systems}
+
+A bulk system 
+
+Describing the electron density of a system must be done in the context of a basis set. Any complete basis set (plane-wave, correlation-consistent, split-valence) may be used to represent the behaviour of electron orbitals, but a plane-wave method was chosen due to their greater suitability for periodic systems (plane-waves are intrinsically periodic). 
+
+Figure \ref{Figure:cutoffconvergence} shows the first convergence study where the total energy of simulations with various values of $E_{cutoff}$ were compared to a highly converged value, and then plotted on a log scale to see how precision is improved at larger values.
+
+\begin{figure} % Periodic boundary image
+\label{figure:periodicboundary}
+\begin{center}
+\includegraphics[height=7cm]{images/PeriodicBoundary.png}
+\end{center}
+\caption{Illustration of periodic boundary around a primitive cell in two dimensions.}
+\end{figure}
+
+\subsection{Bloch's theorem}
+
+The repeating nature of crystal structures is well-suited for computer models, as it allows us to define periodicity in three dimensions for a given unit cell. Utilising this periodicity is theoretically justified as follows:
+
+\begin{itemize}
+
+\item Nuclei are arranged in a periodically repeating pattern, thus their potentials acting on electrons are also periodic.
+
+\item If the potential is periodic, it follows that the electron density is also periodic.
+
+\item The electron density is equivalent to the square of the wave function magnitude, thus the magnitude of the wave function is also periodic.
+
+\end{itemize}
+
+Though the magnitude of the wave function is periodic, the phase is not. At this point, we consider Bloch's theorem which states that the possible wave functions are all quasi-periodic, and thus the wave function can be expressed as in Equation \ref{equation:bloch}: 
+
+\begin{equation}
+\label{equation:bloch}
+\psi_k(\textbf{r}) = e^{i\textbf{k}.\textbf{r}}u_k(\textbf{r})
+\end{equation}
+
+Where $\psi_k(\textbf{r})$ is the wave function evaluated at position \textbf{r}, $e^{i\textbf{k}.\textbf{r}}$ is an arbitrary phase factor, and $u_k(\textbf{r})$ is a periodic function with the same periodicity as the wave function. Solutions to this equation exist for any value of \textbf{k} and so the general solution can be expressed as an integral over the first Brillouin zone, the primitive lattice cell in reciprocal space. Instead of evaluating the integral over the range of \textbf{k} (a computationally costly task as it is done for many wave functions), the sum of values at discrete points, known as k-points, is used. This approximation is valid because the wave function varies slowly over \textbf{k}, thus allowing the integral to be approximated with several appropriately space k-points. In general, a finer k-point grid results in increased accuracy at an increased computational cost \cite{Hasnip2010}.
+
+\subsection{Strengths and limitations}
+
+Interaction of defects across the periodic boundary introduces error.
+
+\section{Computational details}
+\subsection{Cell dimensions and initialisation (relaxation + tessellation)}
+
+
+Supercell details can be found in Table \ref{table:supercells}
+
+
+\begin{table}[htp] % Supercell details
+\doublespacing
+\centering
+\caption{Composition of the supercells in terms of the number of individual unit cells stacked in each direction.} %Unit cells were stacked in such a way as to produce the most cubic supercell in order to minimise directional defect-defect interactions.}
+\label{table:supercells}
+\begin{tabular}{cccccccc}
+\hline
+\multirow{2}{*}{{\bf \begin{tabular}[c]{@{}c@{}}Crystal \\ Structure\end{tabular}}} & \multicolumn{3}{c}{{\bf No. unit cells}} & \multicolumn{3}{c}{{\bf Supercell size (\AA)}} & \multirow{2}{*}{{\bf \begin{tabular}[c]{@{}c@{}}No.\\ atoms\end{tabular}}} \\ \cline{2-7}
+ & \hspace{0.25 cm} a \hspace{0.2 cm} & b & c & a \hspace{0.0 cm} & b & c \hspace{0.35 cm} &  \\ \hline
+\begin{tabular}[c]{@{}c@{}}Monoclinic\\ ($P2_1/c$)\end{tabular} & 2 & 2 & 2 & 10.37 & 10.47 & 10.75 & 96 \\ \hline
+\begin{tabular}[c]{@{}c@{}}Tetragonal\\ ($P4_2/nmc$)\end{tabular} & 3 & 3 & 2 & 10.85 & 10.85 & 10.56 & 108 \\ \hline
+\begin{tabular}[c]{@{}c@{}}Cubic\\ ($Fm\overline{3}m$)\end{tabular} & 2 & 2 & 2 & 10.22 & 10.22 & 10.22 & 96 \\ \hline
+\end{tabular}
+\end{table}
+
+\subsection{Geometry optimisation method and parameters}
+
+\subsubsection*{Born-Oppenheimer approximation}
+
+The Born-Oppenheimer approximation is a two-step process for evaluating atomic forces which greatly reduces the computational costs of any atomistic simulation. It exploits the large difference in mass between nuclei and electrons in order to separate their interactions. This allows us to decompose the total wave function into a product of an electronic wave function and a nuclear wave function via a separation of variables approach. The first step involves ignoring the kinetic energy contribution of nuclei by assuming they are stationary, thus we can remove the nuclear kinetic energy term in Equation \ref{equation:kineticcontribution}. The stationary nuclei assumption also simplifies the nuclear-nuclear Coulombic repulsion term in Equation \ref{equation:potentialcontribution} because $|R_i - R_j|$ becomes a constant throughout the calculation. An electronic Schr\"{o}dinger equation is then solved where electronic positions are variables and nuclear positions are fixed parameters. This solution contains information of the shape of the electronic orbitals. The next step is to take the electronic distribution and calculate the resultant forces on the nuclei. The nuclear positions are then modified to try to minimise these forces, followed by feeding these nuclear positions back into the electronic Schr\"{o}dinger equation to obtain the new electronic distribution. This process is repeated until the required convergence criterion (energy change per iteration, forces on nuclei) are satisfied.
+
+\subsection{Convergence criteria}
+
+\begin{itemize}
+\item force per ion
+\item energy per ion
+\item maximum displacement
+\end{itemize}
+
+
+\subsection{Charged cell correction}
+
+\begin{itemize}
+\item Makov-Payne correction
+\item Brouwer diagram script uses screened Madelung constant for the calculation
+\end{itemize}
+
+\subsection{Stiffness tensor generation}
+
+\begin{itemize}
+\item Calculate DFT energies of unit cell with small strains in various directions
+\item Use relative change in stress to calculate elastic constants in the form of a 6x6 tensor
+\end{itemize}
+
+\subsection{Strain method for defect volumes}
+
+The volumes of the defective supercells were kept constant as constant pressure calculations have been shown to break the symmetry of the supercell \cite{samanta2010thermodynamic}, leading to unreliable energy values. The approach to calculating defect volumes relies on calculating the elastic constants of the non-defective supercell, followed by extracting the resultant stress tensor from a defect simulation. The strain tensor of the defective cell can then be calculated using Hooke's law, giving the relaxation volume. 
+
+\subsection{Isobaric method for defect volumes}
+
+\subsection{Effect of space charge}
+
+Diffusion rate of oxygen vacancies compared to electrons lead to a resultant charge in the lattice.
+
+\begin{figure}[htp] % Tet conc sweep with space charge 1e-1
+\begin{center}
+\begin{tikzpicture}
+	\begin{axis}
+		[width=8.22cm, xlabel={\ch{log_{10}}($p_{O_{2}}$) (atm)}, ylabel={\ch{log_{10}}([D]) (per f.u.)}, ymin=-10, ymax=0, xmin=-35, xmax=0, legend style={{draw=}, at={(0.40,0.97)}, anchor=north west, legend columns=3, nodes={scale=0.75, transform shape}}]
+        \addplot[no marks, draw=blue!70!black] table [x=pO2, y=electrons,]{dat/1e5iconctet1500_sc_e-1.dat}; \addlegendentry{\ch{e^{'}}}; %\node at (-26.0,-1.9) {\ch{e^{'}}};
+        \addplot[no marks, draw=red!85!black] table [x=pO2, y=holes,]{dat/1e5iconctet1500_sc_e-1.dat}; \addlegendentry{\ch{h^{\textperiodcentered}}}; %\node at (-7,-3.6) {\ch{h^{\textperiodcentered}}};
+        \addplot[no marks, draw=black!70!green] table [x=pO2, y=VO{2},]{dat/1e5iconctet1500_sc_e-1.dat}; \addlegendentry{\ch{V_{O}^{\textperiodcentered\textperiodcentered}}}; %\node at (-26.7,-3.3) {\ch{V_{O}^{\textperiodcentered\textperiodcentered}}};
+%         \addplot[no marks, draw=black!55!green] table [x=pO2, y=VO{1},]{dat/1e5iconctet1500_sc_e-1.dat}; \addlegendentry{\ch{V_{O}^{\textperiodcentered}}};
+%         \addplot[no marks, draw=black!30!green] table [x=pO2, y=VO{0},]{dat/1e5iconctet1500_sc_e-1.dat}; \addlegendentry{\ch{V_{O}^{x}}};
+        \addplot[no marks, draw=yellow!85!blue] table [x=pO2, y=VM{-4},]{dat/1e5iconctet1500_sc_e-1.dat}; \addlegendentry{\ch{V_{Zr}^{''''}}};
+%         \addplot[no marks, draw=yellow!75!blue] table [x=pO2, y=VM{-3},]{dat/1e5iconctet1500_sc_e-1.dat}; \addlegendentry{\ch{V_{Zr}^{'''}}};
+%         \addplot[no marks, draw=yellow!65!blue] table [x=pO2, y=VM{-2},]{dat/1e5iconctet1500_sc_e-1.dat}; \addlegendentry{\ch{V_{Zr}^{''}}};
+%         \addplot[no marks, draw=yellow!55!blue] table [x=pO2, y=VM{-1},]{dat/1e5iconctet1500_sc_e-1.dat}; \addlegendentry{\ch{V_{Zr}^{'}}};
+%         \addplot[no marks, draw=yellow!45!blue] table [x=pO2, y=VM{0},]{dat/1e5iconctet1500_sc_e-1.dat}; \addlegendentry{\ch{V_{Zr}^{x}}};
+%         \addplot[no marks, draw=red!60!yellow] table [x=pO2, y=Oi{-2},]{dat/1e5iconctet1500_sc_e-1.dat}; \addlegendentry{\ch{O_{i}^{''}}};
+%         \addplot[no marks, draw=red!50!yellow] table [x=pO2, y=Oi{-1},]{dat/1e5iconctet1500_sc_e-1.dat}; \addlegendentry{\ch{O_{i}^{'}}};
+%         \addplot[no marks, draw=red!40!yellow] table [x=pO2, y=Oi{0},]{dat/1e5iconctet1500_sc_e-1.dat}; \addlegendentry{\ch{O_{i}^{x}}};
+%         \addplot[no marks, draw=green!80!pink] table [x=pO2, y=Mi{4},]{dat/1e5iconctet1500_sc_e-1.dat}; \addlegendentry{\ch{Zr_{i}^{\textperiodcentered\textperiodcentered\textperiodcentered\textperiodcentered}}};
+%         \addplot[no marks, draw=green!70!pink] table [x=pO2, y=Mi{3},]{dat/1e5iconctet1500_sc_e-1.dat}; \addlegendentry{\ch{Zr_{i}^{\textperiodcentered\textperiodcentered\textperiodcentered}}};
+%         \addplot[no marks, draw=green!60!pink] table [x=pO2, y=Mi{2},]{dat/1e5iconctet1500_sc_e-1.dat}; \addlegendentry{\ch{Zr_{i}^{\textbf{\textperiodcentered\textperiodcentered}}}};
+%         \addplot[no marks, draw=green!50!pink] table [x=pO2, y=Mi{1},]{dat/1e5iconctet1500_sc_e-1.dat}; \addlegendentry{\ch{Zr_{i}^{\textperiodcentered}}};
+%         \addplot[no marks, draw=green!40!pink] table [x=pO2, y=Mi{0},]{dat/1e5iconctet1500_sc_e-1.dat}; \addlegendentry{\ch{Zr_{i}^{x}}};
+%         \addplot[no marks, dashed, draw=red!70!black] table [x=pO2, y=Ii{0},]{dat/1e5iconctet1500_sc_e-1.dat}; \addlegendentry{\ch{I_{i}^{x}}};
+%         \addplot[no marks, dashed, draw=red!50!black] table [x=pO2, y=Ii{-1},]{dat/1e5iconctet1500_sc_e-1.dat}; \addlegendentry{\ch{I_{i}^{'}}};
+        \addplot[no marks, dashed, draw=purple] table [x=pO2, y=Ii{1},]{dat/1e5iconctet1500_sc_e-1.dat}; \addlegendentry{\ch{I_{i}^{\textperiodcentered}}};
+        \addplot[no marks, dashed, draw=blue!50!white] table [x=pO2, y=IsubO{1},]{dat/1e5iconctet1500_sc_e-1.dat}; \addlegendentry{\ch{I_{O}^{\textperiodcentered}}};
+        \addplot[no marks, dashed, draw=green!60!black] table [x=pO2, y=IsubO{2},]{dat/1e5iconctet1500_sc_e-1.dat}; \addlegendentry{\ch{I_{O}^{\textperiodcentered\textperiodcentered}}};
+        \addplot[no marks, dashed, draw=black] table [x=pO2, y=IsubO{3},]{dat/1e5iconctet1500_sc_e-1.dat}; \addlegendentry{\ch{I_{O}^{\textperiodcentered\textperiodcentered\textperiodcentered}}};
+        \addplot[no marks, dashed, draw=orange!80!black] table [x=pO2, y=IsubZr{-3},]{dat/1e5iconctet1500_sc_e-1.dat}; \addlegendentry{\ch{I_{Zr}^{'''}}};
+%         \addplot[no marks, dashed, draw=pink] table [x=pO2, y=IsubZr{-4},]{dat/1e5iconctet1500_sc_e-1.dat}; \addlegendentry{\ch{I_{Zr}^{''''}}};
+%         \addplot[no marks, dashed, draw=purple] table [x=pO2, y=IsubZr{-5},]{dat/1e5iconctet1500_sc_e-1.dat}; \addlegendentry{\ch{I_{Zr}^{'''''}}};
+%         \addplot[no marks] table [x=pO2, y=Stoich,]{dat/1e5iconctet1500_sc_e-1.dat}; \addlegendentry{Stoich};
+%\node at (-33.7,-0.5) {\textbf{a)}};
+			\end{axis}            
+\end{tikzpicture}
+\begin{tikzpicture} % 1e-1
+	\begin{axis}
+		[width=8.22cm, xlabel={\ch{log_{10}}($p_{O_{2}}$) (atm)}, yticklabels={}, ymin=-10, ymax=0, xmin=-35, xmax=0]
+        \addplot[no marks, draw=blue!70!black] table [x=pO2, y=electrons,]{dat/1e3iconctet1500_sc_e-1.dat}; %\node at (-27,-1.7) {\ch{e^{'}}};
+        \addplot[no marks, draw=red!85!black] table [x=pO2, y=holes,]{dat/1e3iconctet1500_sc_e-1.dat}; %\node at (-2.5,-2.1) {\ch{h^{\textperiodcentered}}};
+        \addplot[no marks, draw=black!70!green] table [x=pO2, y=VO{2},]{dat/1e3iconctet1500_sc_e-1.dat}; 
+%         \addplot[no marks, draw=black!55!green] table [x=pO2, y=VO{1},]{dat/1e3iconctet1500_sc_e-1.dat}; 
+%         \addplot[no marks, draw=black!30!green] table [x=pO2, y=VO{0},]{dat/1e3iconctet1500_sc_e-1.dat}; 
+        \addplot[no marks, draw=yellow!85!blue] table [x=pO2, y=VM{-4},]{dat/1e3iconctet1500_sc_e-1.dat}; 
+%         \addplot[no marks, draw=yellow!75!blue] table [x=pO2, y=VM{-3},]{dat/1e3iconctet1500_sc_e-1.dat}; 
+%         \addplot[no marks, draw=yellow!65!blue] table [x=pO2, y=VM{-2},]{dat/1e3iconctet1500_sc_e-1.dat}; 
+%         \addplot[no marks, draw=yellow!55!blue] table [x=pO2, y=VM{-1},]{dat/1e3iconctet1500_sc_e-1.dat}; 
+%         \addplot[no marks, draw=yellow!45!blue] table [x=pO2, y=VM{0},]{dat/1e3iconctet1500_sc_e-1.dat}; 
+%         \addplot[no marks, draw=red!60!yellow] table [x=pO2, y=Oi{-2},]{dat/1e3iconctet1500_sc_e-1.dat}; 
+%         \addplot[no marks, draw=red!50!yellow] table [x=pO2, y=Oi{-1},]{dat/1e3iconctet1500_sc_e-1.dat}; 
+%         \addplot[no marks, draw=red!40!yellow] table [x=pO2, y=Oi{0},]{dat/1e3iconctet1500_sc_e-1.dat}; 
+%         \addplot[no marks, draw=green!80!pink] table [x=pO2, y=Mi{4},]{dat/1e3iconctet1500_sc_e-1.dat}; 
+%         \addplot[no marks, draw=green!70!pink] table [x=pO2, y=Mi{3},]{dat/1e3iconctet1500_sc_e-1.dat}; 
+%         \addplot[no marks, draw=green!60!pink] table [x=pO2, y=Mi{2},]{dat/1e3iconctet1500_sc_e-1.dat}; 
+%         \addplot[no marks, draw=green!50!pink] table [x=pO2, y=Mi{1},]{dat/1e3iconctet1500_sc_e-1.dat}; 
+%         \addplot[no marks, draw=green!40!pink] table [x=pO2, y=Mi{0},]{dat/1e3iconctet1500_sc_e-1.dat}; 
+%         \addplot[no marks, dashed, draw=red!70!black] table [x=pO2, y=Ii{0},]{dat/1e3iconctet1500_sc_e-1.dat}; 
+%         \addplot[no marks, dashed, draw=red!50!black] table [x=pO2, y=Ii{-1},]{dat/1e3iconctet1500_sc_e-1.dat}; 
+        \addplot[no marks, dashed, draw=purple] table [x=pO2, y=Ii{1},]{dat/1e3iconctet1500_sc_e-1.dat}; 
+        \addplot[no marks, dashed, draw=blue!50!white] table [x=pO2, y=IsubO{1},]{dat/1e3iconctet1500_sc_e-1.dat}; %\node at (-11,-2.6) {\ch{I_{O}^{\textperiodcentered}}};
+        \addplot[no marks, dashed, draw=green!60!black] table [x=pO2, y=IsubO{2},]{dat/1e3iconctet1500_sc_e-1.dat}; 
+        \addplot[no marks, dashed, draw=black] table [x=pO2, y=IsubO{3},]{dat/1e3iconctet1500_sc_e-1.dat}; 
+        \addplot[no marks, dashed, draw=orange!80!black] table [x=pO2, y=IsubZr{-3},]{dat/1e3iconctet1500_sc_e-1.dat}; 
+%         \addplot[no marks, dashed, draw=pink] table [x=pO2, y=IsubZr{-4},]{dat/1e3iconctet1500_sc_e-1.dat}; 
+%         \addplot[no marks, dashed, draw=purple] table [x=pO2, y=IsubZr{-5},]{dat/1e3iconctet1500_sc_e-1.dat}; 
+%         \addplot[no marks] table [x=pO2, y=Stoich,]{dat/1e3iconctet1500_sc_e-1.dat}; 
+%\node at (-33.7,-0.5) {\textbf{b)}};
+			\end{axis}            
+\end{tikzpicture}
+		\caption{Tetragonal phase Brouwer diagrams of point defects at iodine concentrations of a) $10^{-5}$ and b) $10^{-3}$, at a temperature of 1500 K. Space charge = +1e-1}
+		%\label{figure:tikzbrouwerconctet}
+	\end{center}
+\end{figure}
+
+\section{Convergence testing}
+
+\subsection{Plane-wave cut-off energy}
+
+\begin{figure}
+	\begin{center}
+		\begin{tikzpicture}
+			\begin{axis}
+				[width=12cm, xlabel={E\textsubscript{cutoff} (eV)}, ylabel={log(error) / formula unit}, ymin=-3.5, legend style={{draw=}, at={(0.95,0.95)}, anchor=north east,}]
+				\addplot[no marks] table [x=cutoffenergy, y=logerrormono,]{dat/convergence.dat}; \addlegendentry{Monoclinic};
+			    \addplot[no marks, dashed] table [x=cutoffenergy, y=logerrortet,]{dat/convergence.dat}; \addlegendentry{Tetragonal};
+			    \addplot[no marks, densely dotted] table [x=cutoffenergy, y=logerrorcubic,]{dat/convergence.dat}; \addlegendentry{Cubic};
+                \draw[red,-stealth]
+				(600,-1.96)
+				-- % = line-to
+				++ % = calculate a vector sum
+				(axis direction cs:0,-1.46);
+                \addplot [only marks,mark=*]
+coordinates { (600,-1.95) };
+			\end{axis}
+		\end{tikzpicture}
+		\caption{Plot of the log error of DFT energy against plane-wave cut-off energy for a perfect cell of each crystal structure. The error is calculated with respect to a highly converged value.}
+		\label{Figure:cutoffconvergence}
+	\end{center}
+\end{figure}
+
+\subsection{k-point convergence}
+
+Too fine a grid in reciprocal space (i.e. a large number of k-points) leads to very computationally expensive simulations, whereas too coarse a grid may have a large truncation error when energies are calculated. To find the optimum spacing of k-points, a convergence study was performed across a range of k-point spacings, with the output energies compared to a highly converged simulation to obtain a value for the error. 
+
+Figure \ref{Figure:kpoint_convergence} shows the energy error in each phase of \zirconia\ as a function of the k-point spacing (given in reciprocal space as \r{A}$^{-1}$). The highly converged energy value was calculated with a k-point spacing of 0.01 \r{A}$^{-1}$ for error calculations. The plot shows a stepwise change in the error value as grid spacing is reduced because there must be an integer number of k-points, but larger spacings do not provide sufficient resolution to effectively fit an integer number of k-points into the reciprocal grid, snapping to the nearest appropriate grid instead. An optimum k-point spacing was chosen at 0.09 \r{A}$^{-1}$, which was the largest spacing that kept the error below 0.01 eV for all phases, highlighted in the plot by the red arrow.
+
+\begin{figure}
+\begin{center}
+\begin{tikzpicture}
+	\begin{axis}
+		[width=12cm, xlabel={k-point spacing (\r{A}\textsuperscript{-1})}, ylabel={log[error]}, ymin=-7, ymax=1, xmin=0, xmax=0.22, legend style={{draw=}, at={(0.05,0.95)}, anchor=north west, legend columns=1}, xticklabel
+style={/pgf/number format/.cd,fixed,precision=5}]
+		\addplot[no marks] table [x=kpoint_spacing, y=monoclinic,]{dat/kpoint_convergence.dat}; \addlegendentry{Monoclinic};
+        \addplot[no marks, dashed] table [x=kpoint_spacing, y=tetragonal, ]{dat/kpoint_convergence.dat}; \addlegendentry{Tetragonal};
+        \addplot[no marks, densely dotted] table [x=kpoint_spacing, y=cubic,]{dat/kpoint_convergence.dat}; \addlegendentry{Cubic};
+        \draw[red,-stealth]
+				(0.09,-2.35)
+				-- % = line-to
+				++ % = calculate a vector sum
+				(axis direction cs:0,-4.6);
+                \addplot [only marks,mark=*]
+coordinates { (0.09,-2.35) };
+			\end{axis}
+		\end{tikzpicture}
+		\caption{Error in the total energy of the system as a function of k-point spacing. The error is calculated relative to a highly converged energy value at a k-point spacing of 0.01\r{A}\textsuperscript{-1}. Red arrow indicates the k-point spacing which reduces error below 2 d.p for all structures.}
+		\label{Figure:kpoint_convergence}
+	\end{center}
+\end{figure}
+
+\subsection{Exchange-correlation functionals}
+
+\subsection{On-the-fly pseudopotentials}
+
+Ultra soft pseudopotentials are generated in CASTEP automatically (known as on-the-fly or OTF pseudopotentials) when none are specified for a particular element. Energies must be calculated and compared with the same set of pseudopotentials in order to keep simulations self-consistent. A quick single point calculation was performed on a unit cell of \zirconia\ and the resulting OTF pseudopotentials were saved and used for all subsequent calculations. It is important to determine the variance in energy values of different pseudopotentials generated in this way in order to avoid systematic error.
+
+\subsection{Unit cells}
+
+\begin{table}[htp] % Unit cell parameters
+\onehalfspacing
+\centering
+\caption{Calculated unit cell parameters for the different crystal structures of \zirconia . Experimental data for pure monoclinic and stabilised tetragonal and cubic phases at 295 K are shown in parentheses \cite{Howard1988}. Energy difference between structures is shown with respect to the cubic phase.}
+\label{lattice_params}
+\begin{tabular}{ccccccc}
+\hline Phase    & a (\AA) & b (\AA) & c (\AA) & $\beta$ ($\degree$) & Volume (\AA\textsuperscript{3}/f.u.) & $\Delta$E (eV/f.u.) \\ \hline
+m-\zirconia   &    5.18 (5.15)          &    5.24 (5.21)         &    5.37 (5.32)         & 99.63 (99.23)             &       35.96 (35.22)                 &    -0.215              \\
+t-\zirconia &    3.62 (3.61)         &              &    5.28  (5.18)        & 90             &   34.54 (33.67)                      &     -0.105             \\
+c-\zirconia        &   5.11 (5.09)           &              &              & 90             &     33.38 (32.89)                   &      N/A     \\ \hline      
+\end{tabular}
+\end{table}
+
+
+\subsection{Chemical potential of iodine}
+
+To determine the chemical potential of iodine, an energy minimisation of the iodine dimer was performed. Unlike oxygen, iodine dimers do not exhibit a resultant magnetic moment, thus avoiding a source of error in energy calculations with the PBE exchange-correlation functional. Much like with the \zirconia\ unit cells, the lattice parameter after relaxation (bond length in this case) is checked to determine the deviation from an experimental value.
+
+Figure \ref{figure:iodine_dimer} illustrates the energy minimisation of two iodine atoms in a large cell, initially separated by 3.0 \r{A}. The simulation finds an energy minima when the iodine atoms are bonded, at a separation of 2.69 \r{A}. This is in good agreement with the experimental value of 2.6745 \r{A}.
+
+\begin{figure}[htp] % Iodine dimer geometry optimisation
+\centering
+\includegraphics[height=3.5cm]{images/iodine_geom.png}
+\caption{Energy minimisation of two iodine atoms from an initial separation of 3.0 \r{A}.}
+\label{figure:iodine_dimer}
+\end{figure}
+
+\subsection{+U study}
+
+In some DFT studies, an additional potential energy term is sometimes included to better capture the Coulomb interaction of localised electrons. An LDA or GGA functional alone will typically not describe this interaction correctly, especially for localised $d$ and $f$ electrons. Of particular concern was the calculated value of the band gap from DFT simulations, as this value may deviate by up to 30\% from experimental values. Remedying this shortcoming with an appropriate +U parameter could therefore be valuable in obtaining accurate energies. A +U study of the zirconium atom, with an electronic configuration of [Kr]$4d^{2}5s^{2}$, was performed to determine the response to and therefore the viability of an additional potential term for the $d$ electrons.
+
+\begin{figure}[htp] % +U band gaps
+\begin{center}
+\begin{tikzpicture}
+	\begin{axis}
+		[width=11cm, xlabel={+U on Zr \emph{d} orbitals (eV)}, ylabel={Lattice parameter (\r{A})}, ymin=3.2, ymax=5, xmin=0, xmax=12, legend style={{draw=}, at={(0.35,0.95)}, anchor=north east, legend columns=1}]
+		\addplot[no marks] table [x=plusU, y=bandgap,]{dat/plus_u_mono.dat}; \addlegendentry{Monoclinic};
+        \addplot[no marks, dashed] table [x=plusU, y=bandgap, ]{dat/plus_u_tet.dat}; \addlegendentry{Tetragonal};
+        \addplot[no marks, densely dotted, black] table [x=plusU, y=bandgap,]{dat/plus_u_cubic.dat}; \addlegendentry{Cubic};
+			\end{axis}
+		\end{tikzpicture}
+		\caption{Calculated band gaps for different +U values in monoclinic, tetragonal and cubic \zirconia .}
+		\label{Figure:plusubandgap}
+	\end{center}
+\end{figure}
+
+\begin{figure}[htp] % +U mono
+\begin{center}
+\begin{tikzpicture}
+	\begin{axis}
+		[width=11cm, xlabel={+U on Zr \emph{d} orbitals (eV)}, ylabel={Lattice parameter (\r{A})}, ymin=4.9, ymax=6.3, xmin=0, xmax=12, legend style={{draw=}, at={(0.18,0.95)}, anchor=north east, legend columns=1}]
+		\addplot[no marks] table [x=plusU, y=a,]{dat/plus_u_mono.dat}; \addlegendentry{$a$};
+        \addplot[no marks, dashed] table [x=plusU, y=b, ]{dat/plus_u_mono.dat}; \addlegendentry{$b$};
+        \addplot[no marks, densely dotted, black] table [x=plusU, y=c,]{dat/plus_u_mono.dat}; \addlegendentry{$c$};
+			\end{axis}
+		\end{tikzpicture}
+		\caption{Individual lattice parameters as a function of +U term in monoclinic \zirconia .}
+		\label{Figure:plusumono}
+	\end{center}
+\end{figure}
+
+\begin{figure}[htp] % +U tet
+\begin{center}
+\begin{tikzpicture}
+	\begin{axis}
+		[width=11cm, xlabel={+U on Zr \emph{d} orbitals (eV)}, ylabel={$a$ parameter (\r{A})}, ymin=3.6, ymax=3.8, xmin=0, xmax=12, legend style={{draw=}, at={(0.18,0.95)}, anchor=north east, legend columns=1}, tick pos=left]
+		\addplot[no marks] table [x=plusU, y=a,]{dat/plus_u_tet.dat}; \addlegendentry{$a$};
+        %\addplot[no marks, dashed] table [x=plusU, y=b, ]{dat/plus_u_tet.dat}; \addlegendentry{b};
+        \addplot[no marks, dashed, black] table [x=plusU, y=c,]{dat/plus_u_tet.dat}; \addlegendentry{$c$};
+			\end{axis}
+            \begin{axis}[width=11cm,
+     xmin = 0, xmax = 12,
+     ymin = 5.16, ymax = 5.32,
+     hide x axis,
+     hide y axis, tick pos=right]
+     \addplot[no marks, dashed, black] table [x=plusU, y=c,]{dat/plus_u_tet.dat};
+   			\end{axis}
+            \pgfplotsset{every axis y label/.append style={rotate=180}}
+   \begin{axis}[width=11cm,
+         xmin=0, xmax=12,
+         ymin=5.16, ymax=5.32,
+         hide x axis,
+         axis y line*=right,
+         ylabel={$c$ parameter (\r{A})}
+     ]
+   \end{axis}
+		\end{tikzpicture}
+		\caption{Individual lattice parameters as a function of +U term in tetragonal \zirconia .}
+		\label{Figure:plusutet}
+	\end{center}
+\end{figure}
+
+\begin{figure}[htp] % +U cubic
+\begin{center}
+\begin{tikzpicture}
+	\begin{axis}
+		[width=11cm, xlabel={+U on Zr \emph{d} orbitals (eV)}, ylabel={Lattice parameter (\r{A})}, ymin=5.1, ymax=5.35, xmin=0, xmax=12, legend style={{draw=}, at={(0.18,0.95)}, anchor=north east, legend columns=1}]
+		\addplot[no marks] table [x=plusU, y=a,]{dat/plus_u_cubic.dat}; \addlegendentry{$a$};
+        %\addplot[no marks, dashed] table [x=plusU, y=b, ]{dat/plus_u_cubic.dat}; \addlegendentry{b};
+        %\addplot[no marks, densely dotted, black] table [x=plusU, y=c,]{dat/plus_u_cubic.dat}; \addlegendentry{c};
+			\end{axis}
+		\end{tikzpicture}
+		\caption{Individual lattice parameters as a function of +U term in cubic \zirconia .}
+		\label{Figure:plusucubic}
+	\end{center}
+\end{figure}

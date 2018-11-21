@@ -1,0 +1,184 @@
+\chapter{Intrinsic defect study}
+
+\label{ch:results1} % 3
+
+\section{Introduction} % 3.1
+\subsection{Applications} % 3.1.1
+\subsection{Crystal structures} % 3.1.2
+
+\zirconia\ grown at standard conditions on Zr metal exists mainly in either the monoclinic or tetragonal phase \cite{Howard1988,teufer1962crystal}.
+
+\subsection{Previous work} % 3.1.3
+
+\section{Methodology}
+\subsection{Simulation parameters}
+\subsection{Temperature dependence}
+
+To determine the temperature dependence of the ground states for the pure crystal structures, a harmonic approximation method as described by Burr et al. was used \cite{burr2015crystal,jackson2016resolving}. A constant-volume phonon calculation was performed for each structure, from which the vibrational enthalpy $H_{vib}(T, V)$ and entropy $S_{vib}(T, V)$ contributions to the Helmholtz free energy were calculated up to a temperature of 2500 K. The complete Helmholtz free energy $F(T, V)$ was then obtained by including the internal energy $U(V)$ and configurational entropy $S_{conf}$ of the system:
+
+\begin{equation} \label{helmholtz_equation}
+F(T, V) = U(V) + H_{vib}(T, V) - TS_{vib}(T, V) - TS_{conf}
+\end{equation}
+
+\subsection{Defect formation energies}
+
+\begin{itemize}
+\item defective cell - perfect cell + electron energy + charge correction
+\end{itemize}
+
+\subsection{Brouwer diagrams}
+
+\begin{itemize}
+\item Defect concentration vs oxygen pressure
+\item Equilibrium defect concentration is found using the charge-neutrality condition of a crystal (find Fermi level that leads to charge neutrality)
+\end{itemize}
+
+\section{Cubic phase collapse}
+
+\begin{itemize}
+\item When some oxygen Frenkel defects were introduced to the cubic phase supercell, relaxation under constant volume conditions caused a collapse into a pseudo-tetragonal structure.
+\item This indicated that the cubic phase as modelled in DFT may not be fully stable.
+\item Further investigation indicated that the structure of a supercell of c-\zirconia\ broke down even with constrained symmetry, a result corroborated by Burr et al. \cite{burr2017importance}. 
+\end{itemize}
+
+\section{Defect formation energies}
+
+
+
+\begin{table}[htp] % Isolated Frenkel volumes
+\onehalfspacing
+\centering
+\caption{Isolated cluster defect volumes in the three \zirconia\ structures.}
+\label{defect_volumes_clusters_isolated}
+\begin{tabular}{cccc}
+\hline
+                      & \multicolumn{3}{c}{\textbf{Relaxation Volume (\r{A}\textsuperscript{3})}}  \\ \cline{2-4} 
+\textbf{Defect}       & \textbf{Monoclinic} & \textbf{Tetragonal} & \textbf{Cubic} \\ \hline
+\ch{V_{Zr}^{''''}} + \ch{Zr_{i}^{****}}          & 21.331	 & 25.4702 &	21.1309         \\
+\ch{V_{Zr}^{'''}} + \ch{Zr_{i}^{***}}          & 19.7155 &	23.3463 &	19.9954      \\
+\ch{V_{Zr}^{''}} + \ch{Zr_{i}^{**}}          & 18.1149 &	22.2525 &	19.68618           \\
+\ch{V_{Zr}^{'}} + \ch{Zr_{i}^{*}}          & 19.78339 &	18.4096913 &	19.76396           \\
+\ch{V_{Zr}^{x}} + \ch{Zr_{i}^{x}}          & 19.99485 &	18.1061 &	20.29223       \\
+\ch{V_{O}^{**}} + \ch{O_{i}^{''}}           & 0.8839 &	2.4704 &	5.8217       \\
+\ch{V_{O}^{*}} + \ch{O_{i}^{'}}           &  0.9486 &	5.032 &	4.1146        \\
+\ch{V_{O}^{x}} + \ch{O_{i}^{x}}           &  0.9576 &	8.26065 &	7.83687          \\
+\ch{V_{Zr}^{''''}} + 2\ch{V_{O}^{**}}       &  3.6979 &	-7.647 &	2.9448             \\
+\ch{V_{Zr}^{''}} + 2\ch{V_{O}^{*}}       &  1.0707 &	-4.7866 &	1.5564         \\
+\ch{V_{Zr}^{x}} + 2\ch{V_{O}^{x}}        & 0.64517 &	-0.8985 &	2.08973       \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[htp] % Isolated formation energies
+\onehalfspacing
+\centering
+\caption{Formation energies in eV of isolated \zirconia\ defects.}
+\label{isolated_defects}
+\begin{tabular}{cccll}
+\hline
+\multirow{2}{*}{\textbf{Defect}}                      & \multirow{2}{*}{\textbf{Equation}}                                        & \multicolumn{3}{c}{\textbf{Formation Energy (eV)}} \\ \cline{3-5}
+	&	& \multicolumn{1}{l}{Monoclinic} & Tetragonal & Cubic \\ \hline
+\multirow{5}{*}{\textbf{Zr Frenkel}} & \ch{Zr_{Zr}^{x}} $\rightarrow$ \ch{V_{Zr}^{''''}} + \ch{Zr_{i}^{****}}              & 5.428 & 5.639 & 5.610                             \\
+                                     & \ch{Zr_{Zr}^{x}} $\rightarrow$ \ch{V_{Zr}^{'''}} + \ch{Zr_{i}^{***}}               & 8.695 & 8.939 & 8.476                            \\
+                                     & \ch{Zr_{Zr}^{x}} $\rightarrow$ \ch{V_{Zr}^{''}} + \ch{Zr_{i}^{**}}                & 12.118 & 12.058 & 11.628                             \\
+                                     & \ch{Zr_{Zr}^{x}} $\rightarrow$ \ch{V_{Zr}^{'}} + \ch{Zr_{i}^{*}}                & 16.021 &	15.696 &	13.319                             \\
+                                     & \ch{Zr_{Zr}^{x}} $\rightarrow$ \ch{V_{Zr}^{x}} + \ch{Zr_{i}^{x}}                  & 20.563	& 20.094 &	18.170                            \\ \hline
+\multirow{3}{*}{\textbf{O Frenkel}}  & \ch{O_{O}^{x}} $\rightarrow$ \ch{V_{O}^{**}} + \ch{O_{i}^{''}}                   & 4.457 &	4.000 & 	3.728                             \\
+                                     & \ch{O_{O}^{x}} $\rightarrow$ \ch{V_{O}^{*}} + \ch{O_{i}^{'}}                   & 6.432	& 6.588 &	7.055                             \\
+                                     & \ch{O_{O}^{x}} $\rightarrow$ \ch{V_{O}^{x}} + \ch{O_{i}^{x}}                     & 7.518 &	7.452 &	8.477                             \\ \hline
+\multirow{3}{*}{\textbf{Schottky}}   & $\varnothing$ $\rightarrow$ \ch{V_{Zr}^{''''}} + 2\ch{V_{O}^{**}} & 5.120 &	3.778	& 1.752                             \\
+                                     & $\varnothing$ $\rightarrow$ \ch{V_{Zr}^{''}} + 2\ch{V_{O}^{*}} & 11.353 &	10.832 &	9.624                             \\
+                                     & $\varnothing$ $\rightarrow$ \ch{V_{Zr}^{x}} + 2\ch{V_{O}^{x}}   & 18.554 &	18.232 &	17.073  \\ \hline                          
+\end{tabular}
+\end{table}
+
+\begin{table}[htp] % Bound formation energies
+\onehalfspacing
+\centering
+\caption{Formation energies of bound defects in \zirconia.}
+\label{table:bound_defects}
+\begin{tabular}{cccc}
+\hline
+\multirow{2}{*}{\textbf{Defect}} & \multicolumn{3}{c}{\textbf{Formation Energy (eV)}} \\ \cline{2-4} 
+ & \textbf{Monoclinic} & \textbf{Tetragonal} & \textbf{Cubic} \\ \hline
+\textbf{O Frenkel} & 4.1212 & 4.0290 & 6.4397 \\
+\textbf{Zr Frenkel} & 8.4232 & 7.8633 & 6.3274 \\
+\textbf{NTV1} & 5.2272 & 3.5813 & 2.6961 \\
+\textbf{NTV2} & 5.1405 & 4.2312 & 0.1798 \\
+\textbf{NTV3} & 4.6620 & 3.3623 & 2.4089 \\ \hline
+\end{tabular}
+\end{table}
+
+\section{Elastic constants and defect relaxation volumes}
+
+\begin{table}[htp] % Elastic constants
+\onehalfspacing
+\centering
+\caption{Elastic constants for different phases of \zirconia\ from DFT calculations.}
+\label{stiffness_tensor}
+\begin{tabular}{cccc}
+\hline
+\multirow{2}{*}{\textbf{Elastic Component}} & \multicolumn{3}{c}{\textbf{Stiffness (GPa)}}               \\ \cline{2-4} 
+                                            & \textbf{Monoclinic} & \textbf{Tetragonal} & \textbf{Cubic} \\ \hline
+$C_{11}$                                         & 338.86        & 334.30               & 523.38    \\
+$C_{12}$                                         & 151.80        & 207.30               & 92.93     \\
+$C_{13}$                                         & 89.37         & 48.93               & 92.93     \\
+$C_{22}$                                         & 348.37        & 334.20               & 523.39    \\
+$C_{23}$                                         & 143.04        & 48.93               & 92.93    \\
+$C_{33}$                                         & 262.17        & 250.50               & 523.38   \\
+$C_{44}$                                         & 76.35         & 9.38                & 61.98    \\
+$C_{55}$                                         & 71.65         & 9.38                & 61.98   \\
+$C_{66}$                                         & 114.19        & 152.60               & 61.99     \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[htp] % Isolated defect volumes
+\onehalfspacing
+\centering
+\caption{Isolated defect volumes in the three \zirconia\ structures.}
+\label{defect_volumes_raw}
+\begin{tabular}{cccc}
+\hline
+                      & \multicolumn{3}{c}{\textbf{Volume (\r{A}\textsuperscript{3})}}  \\ \cline{2-4} 
+\textbf{Defect}       & \textbf{Monoclinic} & \textbf{Tetragonal} & \textbf{Cubic} \\ \hline
+\ch{V_{Zr}^{''''}}             & 55.9495             & 67.4062             & 48.468         \\
+\ch{V_{Zr}^{'''}}             & 42.4752             &         51.0824     &     36.944      \\
+\ch{V_{Zr}^{''}}            & 29.9013             &  34.2764            &     25.9264           \\
+\ch{V_{Zr}^{'}}             & 17.1031             &  18.4276            &     15.0761           \\
+\ch{V_{Zr}^{x}}              & 4.05915             &  4.70160            &    4.31893       \\
+\ch{Zr_{i}^{****}}             & -34.6185            & -41.936             & -27.3371       \\
+\ch{Zr_{i}^{***}}             &  -22.7597           &	-27.7361 		  &	-16.9486         \\
+\ch{Zr_{i}^{**}}             &  -11.7864 	        &	-12.0239 		  &	-6.24022          \\
+\ch{Zr_{i}^{*}}            &  2.68029			& -0.0179087 		  & 	4.68786             \\
+\ch{Zr_{i}^{x}}              &  15.9357		 	& 13.4045	 		  & 15.9733         \\
+\ch{V_{O}^{**}} {[}4coord{]} & -22.5154            & -37.5266            & -22.7616       \\
+\ch{V_{O}^{*}} {[}4coord{]} &  -12.4114           &    -19.5315         &     -12.1850           \\
+\ch{V_{O}^{x}} {[}4coord{]}  &  -0.686074          &  -2.80005           &      -1.1146          \\
+\ch{V_{O}^{**}} {[}3coord{]} & -26.1258            &                     &                \\
+\ch{V_{O}^{*}} {[}3coord{]} &  -14.4153           &                     &                \\
+\ch{V_{O}^{x}} {[}3coord{]}  &   -1.70699          &                     &                \\
+\ch{O_{i}^{''}}              & 27.0097             & 39.997              & 28.5833        \\
+\ch{O_{i}^{'}}              &  15.3639            &    24.5635          &  16.2996              \\
+\ch{O_{i}^{x}}               & 2.66459             &    11.0607          &   8.95147        \\ \hline
+\end{tabular}
+\end{table}
+
+\section{Helmholtz energies}
+
+\begin{figure}[htp] % Helmholtz
+\begin{center}
+\begin{tikzpicture}
+	\begin{axis}
+		[width=11cm, xlabel={Temperature (K)}, ylabel={Helmholtz free energy (eV)}, ymin=-28, ymax=-10, xmin=0, xmax=3000, legend style={{draw=}, at={(0.95,0.95)}, anchor=north east, legend columns=1}]
+		\addplot[no marks] table [x=temperature, y=monoclinic,]{dat/helmholtz.dat}; \addlegendentry{Monoclinic};
+        \addplot[no marks, dashed] table [x=temperature, y=tetragonal, ]{dat/helmholtz.dat}; \addlegendentry{Tetragonal};
+        \addplot[no marks, densely dotted, black] table [x=temperature, y=cubic,]{dat/helmholtz.dat}; \addlegendentry{Cubic};
+			\end{axis}
+		\end{tikzpicture}
+		\caption{Helmholtz free energy as a function of temperature for the monoclinic, tetragonal, and cubic crystal structures of \zirconia .}
+		\label{Figure:helmholtz}
+	\end{center}
+\end{figure}
+
+\section{Defect equilibria}
+
+\section{Summary}
