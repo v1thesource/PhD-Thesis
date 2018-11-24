@@ -97,7 +97,7 @@ Interaction of defects across the periodic boundary introduces error.
 \section{Computational details}
 \subsection{Cell dimensions and initialisation (relaxation + tessellation)}
 
-
+A supercell method is used for the study of various defects. The first step is to create a unit cell of \zirconia\ in each of the three crystal structures. Each unit cell is then relaxed through a geometry optimisation process (see \ref{geometry_optimisation_method}
 Supercell details can be found in Table \ref{table:supercells}
 
 
@@ -116,7 +116,7 @@ Supercell details can be found in Table \ref{table:supercells}
 \end{tabular}
 \end{table}
 
-\subsection{Geometry optimisation method and parameters}
+\subsection{Geometry optimisation method and parameters} \label{geometry_optimisation_method}
 
 \subsubsection*{Born-Oppenheimer approximation}
 
@@ -147,9 +147,13 @@ The Born-Oppenheimer approximation is a two-step process for evaluating atomic f
 
 \subsection{Strain method for defect volumes}
 
-The volumes of the defective supercells were kept constant as constant pressure calculations have been shown to break the symmetry of the supercell \cite{samanta2010thermodynamic}, leading to unreliable energy values. The approach to calculating defect volumes relies on calculating the elastic constants of the non-defective supercell, followed by extracting the resultant stress tensor from a defect simulation. The strain tensor of the defective cell can then be calculated using Hooke's law, giving the relaxation volume. 
+The volumes of the defective supercells were kept constant because constant pressure calculations have been shown to break the symmetry of the supercell \cite{samanta2010thermodynamic}, leading to unreliable energy values. The approach to calculating defect volumes relies on calculating the elastic constants of the non-defective supercell, followed by extracting the resultant stress tensor from a defect simulation. The strain tensor of the defective cell can then be calculated using Hooke's law, giving the relaxation volume. 
 
 \subsection{Isobaric method for defect volumes}
+
+It is also possible to calculate defect volumes using an isobaric method. This method is more simple than the strain method as there is no need to determine the elastic constants, reducing the number of geometry optimisation jobs from X to 2. 
+
+CASTEP provides the volume of the cell, defined as the (volume enclosed by the calculated lattice parameters? Or the volume within the boundary of the outermost atoms)
 
 \subsection{Effect of space charge}
 
