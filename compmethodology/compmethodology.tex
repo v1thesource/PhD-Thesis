@@ -37,25 +37,22 @@ Where $E_{KE}$ and $E_{P}$ are the kinetic and potential energy functionals (fun
 
 \subsection{Pseudopotentials}
 
-The electron-electron interaction component of the potential energy presents a problem when it comes to scaling experimental models. The number of terms in this interaction grows quadratically with the number of electrons in the system, and quickly becomes computationally intractable for even small systems. However, we know that in chemical reactions, the majority of chemical behaviour is determined by relatively few valence electrons, while the more numerous core electrons have a far smaller effect. Consider the zirconium atom with 40 electrons, of which 4 (4$d^2$5$s^2$) are typically involved in bonding and chemical reactions. A tenfold reduction in the number of electrons which are modelled would provide more than a tenfold reduction in computational requirements. This is what we aim to achieve by using the pseudopotential method. 
+The electron-electron interaction component of the potential energy presents a problem when it comes to scaling experimental models. The number of terms in this interaction grows quadratically with the number of electrons in the system, and quickly becomes computationally intractable for even small systems. However, we know that in chemical reactions, the majority of chemical behaviour is determined by relatively few valence electrons, while the more numerous core electrons have a far smaller effect. Consider the zirconium atom with 40 electrons, of which 4 (4$d^2$5$s^2$) are typically involved in bonding and chemical reactions. By only considering only these valence electrons for Coulombic-term calculations, we reduce the system size by 90\% which would then provide more than a tenfold reduction in computational requirements. Although the core electrons do not participate in chemical reactions, they still influence the properties of the atom, such as the atomic radius. Instead of modelling the core electrons explicitly, we can approximate their aggregate effect with a potential energy function. This is what we aim to achieve by using the pseudopotential method. 
 
-
-
-
-
-
-\begin{itemize}
-\item Only valence electrons contribute to chemical reactions
-\item Core electrons influence the size of the ion, but would be too computationally expensive to model them all.
-\item Approximate core electron behaviour using an effective 'pseudopotential'.
-\end{itemize}
+\begin{figure} % Pseudopotential Image
+\label{figure:pseudopotential}
+\begin{center}
+\includegraphics[height=10cm]{images/pseudopotential.png}
+\end{center}
+\caption{Illustration of an all-electron potential V$_{AE}$ and a pseudopotential V$_{PS}$ with their corresponding wave functions. r$_{cut}$ indicates the radius beyond which both the potentials and their wave functions are the same. Taken from \cite{Payne1992}.  }
+\end{figure}
 
 \section{Periodic boundaries}
 \subsection{Modelling bulk systems}
 
 A bulk system 
 
-Describing the electron density of a system must be done in the context of a basis set. Any complete basis set (plane-wave, correlation-consistent, split-valence) may be used to represent the behaviour of electron orbitals, but a plane-wave method was chosen due to their greater suitability for periodic systems (plane-waves are intrinsically periodic). 
+Describing the electron density of a system is done in the context of a basis set. A basis set is simply a collection of functions (known as basis functions) which can be combined to produce some relevant output, typically the mathematical description for the shape of an electron orbital. For example, any sound wave can be generated from a combination of sine functions (basis functions). The purpose of a basis set is to describe the varying amplitude of the electron density in space. Any complete basis set (plane-wave, correlation-consistent, split-valence) may be used to represent the behaviour of electron orbitals, but a plane-wave method was chosen due to their greater suitability for periodic systems (plane-waves are intrinsically periodic). 
 
 Figure \ref{Figure:cutoffconvergence} shows the first convergence study where the total energy of simulations with various values of $E_{cutoff}$ were compared to a highly converged value, and then plotted on a log scale to see how precision is improved at larger values.
 
@@ -133,8 +130,13 @@ The Born-Oppenheimer approximation is a two-step process for evaluating atomic f
 
 \subsection{Charged cell correction}
 
+When calculating the energy of a system with an overall non-zero charge, this charge introduces a systematic error in the energy value which is a function of the charge magnitude. 
+
 \begin{itemize}
 \item Makov-Payne correction
+
+
+
 \item Brouwer diagram script uses screened Madelung constant for the calculation
 \end{itemize}
 
@@ -153,11 +155,13 @@ The volumes of the defective supercells were kept constant because constant pres
 
 It is also possible to calculate defect volumes using an isobaric method. This method is more simple than the strain method as there is no need to determine the elastic constants, reducing the number of geometry optimisation jobs from X to 2. 
 
-CASTEP provides the volume of the cell, defined as the (volume enclosed by the calculated lattice parameters? Or the volume within the boundary of the outermost atoms)
+After a calculation, CASTEP provides the volume of the resulting cell, defined as the (volume enclosed by the calculated lattice parameters? Or the volume within the boundary of the outermost atoms). By subtracting the volume of a relaxed, non-defective cell from the volume of a relaxed, defective cell, we obtain a value for the total defect volume.
+
+It is important to consider that if there is a non-zero charge on the system, this will affect the calculated volume. This is because two systems with the same type, amount and arrangement of atoms, but different overall charges, will have different energies (due to the number of electrons). Different electronic orbital occupancies will affect the inter-atomic forces and therefore the shape of the cell. 
 
 \subsection{Effect of space charge}
 
-Diffusion rate of oxygen vacancies compared to electrons lead to a resultant charge in the lattice.
+The difference in the diffusion rate of oxygen vacancies compared to electrons lead to a resultant charge in the lattice. In the case of \zirconia , we know that this effect will be especially pronounced due to the small thickness of the layer.
 
 \begin{figure}[htp] % Tet conc sweep with space charge 1e-1
 \begin{center}
@@ -290,6 +294,10 @@ coordinates { (0.09,-2.35) };
 \end{figure}
 
 \subsection{Exchange-correlation functionals}
+
+There are a range of possible exchange-correlation functionals available in CASTEP, spanning both empirical and non-empirical types. Empirical exchange-correlation functionals are typically used to capture specific properties or systems particularly well, but perform poorly for generalised systems. Non-empirical exchange-correlation functionals, while still not perfect, are preferred for modelling the widest range of properties. In a sense, non-empirical functions benefit from not being "over-fit" to experimental data. They are also used far more often in the literature, thus providing a rich corpus of work for comparison studies.
+
+While we had already selected the PBE-GGA exchange-correlation functional in this work, it was helpful to conduct a convergence study of our system across all the functionals available in CASTEP in order to see how other functionals compared.
 
 \subsection{On-the-fly pseudopotentials}
 
