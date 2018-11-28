@@ -20,12 +20,23 @@ Unlike oxygen and hydrogen, which readily diffuse into Zr metal to occupy inters
 The effectiveness of the oxide layer as a barrier to iodine is debated, with one study presuming that the oxide is bypassed entirely by iodine due to fracturing, leaving the Zr metal underneath exposed \cite{rossi2015first}. The outermost part of the oxide, which is porous, exhibits networks of interconnected grain boundary diffusion pathways towards the oxide/metal interface which are certainly wide enough (1-3 nm) to allow iodine transport \cite{ni2010porosity}. The oxygen-saturated Zr at the oxide/metal interface is not, however, taken into account, and it is expected that this will influence the corrosion mechanism due to iodine-oxygen competition: even the much smaller hydrogen atom has its rate of diffusion into the metal reduced by the presence of oxygen, as shown in both computational \cite{glazoff2014oxidation} and experimental hydrogen pick-up studies \cite{couet2014hydrogen}. This means that some barrier to iodine ingress must already exist near the oxide/metal interface. The varying levels of oxygen across the oxide layer itself also have an effect on defect behaviour, and will therefore influence the initiation mechanisms behind PCI failures. Thus here, we predict iodine incorporation energies and defect equilibria in \zirconia\ as a function of oxygen pressure through Brouwer diagrams, in order to predict the resulting iodine defect response.
 
 \subsection{Iodine stress-corrosion cracking}
+
+Iodine SCC is a phenomenon that has affected LWRs for decades.
+
 \subsection{Pellet-cladding interaction}
+
+Pellet-cladding interaction refers to the interaction between the fuel and the cladding at higher burnups where the gas gap has been closed by the swelling of the fuel pellets. PCI has both a mechanical and a chemical component, sometimes referred to specifically as pellet cladding mechanical interaction (PCMI) and pellet cladding chemical interaction (PCCI) respectively.
+
 \subsection{Oxygen competition}
+
 Oxygen and iodine compete for anion sites in \zirconia .
 
 \section{Methodology}
 \subsection{Computational details}
+
+Calculations were performed using the CASTEP 8.0 density functional theory (DFT) based code \cite{Clark2005}. Ultra-soft pseudo-potentials with a cut-off energy of 600 eV were employed. The Perdew, Burke and Ernzerhof (PBE) \cite{Perdew1996} parameterisation of the generalised gradient approximation (GGA) was used to describe the exchange correlation functional. A Monkhorst-Pack sampling scheme \cite{Monkhorst1976} was used for Brillouin zone integration, with a minimum \emph{k}-point separation of 0.09 \r{A}\textsuperscript{-1}. The Pulay method for density mixing \cite{Pulay1980} was used to improve simulation convergence. 
+
+The electronic energy convergence criterion was set to $1\times10^{-6}$ eV and the maximum force between atoms limited to $1\times10^{-2}$ eV \r{A}\textsuperscript{-1}. A gradient-descent geometry optimisation task was run on the cell until consecutive iterations differed in energy and atomic displacement by less than $1\times10^{-5}$ eV and $5\times10^{-4}$ \r{A} respectively. \\
 
 \subsection{Incorporation energies}
 
@@ -144,6 +155,8 @@ Incorporation energies of iodine on zirconium sites are reported in Table \ref{i
 \end{table}
 
 \subsection{Temperature dependence}
+
+The temperature dependence of the 
 
 
 

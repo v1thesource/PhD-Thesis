@@ -242,6 +242,10 @@ The difference in the diffusion rate of oxygen vacancies compared to electrons l
 
 \subsection{Plane-wave cut-off energy}
 
+In order to determine an appropriate value for the plane-wave cut-off energy, a convergence test was performed to determine the relative error in predicted energy compared to a highly converged value. Figure \ref{Figure:cutoffconvergence} shows a log plot of the energy error for each phase of \zirconia\ as the cut-off energy is increased. 
+
+The error is shown to be independent of phase. This is expected because the atoms in each phase are the same, and therefore the electrons involved in the calculations remain unchanged.
+
 \begin{figure}
 	\begin{center}
 		\begin{tikzpicture}
@@ -304,6 +308,8 @@ While we had already selected the PBE-GGA exchange-correlation functional in thi
 Ultra soft pseudopotentials are generated in CASTEP automatically (known as on-the-fly or OTF pseudopotentials) when none are specified for a particular element. Energies must be calculated and compared with the same set of pseudopotentials in order to keep simulations self-consistent. A quick single point calculation was performed on a unit cell of \zirconia\ and the resulting OTF pseudopotentials were saved and used for all subsequent calculations. It is important to determine the variance in energy values of different pseudopotentials generated in this way in order to avoid systematic error.
 
 \subsection{Unit cells}
+
+Unit cells of \zirconia\ in each phase were fully relaxed at constant pressure and the resulting structures were compared to experimental data. Table \ref{lattice_params} shows the calculated lattice parameters and energy differences between the three \zirconia\ phases. 
 
 \begin{table}[htp] % Unit cell parameters
 \onehalfspacing
