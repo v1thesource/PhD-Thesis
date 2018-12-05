@@ -9,7 +9,7 @@ The intrinsic defect structure of \zirconia\ is important to understand because 
 
 \subsection{Crystal structures} % 3.1.2
 
-\zirconia\ grown at standard conditions on Zr metal exists mainly in either the monoclinic or tetragonal phase \cite{Howard1988,teufer1962crystal}.
+\zirconia\ grown at standard conditions on Zr metal exists mainly in either the monoclinic or tetragonal phase \cite{Howard1988,teufer1962crystal}. A high temperature cubic phase has also been observed in pure \zirconia , but it's similarity to the tetragonal phase often leads to them being mischaracterised in experimental studies. 
 
 \subsection{Previous work} % 3.1.3
 
@@ -38,6 +38,27 @@ F(T, V) = U(V) + H_{vib}(T, V) - TS_{vib}(T, V) - TS_{conf}
 \end{itemize}
 
 \subsection{Brouwer diagrams}
+
+Brouwer diagrams, also known as Kr{\"o}ger-Vink diagrams, were produced using a method outlined by Murphy et al. \cite{Murphy2014} to determine defect concentrations as a function of oxygen partial pressure. We start from the statement that the chemical potential of \zirconia\ is equivalent to the sum of the chemical potentials $\mu$ of its constituent species, Zr and O:
+
+\begin{equation}
+{\mu}_{ZrO_2(s)} = {\mu}_{Zr}(p_{O_2}, T) + {\mu}_{O_2}(p_{O_2}, T)
+\label{mewZrO2results1}
+\end{equation}
+
+where $T$ denotes temperature and $p_{O_2}$ denotes oxygen partial pressure. The chemical potential of \zirconia\ in the solid state is assumed to have negligible dependence on $T$ and $p_{O_2}$ relative to ${\mu}_{Zr}$ and ${\mu}_{O_2}$. Energies can be obtained for bulk \zirconia\ and Zr, but the ground state of oxygen is not correctly reproduced in DFT \cite{Batyrev2000,Lozovoi2001}. Instead, we use the approach of Finnis et al. \cite{Finnis2005} to infer the oxygen chemical potential from standard state values. We can use the experimental Gibbs free energy to produce an equation where $\mu_{O_2}$ is the only unknown:
+
+\begin{equation}
+\Delta{G^{\plimsoll}_{f, ZrO_2}} = \mu_{ZrO_2(s)} - (\mu_{Zr(s)} + \mu^{\plimsoll}_{O_2})
+\end{equation}
+
+where $\Delta{G^{\plimsoll}_{f, ZrO_2}}$ is the experimental Gibbs energy at standard temperature and pressure and $\mu^{\plimsoll}_{O_2}$ is the oxygen chemical potential under the same conditions. The values of $\mu_{ZrO_2(s)}$ and $\mu_{Zr(s)}$ are calculated from the DFT energies. Once $\mu^{\plimsoll}_{O_2}$ is calculated, we can generalise the chemical potential of oxygen for any value of $T$ and $p_{O_2}$ by appending an ideal gas relationship $\Delta{\mu(T)}$ and a Boltzmann distribution:
+
+\begin{equation}
+\mu_{O_2}(p_{O_2},T) = \mu^{\plimsoll}_{O_2} + \Delta{\mu(T)} + \frac{1}{2}{k_B}log(\frac{p_{O_2}}{p^{\plimsoll}_{O_2}})
+\end{equation}
+
+Using our generalised formula for $\mu_{O_2}$, we fix the temperature within the range of thermal phase-stabilisation (1500 K for tetragonal \zirconia) and calculate $\mu_{O_2}$ for many different values of $p_{O_2}$ between $10^{-35}$ and 10$^{0}$ atm, corresponding to oxygen deficient and oxygen rich environments, respectively ($p_{O_2}$ in air is approximately 0.2 atm). While the tetragonal phase will be stress-stabilised in practice, thermal-stabilisation in such models has been shown to qualitatively approximate the effect of stress-stabilisation, while allowing a wider range of dopant behaviours to be predicted \cite{Bell2016}. Equilibrium defect concentrations are then calculated at each $\mu_{O_2}$ and plotted against $p_{O_2}$ to produce a Brouwer diagram. 
 
 \begin{itemize}
 \item Defect concentration vs oxygen pressure
@@ -122,7 +143,10 @@ Defect volumes of isolated Frenkel defects can be seen in Table \ref{defect_volu
 
 \section{Elastic constants and defect relaxation volumes}
 
-Figure \ref{stiffness_tensor} shows the calculated elastic constants in the three phases of \zirconia . 
+Table \ref{stiffness_tensor} shows the calculated elastic constants for the monoclinic, tetragonal, and cubic phases of \zirconia . The cubic phase has the highest stiffness, likely due to the short Zr-O bond lengths in the energy-minimised structure (Figure \ref{figure:zrobonddistance}). It is expected that at high temperatures where the cubic phase is stable, the resulting increase in bond length would cause a reduction in stiffness. 
+
+The monoclinic and tetragonal phases have similar stiffness in the principal axes, but vary significantly under shearing conditions. In particular, the tetragonal phase exhibits much smaller $C_{44}$ and $C_{55}$ components. This may be due to the strong directional anisotropy of the tetragonal phase due to the larger $c$ parameter. 
+
 
 \begin{table}[htp] % Elastic constants
 \onehalfspacing
@@ -197,10 +221,10 @@ The calculated Helmholtz energies plotted in Figure \ref{Figure:helmholtz} show 
 
 \section{Defect equilibria}
 
-The intrinsic defect equilibria are shown in Brouwer diagrams in Figures.
+The intrinsic defect equilibria are shown in Brouwer diagrams in Figures XXXmono, XXXtet and XXXcubic. The monoclinic phase exhibits the smallest overall concentration of intrinsic defects due to the low temperature (650 K) relative to the other tetragonal (1500 K) and cubic (XXX K) phases.
 
 \section{Summary}
 
 The main defects in \zirconia\ are oxygen vacancies and zirconium vacancies at low and high oxygen pressures respectively. 
 
-The cubic phase cannot be modelled accurately, partly due to the instability of the phase.
+The cubic phase cannot be modelled accurately, partly due to the instability of the phase. For this reason, it was decided that the cubic phase would not be considered when conducting extrinsic dopant simulation studies in \zirconia .

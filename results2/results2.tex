@@ -36,7 +36,7 @@ Oxygen and iodine compete for anion sites in \zirconia .
 
 Calculations were performed using the CASTEP 8.0 density functional theory (DFT) based code \cite{Clark2005}. Ultra-soft pseudo-potentials with a cut-off energy of 600 eV were employed. The Perdew, Burke and Ernzerhof (PBE) \cite{Perdew1996} parameterisation of the generalised gradient approximation (GGA) was used to describe the exchange correlation functional. A Monkhorst-Pack sampling scheme \cite{Monkhorst1976} was used for Brillouin zone integration, with a minimum \emph{k}-point separation of 0.09 \r{A}\textsuperscript{-1}. The Pulay method for density mixing \cite{Pulay1980} was used to improve simulation convergence. 
 
-The electronic energy convergence criterion was set to $1\times10^{-6}$ eV and the maximum force between atoms limited to $1\times10^{-2}$ eV \r{A}\textsuperscript{-1}. A gradient-descent geometry optimisation task was run on the cell until consecutive iterations differed in energy and atomic displacement by less than $1\times10^{-5}$ eV and $5\times10^{-4}$ \r{A} respectively. \\
+The electronic energy convergence criterion was set to $1\times10^{-6}$ eV and the maximum force between atoms limited to $1\times10^{-2}$ eV \r{A}\textsuperscript{-1}. A gradient-descent geometry optimisation task was run on the cell until consecutive iterations differed in energy and atomic displacement by less than $1\times10^{-5}$ eV and $5\times10^{-4}$ \r{A} respectively. 
 
 \subsection{Incorporation energies}
 
@@ -65,7 +65,7 @@ Brouwer diagrams, also known as Kr{\"o}ger-Vink diagrams, were produced using a 
 
 \begin{equation}
 {\mu}_{ZrO_2(s)} = {\mu}_{Zr}(p_{O_2}, T) + {\mu}_{O_2}(p_{O_2}, T)
-\label{mewZrO2}
+\label{mewZrO2results2}
 \end{equation}
 
 where $T$ denotes temperature and $p_{O_2}$ denotes oxygen partial pressure. The chemical potential of \zirconia\ in the solid state is assumed to have negligible dependence on $T$ and $p_{O_2}$ relative to ${\mu}_{Zr}$ and ${\mu}_{O_2}$. Energies can be obtained for bulk \zirconia\ and Zr, but the ground state of oxygen is not correctly reproduced in DFT \cite{Batyrev2000,Lozovoi2001}. Instead, we use the approach of Finnis et al. \cite{Finnis2005} to infer the oxygen chemical potential from standard state values. We can use the experimental Gibbs free energy to produce an equation where $\mu_{O_2}$ is the only unknown:
@@ -156,11 +156,12 @@ Incorporation energies of iodine on zirconium sites are reported in Table \ref{i
 
 \subsection{Temperature dependence}
 
-The temperature dependence of the 
-
+To examine the temperature dependence of the defect equilibria, the concentration of dopant iodine was held constant while temperature was changed.
 
 
 \subsection{Dopant concentration dependence}
+
+To examine the dependence of the defect equilibria on iodine dopant concentration, the temperature was held constant while iodine concentration was changed.
 
 \begin{figure}[htp] % Mono conc sweep
 \begin{center}
