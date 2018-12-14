@@ -13,7 +13,7 @@
 
 \subsection{Common and predicted crystal structures}
 
-Three common crystal structure at atmospheric conditions
+Three common crystal structure at atmospheric conditions, as shown in table \ref{table:phases}.
 
 \begin{table}[htp]
 \centering
@@ -59,18 +59,38 @@ Another consequence of this large volume expansion is that a significant hystere
 
 
 \subsection{Pressure stabilisation (isochoric + autostabilisation)}
+
+The tetragonal and cubic phases of \zirconia\ are stabilised at high pressure. Since the oxide has a larger volume than the underlying metal (pilling-bedworth ratio of 1.5X), the growth of the oxide will itself impose stresses which may stabilise the tetragonal phase.
+
 \subsection{Dopant stabilisation (lower valence cations)}
 
+Some dopants will also stabilise the tetragonal and cubic phases of \zirconia. The most famous of which is yttrium, which at concentrations of 15\% (atomic), fully stabilises the cubic phase. Zirconia stabilised this way is known as YSZ. The way this works is by yttrium promoting the creation of oxygen vacancy defects (see equation XXX). This works in a similar way with several other lower valence cation dopants such as scandium and magnesium.
 
 \section{Defect energies and defect volumes}
 
 \subsection{Kr\"{o}ger-Vink notation}
 
-Kroger vink \cite{kroger1956relations} is a notation used for chemistry
+Kr\"{o}ger-Vink notation \cite{kroger1956relations} is used throughout this work to describe defects. It is widely used in physical chemistry and is a useful shorthand for describing chemical reactions where we must consider conservation of mass, charge and also lattice sites. The notation syntax is of the form \ch{x^{y}_{z}}, where x is the atom or vacancy, y is the charge of the defect and z is the site the defect occupies. Positive and negative charges are indicated with dots (\ch{^{*}}) and dashes (\ch{^{'}}) respectively, otherwise a cross (\ch{^{x}}) is used to denote a neutral defect. The site may be either a lattice site (such as Zr or O in \zirconia ) or an interstitial site ($i$). Table \ref{table:krogervink} shows examples of several different types of defects and their respective Kr\"{o}ger-Vink notation.
+
+\begin{table}[htp] % Kroger-Vink notation table
+\onehalfspacing
+\centering
+\caption{Examples of Kr\"{o}ger-Vink notation for several defects in \zirconia .}
+\label{table:krogervink}
+\begin{tabular}{cc}
+\hline
+Defect & Kr\"{o}ger-Vink Notation \\ \hline
+Anion vacancy & \ch{V_{O}^{**}} \\
+Cation vacancy & \ch{V_{Zr}^{''''}} \\
+Anion interstitial & \ch{O_{i}^{''}} \\
+Cation interstitial & \ch{Zr_{i}^{****}} \\
+Iodine on anion site & \ch{I_{O}^{*}} \\ \hline
+\end{tabular}
+\end{table}
 
 \subsection{Incorporation and defect formation energies}
 
-\subsubsection*{Isolated frenkel defects}
+\subsubsection*{Isolated Frenkel defects}
 
 Zr and O Frenkel defect formation energies were calculated via point defect DFT energies for the three structures. The formation energies of the isolated Frenkel defect pairs were defined as:
 % Interstitial iodine defects were simulated in the neutral charge state at different interstitial sites in each phase. The incorporation energy of these defects, assuming a perfect lattice, was calculated using Equation \ref{equation_incorporation}:
@@ -90,9 +110,9 @@ where $X$ is either Zr or O, $E_{DFT}(V^{q}_{X})$ is the energy of a supercell o
 \begin{tabular}{lcc}
 \hline
 \hspace{0.7 cm} {\bf Crystal Structure} \hspace{0.7 cm}                              & \hspace{0.7 cm} {\bf Interstitial Sites} \hspace{0.7 cm}                                               \\ \hline
-\multicolumn{1}{c|}{Monoclinic}              & $2a$, $2b$, $2c$, $2d$ \\
-\multicolumn{1}{c|}{Tetragonal}            & $2b$, $8e$                                   \\
-\multicolumn{1}{c|}{Cubic}       & $24d$, $4b$                                          \\ \hline
+\multicolumn{1}{c}{Monoclinic}              & $2a$, $2b$, $2c$, $2d$ \\
+\multicolumn{1}{c}{Tetragonal}            & $2b$, $8e$                                   \\
+\multicolumn{1}{c}{Cubic}       & $24d$, $4b$                                          \\ \hline
 \end{tabular}
 \end{table}
 
@@ -160,6 +180,13 @@ E_{NTV} = E_{DFT}(NTV) - \frac{n-3}{n}E_{DFT}(ZrO_2)% - \frac{E_{I_2}}{2}
 Where $E_{DFT}(NTV)$ is the energy of a supercell containing the NTV defect. As the defective supercell contains three fewer ions than the non-defective cell, the energy of the non-defective cell was adjusted by a proportional factor in our calculation. This form maintains both mass and charge balance of the Schottky defect description for \zirconia\ described in Equation \ref{generic_schottky}.
 
 \section{Brouwer diagrams}
+
 \subsection{Defect equilibria}
+
+Typically in materials, several types of defects will exist simultaneously. These defects will be present at an equilibrium concentration based on their thermodynamic stability. There are several considerations to be made. For example, we expect a crystal lattice to be overall charge-neutral, otherwise we would see extreme behaviour at the macro scale which is not indicative of a low-energy state.
+
 \subsection{Oxygen pressure dependence}
+
+The equilibrium concentration of defects will be a function of the oxygen partial pressure, amongst other things like temperature and dopant concentrations. For materials in an equilibrium state, they are necessarily in equilibrium with their surroundings. This is why even metals in evacuated vacuum flasks will produce a metal vapour pressure. In the case of \zirconia\ in nuclear fuel cladding, we know that the ambient oxygen pressure will change over time. In particular, fission of UO$_{2}$ will result in the liberation of oxygen. This will result in an input of gaseous oxygen in the fuel cladding with increasing burn-up. The main oxygen sink is the Zr fuel cladding, into which the oxide grows. Other oxygen sinks include the oxidation of UO$_{2}$ to the ground state oxide U$_{3}$O$_{8}$, and oxidation of fission products. Oxidation of UO$_{2}$ is a slow process whose kinetics are largely independent of the oxygen partial pressure \cite{Desgranges2009NeutronUO2}, and will be slowed as free space in the cladding is reduced because it results in swelling of the fuel pellet. 
+
 \subsection{Brouwer diagram generation}
