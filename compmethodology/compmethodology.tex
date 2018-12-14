@@ -153,15 +153,38 @@ The volumes of the defective supercells were kept constant because constant pres
 
 \subsection{Isobaric method for defect volumes}
 
-It is also possible to calculate defect volumes using an isobaric method. This method is more simple than the strain method as there is no need to determine the elastic constants, reducing the number of geometry optimisation jobs from X to 2. 
+It is also possible to calculate defect volumes using an isobaric method. This method is more simple than the strain method as there is no need to determine the elastic constants, reducing the number of geometry optimisation jobs from 36 to 1. 
 
 After a calculation, CASTEP provides the volume of the resulting cell, defined as the (volume enclosed by the calculated lattice parameters? Or the volume within the boundary of the outermost atoms). By subtracting the volume of a relaxed, non-defective cell from the volume of a relaxed, defective cell, we obtain a value for the total defect volume.
 
 It is important to consider that if there is a non-zero charge on the system, this will affect the calculated volume. This is because two systems with the same type, amount and arrangement of atoms, but different overall charges, will have different energies (due to the number of electrons). Different electronic orbital occupancies will affect the inter-atomic forces and therefore the shape of the cell. 
 
+\section{Defect equilibria}
+
+Brouwer diagrams, also known as Kr{\"o}ger-Vink diagrams, were produced using a method outlined by Murphy et al. \cite{Murphy2014} to determine defect concentrations as a function of oxygen partial pressure. We start from the statement that the chemical potential of \zirconia\ is equivalent to the sum of the chemical potentials $\mu$ of its constituent species, Zr and O:
+
+\begin{equation}
+{\mu}_{ZrO_2(s)} = {\mu}_{Zr}(p_{O_2}, T) + {\mu}_{O_2}(p_{O_2}, T)
+\label{mewZrO2compmethodology}
+\end{equation}
+
+where $T$ denotes temperature and $p_{O_2}$ denotes oxygen partial pressure. The chemical potential of \zirconia\ in the solid state is assumed to have negligible dependence on $T$ and $p_{O_2}$ relative to ${\mu}_{Zr}$ and ${\mu}_{O_2}$. Energies can be obtained for bulk \zirconia\ and Zr, but the ground state of oxygen is not correctly reproduced in DFT \cite{Batyrev2000,Lozovoi2001}. Instead, we use the approach of Finnis et al. \cite{Finnis2005} to infer the oxygen chemical potential from standard state values. We can use the experimental Gibbs free energy to produce an equation where $\mu_{O_2}$ is the only unknown:
+
+\begin{equation}
+\Delta{G^{\plimsoll}_{f, ZrO_2}} = \mu_{ZrO_2(s)} - (\mu_{Zr(s)} + \mu^{\plimsoll}_{O_2})
+\end{equation}
+
+where $\Delta{G^{\plimsoll}_{f, ZrO_2}}$ is the experimental Gibbs energy at standard temperature and pressure and $\mu^{\plimsoll}_{O_2}$ is the oxygen chemical potential under the same conditions. The values of $\mu_{ZrO_2(s)}$ and $\mu_{Zr(s)}$ are calculated from the DFT energies. Once $\mu^{\plimsoll}_{O_2}$ is calculated, we can generalise the chemical potential of oxygen for any value of $T$ and $p_{O_2}$ by appending an ideal gas relationship $\Delta{\mu(T)}$ and a Boltzmann distribution:
+
+\begin{equation}
+\mu_{O_2}(p_{O_2},T) = \mu^{\plimsoll}_{O_2} + \Delta{\mu(T)} + \frac{1}{2}{k_B}log(\frac{p_{O_2}}{p^{\plimsoll}_{O_2}})
+\end{equation}
+
+Using our generalised formula for $\mu_{O_2}$, we fix the temperature within the range of thermal phase-stabilisation (1500 K for tetragonal \zirconia) and calculate $\mu_{O_2}$ for many different values of $p_{O_2}$ between $10^{-35}$ and 10$^{0}$ atm, corresponding to oxygen deficient and oxygen rich environments, respectively ($p_{O_2}$ in air is approximately 0.2 atm). While the tetragonal phase will be stress-stabilised in practice, thermal-stabilisation in such models has been shown to qualitatively approximate the effect of stress-stabilisation, while allowing a wider range of dopant behaviours to be predicted \cite{Bell2016}. Equilibrium defect concentrations are then calculated at each $\mu_{O_2}$ and plotted against $p_{O_2}$ to produce a Brouwer diagram. 
+
 \subsection{Effect of space charge}
 
-The difference in the diffusion rate of oxygen vacancies compared to electrons lead to a resultant charge in the lattice. In the case of \zirconia , we know that this effect will be especially pronounced due to the small thickness of the layer.
+The difference in the diffusion rate of oxygen vacancies compared to electrons lead to a build-up (and therefore a resultant) charge in the lattice. In the case of \zirconia , we know that this effect will be especially pronounced due to the small thickness of the layer. We can take this effect into account when generating Brouwer diagrams by assuming an overall charge instead of charge-neutrality in equation XXX
 
 \begin{figure}[htp] % Tet conc sweep with space charge 1e-1
 \begin{center}
@@ -329,7 +352,7 @@ c-\zirconia        &   5.11 (5.09)           &              &              & 90 
 
 To determine the chemical potential of iodine, an energy minimisation of the iodine dimer was performed. Unlike oxygen, iodine dimers do not exhibit a resultant magnetic moment, thus avoiding a source of error in energy calculations with the PBE exchange-correlation functional. Much like with the \zirconia\ unit cells, the lattice parameter after relaxation (bond length in this case) is checked to determine the deviation from an experimental value.
 
-Figure \ref{figure:iodine_dimer} illustrates the energy minimisation of two iodine atoms in a large cell, initially separated by 3.0 \r{A}. The simulation finds an energy minima when the iodine atoms are bonded, at a separation of 2.69 \r{A}. This is in good agreement with the experimental value of 2.6745 \r{A}.
+Figure \ref{figure:iodine_dimer} illustrates the energy minimisation of two iodine atoms in a large cell, initially separated by 3.0 \r{A}. The simulation finds an energy minima when the iodine atoms are bonded, at a separation of 2.69 \r{A}. This is in good agreement with the experimental value of 2.6745 \r{A} \cite{ukaji1966effect}.
 
 \begin{figure}[htp] % Iodine dimer geometry optimisation
 \centering
