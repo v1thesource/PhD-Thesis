@@ -13,7 +13,7 @@ Consider methane, with an enthalpy of combustion of −887.2 kJ/mol \cite{thornt
 \begin{figure}[htp]
 \centering
 \includegraphics[height=11cm]{images/fission_energy_total.png}
-\caption{Energy from thermal fission of U-235 as a function of mass ratios of child nuclei. Total energy release includes contributions from prompt neutrons and gamma rays. Taken from \cite{aras1965ranges}.}
+\caption{Energy from thermal fission of U-235 as a function of mass ratios of child nuclei. Total energy release includes contributions from gamma rays and subsequent radioactive decays. Taken from \cite{aras1965ranges}.}
 \label{figure:fissionenergy}
 \end{figure}
 
@@ -21,16 +21,28 @@ Combustion-based power as a technology has matured over hundreds of years, with 
 
 \subsection{Fission}
 
+Commercial nuclear power plants extract energy through the process of fission, where a large nucleus is split into smaller nuclei. While it is also possible to extract energy from certain nuclei by the process of fusing them into larger ones, no fusion reactor currently exists which achieves a net positive energy output. At a fundamental level, both of these processes rely upon mass-energy equivalence. The relationship between mass and energy is shown using Einstein's famous equation:
 
 \begin{equation}
 \label{emc2}
-    e = mc^{2}
+    E = mc^{2}
 \end{equation}
+
+where $E$ is the energy of the system, $m$ is the mass and $c$ is the speed of light. Using this equation we can analyse a typical fission reaction:
 
 \begin{equation}
 \label{fission}
-    U^{235}_{92} + n^{1}_{0} -> I^{131}_{53} + Y^{101}_{39} + 3n^{1}_{0} 
+    U^{235}_{92} + n^{1}_{0} \longrightarrow I^{132}_{53} + Y^{101}_{39} + 3n^{1}_{0} 
 \end{equation}
+
+While the number of protons and neutrons are conserved throughout the reaction, a quick calculation will show that there is actually less mass in the products than the reactants by approximately 0.188 amu (3.127$\times 10^{-28}$ kg). This missing mass, known as the \emph{mass defect}, is converted to energy ($\sim$175 MeV). In this way, the total mass-energy of the system is conserved. 
+
+This change in mass arises due to the phenomenon of \emph{binding energy}. In order for two or more nucleons to be thermodynamically stable when bound together, the total free energy of the bound configuration must be less than the sum of constituent nucleon free energies. Much like with energy stored in a chemical bond, the binding energy represents the energy required to separate the nucleus into individual protons and neutrons. 
+
+Larger nuclei will generally have a greater total binding energy value compared to smaller nuclei, but the mass defect per nucleon will not necessarily be greater in a larger nucleus. It is therefore useful to normalise the binding energy by the mass number. Different isotopes have different binding energies, and any nuclear reaction which increases the binding energy per nucleon will be exothermic, whether by fission or fusion. Figure \ref{figure:bindingenergy} shows a plot of binding energy per nucleon against mass number with the relevant isotopes from Equation \ref{fission}. 
+
+%235.0439299 + 1.008664 (236.0525939) -> 131.907997 + 100.93031 + 3.025992 (235.864299)
+
 
 
 \begin{figure}[htp]
@@ -43,13 +55,12 @@ Combustion-based power as a technology has matured over hundreds of years, with 
 \begin{figure}[htp]
 \centering
 \includegraphics[height=11cm]{images/Binding_energy_curve.png}
-\caption{Plot binding energy per nucleon against mass number. Arrows indicate the reaction shown in equation \ref{fission}. Taken from }
+\caption{Plot binding energy per nucleon against mass number. Arrows indicate the reaction shown in equation \ref{fission}. Adapted from \cite{FastfissionBindingCurve}}
 \label{figure:bindingenergy}
 \end{figure}
 
 
 \begin{itemize}
-\item $e = mc^{2}$
 \item binding energy per nucleon curve
 \item uranium as a fuel, example fission reactions
 \end{itemize}
