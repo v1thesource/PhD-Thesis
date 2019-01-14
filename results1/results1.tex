@@ -5,7 +5,7 @@
 \section{Introduction} % 3.1
 \subsection{Applications} % 3.1.1
 
-The intrinsic defect structure of \zirconia\ is important to understand because useful material properties may be exploited by doping with other ions. For example, \zirconia\ doped with enough yttrium cations will stabilise the cubic phase and increase the concentration of oxygen vacancies, which is the main charge carrier in a YSZ solid oxide fuel cell.
+It is important to fully understand the intrinsic defect structure of \zirconia\ because useful material properties may be exploited to improve performance, e.g. by doping with other ions to stabilise one crystal structure. For example, \zirconia\ doped with enough yttrium cations will stabilise the cubic phase and increase the concentration of oxygen vacancies, which is the main charge carrier in a YSZ solid oxide fuel cell.
 
 \subsection{Crystal structures} % 3.1.2
 
@@ -216,16 +216,16 @@ The calculated Helmholtz energies plotted in Figure \ref{Figure:helmholtz} show 
 
 \section{Defect equilibria}
 
-The intrinsic defect equilibria are shown in Brouwer diagrams in Figures XXXmono, XXXtet and XXXcubic. The monoclinic phase exhibits the smallest overall concentration of intrinsic defects due to the low temperature (650 K) relative to the other tetragonal (1500 K) and cubic (XXX K) phases.
+The intrinsic defect equilibria are shown in Brouwer diagrams in Figures \ref{figure:mono_intrinsic_brouwer}, \ref{figure:tet_intrinsic_brouwer} and \ref{figure:cubic_intrinsic_brouwer}. The monoclinic phase exhibits the smallest overall concentration of intrinsic defects due to the low temperature (650 K) relative to the other tetragonal (1500 K) and cubic (XXX K) phases.
 
 \begin{figure}[htp] % Mono intrinsic Brouwer
 \begin{center}
 \begin{tikzpicture}
 	\begin{axis}
-		[width=8.22cm, xlabel={\ch{log_{10}}($p_{O_{2}}$) (atm)}, ylabel={\ch{log_{10}}([D]) (per f.u.)}, ymin=-10, ymax=0, xmin=-35, xmax=0, legend style={{draw=}, at={(0.40,0.97)}, anchor=north west, legend columns=3, nodes={scale=0.75, transform shape}}]
-        \addplot[no marks, draw=blue!70!black] table [x=pO2, y=electrons,]{dat/intrinsic_mono.dat}; \addlegendentry{\ch{e^{'}}}; \node at (-26.0,-1.9) {\ch{e^{'}}};
-        \addplot[no marks, draw=red!85!black] table [x=pO2, y=holes,]{dat/intrinsic_mono.dat}; \addlegendentry{\ch{h^{*}}}; \node at (-7,-3.6) {\ch{h^{*}}};
-        \addplot[no marks, draw=black!70!green] table [x=pO2, y=VO{2},]{dat/intrinsic_mono.dat}; \addlegendentry{\ch{V_{O}^{**}}}; \node at (-26.7,-3.3) {\ch{V_{O}^{**}}};
+		[width=14cm, xlabel={\ch{log_{10}}($p_{O_{2}}$) (atm)}, ylabel={\ch{log_{10}}([D]) (per f.u.)}, ymin=-18, ymax=0, xmin=-35, xmax=0, legend style={{draw=}, at={(0.40,0.94)}, anchor=north west, legend columns=4, nodes={scale=0.75, transform shape}}]
+        \addplot[no marks, draw=blue!70!black] table [x=pO2, y=electrons,]{dat/intrinsic_mono.dat}; \addlegendentry{\ch{e^{'}}}; %\node at (-26.0,-1.9) {\ch{e^{'}}};
+        \addplot[no marks, draw=red!85!black] table [x=pO2, y=holes,]{dat/intrinsic_mono.dat}; \addlegendentry{\ch{h^{\textperiodcentered}}}; %\node at (-7,-3.6) {\ch{h^{*}}};
+        \addplot[no marks, draw=black!70!green] table [x=pO2, y=VO{2},]{dat/intrinsic_mono.dat}; \addlegendentry{\ch{V_{O}^{\textperiodcentered\textperiodcentered}}}; %\node at (-26.7,-3.3) {\ch{V_{O}^{**}}};
 %         \addplot[no marks, draw=black!55!green] table [x=pO2, y=VO{1},]{dat/intrinsic_mono.dat}; \addlegendentry{\ch{V_{O}^{*}}};
 %         \addplot[no marks, draw=black!30!green] table [x=pO2, y=VO{0},]{dat/intrinsic_mono.dat}; \addlegendentry{\ch{V_{O}^{x}}};
         \addplot[no marks, draw=yellow!85!blue] table [x=pO2, y=VM{-4},]{dat/intrinsic_mono.dat}; \addlegendentry{\ch{V_{Zr}^{''''}}};
@@ -242,10 +242,10 @@ The intrinsic defect equilibria are shown in Brouwer diagrams in Figures XXXmono
 %         \addplot[no marks, draw=green!50!pink] table [x=pO2, y=Mi{1},]{dat/intrinsic_mono.dat}; \addlegendentry{\ch{Zr_{i}^{*}}};
 %         \addplot[no marks, draw=green!40!pink] table [x=pO2, y=Mi{0},]{dat/intrinsic_mono.dat}; \addlegendentry{\ch{Zr_{i}^{x}}};
 %         \addplot[no marks] table [x=pO2, y=Stoich,]{dat/intrinsic_mono.dat}; \addlegendentry{Stoich};
-\node at (-33.7,-0.5) {\textbf{a)}};
+%\node at (-33.7,-0.5) {\textbf{a)}};
 			\end{axis}            
 \end{tikzpicture}
-		\caption{Tetragonal phase Brouwer diagrams of point defects at iodine concentrations of a) $10^{-5}$ and b) $10^{-3}$, at a temperature of 1500 K.}
+		\caption{Monoclinic phase Brouwer diagram of intrinsic defects at 650 K.}
 		\label{figure:mono_intrinsic_brouwer}
 	\end{center}
 \end{figure}
@@ -254,10 +254,10 @@ The intrinsic defect equilibria are shown in Brouwer diagrams in Figures XXXmono
 \begin{center}
 \begin{tikzpicture}
 	\begin{axis}
-		[width=8.22cm, xlabel={\ch{log_{10}}($p_{O_{2}}$) (atm)}, ylabel={\ch{log_{10}}([D]) (per f.u.)}, ymin=-10, ymax=0, xmin=-35, xmax=0, legend style={{draw=}, at={(0.40,0.97)}, anchor=north west, legend columns=3, nodes={scale=0.75, transform shape}}]
-        \addplot[no marks, draw=blue!70!black] table [x=pO2, y=electrons,]{dat/intrinsic_tet.dat}; \addlegendentry{\ch{e^{'}}}; \node at (-26.0,-1.9) {\ch{e^{'}}};
-        \addplot[no marks, draw=red!85!black] table [x=pO2, y=holes,]{dat/intrinsic_tet.dat}; \addlegendentry{\ch{h^{*}}}; \node at (-7,-3.6) {\ch{h^{*}}};
-        \addplot[no marks, draw=black!70!green] table [x=pO2, y=VO{2},]{dat/intrinsic_tet.dat}; \addlegendentry{\ch{V_{O}^{**}}}; \node at (-26.7,-3.3) {\ch{V_{O}^{**}}};
+		[width=14cm, xlabel={\ch{log_{10}}($p_{O_{2}}$) (atm)}, ylabel={\ch{log_{10}}([D]) (per f.u.)}, ymin=-10, ymax=0, xmin=-35, xmax=0, legend style={{draw=}, at={(0.40,0.97)}, anchor=north west, legend columns=3, nodes={scale=0.75, transform shape}}]
+        \addplot[no marks, draw=blue!70!black] table [x=pO2, y=electrons,]{dat/intrinsic_tet.dat}; \addlegendentry{\ch{e^{'}}}; %\node at (-26.0,-1.9) {\ch{e^{'}}};
+        \addplot[no marks, draw=red!85!black] table [x=pO2, y=holes,]{dat/intrinsic_tet.dat}; \addlegendentry{\ch{h^{\textperiodcentered}}}; %\node at (-7,-3.6) {\ch{h^{*}}};
+        \addplot[no marks, draw=black!70!green] table [x=pO2, y=VO{2},]{dat/intrinsic_tet.dat}; \addlegendentry{\ch{V_{O}^{\textperiodcentered\textperiodcentered}}}; %\node at (-26.7,-3.3) {\ch{V_{O}^{**}}};
 %         \addplot[no marks, draw=black!55!green] table [x=pO2, y=VO{1},]{dat/intrinsic_tet.dat}; \addlegendentry{\ch{V_{O}^{*}}};
 %         \addplot[no marks, draw=black!30!green] table [x=pO2, y=VO{0},]{dat/intrinsic_tet.dat}; \addlegendentry{\ch{V_{O}^{x}}};
         \addplot[no marks, draw=yellow!85!blue] table [x=pO2, y=VM{-4},]{dat/intrinsic_tet.dat}; \addlegendentry{\ch{V_{Zr}^{''''}}};
@@ -274,10 +274,10 @@ The intrinsic defect equilibria are shown in Brouwer diagrams in Figures XXXmono
 %         \addplot[no marks, draw=green!50!pink] table [x=pO2, y=Mi{1},]{dat/intrinsic_tet.dat}; \addlegendentry{\ch{Zr_{i}^{*}}};
 %         \addplot[no marks, draw=green!40!pink] table [x=pO2, y=Mi{0},]{dat/intrinsic_tet.dat}; \addlegendentry{\ch{Zr_{i}^{x}}};
 %         \addplot[no marks] table [x=pO2, y=Stoich,]{dat/intrinsic_tet.dat}; \addlegendentry{Stoich};
-\node at (-33.7,-0.5) {\textbf{a)}};
+%\node at (-33.7,-0.5) {\textbf{a)}};
 			\end{axis}            
 \end{tikzpicture}
-		\caption{Tetragonal phase Brouwer diagrams of point defects at iodine concentrations of a) $10^{-5}$ and b) $10^{-3}$, at a temperature of 1500 K.}
+		\caption{Tetragonal phase Brouwer diagrams of intrinsic defects at 1500 K.}
 		\label{figure:tet_intrinsic_brouwer}
 	\end{center}
 \end{figure}
@@ -286,10 +286,10 @@ The intrinsic defect equilibria are shown in Brouwer diagrams in Figures XXXmono
 \begin{center}
 \begin{tikzpicture}
 	\begin{axis}
-		[width=8.22cm, xlabel={\ch{log_{10}}($p_{O_{2}}$) (atm)}, ylabel={\ch{log_{10}}([D]) (per f.u.)}, ymin=-10, ymax=0, xmin=-35, xmax=0, legend style={{draw=}, at={(0.40,0.97)}, anchor=north west, legend columns=3, nodes={scale=0.75, transform shape}}]
-        \addplot[no marks, draw=blue!70!black] table [x=pO2, y=electrons,]{dat/intrinsic_cubic.dat}; \addlegendentry{\ch{e^{'}}}; \node at (-26.0,-1.9) {\ch{e^{'}}};
-        \addplot[no marks, draw=red!85!black] table [x=pO2, y=holes,]{dat/intrinsic_cubic.dat}; \addlegendentry{\ch{h^{*}}}; \node at (-7,-3.6) {\ch{h^{*}}};
-        \addplot[no marks, draw=black!70!green] table [x=pO2, y=VO{2},]{dat/intrinsic_cubic.dat}; \addlegendentry{\ch{V_{O}^{**}}}; \node at (-26.7,-3.3) {\ch{V_{O}^{**}}};
+		[width=14cm, xlabel={\ch{log_{10}}($p_{O_{2}}$) (atm)}, ylabel={\ch{log_{10}}([D]) (per f.u.)}, ymin=-10, ymax=0, xmin=-35, xmax=0, legend style={{draw=}, at={(0.40,0.97)}, anchor=north west, legend columns=3, nodes={scale=0.75, transform shape}}]
+        \addplot[no marks, draw=blue!70!black] table [x=pO2, y=electrons,]{dat/intrinsic_cubic.dat}; \addlegendentry{\ch{e^{'}}}; %\node at (-26.0,-1.9) {\ch{e^{'}}};
+        \addplot[no marks, draw=red!85!black] table [x=pO2, y=holes,]{dat/intrinsic_cubic.dat}; \addlegendentry{\ch{h^{\textperiodcentered}}}; %\node at (-7,-3.6) {\ch{h^{*}}};
+        \addplot[no marks, draw=black!70!green] table [x=pO2, y=VO{2},]{dat/intrinsic_cubic.dat}; \addlegendentry{\ch{V_{O}^{\textperiodcentered\textperiodcentered}}}; %\node at (-26.7,-3.3) {\ch{V_{O}^{**}}};
 %         \addplot[no marks, draw=black!55!green] table [x=pO2, y=VO{1},]{dat/intrinsic_cubic.dat}; \addlegendentry{\ch{V_{O}^{*}}};
 %         \addplot[no marks, draw=black!30!green] table [x=pO2, y=VO{0},]{dat/intrinsic_cubic.dat}; \addlegendentry{\ch{V_{O}^{x}}};
         \addplot[no marks, draw=yellow!85!blue] table [x=pO2, y=VM{-4},]{dat/intrinsic_cubic.dat}; \addlegendentry{\ch{V_{Zr}^{''''}}};
@@ -307,10 +307,10 @@ The intrinsic defect equilibria are shown in Brouwer diagrams in Figures XXXmono
 %         \addplot[no marks, draw=green!40!pink] table [x=pO2, y=Mi{0},]{dat/intrinsic_cubic.dat}; \addlegendentry{\ch{Zr_{i}^{x}}};
 %         \addplot[no marks, dashed, draw=red!70!black] table [x=pO2, y=Ii{0},]{dat/intrinsic_cubic.dat}; \addlegendentry{\ch{I_{i}^{x}}};
 %         \addplot[no marks] table [x=pO2, y=Stoich,]{dat/intrinsic_cubic.dat}; \addlegendentry{Stoich};
-\node at (-33.7,-0.5) {\textbf{a)}};
+%\node at (-33.7,-0.5) {\textbf{a)}};
 			\end{axis}            
 \end{tikzpicture} 
-		\caption{Tetragonal phase Brouwer diagrams of point defects at iodine concentrations of a) $10^{-5}$ and b) $10^{-3}$, at a temperature of 1500 K.}
+		\caption{Cubic phase Brouwer diagrams of intrinsic defects at 2000 K.}
 		\label{figure:cubic_intrinsic_brouwer}
 	\end{center}
 \end{figure}
