@@ -39,7 +39,7 @@ Where $E_{KE}$ and $E_{P}$ are the kinetic and potential energy functionals (fun
 
 \subsection{Pseudopotentials}
 
-The electron-electron interaction component of the potential energy presents a problem when it comes to scaling experimental models. The number of terms in this interaction grows quadratically with the number of electrons in the system, and quickly becomes computationally intractable for even small systems. However, we know that in chemical reactions, the majority of chemical behaviour is determined by relatively few valence electrons, while the more numerous core electrons have a far smaller effect. Consider the zirconium atom with 40 electrons, of which 4 (4$d^2$5$s^2$) are typically involved in bonding and chemical reactions. By only considering only these valence electrons for Coulombic-term calculations, we reduce the system size by 90\% which would then provide more than a tenfold reduction in computational requirements. Although the core electrons do not participate in chemical reactions, they still influence the properties of the atom, such as the atomic radius. Instead of modelling the core electrons explicitly, we can approximate their aggregate effect with a potential energy function. This is what we aim to achieve by using the pseudopotential method. 
+The electron-electron interaction component of the potential energy presents a problem when it comes to scaling experimental models. The number of terms in this interaction grows quadratically with the number of electrons in the system, and quickly becomes computationally intractable for even small systems. However, we know that in chemical reactions, the majority of chemical behaviour is determined by relatively few valence electrons, while the more numerous core electrons have a far smaller effect. Consider the zirconium atom with 40 electrons, of which 4 (4$d^2$5$s^2$) are typically involved in bonding and chemical reactions. By only considering only these valence electrons for Coulombic-term calculations, we reduce the system size by 90\% which results in a more than tenfold reduction in computational requirements. Although the core electrons do not participate in chemical reactions, they still influence the properties of the atom, such as the atomic radius. Instead of modelling the core electrons explicitly, we can approximate their aggregate effect with a potential energy function. This is what we aim to achieve by using the pseudopotential method. An example pseudopotential is shown in figure \ref{figure:pseudopotential}.
 
 \begin{figure} % Pseudopotential Image
 \label{figure:pseudopotential}
@@ -48,6 +48,27 @@ The electron-electron interaction component of the potential energy presents a p
 \end{center}
 \caption{Illustration of an all-electron potential V$_{AE}$ and a pseudopotential V$_{PS}$ with their corresponding wave functions. r$_{cut}$ indicates the radius beyond which both the potentials and their wave functions are the same. Taken from \cite{Payne1992}.  }
 \end{figure}
+
+
+Figures \ref{figure:oxygen_pseudopotential} and \ref{figure:zirconium_pseudopotential} show the actual pseudopotentials used throughout this work for oxygen and zirconium respectively. The potentials are shown broken down by the electronic sub-shells occupied by the valence electrons.
+
+\begin{figure} % Oxygen pseudopotential
+\label{figure:oxygen_pseudopotential}
+\begin{center}
+\includegraphics[height=7.3cm]{images/oxygen_otf_pp.png}
+\end{center}
+\caption{Plots of the valence $s$ and $p$ orbital potentials for oxygen. Dashed lines indicate the all-electron potentials while solid lines indicate the corresponding pseudopotential. Dotted vertical line marks the radius beyond which the potentials match.}
+\end{figure}
+
+
+\begin{figure} % Zirconium pseudopotential
+\label{figure:zirconium_pseudopotential}
+\begin{center}
+\includegraphics[height=12cm]{images/zirconium_otf_pp.png}
+\end{center}
+\caption{Plots of the valence $s$, $p$ and $d$ orbital potentials for zirconium. Dashed lines show the all-electron potentials while solid lines indicate the corresponding pseudopotential. Dotted vertical line marks the radius beyond which the potentials match.}
+\end{figure}
+
 
 \section{Periodic boundaries}
 \subsection{Modelling bulk systems}
@@ -61,9 +82,9 @@ Figure \ref{Figure:cutoffconvergence} shows the first convergence study where th
 \begin{figure} % Periodic boundary image
 \label{figure:periodicboundary}
 \begin{center}
-\includegraphics[height=7cm]{images/PeriodicBoundary.png}
+\includegraphics[height=7cm]{images/PeriodicBoundaryThesis.png}
 \end{center}
-\caption{Illustration of periodic boundary around a primitive cell in two dimensions.}
+\caption{Two dimensional illustration of periodic boundary around a primitive cell.}
 \end{figure}
 
 \subsection{Bloch's theorem}
@@ -157,7 +178,7 @@ The volumes of the defective supercells were kept constant because constant pres
 
 It is also possible to calculate defect volumes using an isobaric method. This method is more simple than the strain method as there is no need to determine the elastic constants, reducing the number of geometry optimisation jobs from 36 to 1. 
 
-After a calculation, CASTEP provides the volume of the resulting cell, defined as the (volume enclosed by the calculated lattice parameters? Or the volume within the boundary of the outermost atoms). By subtracting the volume of a relaxed, non-defective cell from the volume of a relaxed, defective cell, we obtain a value for the total defect volume.
+After a calculation, CASTEP provides the volume of the resulting cell, defined as the volume enclosed by the calculated lattice parameters. By subtracting the volume of a relaxed, non-defective cell from the volume of a relaxed, defective cell, we obtain a value for the total defect volume. % re: volume,  Or the volume within the boundary of the outermost atoms?
 
 It is important to consider that if there is a non-zero charge on the system, this will affect the calculated volume. This is because two systems with the same type, amount and arrangement of atoms, but different overall charges, will have different energies (due to the number of electrons). Different electronic orbital occupancies will affect the inter-atomic forces and therefore the shape of the cell. 
 
@@ -186,7 +207,7 @@ Using our generalised formula for $\mu_{O_2}$, we fix the temperature within the
 
 \subsection{Effect of space charge}
 
-The difference in the diffusion rate of oxygen vacancies compared to electrons lead to a build-up (and therefore a resultant) charge in the lattice. In the case of \zirconia , we know that this effect will be especially pronounced due to the small thickness of the layer. We can take this effect into account when generating Brouwer diagrams by assuming an overall charge instead of charge-neutrality in equation XXX
+The difference in the diffusion rate of oxygen vacancies compared to electrons lead to a build-up (and therefore a resultant) charge in the lattice. In the case of \zirconia , we know that this effect will be pronounced due to the small thickness of the layer. We can take this effect into account when generating Brouwer diagrams by assuming an overall charge in the crystal structure instead of charge-neutrality. Figure \ref{figure:spacechargeexample} shows an example of the defect equilibria in tetragonal \zirconia\ with an overall positive space charge. In order for such a condition to be satisfied, higher concentrations of positively charged oxygen vacancy and hole defects are predicted to be present. When extrinsic defects are also present in the lattice in significant concentrations, the space charge condition may influence which defect types are dominant at different oxygen pressures, as different oxidation states may be necessary to satisfy the charge condition.
 
 \begin{figure}[htp] % Tet conc sweep with space charge 1e-1
 \begin{center}
@@ -258,8 +279,8 @@ The difference in the diffusion rate of oxygen vacancies compared to electrons l
 %\node at (-33.7,-0.5) {\textbf{b)}};
 			\end{axis}            
 \end{tikzpicture}
-		\caption{Tetragonal phase Brouwer diagrams of point defects at iodine concentrations of a) $10^{-5}$ and b) $10^{-3}$, at a temperature of 1500 K. Space charge = +1e-1}
-		%\label{figure:tikzbrouwerconctet}
+		\caption{Tetragonal phase Brouwer diagrams of point defects at iodine concentrations of a) $10^{-5}$ and b) $10^{-3}$, at a temperature of 1500 K. Space charge = $10^{-1}$}
+		\label{figure:spacechargeexample}
 	\end{center}
 \end{figure}
 
@@ -267,15 +288,15 @@ The difference in the diffusion rate of oxygen vacancies compared to electrons l
 
 \subsection{Plane-wave cut-off energy}
 
-In order to determine an appropriate value for the plane-wave cut-off energy, a convergence test was performed to determine the relative error in predicted energy compared to a highly converged value. Figure \ref{Figure:cutoffconvergence} shows a log plot of the energy error for each phase of \zirconia\ as the cut-off energy is increased. 
+In order to determine an appropriate value for the plane-wave cut-off energy, a convergence test was performed to determine the relative error in predicted energy compared to a highly converged value. This convergence test was conducted by running multiple geometry optimisation procedures under fully relaxed conditions on a unit cell of \zirconia\ for each phase. A very small k-point spacing of 0.01 \r{A}$^{-1}$ was used for each task (highly converged), while increasing the plane-wave cut-off energy from 300 eV to 750 eV in 50 eV increments. The energy of each run was recorded and compared to the energy of a highly converged value taken when a cut-off energy of 900 eV was used. This provides a value for the truncation error at different cut-off energies. Figure \ref{Figure:cutoffconvergence} shows a log plot of the energy error for each phase of \zirconia\ as the cut-off energy is increased. 
 
-The error is shown to be independent of phase. This is expected because the atoms in each phase are the same, and therefore the electrons involved in the calculations remain unchanged.
+The error is shown to be independent of phase, with all lines lying on a single path. This is expected because the atoms in each phase are the same, and therefore the electrons involved in the calculations remain unchanged. A cut-off energy of 600 eV was found to produce an error below 0.01 eV, and was subsequently used for future calculations as it provides a good compromise between computational cost and accuracy.
 
-\begin{figure}
+\begin{figure} % Plane-wave cut-off convergence
 	\begin{center}
 		\begin{tikzpicture}
 			\begin{axis}
-				[width=12cm, xlabel={E\textsubscript{cutoff} (eV)}, ylabel={log(error) / formula unit}, ymin=-3.5, legend style={{draw=}, at={(0.95,0.95)}, anchor=north east,}]
+				[width=12cm, xlabel={E\textsubscript{cutoff} (eV)}, ylabel={log$_{10}$(error) / formula unit}, ymin=-3.5, legend style={{draw=}, at={(0.95,0.95)}, anchor=north east,}]
 				\addplot[no marks] table [x=cutoffenergy, y=logerrormono,]{dat/convergence.dat}; \addlegendentry{Monoclinic};
 			    \addplot[no marks, dashed] table [x=cutoffenergy, y=logerrortet,]{dat/convergence.dat}; \addlegendentry{Tetragonal};
 			    \addplot[no marks, densely dotted] table [x=cutoffenergy, y=logerrorcubic,]{dat/convergence.dat}; \addlegendentry{Cubic};
@@ -288,16 +309,16 @@ The error is shown to be independent of phase. This is expected because the atom
 coordinates { (600,-1.95) };
 			\end{axis}
 		\end{tikzpicture}
-		\caption{Plot of the log error of DFT energy against plane-wave cut-off energy for a perfect cell of each crystal structure. The error is calculated with respect to a highly converged value.}
+		\caption{Plot of the log error of DFT energy against plane-wave cut-off energy for a perfect cell of each crystal structure. The error is calculated with respect to a highly converged value, calculated at a plane-wave cut-off energy of 900 eV. The red arrow indicates the cut-off energy beyond which the error is below 2 decimal places.}
 		\label{Figure:cutoffconvergence}
 	\end{center}
 \end{figure}
 
 \subsection{k-point convergence}
 
-Too fine a grid in reciprocal space (i.e. a large number of k-points) leads to very computationally expensive simulations, whereas too coarse a grid may have a large truncation error when energies are calculated. To find the optimum spacing of k-points, a convergence study was performed across a range of k-point spacings, with the output energies compared to a highly converged simulation to obtain a value for the error. 
+Too fine a grid in reciprocal space (i.e. a large number of k-points) results in prohibitively computationally expensive simulations, whereas too coarse a grid may have a large truncation error when energies are calculated. To find the optimum spacing of k-points, a convergence study was performed across a range of k-point spacings, with the output energies compared to a highly converged simulation to obtain a value for the error. 
 
-Figure \ref{Figure:kpoint_convergence} shows the energy error in each phase of \zirconia\ as a function of the k-point spacing (given in reciprocal space as \r{A}$^{-1}$). The highly converged energy value was calculated with a k-point spacing of 0.01 \r{A}$^{-1}$ for error calculations. The plot shows a stepwise change in the error value as grid spacing is reduced because there must be an integer number of k-points, but larger spacings do not provide sufficient resolution to effectively fit an integer number of k-points into the reciprocal grid, snapping to the nearest appropriate grid instead. An optimum k-point spacing was chosen at 0.09 \r{A}$^{-1}$, which was the largest spacing that kept the error below 0.01 eV for all phases, highlighted in the plot by the red arrow.
+Figure \ref{Figure:kpoint_convergence} shows the energy error for each phase of \zirconia\ as a function of the k-point spacing (given in reciprocal space as \r{A}$^{-1}$). The highly converged energy value was calculated with a k-point spacing of 0.01 \r{A}$^{-1}$ for error calculations. The plot shows a stepwise change in the error value as grid spacing is reduced because there must be an integer number of k-points, but larger spacings do not provide sufficient resolution to effectively fit an integer number of k-points into the reciprocal grid, snapping to the nearest appropriate grid instead. An optimum k-point spacing was chosen at 0.09 \r{A}$^{-1}$, which was the largest spacing that kept the error below 0.01 eV for all phases, highlighted in the plot by the red arrow.
 
 \begin{figure}
 \begin{center}
@@ -317,7 +338,7 @@ style={/pgf/number format/.cd,fixed,precision=5}]
 coordinates { (0.09,-2.35) };
 			\end{axis}
 		\end{tikzpicture}
-		\caption{Log of the error in the total energy of the system as a function of k-point spacing. The error is calculated relative to a highly converged energy value at a k-point spacing of 0.01\r{A}\textsuperscript{-1}. The red arrow indicates the k-point spacing, which ensures an error below 2 decimal points for all structures.}
+		\caption{Log of the error in the total energy of the system as a function of k-point spacing. The error is calculated relative to a highly converged energy value at a k-point spacing of 0.01 \r{A}\textsuperscript{-1}. The red arrow indicates the k-point spacing, which ensures an error below 2 decimal points for all structures.}
 		\label{Figure:kpoint_convergence}
 	\end{center}
 \end{figure}
@@ -357,7 +378,7 @@ It is important to determine the variance in energy values of different pseudopo
         \addplot table [x=pp_pair, y=energy_diff_wrt_first,]{dat/otf_pp_test.dat};
       \end{axis}
     \end{tikzpicture}
-    \caption{Energy deviation in eV of supercells with candidate OTF pseudopotential pairs. Energy deviations are shown with respect to the pseudopotential pair that resulted in the lowest total energy calculated.}
+    \caption{Energy deviation in meV of supercells with candidate OTF pseudopotential pairs. Energy deviations are shown with respect to the pseudopotential pair that resulted in the lowest total energy calculated.}
     \label{Figure:otf_pp_test}
   \end{center}
 \end{figure}
