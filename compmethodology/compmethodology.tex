@@ -301,7 +301,7 @@ The error is shown to be independent of phase, with all lines lying on a single 
 	\begin{center}
 		\begin{tikzpicture}
 			\begin{axis}
-				[width=12cm, xlabel={E\textsubscript{cutoff} (eV)}, ylabel={log$_{10}$(error) / formula unit}, ymin=-3.5, legend style={{draw=}, at={(0.95,0.95)}, anchor=north east,}]
+				[width=11cm, xlabel={E\textsubscript{cutoff} (eV)}, ylabel={log$_{10}$(error) / formula unit}, ymin=-3.5, legend style={{draw=}, at={(0.95,0.95)}, anchor=north east,}]
 				\addplot[no marks] table [x=cutoffenergy, y=logerrormono,]{dat/convergence.dat}; \addlegendentry{Monoclinic};
 			    \addplot[no marks, dashed] table [x=cutoffenergy, y=logerrortet,]{dat/convergence.dat}; \addlegendentry{Tetragonal};
 			    \addplot[no marks, densely dotted] table [x=cutoffenergy, y=logerrorcubic,]{dat/convergence.dat}; \addlegendentry{Cubic};
