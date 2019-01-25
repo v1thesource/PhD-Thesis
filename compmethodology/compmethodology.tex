@@ -216,7 +216,7 @@ The difference in the diffusion rate of oxygen vacancies compared to electrons l
 
 Figure \ref{figure:spacechargeexample} shows an example of the defect equilibria in tetragonal \zirconia\ with an overall positive space charge. In order for such a condition to be satisfied, higher concentrations of positively charged oxygen vacancy and hole defects are predicted to be present. When extrinsic defects are also present in the lattice in significant concentrations, the space charge condition may influence which defect types are dominant at different oxygen pressures, as different oxidation states may be necessary to satisfy the charge condition.
 
-\begin{figure}[h] % Tet conc sweep with space charge 1e-1
+\begin{figure}[H] % Tet conc sweep with space charge 1e-1
 \begin{center}
 \begin{tikzpicture}
 	\begin{axis}
@@ -352,7 +352,7 @@ coordinates { (0.09,-2.35) };
 
 \subsection{Exchange-correlation functionals}
 
-There are a range of possible exchange-correlation functionals available in CASTEP, spanning both empirical and non-empirical types. Empirical exchange-correlation functionals are typically used to capture specific properties or systems particularly well, but perform poorly for generalised systems. Non-empirical exchange-correlation functionals, while still not perfect, are preferred for modelling the widest range of properties. In a sense, non-empirical functions benefit from not being "over-fit" to experimental data. They are also used far more often in the literature, thus providing a rich corpus of work for comparison studies.
+There are a range of possible exchange-correlation functionals available in CASTEP, spanning both empirical and non-empirical types. Empirical exchange-correlation functionals are typically used to capture specific properties or systems particularly well, but perform poorly for generalised systems. Non-empirical exchange-correlation functionals, while still not perfect, are preferred for modelling the widest range of properties. In a sense, non-empirical functions benefit from not being `over-fit' to experimental data. They are also used far more often in the literature, thus providing a rich corpus of work for comparison studies.
 
 While we had already selected the PBE-GGA exchange-correlation functional in this work, it was helpful to conduct a convergence study of our system across all the functionals available in CASTEP in order to see how other functionals compared.
 
@@ -400,7 +400,7 @@ Unit cells of \zirconia\ in each phase were fully relaxed at constant pressure a
 \caption{Calculated unit cell parameters for the different crystal structures of \zirconia . Experimental data for pure monoclinic and stabilised tetragonal and cubic phases at 295 K are shown in parentheses \cite{Howard1988}. Energy difference between structures is shown with respect to the cubic phase.}
 \label{lattice_params}
 \begin{tabular}{ccccccc}
-\hline Phase    & a (\AA) & b (\AA) & c (\AA) & $\beta$ ($\degree$) & Volume (\AA\textsuperscript{3}/f.u.) & $\Delta$E (eV/f.u.) \\ \hline
+\hline Phase    & a (\AA) & b (\AA) & c (\AA) & $\beta$ ($\degree$) & Volume (\AA\textsuperscript{3}/fu) & $\Delta$E (eV/fu) \\ \hline
 m-\zirconia   &    5.18 (5.15)          &    5.24 (5.21)         &    5.37 (5.32)         & 99.63 (99.23)             &       35.96 (35.22)                 &    -0.215              \\
 t-\zirconia &    3.62 (3.61)         &              &    5.28  (5.18)        & 90             &   34.54 (33.67)                      &     -0.105             \\
 c-\zirconia        &   5.11 (5.09)           &              &              & 90             &     33.38 (32.89)                   &      N/A     \\ \hline      
@@ -412,7 +412,7 @@ c-\zirconia        &   5.11 (5.09)           &              &              & 90 
 
 To determine the chemical potential of iodine, an energy minimisation of the iodine dimer was performed. Unlike oxygen, iodine dimers do not exhibit a resultant magnetic moment, thus avoiding a source of error in energy calculations with the PBE exchange-correlation functional. Similar to the \zirconia\ unit cell calculations, the lattice parameter after relaxation (bond length in this case) is compared to experimental data to assess the quality of the simulation parameters.
 
-Figure \ref{figure:iodine_dimer} illustrates the energy minimisation of two iodine atoms in a large cell, initially separated by 3.0 \r{A}. The simulation finds an energy minima when the iodine atoms are bonded, at a separation of 2.69 \r{A}. This agrees well with the experimental value of 2.6745 \r{A} \cite{ukaji1966effect}.
+Figure \ref{figure:iodine_dimer} illustrates the energy minimisation of two iodine atoms in a large cell, initially separated by 3.0 \r{A}. The geometry optimisation task finds an energy minima when the iodine atoms are bonded, at a separation of 2.69 \r{A}. This agrees well with the experimental value of 2.6745 \r{A} \cite{ukaji1966effect}.
 
 \begin{figure}[h] % Iodine dimer geometry optimisation
 \centering
@@ -425,11 +425,22 @@ Figure \ref{figure:iodine_dimer} illustrates the energy minimisation of two iodi
 
 In some DFT studies, an additional potential energy term is sometimes included to better capture the Coulomb interaction of localised electrons. An LDA or GGA functional alone will typically not describe this interaction correctly, especially for localised $d$ and $f$ electrons. Of particular concern is the calculated value of the band gap from DFT simulations, as this value may deviate by up to 30\% from experimental values. Remedying this shortcoming with an appropriate +U parameter could therefore be valuable in obtaining accurate energies. A +U study of the zirconium atom, with an electronic configuration of [Kr]$4d^{2}5s^{2}$, was performed to determine the response to and therefore the viability of an additional potential term for the $d$ electrons.
 
+Figure \ref{Figure:plusubandgap} shows the effect on the calculated band gap when introducing a +U term. While the +U term does increase the band gap, the effect is insignificant. Even with +U terms of 10 eV, the calculated band gap falls short of the experimental band gap by at least 1.5 eV. Moreover, with +U terms greater than 4 eV, we begin to see erratic behaviour in the development of both the band gap, and also in the predicted crystal structure.
+
+
+%I've got some more information from the +U data below. It looks as though 10 eV might be the point after which we get unusual behaviour. 
+
+%Cubic is fine, it just keeps expanding with +U as we expect. The tetragonal phase expands in the short a&b directions but contracts in the long c direction (i.e. becomes more 'cubic') up until 6 eV, after which it grows in the same manner as cubic.
+
+%The monoclinic phase is harder to explain. There is a cross-over in the length of the a and b parameter at around 4 eV, and then the beta angle (the ~99 deg between a and c) snaps into 90 deg at 11 eV, and when I look at the output structure at this energy, the coordination number of Zr is 6, down from 7. That's why the lattice parameters don't fall into a=b=c, because it doesn't become cubic.
+
+%As you can see from the band gap plot below, just +U by itself is not enough to reproduce the experimental band gap, even for monoclinic. We're off by about 1.5 eV in each case.
+
 \begin{figure}[h] % +U band gaps
 \begin{center}
 \begin{tikzpicture}
 	\begin{axis}
-		[width=11cm, xlabel={+U on Zr \emph{d} orbitals (eV)}, ylabel={Lattice parameter (\r{A})}, ymin=3.2, ymax=5, xmin=0, xmax=12, legend style={{draw=}, at={(0.35,0.95)}, anchor=north east, legend columns=1}]
+		[width=11cm, xlabel={+U on Zr \emph{d} orbitals (eV)}, ylabel={Band gap (eV)}, ymin=3.2, ymax=5, xmin=0, xmax=12, legend style={{draw=}, at={(0.35,0.95)}, anchor=north east, legend columns=1}]
 		\addplot[no marks] table [x=plusU, y=bandgap,]{dat/plus_u_mono.dat}; \addlegendentry{Monoclinic};
         \addplot[no marks, dashed] table [x=plusU, y=bandgap, ]{dat/plus_u_tet.dat}; \addlegendentry{Tetragonal};
         \addplot[no marks, densely dotted, black] table [x=plusU, y=bandgap,]{dat/plus_u_cubic.dat}; \addlegendentry{Cubic};
@@ -439,6 +450,8 @@ In some DFT studies, an additional potential energy term is sometimes included t
 		\label{Figure:plusubandgap}
 	\end{center}
 \end{figure}
+
+The monoclinic crystal structure 
 
 \begin{figure}[h] % +U mono
 \begin{center}
