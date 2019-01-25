@@ -124,10 +124,10 @@ Figure \ref{Figure:cutoffconvergence} shows the first convergence study where th
 \section{Computational details}
 \subsection{Cell dimensions and initialisation}
 
-A supercell method is used for the study of various defects. The first step is to create a unit cell of \zirconia\ in each of the three crystal structures. Each unit cell is then fully relaxed through a geometry optimisation process (see \ref{geometry_optimisation_method}). The resulting cell is then used to construct supercells through tesselation in three dimensions, before being fully relaxed again. This way, we generate systems with up to ten times as many atoms as the unit cell (supercell details can be found in Table \ref{table:supercells}). This is necessary because introducing defects into a small unit cell will result in the defect interacting with itself across the periodic boundary. A supercell increases the distance between the defect and its periodic image, using the bulk material as an interaction buffer. When constructing a supercell, it is important to consider making the supercell equally large in all directions, such that any directional bias in defect-defect interaction is minimised. Larger supercells carry an increased computational cost when running calculations, limiting the sizes we can achieve. For example, a constant-volume defect calculation with 300 atom supercells will take upwards of 500 hours to complete, whereas the equivalent 100 atom supercell will take just 72 hours (fully relaxed calculations are even more computationally expensive).
+A supercell method is used for the study of various defects. The first step is to create a unit cell of \zirconia\ in each of the three crystal structures. Each unit cell is then fully relaxed through a geometry optimisation process (see \ref{geometry_optimisation_method}). The resulting cell is then used to construct supercells through tessellation in three dimensions, before being fully relaxed again. This way, we generate systems with up to ten times as many atoms as the unit cell (supercell details can be found in Table \ref{table:supercells}). This is necessary because introducing defects into a small unit cell will result in the defect interacting with itself across the periodic boundary. A supercell increases the distance between the defect and its periodic image, using the bulk material as an interaction buffer. When constructing a supercell, it is important to consider making the supercell equally large in all directions, such that any directional bias in defect-defect interaction is minimised. Larger supercells carry an increased computational cost when running calculations, limiting the sizes we can achieve. For example, a constant-volume defect calculation with 300 atom supercells will take upwards of 500 hours to complete, whereas the equivalent 100 atom supercell will take just 72 hours (fully relaxed calculations are even more computationally expensive).
 
 
-\begin{table}[htp] % Supercell details
+\begin{table}[h] % Supercell details
 \doublespacing
 \centering
 \caption{Composition of the supercells in terms of the number of individual unit cells stacked in each direction.} % Unit cells were stacked in such a way as to produce the most cubic supercell in order to minimise directional defect-defect interactions.}
@@ -212,9 +212,11 @@ Using our generalised formula for $\mu_{O_2}$, we fix the temperature within the
 
 \subsection{Effect of space charge}
 
-The difference in the diffusion rate of oxygen vacancies compared to electrons lead to a build-up (and therefore a resultant) charge in the lattice. In the case of \zirconia , we know that this effect will be pronounced due to the small thickness of the layer. We can take this effect into account when generating Brouwer diagrams by assuming an overall charge in the crystal structure instead of charge-neutrality. Figure \ref{figure:spacechargeexample} shows an example of the defect equilibria in tetragonal \zirconia\ with an overall positive space charge. In order for such a condition to be satisfied, higher concentrations of positively charged oxygen vacancy and hole defects are predicted to be present. When extrinsic defects are also present in the lattice in significant concentrations, the space charge condition may influence which defect types are dominant at different oxygen pressures, as different oxidation states may be necessary to satisfy the charge condition.
+The difference in the diffusion rate of oxygen vacancies compared to electrons lead to a build-up (and therefore a resultant) charge in the lattice. In the case of \zirconia , we know that this effect will be pronounced due to the small thickness of the layer. We can take this effect into account when generating Brouwer diagrams by assuming an overall charge in the crystal structure instead of charge-neutrality. 
 
-\begin{figure}[htp] % Tet conc sweep with space charge 1e-1
+Figure \ref{figure:spacechargeexample} shows an example of the defect equilibria in tetragonal \zirconia\ with an overall positive space charge. In order for such a condition to be satisfied, higher concentrations of positively charged oxygen vacancy and hole defects are predicted to be present. When extrinsic defects are also present in the lattice in significant concentrations, the space charge condition may influence which defect types are dominant at different oxygen pressures, as different oxidation states may be necessary to satisfy the charge condition.
+
+\begin{figure}[h] % Tet conc sweep with space charge 1e-1
 \begin{center}
 \begin{tikzpicture}
 	\begin{axis}
@@ -297,7 +299,7 @@ In order to determine an appropriate value for the plane-wave cut-off energy, a 
 
 The error is shown to be independent of phase, with all lines lying on a single path. This is expected because the atoms in each phase are the same, and therefore the electrons involved in the calculations remain unchanged. A cut-off energy of 600 eV was found to produce an error below 0.01 eV, and was subsequently used for future calculations as it provides a good compromise between computational cost and accuracy.
 
-\begin{figure}[htp] % Plane-wave cut-off convergence
+\begin{figure}[h] % Plane-wave cut-off convergence
 	\begin{center}
 		\begin{tikzpicture}
 			\begin{axis}
@@ -325,7 +327,7 @@ Too fine a grid in reciprocal space (i.e. a large number of k-points) results in
 
 Figure \ref{Figure:kpoint_convergence} shows the energy error for each phase of \zirconia\ as a function of the k-point spacing (given in reciprocal space as \r{A}$^{-1}$). The highly converged energy value was calculated with a k-point spacing of 0.01 \r{A}$^{-1}$ for error calculations. The plot shows a stepwise change in the error value as grid spacing is reduced because there must be an integer number of k-points, but larger spacings do not provide sufficient resolution to effectively fit an integer number of k-points into the reciprocal grid, snapping to the nearest appropriate grid instead. An optimum k-point spacing was chosen at 0.09 \r{A}$^{-1}$, which was the largest spacing that kept the error below 0.01 eV for all phases, highlighted in the plot by the red arrow.
 
-\begin{figure}[htp]
+\begin{figure}[h]
 \begin{center}
 \begin{tikzpicture}
 	\begin{axis}
@@ -360,7 +362,7 @@ Ultra soft pseudopotentials are generated in CASTEP automatically (known as on-t
 
 It is important to determine the variance in energy values of different pseudopotentials generated in this way in order to avoid systematic error. To assess this error, 9 different pairs of OTF pseudopotentials were generated and used to calculate the total energy of a monoclinic \zirconia\ supercell. The difference in energy was then calculated with respect to the pseudopotential pair that resulted in the lowest energy. These deviations in total energy are shown in Figure \ref{Figure:otf_pp_test}. Across all calculations, the largest difference in total energy calculated was 0.0012 eV, while the average difference was 0.0006 eV. Since we are only concerned with choosing other parameters to achieve a precision of 0.01 eV, and the largest deviation calculated is an order of magnitude below that, we do not need to take any special measures to correct any systematic error from randomly generated OTF pseudopotentials.
 
-%\begin{figure}[htp] % +U cubic
+%\begin{figure}[h] % +U cubic
 %\begin{center}
 %\begin{tikzpicture}
 %	\begin{axis}
@@ -375,7 +377,7 @@ It is important to determine the variance in energy values of different pseudopo
 %	\end{center}
 %\end{figure}
 
-\begin{figure}[htp]
+\begin{figure}[h]
   \begin{center}
     \begin{tikzpicture}
       \begin{axis}
@@ -392,7 +394,7 @@ It is important to determine the variance in energy values of different pseudopo
 
 Unit cells of \zirconia\ in each phase were fully relaxed at constant pressure and the resulting structures were compared to experimental data. Table \ref{lattice_params} shows the calculated lattice parameters and energy differences between the three \zirconia\ phases. 
 
-\begin{table}[htp] % Unit cell parameters
+\begin{table}[h] % Unit cell parameters
 \onehalfspacing
 \centering
 \caption{Calculated unit cell parameters for the different crystal structures of \zirconia . Experimental data for pure monoclinic and stabilised tetragonal and cubic phases at 295 K are shown in parentheses \cite{Howard1988}. Energy difference between structures is shown with respect to the cubic phase.}
@@ -412,7 +414,7 @@ To determine the chemical potential of iodine, an energy minimisation of the iod
 
 Figure \ref{figure:iodine_dimer} illustrates the energy minimisation of two iodine atoms in a large cell, initially separated by 3.0 \r{A}. The simulation finds an energy minima when the iodine atoms are bonded, at a separation of 2.69 \r{A}. This agrees well with the experimental value of 2.6745 \r{A} \cite{ukaji1966effect}.
 
-\begin{figure}[htp] % Iodine dimer geometry optimisation
+\begin{figure}[h] % Iodine dimer geometry optimisation
 \centering
 \includegraphics[height=3.5cm]{images/iodine_geom.png}
 \caption{Energy minimisation of two iodine atoms from an initial separation of 3.0 \r{A}.}
@@ -423,7 +425,7 @@ Figure \ref{figure:iodine_dimer} illustrates the energy minimisation of two iodi
 
 In some DFT studies, an additional potential energy term is sometimes included to better capture the Coulomb interaction of localised electrons. An LDA or GGA functional alone will typically not describe this interaction correctly, especially for localised $d$ and $f$ electrons. Of particular concern is the calculated value of the band gap from DFT simulations, as this value may deviate by up to 30\% from experimental values. Remedying this shortcoming with an appropriate +U parameter could therefore be valuable in obtaining accurate energies. A +U study of the zirconium atom, with an electronic configuration of [Kr]$4d^{2}5s^{2}$, was performed to determine the response to and therefore the viability of an additional potential term for the $d$ electrons.
 
-\begin{figure}[htp] % +U band gaps
+\begin{figure}[h] % +U band gaps
 \begin{center}
 \begin{tikzpicture}
 	\begin{axis}
@@ -438,7 +440,7 @@ In some DFT studies, an additional potential energy term is sometimes included t
 	\end{center}
 \end{figure}
 
-\begin{figure}[htp] % +U mono
+\begin{figure}[h] % +U mono
 \begin{center}
 \begin{tikzpicture}
 	\begin{axis}
@@ -453,7 +455,7 @@ In some DFT studies, an additional potential energy term is sometimes included t
 	\end{center}
 \end{figure}
 
-\begin{figure}[htp] % +U tet
+\begin{figure}[h] % +U tet
 \begin{center}
 \begin{tikzpicture}
 	\begin{axis}
@@ -484,7 +486,7 @@ In some DFT studies, an additional potential energy term is sometimes included t
 	\end{center}
 \end{figure}
 
-\begin{figure}[htp] % +U cubic
+\begin{figure}[h] % +U cubic
 \begin{center}
 \begin{tikzpicture}
 	\begin{axis}
