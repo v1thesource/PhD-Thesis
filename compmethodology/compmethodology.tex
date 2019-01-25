@@ -297,7 +297,7 @@ In order to determine an appropriate value for the plane-wave cut-off energy, a 
 
 The error is shown to be independent of phase, with all lines lying on a single path. This is expected because the atoms in each phase are the same, and therefore the electrons involved in the calculations remain unchanged. A cut-off energy of 600 eV was found to produce an error below 0.01 eV, and was subsequently used for future calculations as it provides a good compromise between computational cost and accuracy.
 
-\begin{figure} % Plane-wave cut-off convergence
+\begin{figure}[htp] % Plane-wave cut-off convergence
 	\begin{center}
 		\begin{tikzpicture}
 			\begin{axis}
@@ -325,11 +325,11 @@ Too fine a grid in reciprocal space (i.e. a large number of k-points) results in
 
 Figure \ref{Figure:kpoint_convergence} shows the energy error for each phase of \zirconia\ as a function of the k-point spacing (given in reciprocal space as \r{A}$^{-1}$). The highly converged energy value was calculated with a k-point spacing of 0.01 \r{A}$^{-1}$ for error calculations. The plot shows a stepwise change in the error value as grid spacing is reduced because there must be an integer number of k-points, but larger spacings do not provide sufficient resolution to effectively fit an integer number of k-points into the reciprocal grid, snapping to the nearest appropriate grid instead. An optimum k-point spacing was chosen at 0.09 \r{A}$^{-1}$, which was the largest spacing that kept the error below 0.01 eV for all phases, highlighted in the plot by the red arrow.
 
-\begin{figure}
+\begin{figure}[htp]
 \begin{center}
 \begin{tikzpicture}
 	\begin{axis}
-		[width=12cm, xlabel={k-point spacing (\r{A}\textsuperscript{-1})}, ylabel={log[error]}, ymin=-7, ymax=1, xmin=0, xmax=0.22, legend style={{draw=}, at={(0.05,0.95)}, anchor=north west, legend columns=1}, xticklabel
+		[width=11cm, xlabel={k-point spacing (\r{A}\textsuperscript{-1})}, ylabel={log[error]}, ymin=-7, ymax=1, xmin=0, xmax=0.22, legend style={{draw=}, at={(0.05,0.95)}, anchor=north west, legend columns=1}, xticklabel
 style={/pgf/number format/.cd,fixed,precision=5}]
 		\addplot[no marks] table [x=kpoint_spacing, y=monoclinic,]{dat/kpoint_convergence.dat}; \addlegendentry{Monoclinic};
         \addplot[no marks, dashed] table [x=kpoint_spacing, y=tetragonal, ]{dat/kpoint_convergence.dat}; \addlegendentry{Tetragonal};
