@@ -155,7 +155,7 @@ Four convergence criteria are used for the geometry optimisation tasks throughou
 \item \emph{Change in energy per ion} : The largest change in the energy per ion between iterations must be below $10^{-5}$ eV. Below this value, the total energy improvement towards the ground state for a 100 atom supercell is less than 0.001 eV, and is therefore considered converged.
 \item \emph{Maximum force on an ion} : The maximum force requirement on any single ion in an iteration must be below $10^{-2}$ eV/\r{A}. This is required to make sure that the ion position will not change significantly in the following iteration, possibly bringing another convergence criterion above its threshold.
 \item \emph{Maximum change in ion position} : This must be below $5 \times 10^{-4}$ \r{A} between iterations to be considered converged. This criterion specifies the maximum `rattle' of the ion that is tolerated once the minimum energy is reached (i.e. displacements above this value may still be important for achieving a correct atomic configuration). 
-\item \emph{Maximum stress (constant-pressure only)} : During unconstrained relaxation, the maximum stress between iterations should be below $5 \times 10^{-2}$ GPA
+\item \emph{Maximum stress (constant-pressure only)} : During unconstrained relaxation, the maximum stress between iterations should be below $5 \times 10^{-2}$ GPA. 
 \end{itemize}
 
 
