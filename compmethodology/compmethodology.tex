@@ -127,7 +127,7 @@ Figure \ref{Figure:cutoffconvergence} shows the first convergence study where th
 A supercell method is used for the study of various defects. The first step is to create a unit cell of \zirconia\ in each of the three crystal structures. Each unit cell is then fully relaxed through a geometry optimisation process (see \ref{geometry_optimisation_method}). The resulting cell is then used to construct supercells through tessellation in three dimensions, before being fully relaxed again. This way, we generate systems with up to ten times as many atoms as the unit cell (supercell details can be found in Table \ref{table:supercells}). This is necessary because introducing defects into a small unit cell will result in the defect interacting with itself across the periodic boundary. A supercell increases the distance between the defect and its periodic image, using the bulk material as an interaction buffer. When constructing a supercell, it is important to consider making the supercell equally large in all directions, such that any directional bias in defect-defect interaction is minimised. Larger supercells carry an increased computational cost when running calculations, limiting the sizes we can achieve. For example, a constant-volume defect calculation with 300 atom supercells will take upwards of 500 hours to complete, whereas the equivalent 100 atom supercell will take just 72 hours (fully relaxed calculations are even more computationally expensive).
 
 
-\begin{table}[h] % Supercell details
+\begin{table}[ht] % Supercell details
 \doublespacing
 \centering
 \caption{Composition of the supercells in terms of the number of individual unit cells stacked in each direction.} % Unit cells were stacked in such a way as to produce the most cubic supercell in order to minimise directional defect-defect interactions.}
@@ -216,7 +216,7 @@ The difference in the diffusion rate of oxygen vacancies compared to electrons l
 
 Figure \ref{figure:spacechargeexample} shows an example of the defect equilibria in tetragonal \zirconia\ with an overall positive space charge. In order for such a condition to be satisfied, higher concentrations of positively charged oxygen vacancy and hole defects are predicted to be present. When extrinsic defects are also present in the lattice in significant concentrations, the space charge condition may influence which defect types are dominant at different oxygen pressures, as different oxidation states may be necessary to satisfy the charge condition.
 
-\begin{figure}[H] % Tet conc sweep with space charge 1e-1
+\begin{figure}[ht] % Tet conc sweep with space charge 1e-1
 \begin{center}
 \begin{tikzpicture}
 	\begin{axis}
@@ -299,7 +299,7 @@ In order to determine an appropriate value for the plane-wave cut-off energy, a 
 
 The error is shown to be independent of phase, with all lines lying on a single path. This is expected because the atoms in each phase are the same, and therefore the electrons involved in the calculations remain unchanged. A cut-off energy of 600 eV was found to produce an error below 0.01 eV, and was subsequently used for future calculations as it provides a good compromise between computational cost and accuracy.
 
-\begin{figure}[h] % Plane-wave cut-off convergence
+\begin{figure}[ht] % Plane-wave cut-off convergence
 	\begin{center}
 		\begin{tikzpicture}
 			\begin{axis}
@@ -327,7 +327,7 @@ Too fine a grid in reciprocal space (i.e. a large number of k-points) results in
 
 Figure \ref{Figure:kpoint_convergence} shows the energy error for each phase of \zirconia\ as a function of the k-point spacing (given in reciprocal space as \r{A}$^{-1}$). The highly converged energy value was calculated with a k-point spacing of 0.01 \r{A}$^{-1}$ for error calculations. The plot shows a stepwise change in the error value as grid spacing is reduced because there must be an integer number of k-points, but larger spacings do not provide sufficient resolution to effectively fit an integer number of k-points into the reciprocal grid, snapping to the nearest appropriate grid instead. An optimum k-point spacing was chosen at 0.09 \r{A}$^{-1}$, which was the largest spacing that kept the error below 0.01 eV for all phases, highlighted in the plot by the red arrow.
 
-\begin{figure}[h]
+\begin{figure}[ht]
 \begin{center}
 \begin{tikzpicture}
 	\begin{axis}
@@ -377,7 +377,7 @@ It is important to determine the variance in energy values of different pseudopo
 %	\end{center}
 %\end{figure}
 
-\begin{figure}[h]
+\begin{figure}[ht]
   \begin{center}
     \begin{tikzpicture}
       \begin{axis}
@@ -394,7 +394,7 @@ It is important to determine the variance in energy values of different pseudopo
 
 Unit cells of \zirconia\ in each phase were fully relaxed at constant pressure and the resulting structures were compared to experimental data. Table \ref{lattice_params} shows the calculated lattice parameters and energy differences between the three \zirconia\ phases. 
 
-\begin{table}[h] % Unit cell parameters
+\begin{table}[ht] % Unit cell parameters
 \onehalfspacing
 \centering
 \caption{Calculated unit cell parameters for the different crystal structures of \zirconia . Experimental data for pure monoclinic and stabilised tetragonal and cubic phases at 295 K are shown in parentheses \cite{Howard1988}. Energy difference between structures is shown with respect to the cubic phase.}
@@ -414,7 +414,7 @@ To determine the chemical potential of iodine, an energy minimisation of the iod
 
 Figure \ref{figure:iodine_dimer} illustrates the energy minimisation of two iodine atoms in a large cell, initially separated by 3.0 \r{A}. The geometry optimisation task finds an energy minima when the iodine atoms are bonded, at a separation of 2.69 \r{A}. This agrees well with the experimental value of 2.6745 \r{A} \cite{ukaji1966effect}.
 
-\begin{figure}[h] % Iodine dimer geometry optimisation
+\begin{figure}[ht] % Iodine dimer geometry optimisation
 \centering
 \includegraphics[height=3.5cm]{images/iodine_geom.png}
 \caption{Energy minimisation of two iodine atoms from an initial separation of 3.0 \r{A}.}
@@ -436,7 +436,7 @@ Figure \ref{Figure:plusubandgap} shows the effect on the calculated band gap whe
 
 %As you can see from the band gap plot below, just +U by itself is not enough to reproduce the experimental band gap, even for monoclinic. We're off by about 1.5 eV in each case.
 
-\begin{figure}[h] % +U band gaps
+\begin{figure}[ht] % +U band gaps
 \begin{center}
 \begin{tikzpicture}
 	\begin{axis}
@@ -453,7 +453,7 @@ Figure \ref{Figure:plusubandgap} shows the effect on the calculated band gap whe
 
 In monoclinic \zirconia , the use of a +U term causes the lattice parameters to change disproportionately, as seen in Figure \ref{Figure:plusumono}. All lattice parameters increased with larger +U terms, however, expansion in the $a$ direction proceeded faster than in the $b$ direction, resulting in the $a$ lattice parameter becoming larger at a +U of 4 eV. +U terms larger than 10.5 eV caused the lattice parameters to snap suddenly onto new values. A  investigation of the atomic positions revealed that the monoclinic crystal structure had collapsed into an orthorhombic structure, with the co-ordination number of zirconium ions falling to 6 from 7.
 
-\begin{figure}[h] % +U mono
+\begin{figure} % +U mono
 \begin{center}
 \begin{tikzpicture}
 	\begin{axis}
@@ -468,7 +468,7 @@ In monoclinic \zirconia , the use of a +U term causes the lattice parameters to 
 	\end{center}
 \end{figure}
 
-\begin{figure}[h] % +U tet
+\begin{figure}[ht] % +U tet
 \begin{center}
 \begin{tikzpicture}
 	\begin{axis}
@@ -499,7 +499,7 @@ In monoclinic \zirconia , the use of a +U term causes the lattice parameters to 
 	\end{center}
 \end{figure}
 
-\begin{figure}[h] % +U cubic
+\begin{figure}[ht] % +U cubic
 \begin{center}
 \begin{tikzpicture}
 	\begin{axis}

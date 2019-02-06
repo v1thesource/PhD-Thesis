@@ -2,7 +2,7 @@
 
 \section{Nuclear Power}
 
-It was only in the second half of the twentieth century that humanity first utilised the energy confined within the atomic nucleus for commercial electrical power. This marked a significant departure from previous forms of commercial energy production, which relied on less energetically lucrative sources such as combustion of coal, oil and gas. Indeed, the closest we had come to utilising nuclear energy commercially was through geothermal power, where the thermal energy is partly due to radiogenic heat from unstable isotopes in the Earth's mantle \cite{gando2011partial} . 
+It was only in the second half of the twentieth century that the energy confined within the atomic nucleus was first utilised for commercial electrical power. This marked a significant departure from previous forms of commercial energy production, which relied on less energetically lucrative sources such as combustion of coal, oil and gas. Indeed, the closest we had come to utilising nuclear energy commercially was through geothermal power, where the thermal energy is partly due to radiogenic heat from unstable isotopes in the Earth's mantle \cite{gando2011partial} . 
 %which relied on the chemical reactions of coal oil and gas
 %Combustion is a chemical process, where energy differences between reactants and products are exploited via electron exchange. Nuclear energy however, exploits the energy difference between nuclei. Both rely on the conversion of mass into energy, however, the amount of energy that can be extracted varies by several orders of magnitude
 Combustion is a chemical process where energy differences between reactants and products are exploited via electron exchange. Nuclear energy however, exploits the energy difference between nuclei. Both rely on the conversion of mass into energy, however, the amount of energy that can be extracted from the nucleus is several orders of magnitude greater.
@@ -60,13 +60,12 @@ Larger nuclei will generally have a greater total binding energy value compared 
 \end{figure}
 
 
-\begin{itemize}
-\item binding energy per nucleon curve
-\item uranium as a fuel, example fission reactions
-\end{itemize}
-
-Nuclear fission is the process that powers all current commercial nuclear power plants. 
 \subsection{Reactor design}
+
+Commercial nuclear reactors are large boilers in a Rankine cycle, designed to maximise heat transfer to a working fluid. All nuclear plants use steam turbines on the generation side, though the reactor coolant may be another fluid in a separate loop, such as carbon dioxide in gas-cooled reactors (GCRs), or even in a separate water loop such as in pressurised water reactors (PWRs) and CANDU. The work in this thesis is focused on zirconium-based claddings which are used worldwide in all commercial reactors except GCRs and sodium-cooled fast reactors. The most prevalent reactor type is the PWR, followed by the boiling water reactor (BWR) {REFER TO TABLE}. 
+
+
+%Depending on the type of reactor, one or two coolant loops may be utilised. The generation side always involves 
 
 \begin{itemize}
 \item LWRs vs other kinds of reactors
@@ -77,6 +76,12 @@ Nuclear fission is the process that powers all current commercial nuclear power 
 
 \subsection{Nuclear reactor fuel pins}
 
+Fuel assemblies in nuclear reactors are bundles of fuel pins. In most commercial reactors, these fuel pins are comprised of a zirconium-based cladding which is filled with UO$_{2}$ fuel pellets, each of which are approximately 1 cm$^{3}$ in volume. Once loaded with fuel pellets, the fuel pins are capped and filled with inert helium gas, pressurised to between 2 and 25 atm to improve heat transfer from the fuel pellets to the coolant as well as delaying inward creep deformation of the cladding due to the high coolant pressure \cite{King1980}. In the early stages of a fuel pin's life, there is a small gap between the fuel pellet and the cladding, known as the pellet-cladding gas gap. This gas gap slowly closes with increasing burn-up mostly due to swelling of the fuel pellets.
+
+\subsubsection{Zirconium cladding}
+
+
+
 \begin{itemize}
 \item Zirconium cladding
 \item Ceramic fuel pellets
@@ -86,10 +91,15 @@ Nuclear fission is the process that powers all current commercial nuclear power 
 
 \subsection{Effects of radiation on materials and fuel}
 
+While ionising radiation is always present in the environment as background radiation, the intensity of radiation in a nuclear reactor is so great that it presents significant engineering challenges because of how it affects different materials.
+
+Radiation hardening (also known as radiation embrittlement) is a phenomenon which affects most materials subjected to ionising radiation. It is characterised by a loss of plasticity caused by radiation damage over time, leading to an increased risk of cracks and failure of components. While zirconium is a very useful nuclear material due to it's neutron transparency, it is still susceptible to this type of damage \cite{Wisner1998CombinedZircaloy-2}.
+
+Amorphisation is another effect of radiation damage. This is characterised by a loss of long-range order of atoms in a crystal. This typically occurs beyond a certain threshold of radiation damage depending on the material, called the critical amorphisation dose. Amorphisation is problematic because the loss of a defined crystal structure results in both a loss of strength and swelling of the material. In the literature, there is evidence of amorphisation in cubic stabilised \zirconia\ when bombarded with Cs ions with a fluence of $1 \times 10^{21}$ ions m$^{-2}$ \cite{amorphization2000wang}. However, no amorphisation is seen at an Xe$^{2+}$ fluence of $2 \times 10^{21}$ ions m$^{-2}$, or an I$^{+}$ fluence of $5 \times 10^{19}$ ions m$^{-2}$ \cite{sickafus1999radiation}.
+
+One material phenomenon exclusive to nuclear reactor environments is neutron activation. The high free neutron environment leads to neutron capture in nuclei within the reactor, including the fuel assemblies, coolant and RPV. 
+
 \begin{itemize}
-\item Radiation hardening
-\item Amorphisation
-\item Defects
 \item Radiolysis
 \item Activation
 \end{itemize}

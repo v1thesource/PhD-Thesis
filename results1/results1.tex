@@ -36,14 +36,10 @@ F(T, V) = U(V) + H_{vib}(T, V) - TS_{vib}(T, V) - TS_{conf}
 Defective formation energies are calculated using equation \ref{equation:formation_energy}:
 
 \begin{equation} \label{equation:formation_energy}
-    E_{f} = E_{def} - E_{perf} + q(\mu_{e} - E_{VBM}) + E_{corr}
+    E_{f} = E_{def} - E_{perf} + \sum_{i} n_i\mu_i + q(\mu_{e} - E_{VBM}) + E_{corr}
 \end{equation}
 
 where $E_{f}$ is the formation energy, $E_{def}$ is the energy of the defective supercell, $E_{perf}$ is the energy of a non-defective supercell, $q$ is the defect charge, $E_{VBM}$ is the valence band maximum, $\mu_{e}$ is the Fermi energy and $E_{corr}$ is a charged-cell correction term.
-
-\begin{itemize}
-\item defective cell - perfect cell + electron energy + charge correction
-\end{itemize}
 
 \subsection{Brouwer diagrams}
 
@@ -207,7 +203,7 @@ $C_{66}$                                         & 114.19        & 152.60       
 
 The calculated Helmholtz energies plotted in Figure \ref{Figure:helmholtz} show the correct order of stability for the three phases of \zirconia\ at low temperatures (monoclinic $->$ tetragonal $->$ cubic) . However, as temperature is increased, only a transition from monoclinic to tetragonal is seen. The cubic phase Helmholtz energy does fall below the monoclinic curve, but never below the tetragonal curve, thus predicting no tetragonal to cubic phase transition. It must also be noted that the transition temperatures are not predicted accurately. The tetragonal phase is predicted to have a lower energy than monoclinic at approximately 400 K.
 
-\begin{figure}[h] % Helmholtz
+\begin{figure}[ht] % Helmholtz
 \begin{center}
 \begin{tikzpicture}
 	\begin{axis}
@@ -226,7 +222,7 @@ The calculated Helmholtz energies plotted in Figure \ref{Figure:helmholtz} show 
 
 The intrinsic defect equilibria are shown in Brouwer diagrams in Figures \ref{figure:mono_intrinsic_brouwer}, \ref{figure:tet_intrinsic_brouwer} and \ref{figure:cubic_intrinsic_brouwer}. The monoclinic phase exhibits the smallest overall concentration of intrinsic defects due to the low temperature (650 K) relative to the other tetragonal (1500 K) and cubic (XXX K) phases.
 
-\begin{figure}[h] % Mono intrinsic Brouwer
+\begin{figure}[ht] % Mono intrinsic Brouwer
 \begin{center}
 \begin{tikzpicture}
 	\begin{axis}
@@ -258,7 +254,7 @@ The intrinsic defect equilibria are shown in Brouwer diagrams in Figures \ref{fi
 	\end{center}
 \end{figure}
 
-\begin{figure}[h] % Tet intrinsic Brouwer
+\begin{figure}[ht] % Tet intrinsic Brouwer
 \begin{center}
 \begin{tikzpicture}
 	\begin{axis}
@@ -290,7 +286,7 @@ The intrinsic defect equilibria are shown in Brouwer diagrams in Figures \ref{fi
 	\end{center}
 \end{figure}
 
-\begin{figure}[h] % cubic intrinsic Brouwer
+\begin{figure}[ht] % cubic intrinsic Brouwer
 \begin{center}
 \begin{tikzpicture}
 	\begin{axis}
