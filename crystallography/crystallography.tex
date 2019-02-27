@@ -31,9 +31,6 @@ A unit cell of monoclinic \zirconia\ is illustrated in Figure \ref{figure:coordi
 \label{figure:monoschottky}
 \end{figure}
 
-\subsection{Common and predicted crystal structures}
-
-Three common crystal structure at atmospheric conditions, as shown in table \ref{table:phases}.
 
 \begin{table}[htp]
 \centering
@@ -72,7 +69,7 @@ Another consequence of this large volume expansion is that a significant hystere
         \addplot[no marks, densely dotted] table [x=zr_o_dist, y=cubic,]{dat/zr_o_bond_distances.dat}; \addlegendentry{Cubic};
 			\end{axis}
 		\end{tikzpicture}
-		\caption{Density plot of the nearest neighbour Zr-O bond distances in \zirconia\ for each crystal structure. Specific volumes from DFT simulations are 11.99, 11.51, and 11.13 \r{A}\textsuperscript{3}ion\textsuperscript{-1} for monoclinic, tetragonal, and cubic phases respectively.}
+		\caption{Density plot of the nearest neighbour Zr-O bond distances in \zirconia\ for each crystal structure. Specific volumes from DFT simulations are 11.99 \r{A}$^{3}$ion$^{-1}$, 11.51 \r{A}$^{3}$ion$^{-1}$, and 11.13 \r{A}$^{3}$ion$^{-1}$ for monoclinic, tetragonal, and cubic phases respectively.}
 		\label{figure:zrobonddistance}
 	\end{center}
 \end{figure}
@@ -84,13 +81,13 @@ The tetragonal and cubic phases of \zirconia\ are stabilised at high pressure. S
 
 \subsection{Dopant stabilisation (lower valence cations)}
 
-Some dopants will also stabilise the tetragonal and cubic phases of \zirconia. The most famous of which is yttrium, which at concentrations of 15\% (atomic), fully stabilises the cubic phase. Zirconia stabilised this way is known as YSZ. The way this works is by yttrium promoting the creation of oxygen vacancy defects (see equation XXX). This works in a similar way with several other lower valence cation dopants such as scandium and magnesium.
+Some dopants will also stabilise the tetragonal and cubic phases of \zirconia. The most technologically significant of which is yttrium, which at concentrations of 15\% (atomic), fully stabilises the cubic phase. Zirconia stabilised this way is known as yttria-stabilised zirconia (YSZ). The way this works is by trivalent yttrium promoting the inclusion of charge compensating oxygen vacancy defects (see equation XXX). This works in a similar way with several other cation dopants such as trivalent scandium and divalent magnesium.
 
-\section{Defect energies and defect volumes}
+\section{Point Defects}
 
 \subsection{Kr\"{o}ger-Vink notation}
 
-Kr\"{o}ger-Vink notation \cite{kroger1956relations} is used throughout this work to describe defects. It is widely used in physical chemistry and is a useful shorthand for describing chemical reactions where we must consider conservation of mass, charge and also lattice sites. The notation syntax is of the form \ch{x^{y}_{z}}, where x is the atom or vacancy, y is the charge of the defect and z is the site the defect occupies. Positive and negative charges are indicated with dots (\ch{^{*}}) and dashes (\ch{^{'}}) respectively, otherwise a cross (\ch{^{x}}) is used to denote a neutral defect. The site may be either a lattice site (such as Zr or O in \zirconia ) or an interstitial site ($i$). Table \ref{table:krogervink} shows examples of several different types of defects and their respective Kr\"{o}ger-Vink notation.
+Kr\"{o}ger-Vink notation \cite{kroger1956relations} is used throughout this thesis to describe defects. It is widely used in physical chemistry and is a useful shorthand for describing chemical reactions where conservation of mass, charge and lattice sites is required. The notation syntax is of the form \ch{x^{y}_{z}}, where x is the substituted atom or missing atom (i.e. a vacancy V), y is the charge of the defect (relative to the lattice species that originally occupied the site) and z is the site the defect occupies. Positive and negative charges are indicated with dots (\ch{^{*}}) and dashes (\ch{^{'}}) respectively, otherwise a cross (\ch{^{x}}) is used to denote a neutral defect. The site may be either a lattice site (such as Zr or O in \zirconia ) or an interstitial site ($i$). Table \ref{table:krogervink} shows examples of several different types of defects and their respective Kr\"{o}ger-Vink notation.
 
 \begin{table}[htp] % Kroger-Vink notation table
 \onehalfspacing
@@ -104,7 +101,7 @@ Anion vacancy & \ch{V_{O}^{**}} \\
 Cation vacancy & \ch{V_{Zr}^{''''}} \\
 Anion interstitial & \ch{O_{i}^{''}} \\
 Cation interstitial & \ch{Zr_{i}^{****}} \\
-Iodine on anion site & \ch{I_{O}^{*}} \\ \hline
+Iodine (I$^{-}$ anion) on oxygen site & \ch{I_{O}^{*}} \\ \hline
 \end{tabular}
 \end{table}
 
@@ -112,7 +109,7 @@ Iodine on anion site & \ch{I_{O}^{*}} \\ \hline
 
 \subsubsection*{Isolated Frenkel defects}
 
-Zr and O Frenkel defect formation energies were calculated via point defect DFT energies for the three structures. The formation energies of the isolated Frenkel defect pairs were defined as:
+Zr and O Frenkel defect formation energies were determined via point defect DFT calculations for the three structures. The formation energies of the isolated Frenkel defect pairs were defined as:
 % Interstitial iodine defects were simulated in the neutral charge state at different interstitial sites in each phase. The incorporation energy of these defects, assuming a perfect lattice, was calculated using Equation \ref{equation_incorporation}:
 
 \begin{equation}
