@@ -5,7 +5,14 @@
 \usepackage{setspace}
 \usepackage{acronym}
 \usepackage{xr-hyper}
-\usepackage{hyperref}
+\usepackage[backref=page]{hyperref}
+
+\usepackage{etoolbox} % This is necessary for backref of citations
+\makeatletter
+\patchcmd{\BR@backref}{\newblock}{\newblock(Cited on page~}{}{}
+\patchcmd{\BR@backref}{\par}{)\par}{}{}
+\makeatother
+
 %\usepackage{nomencl}
 \usepackage{animate}
 \usepackage{pgfplots}
@@ -35,7 +42,7 @@
 \usepackage{lscape} % Landscape view
 \usepackage{float}
 
-\raggedbottom
+\raggedbottom % Fixes over and under-full boxes
 
 \input{blocked.sty}
 \input{uhead.sty}
