@@ -1,27 +1,27 @@
 \addvspace {10\p@ }
 \contentsline {table}{\numberline {1.1}{\ignorespaces Ionic radii of Zr\textsuperscript {4+} and Y\textsuperscript {3+} in various coordination environments. Values taken from \cite {Shannon1976}.}}{11}{table.1.1}
-\contentsline {table}{\numberline {1.2}{\ignorespaces Experimentally determined band gaps alongside values calculated from DFT simulations for each crystal structure of zirconia. Experimental values taken from \cite {French1994}.}}{14}{table.1.2}
+\contentsline {table}{\numberline {1.2}{\ignorespaces Experimentally determined band gaps alongside values calculated from DFT simulations for each crystal structure of zirconia. Experimental values taken from \cite {French1994}.}}{15}{table.1.2}
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {2.1}{\ignorespaces ZrO$_{2}$\ crystal structures and their stable temperatures at 1 atm \cite {Howard1988}.}}{17}{table.2.1}
-\contentsline {table}{\numberline {2.2}{\ignorespaces Examples of Kr\"{o}ger-Vink notation for several defects in ZrO$_{2}$.}}{20}{table.2.2}
+\contentsline {table}{\numberline {2.1}{\ignorespaces ZrO$_{2}$\ crystal structures and their stable temperatures at 1 atm \cite {Howard1988}.}}{18}{table.2.1}
+\contentsline {table}{\numberline {2.2}{\ignorespaces Examples of Kr\"{o}ger-Vink notation for several defects in ZrO$_{2}$.}}{22}{table.2.2}
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {3.1}{\ignorespaces Composition of the supercells in terms of the number of individual unit cells stacked in each direction.}}{30}{table.3.1}
-\contentsline {table}{\numberline {3.2}{\ignorespaces Calculated unit cell parameters for the different crystal structures of ZrO$_{2}$. Experimental data for pure monoclinic and stabilised tetragonal and cubic phases at 295 K are shown in parentheses \cite {Howard1988}. Energy difference between structures is shown with respect to the cubic phase.}}{40}{table.3.2}
+\contentsline {table}{\numberline {3.1}{\ignorespaces Composition of the supercells in terms of the number of individual unit cells stacked in each direction.}}{32}{table.3.1}
+\contentsline {table}{\numberline {3.2}{\ignorespaces Calculated unit cell parameters for the different crystal structures of ZrO$_{2}$. Experimental data for pure monoclinic and stabilised tetragonal and cubic phases at 295 K are shown in parentheses \cite {Howard1988}. Energy difference between structures is shown with respect to the cubic phase.}}{41}{table.3.2}
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {4.1}{\ignorespaces Wyckoff positions of interstitial sites used for each crystal structure.}}{45}{table.4.1}
+\contentsline {table}{\numberline {4.1}{\ignorespaces Wyckoff positions of interstitial sites used for each crystal structure.}}{47}{table.4.1}
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {5.1}{\ignorespaces Isolated cluster defect volumes in the three ZrO$_{2}$\ structures.}}{53}{table.5.1}
-\contentsline {table}{\numberline {5.2}{\ignorespaces Formation energies in eV of isolated ZrO$_{2}$\ defects.}}{54}{table.5.2}
-\contentsline {table}{\numberline {5.3}{\ignorespaces Formation energies of bound defects in ZrO$_{2}$.}}{54}{table.5.3}
-\contentsline {table}{\numberline {5.4}{\ignorespaces Elastic constants for different phases of ZrO$_{2}$\ from DFT calculations.}}{55}{table.5.4}
-\contentsline {table}{\numberline {5.5}{\ignorespaces Isolated defect volumes in the three ZrO$_{2}$\ structures.}}{56}{table.5.5}
+\contentsline {table}{\numberline {5.1}{\ignorespaces Isolated cluster defect volumes in the three ZrO$_{2}$\ structures.}}{55}{table.5.1}
+\contentsline {table}{\numberline {5.2}{\ignorespaces Formation energies in eV of isolated ZrO$_{2}$\ defects.}}{56}{table.5.2}
+\contentsline {table}{\numberline {5.3}{\ignorespaces Formation energies of bound defects in ZrO$_{2}$.}}{56}{table.5.3}
+\contentsline {table}{\numberline {5.4}{\ignorespaces Elastic constants for different phases of ZrO$_{2}$\ from DFT calculations.}}{57}{table.5.4}
+\contentsline {table}{\numberline {5.5}{\ignorespaces Isolated defect volumes in the three ZrO$_{2}$\ structures.}}{58}{table.5.5}
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {6.1}{\ignorespaces Incorporation energies of neutral iodine interstitials in non-defective supercells.}}{69}{table.6.1}
-\contentsline {table}{\numberline {6.2}{\ignorespaces Incorporation energies of iodine in oxygen sites of the monoclinic, tetragonal, and cubic ZrO$_{2}$\ phases.}}{69}{table.6.2}
-\contentsline {table}{\numberline {6.3}{\ignorespaces Incorporation energies of iodine in zirconium sites of ZrO$_{2}$.}}{69}{table.6.3}
+\contentsline {table}{\numberline {6.1}{\ignorespaces Incorporation energies of neutral iodine interstitials in non-defective supercells.}}{71}{table.6.1}
+\contentsline {table}{\numberline {6.2}{\ignorespaces Incorporation energies of iodine in oxygen sites of the monoclinic, tetragonal, and cubic ZrO$_{2}$\ phases.}}{71}{table.6.2}
+\contentsline {table}{\numberline {6.3}{\ignorespaces Incorporation energies of iodine in zirconium sites of ZrO$_{2}$.}}{71}{table.6.3}
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {7.1}{\ignorespaces Defect volumes and formation energies of the dominant defect types in tetragonal ZrO$_{2}$.}}{84}{table.7.1}
-\contentsline {table}{\numberline {7.2}{\ignorespaces Independent fission product yields and half-lives for the major iodine isotopes and precursors in a thermal neutron reactor. Yields from \cite {iodinefissionyields, iodine132}. All isotopes undergo single $\beta $- decay. Metastable states are included.}}{85}{table.7.2}
+\contentsline {table}{\numberline {7.1}{\ignorespaces Defect volumes and formation energies of the dominant defect types in tetragonal ZrO$_{2}$.}}{86}{table.7.1}
+\contentsline {table}{\numberline {7.2}{\ignorespaces Independent fission product yields and half-lives for the major iodine isotopes and precursors in a thermal neutron reactor. Yields from \cite {iodinefissionyields, iodine132}. All isotopes undergo single $\beta $- decay. Metastable states are included.}}{87}{table.7.2}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

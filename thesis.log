@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2019.3.3)  3 MAR 2019 18:56
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2019.3.3)  4 MAR 2019 15:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -183,9 +183,18 @@ Package hyperref Info: Hyper figures OFF on input line 4509.
 Package hyperref Info: Link nesting OFF on input line 4514.
 Package hyperref Info: Hyper index ON on input line 4517.
 Package hyperref Info: Plain pages OFF on input line 4524.
-Package hyperref Info: Backreferencing OFF on input line 4529.
+Package hyperref Info: Backreferencing ON on input line 4527.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4762.
+
+(/usr/local/texlive/2018/texmf-dist/tex/latex/hyperref/backref.sty
+Package: backref 2016/05/21 v1.39 Bibliographical back referencing
+
+(/usr/local/texlive/2018/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty
+Package: rerunfilecheck 2016/05/16 v1.8 Rerun checks for auxiliary files (HO)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
+82.
+))
 \c@Hy@tempcnt=\count97
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/url/url.sty
@@ -200,7 +209,7 @@ LaTeX Info: Redefining \url on input line 5115.
 Package hyperref Info: Hyper figures OFF on input line 6369.
 Package hyperref Info: Link nesting OFF on input line 6374.
 Package hyperref Info: Hyper index ON on input line 6377.
-Package hyperref Info: backreferencing OFF on input line 6384.
+Package hyperref Info: backreferencing ON on input line 6382.
 Package hyperref Info: Link coloring OFF on input line 6389.
 Package hyperref Info: Link coloring with OCG OFF on input line 6394.
 Package hyperref Info: PDF/A mode OFF on input line 6399.
@@ -216,13 +225,11 @@ Package hyperref Info: Driver (autodetected): hpdftex.
 File: hpdftex.def 2018/02/06 v6.86b Hyperref driver for pdfTeX
 \Fld@listcount=\count102
 \c@bookmark@seq@number=\count103
-
-(/usr/local/texlive/2018/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty
-Package: rerunfilecheck 2016/05/16 v1.8 Rerun checks for auxiliary files (HO)
-Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
-82.
-)
 \Hy@SectionHShift=\skip43
+)
+(/usr/local/texlive/2018/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+Package: etoolbox 2018/02/11 v2.5e e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count104
 )
 (/usr/local/texlive/2018/texmf-dist/tex/latex/animate/animate.sty
 Package: animate 2018/02/28 PDF animations from files and inline graphics
@@ -235,7 +242,7 @@ Package: xkeyval 2014/12/03 v2.7a package option processing (HA)
 \XKV@toks=\toks19
 \XKV@tempa@toks=\toks20
 )
-\XKV@depth=\count104
+\XKV@depth=\count105
 File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
 ))
 (/usr/local/texlive/2018/texmf-dist/tex/latex/base/ifthen.sty
@@ -246,15 +253,15 @@ Package: ifdraft 2016/05/16 v1.4 Detect class options draft and final (HO)
 )
 (/usr/local/texlive/2018/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count105
-\calc@Bcount=\count106
+\calc@Acount=\count106
+\calc@Bcount=\count107
 \calc@Adimen=\dimen117
 \calc@Bdimen=\dimen118
 \calc@Askip=\skip44
 \calc@Bskip=\skip45
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
-\calc@Ccount=\count107
+\calc@Ccount=\count108
 \calc@Cskip=\skip46
 )
 (/usr/local/texlive/2018/texmf-dist/tex/latex/media9/pdfbase.sty
@@ -263,18 +270,18 @@ Package: expl3 2018/03/05 L3 programming layer (loader)
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/l3kernel/expl3-code.tex
 Package: expl3 2018/03/05 L3 programming layer (code)
-\c_max_int=\count108
-\l_tmpa_int=\count109
-\l_tmpb_int=\count110
-\g_tmpa_int=\count111
-\g_tmpb_int=\count112
-\g__intarray_font_int=\count113
-\g__prg_map_int=\count114
-\c_log_iow=\count115
-\l_iow_line_count_int=\count116
-\l__iow_line_target_int=\count117
-\l__iow_one_indent_int=\count118
-\l__iow_indent_int=\count119
+\c_max_int=\count109
+\l_tmpa_int=\count110
+\l_tmpb_int=\count111
+\g_tmpa_int=\count112
+\g_tmpb_int=\count113
+\g__intarray_font_int=\count114
+\g__prg_map_int=\count115
+\c_log_iow=\count116
+\l_iow_line_count_int=\count117
+\l__iow_line_target_int=\count118
+\l__iow_one_indent_int=\count119
+\l__iow_indent_int=\count120
 \c_zero_dim=\dimen119
 \c_max_dim=\dimen120
 \l_tmpa_dim=\dimen121
@@ -293,77 +300,77 @@ Package: expl3 2018/03/05 L3 programming layer (code)
 \l_tmpb_muskip=\muskip14
 \g_tmpa_muskip=\muskip15
 \g_tmpb_muskip=\muskip16
-\l_keys_choice_int=\count120
-\c__fp_leading_shift_int=\count121
-\c__fp_middle_shift_int=\count122
-\c__fp_trailing_shift_int=\count123
-\c__fp_big_leading_shift_int=\count124
-\c__fp_big_middle_shift_int=\count125
-\c__fp_big_trailing_shift_int=\count126
-\c__fp_Bigg_leading_shift_int=\count127
-\c__fp_Bigg_middle_shift_int=\count128
-\c__fp_Bigg_trailing_shift_int=\count129
-\c__fp_rand_size_int=\count130
-\c__fp_rand_four_int=\count131
-\c__fp_rand_eight_int=\count132
-\l__sort_length_int=\count133
-\l__sort_min_int=\count134
-\l__sort_top_int=\count135
-\l__sort_max_int=\count136
-\l__sort_true_max_int=\count137
-\l__sort_block_int=\count138
-\l__sort_begin_int=\count139
-\l__sort_end_int=\count140
-\l__sort_A_int=\count141
-\l__sort_B_int=\count142
-\l__sort_C_int=\count143
-\l__tl_build_start_index_int=\count144
-\l__tl_build_index_int=\count145
-\l__tl_analysis_normal_int=\count146
-\l__tl_analysis_index_int=\count147
-\l__tl_analysis_nesting_int=\count148
-\l__tl_analysis_type_int=\count149
-\l__regex_internal_a_int=\count150
-\l__regex_internal_b_int=\count151
-\l__regex_internal_c_int=\count152
-\l__regex_balance_int=\count153
-\l__regex_group_level_int=\count154
-\l__regex_mode_int=\count155
-\c__regex_cs_in_class_mode_int=\count156
-\c__regex_cs_mode_int=\count157
-\l__regex_catcodes_int=\count158
-\l__regex_default_catcodes_int=\count159
-\c__regex_catcode_D_int=\count160
-\c__regex_catcode_S_int=\count161
-\c__regex_catcode_L_int=\count162
-\c__regex_catcode_O_int=\count163
-\c__regex_catcode_A_int=\count164
-\c__regex_all_catcodes_int=\count165
-\l__regex_show_lines_int=\count166
-\l__regex_min_state_int=\count167
-\l__regex_max_state_int=\count168
-\l__regex_left_state_int=\count169
-\l__regex_right_state_int=\count170
-\l__regex_capturing_group_int=\count171
-\l__regex_min_pos_int=\count172
-\l__regex_max_pos_int=\count173
-\l__regex_curr_pos_int=\count174
-\l__regex_start_pos_int=\count175
-\l__regex_success_pos_int=\count176
-\l__regex_curr_char_int=\count177
-\l__regex_curr_catcode_int=\count178
-\l__regex_last_char_int=\count179
-\l__regex_case_changed_char_int=\count180
-\l__regex_curr_state_int=\count181
-\l__regex_step_int=\count182
-\l__regex_min_active_int=\count183
-\l__regex_max_active_int=\count184
-\l__regex_replacement_csnames_int=\count185
-\l__regex_match_count_int=\count186
-\l__regex_min_submatch_int=\count187
-\l__regex_submatch_int=\count188
-\l__regex_zeroth_submatch_int=\count189
-\g__regex_trace_regex_int=\count190
+\l_keys_choice_int=\count121
+\c__fp_leading_shift_int=\count122
+\c__fp_middle_shift_int=\count123
+\c__fp_trailing_shift_int=\count124
+\c__fp_big_leading_shift_int=\count125
+\c__fp_big_middle_shift_int=\count126
+\c__fp_big_trailing_shift_int=\count127
+\c__fp_Bigg_leading_shift_int=\count128
+\c__fp_Bigg_middle_shift_int=\count129
+\c__fp_Bigg_trailing_shift_int=\count130
+\c__fp_rand_size_int=\count131
+\c__fp_rand_four_int=\count132
+\c__fp_rand_eight_int=\count133
+\l__sort_length_int=\count134
+\l__sort_min_int=\count135
+\l__sort_top_int=\count136
+\l__sort_max_int=\count137
+\l__sort_true_max_int=\count138
+\l__sort_block_int=\count139
+\l__sort_begin_int=\count140
+\l__sort_end_int=\count141
+\l__sort_A_int=\count142
+\l__sort_B_int=\count143
+\l__sort_C_int=\count144
+\l__tl_build_start_index_int=\count145
+\l__tl_build_index_int=\count146
+\l__tl_analysis_normal_int=\count147
+\l__tl_analysis_index_int=\count148
+\l__tl_analysis_nesting_int=\count149
+\l__tl_analysis_type_int=\count150
+\l__regex_internal_a_int=\count151
+\l__regex_internal_b_int=\count152
+\l__regex_internal_c_int=\count153
+\l__regex_balance_int=\count154
+\l__regex_group_level_int=\count155
+\l__regex_mode_int=\count156
+\c__regex_cs_in_class_mode_int=\count157
+\c__regex_cs_mode_int=\count158
+\l__regex_catcodes_int=\count159
+\l__regex_default_catcodes_int=\count160
+\c__regex_catcode_D_int=\count161
+\c__regex_catcode_S_int=\count162
+\c__regex_catcode_L_int=\count163
+\c__regex_catcode_O_int=\count164
+\c__regex_catcode_A_int=\count165
+\c__regex_all_catcodes_int=\count166
+\l__regex_show_lines_int=\count167
+\l__regex_min_state_int=\count168
+\l__regex_max_state_int=\count169
+\l__regex_left_state_int=\count170
+\l__regex_right_state_int=\count171
+\l__regex_capturing_group_int=\count172
+\l__regex_min_pos_int=\count173
+\l__regex_max_pos_int=\count174
+\l__regex_curr_pos_int=\count175
+\l__regex_start_pos_int=\count176
+\l__regex_success_pos_int=\count177
+\l__regex_curr_char_int=\count178
+\l__regex_curr_catcode_int=\count179
+\l__regex_last_char_int=\count180
+\l__regex_case_changed_char_int=\count181
+\l__regex_curr_state_int=\count182
+\l__regex_step_int=\count183
+\l__regex_min_active_int=\count184
+\l__regex_max_active_int=\count185
+\l__regex_replacement_csnames_int=\count186
+\l__regex_match_count_int=\count187
+\l__regex_min_submatch_int=\count188
+\l__regex_submatch_int=\count189
+\l__regex_zeroth_submatch_int=\count190
+\g__regex_trace_regex_int=\count191
 \c_empty_box=\box26
 \l_tmpa_box=\box27
 \l_tmpb_box=\box28
@@ -407,36 +414,36 @@ Package: expl3 2018/03/05 L3 programming layer (code)
 )
 (/usr/local/texlive/2018/texmf-dist/tex/latex/l3kernel/l3pdfmode.def
 File: l3pdfmode.def 2017/03/18 v L3 Experimental driver: PDF mode
-\l__driver_color_stack_int=\count191
+\l__driver_color_stack_int=\count192
 ))
 (/usr/local/texlive/2018/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.sty
 Package: l3keys2e 2018/02/21 LaTeX2e option processing using LaTeX3 keys
 )
 Package: pdfbase 2018/04/06 v0.23 driver independent access to low-level PDF fe
 atures
-\g_pbs_page_int=\count192
-\g_pbs_oc_int=\count193
+\g_pbs_page_int=\count193
+\g_pbs_oc_int=\count194
 ) (/usr/local/texlive/2018/texmf-dist/tex/latex/ocgx2/ocgbase.sty
 Package: ocgbase 2018/04/06 v0.13 support package for ocgx2.sty
-\g_ocgbase_nd_int=\count194
+\g_ocgbase_nd_int=\count195
 )
 \@anim@box=\box41
 \@anim@measbox=\box42
 \@anim@tmpdima=\dimen150
 \@anim@tmpdimb=\dimen151
-\@anim@num=\count195
-\@anim@curframe=\count196
-\@anim@curframe@zb=\count197
-\@anim@resizeflags=\count198
-\@anim@skipfram=\count199
-\@anim@mulframecnt=\count266
+\@anim@num=\count196
+\@anim@curframe=\count197
+\@anim@curframe@zb=\count198
+\@anim@resizeflags=\count199
+\@anim@skipfram=\count266
+\@anim@mulframecnt=\count267
 \@anim@@tmlnfile=\read2
-\@anim@tmpcnt=\count267
-\c@@anim@ltxcnt=\count268
-\@anim@curlayer=\count269
-\@anim@lineno=\count270
-\@anim@curfield=\count271
-\@anim@@resizeflags=\count272
+\@anim@tmpcnt=\count268
+\c@@anim@ltxcnt=\count269
+\@anim@curlayer=\count270
+\@anim@lineno=\count271
+\@anim@curfield=\count272
+\@anim@@resizeflags=\count273
 )
 (/usr/local/texlive/2018/texmf-dist/tex/latex/pgfplots/pgfplots.sty
 (/usr/local/texlive/2018/texmf-dist/tex/generic/pgfplots/pgfplots.revision.tex)
@@ -483,10 +490,10 @@ ode.tex
 \pgf@yc=\dimen161
 \w@pgf@writea=\write4
 \r@pgf@reada=\read3
-\c@pgf@counta=\count273
-\c@pgf@countb=\count274
-\c@pgf@countc=\count275
-\c@pgf@countd=\count276
+\c@pgf@counta=\count274
+\c@pgf@countb=\count275
+\c@pgf@countc=\count276
+\c@pgf@countd=\count277
 \t@pgf@toka=\toks25
 \t@pgf@tokb=\toks26
 \t@pgf@tokc=\toks27
@@ -507,8 +514,8 @@ File: pgfsys-common-pdf.def 2013/10/10  (rcs-revision 1.13)
 (/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.
 code.tex
 File: pgfsyssoftpath.code.tex 2013/09/09  (rcs-revision 1.9)
-\pgfsyssoftpath@smallbuffer@items=\count277
-\pgfsyssoftpath@bigbuffer@items=\count278
+\pgfsyssoftpath@smallbuffer@items=\count278
+\pgfsyssoftpath@bigbuffer@items=\count279
 )
 (/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.
 code.tex
@@ -537,7 +544,7 @@ Package: pgfcore 2010/04/11 v3.0.1a (rcs-revision 1.7)
 (/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex)
 (/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
 \pgfmath@dimen=\dimen162
-\pgfmath@count=\count279
+\pgfmath@count=\count280
 \pgfmath@box=\box44
 \pgfmath@toks=\toks28
 \pgfmath@stack@operand=\toks29
@@ -562,7 +569,7 @@ code.tex)
 (/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integ
 erarithmetics.code.tex)))
 (/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
-\c@pgfmathroundto@lastzeros=\count280
+\c@pgfmathroundto@lastzeros=\count281
 ))
 (/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.co
 de.tex
@@ -600,7 +607,7 @@ File: pgfcorescopes.code.tex 2015/05/08  (rcs-revision 1.46)
 \pgfpic=\box45
 \pgf@hbox=\box46
 \pgf@layerbox@main=\box47
-\pgf@picture@serial@count=\count281
+\pgf@picture@serial@count=\count282
 )
 (/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicst
 ate.code.tex
@@ -635,7 +642,7 @@ File: pgfcorearrows.code.tex 2015/05/14  (rcs-revision 1.43)
 e.tex
 File: pgfcoreshade.code.tex 2013/07/15  (rcs-revision 1.15)
 \pgf@max=\dimen186
-\pgf@sys@shading@range@num=\count282
+\pgf@sys@shading@range@num=\count283
 )
 (/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.cod
 e.tex
@@ -698,7 +705,7 @@ Package: tikz 2015/08/07 v3.0.1a (rcs-revision 1.151)
 (/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothan
 dlers.code.tex
 File: pgflibraryplothandlers.code.tex 2013/08/31 v3.0.1a (rcs-revision 1.20)
-\pgf@plot@mark@count=\count283
+\pgf@plot@mark@count=\count284
 \pgfplotmarksize=\dimen191
 )
 \tikz@lastx=\dimen192
@@ -711,19 +718,19 @@ File: pgflibraryplothandlers.code.tex 2013/08/31 v3.0.1a (rcs-revision 1.20)
 \tikz@figbox@bg=\box51
 \tikz@tempbox=\box52
 \tikz@tempbox@bg=\box53
-\tikztreelevel=\count284
-\tikznumberofchildren=\count285
-\tikznumberofcurrentchild=\count286
-\tikz@fig@count=\count287
+\tikztreelevel=\count285
+\tikznumberofchildren=\count286
+\tikznumberofcurrentchild=\count287
+\tikz@fig@count=\count288
 
 (/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.cod
 e.tex
 File: pgfmodulematrix.code.tex 2013/09/17  (rcs-revision 1.8)
-\pgfmatrixcurrentrow=\count288
-\pgfmatrixcurrentcolumn=\count289
-\pgf@matrix@numberofcolumns=\count290
+\pgfmatrixcurrentrow=\count289
+\pgfmatrixcurrentcolumn=\count290
+\pgf@matrix@numberofcolumns=\count291
 )
-\tikz@expandcount=\count291
+\tikz@expandcount=\count292
 
 (/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
 s/tikzlibrarytopaths.code.tex
@@ -735,8 +742,8 @@ File: tikzlibrarytopaths.code.tex 2008/06/17 v3.0.1a (rcs-revision 1.2)
 \t@pgfplots@tokb=\toks34
 \t@pgfplots@tokc=\toks35
 \pgfplots@tmpa=\dimen198
-\c@pgfplots@coordindex=\count292
-\c@pgfplots@scanlineindex=\count293
+\c@pgfplots@coordindex=\count293
+\c@pgfplots@scanlineindex=\count294
 
 (/usr/local/texlive/2018/texmf-dist/tex/generic/pgfplots/sys/pgfplotssysgeneric
 .code.tex))
@@ -752,7 +759,7 @@ Package pgfplots: loading complementary arithmetics for your pgf version...
 soldpgfsupp_pgflibraryfpu.code.tex)
 (/usr/local/texlive/2018/texmf-dist/tex/generic/pgfplots/oldpgfcompatib/pgfplot
 soldpgfsupp_pgfmathfloat.code.tex
-\c@pgfmathroundto@lastzeros=\count294
+\c@pgfmathroundto@lastzeros=\count295
 )
 (/usr/local/texlive/2018/texmf-dist/tex/generic/pgfplots/oldpgfcompatib/pgfplot
 soldpgfsupp_leq.code.tex))
@@ -764,13 +771,13 @@ liststructure.code.tex)
 liststructureext.code.tex)
 (/usr/local/texlive/2018/texmf-dist/tex/generic/pgfplots/liststructure/pgfplots
 array.code.tex
-\c@pgfplotsarray@tmp=\count295
+\c@pgfplotsarray@tmp=\count296
 )
 (/usr/local/texlive/2018/texmf-dist/tex/generic/pgfplots/liststructure/pgfplots
 matrix.code.tex)
 (/usr/local/texlive/2018/texmf-dist/tex/generic/pgfplots/numtable/pgfplotstable
 shared.code.tex
-\c@pgfplotstable@counta=\count296
+\c@pgfplotstable@counta=\count297
 \t@pgfplotstable@a=\toks36
 )
 (/usr/local/texlive/2018/texmf-dist/tex/generic/pgfplots/liststructure/pgfplots
@@ -783,7 +790,7 @@ ta.code.tex))
 .code.tex)
 (/usr/local/texlive/2018/texmf-dist/tex/generic/pgfplots/libs/pgflibrarypgfplot
 s.surfshading.code.tex
-\c@pgfplotslibrarysurf@no=\count297
+\c@pgfplotslibrarysurf@no=\count298
 
 (/usr/local/texlive/2018/texmf-dist/tex/generic/pgfplots/sys/pgflibrarypgfplots
 .surfshading.pgfsys-pdftex.def)))
@@ -820,7 +827,7 @@ s.code.tex
 \pgfdecoratedinputsegmentcompleteddistance=\dimen257
 \pgfdecoratedinputsegmentremainingdistance=\dimen258
 \pgf@decorate@distancetomove=\dimen259
-\pgf@decorate@repeatstate=\count298
+\pgf@decorate@repeatstate=\count299
 \pgfdecorationsegmentamplitude=\dimen260
 \pgfdecorationsegmentlength=\dimen261
 )
@@ -834,7 +841,7 @@ brarydecorations.pathmorphing.code.tex))
 s/tikzlibrarydecorations.pathreplacing.code.tex
 (/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/libraries/decorations/pgfli
 brarydecorations.pathreplacing.code.tex))
-\pgfplots@numplots=\count299
+\pgfplots@numplots=\count300
 \pgfplots@xmin@reg=\dimen262
 \pgfplots@xmax@reg=\dimen263
 \pgfplots@ymin@reg=\dimen264
@@ -855,9 +862,9 @@ s/tikzlibrarylindenmayersystems.code.tex
 (/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/libraries/pgflibrarylindenm
 ayersystems.code.tex
 \pgflsystemstep=\dimen268
-\c@pgf@lsystem@iteration=\count300
+\c@pgf@lsystem@iteration=\count301
 ))
-Package hyperref Info: Option `colorlinks' set `true' on input line 21.
+Package hyperref Info: Option `colorlinks' set `true' on input line 28.
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/amsmath/amsmath.sty
 Package: amsmath 2017/09/02 v2.17a AMS math features
@@ -879,13 +886,13 @@ Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 (/usr/local/texlive/2018/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 2016/03/08 v2.02 operator names
 )
-\inf@bad=\count301
+\inf@bad=\count302
 LaTeX Info: Redefining \frac on input line 213.
-\uproot@=\count302
-\leftroot@=\count303
+\uproot@=\count303
+\leftroot@=\count304
 LaTeX Info: Redefining \overline on input line 375.
-\classnum@=\count304
-\DOTSCASE@=\count305
+\classnum@=\count305
+\DOTSCASE@=\count306
 LaTeX Info: Redefining \ldots on input line 472.
 LaTeX Info: Redefining \dots on input line 475.
 LaTeX Info: Redefining \cdots on input line 596.
@@ -894,15 +901,15 @@ LaTeX Info: Redefining \cdots on input line 596.
 \big@size=\dimen271
 LaTeX Font Info:    Redeclaring font encoding OML on input line 712.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 713.
-\macc@depth=\count306
-\c@MaxMatrixCols=\count307
+\macc@depth=\count307
+\c@MaxMatrixCols=\count308
 \dotsspace@=\muskip17
-\c@parentequation=\count308
-\dspbrk@lvl=\count309
+\c@parentequation=\count309
+\dspbrk@lvl=\count310
 \tag@help=\toks38
-\row@=\count310
-\column@=\count311
-\maxfields@=\count312
+\row@=\count311
+\column@=\count312
+\maxfields@=\count313
 \andhelp@=\toks39
 \eqnshift@=\dimen272
 \alignsep@=\dimen273
@@ -942,18 +949,18 @@ Package: amsthm 2017/10/31 v2.20.4
 (/usr/local/texlive/2018/texmf-dist/tex/latex/multirow/multirow.sty
 Package: multirow 2016/11/25 v2.2 Span multiple rows of a table
 \multirow@colwidth=\skip59
-\multirow@cntb=\count313
+\multirow@cntb=\count314
 \multirow@dima=\skip60
 \bigstrutjot=\dimen278
 )
 (/usr/local/texlive/2018/texmf-dist/tex/latex/chemformula/chemformula.sty
 (/usr/local/texlive/2018/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
 Package: xparse 2018/02/21 L3 Experimental document command parser
-\l__xparse_current_arg_int=\count314
-\g__xparse_grabber_int=\count315
-\l__xparse_m_args_int=\count316
-\l__xparse_mandatory_args_int=\count317
-\l__xparse_v_nesting_int=\count318
+\l__xparse_current_arg_int=\count315
+\g__xparse_grabber_int=\count316
+\l__xparse_m_args_int=\count317
+\l__xparse_mandatory_args_int=\count318
+\l__xparse_v_nesting_int=\count319
 )
 (/usr/local/texlive/2018/texmf-dist/tex/latex/l3packages/xfrac/xfrac.sty
 (/usr/local/texlive/2018/texmf-dist/tex/latex/base/textcomp.sty
@@ -1117,7 +1124,7 @@ Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 409.
 y
 Package: xtemplate 2018/02/21 L3 Experimental prototype document functions
 \l__xtemplate_tmp_dim=\dimen279
-\l__xtemplate_tmp_int=\count319
+\l__xtemplate_tmp_int=\count320
 \l__xtemplate_tmp_muskip=\muskip18
 \l__xtemplate_tmp_skip=\skip61
 )
@@ -1163,9 +1170,9 @@ Package: chemformula 2017/03/23 v4.15e typeset chemical compounds and reactions
 \l__chemformula_tmpa_dim=\dimen289
 \l__chemformula_tmpb_dim=\dimen290
 \l__chemformula_tmpc_dim=\dimen291
-\l__chemformula_tmpa_int=\count320
-\l__chemformula_tmpb_int=\count321
-\l__chemformula_tmpc_int=\count322
+\l__chemformula_tmpa_int=\count321
+\l__chemformula_tmpb_int=\count322
+\l__chemformula_tmpc_int=\count323
 \l__chemformula_tmpa_box=\box59
 \l__chemformula_tmpb_box=\box60
 \l__chemformula_arrow_length_dim=\dimen292
@@ -1198,8 +1205,8 @@ Package: chemformula 2017/03/23 v4.15e typeset chemical compounds and reactions
 \l__chemformula_kroegervink_positive_space_dim=\dimen319
 \l__chemformula_stoich_space_skip=\skip65
 \l__chemformula_math_space_skip=\skip66
-\l__chemformula_count_tokens_int=\count323
-\g__chemformula_lewis_int=\count324
+\l__chemformula_count_tokens_int=\count324
+\g__chemformula_lewis_int=\count325
 \l__chemformula_arrow_arg_i_box=\box61
 \l__chemformula_arrow_arg_ii_box=\box62
 \l__chemformula_superscript_box=\box63
@@ -1423,14 +1430,14 @@ erence Rules
 )
 (/usr/local/texlive/2018/texmf-dist/tex/latex/tools/multicol.sty
 Package: multicol 2018/04/01 v1.8r multicolumn formatting (FMi)
-\c@tracingmulticols=\count325
+\c@tracingmulticols=\count326
 \mult@box=\box72
 \multicol@leftmargin=\dimen339
-\c@unbalance=\count326
-\c@collectmore=\count327
-\doublecol@number=\count328
-\multicoltolerance=\count329
-\multicolpretolerance=\count330
+\c@unbalance=\count327
+\c@collectmore=\count328
+\doublecol@number=\count329
+\multicoltolerance=\count330
+\multicolpretolerance=\count331
 \full@width=\dimen340
 \page@free=\dimen341
 \premulticols=\dimen342
@@ -1461,29 +1468,29 @@ Package: multicol 2018/04/01 v1.8r multicolumn formatting (FMi)
 \@tempa=\box93
 \@tempa=\box94
 \@tempa=\box95
-\c@columnbadness=\count331
-\c@finalcolumnbadness=\count332
+\c@columnbadness=\count332
+\c@finalcolumnbadness=\count333
 \last@try=\dimen345
 \multicolovershoot=\dimen346
 \multicolundershoot=\dimen347
 \mult@nat@firstbox=\box96
 \colbreak@box=\box97
-\mc@col@check@num=\count333
+\mc@col@check@num=\count334
 )
 (/usr/local/texlive/2018/texmf-dist/tex/latex/graphics/lscape.sty
 Package: lscape 2000/10/22 v3.01 Landscape Pages (DPC)
 )
 (/usr/local/texlive/2018/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count334
+\c@float@type=\count335
 \float@exts=\toks50
 \float@box=\box98
 \@float@everytoks=\toks51
 \@floatcapt=\box99
 ) (./blocked.sty)
 (./uhead.sty) (./boxit.sty) (./icthesis.sty)
-\c@definition=\count335
-\c@theorem=\count336
+\c@definition=\count336
+\c@theorem=\count337
 )
    defining Unicode char U+2212 (decimal 8722)
  (./thesis.aux)
@@ -1547,16 +1554,16 @@ LaTeX Font Info:    ... okay on input line 8.
 
 (/usr/local/texlive/2018/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count337
+\scratchcounter=\count338
 \scratchdimen=\dimen348
 \scratchbox=\box100
-\nofMPsegments=\count338
-\nofMParguments=\count339
+\nofMPsegments=\count339
+\nofMParguments=\count340
 \everyMPshowfont=\toks52
-\MPscratchCnt=\count340
+\MPscratchCnt=\count341
 \MPscratchDim=\dimen349
-\MPnumerator=\count341
-\makeMPintoPDFobject=\count342
+\MPnumerator=\count342
+\makeMPintoPDFobject=\count343
 \everyMPtoPDFconversion=\toks53
 ) (/usr/local/texlive/2018/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
@@ -1584,7 +1591,7 @@ Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 (/usr/local/texlive/2018/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count343
+\c@section@level=\count344
 )
 LaTeX Info: Redefining \ref on input line 8.
 LaTeX Info: Redefining \pageref on input line 8.
@@ -1664,7 +1671,7 @@ LaTeX Font Info:    Try loading font information for U+stmry on input line 8.
 
 
 [14] (./thesis.lof
-Overfull \hbox (45.36113pt too wide) in paragraph at lines 12--12
+Overfull \hbox (45.36113pt too wide) in paragraph at lines 14--14
  \OT1/cmr/m/n/12 re-cent data. Di-a-monds mark tran-si-tion points dur-ing an i
 n-crease in pres-sure/temperature, 
  []
@@ -1680,7 +1687,7 @@ n-crease in pres-sure/temperature,
 
 ] (./introduction/introduction.tex
 Chapter 1.
-<images/fission_energy_total.png, id=943, 797.98125pt x 915.42pt>
+<images/fission_energy_total.png, id=968, 797.98125pt x 915.42pt>
 File: images/fission_energy_total.png Graphic file (type png)
 <use images/fission_energy_total.png>
 Package pdftex.def Info: images/fission_energy_total.png  used on input line 15
@@ -1710,13 +1717,13 @@ th the same identifier (name{page.3}) has been already used, duplicate ignored
                    \relax 
 l.41 
       [3]
-<images/Isotopes_and_half-life.png, id=964, 481.75182pt x 578.16pt>
+<images/Isotopes_and_half-life.png, id=989, 481.75182pt x 578.16pt>
 File: images/Isotopes_and_half-life.png Graphic file (type png)
 <use images/Isotopes_and_half-life.png>
 Package pdftex.def Info: images/Isotopes_and_half-life.png  used on input line 
 50.
 (pdftex.def)             Requested size: 260.78897pt x 312.9803pt.
-<images/Binding_energy_curve.png, id=967, 673.0746pt x 442.5333pt>
+<images/Binding_energy_curve.png, id=992, 673.0746pt x 442.5333pt>
 File: images/Binding_energy_curve.png Graphic file (type png)
 <use images/Binding_energy_curve.png>
 Package pdftex.def Info: images/Binding_energy_curve.png  used on input line 57
@@ -1736,7 +1743,7 @@ on with the same identifier (name{figure.1.3}) has been already used, duplicate
                                                   \fi \fi 
 l.66 
       <./images/Binding_energy_curve.png (PNG copy)>] [6] [7] [8] [9]
-<images/fissionyield.jpg, id=1027, 258.62508pt x 342.49696pt>
+<images/fissionyield.jpg, id=1052, 258.62508pt x 342.49696pt>
 File: images/fissionyield.jpg Graphic file (type jpg)
 <use images/fissionyield.jpg>
 Package pdftex.def Info: images/fissionyield.jpg  used on input line 183.
@@ -1757,7 +1764,7 @@ has been already used, duplicate ignored
 l.194 \item A
              lso due to the high temperature, the stability of the cubic pha...
  <./images/fissionyield.jpg>]
-<images/tet_vs_cubic.png, id=1041, 3094.56125pt x 1785.67125pt>
+<images/tet_vs_cubic.png, id=1066, 3094.56125pt x 1785.67125pt>
 File: images/tet_vs_cubic.png Graphic file (type png)
 <use images/tet_vs_cubic.png>
 Package pdftex.def Info: images/tet_vs_cubic.png  used on input line 199.
@@ -1769,35 +1776,47 @@ Package pdftex.def Info: images/tet_vs_cubic.png  used on input line 199.
                                                   \fi \fi 
 l.217 \item V
              ery computationally expensive, but with clever workarounds for ...
- <./images/tet_vs_cubic.png>]
+ <./images/tet_vs_cubic.png>] [13]
+<images/band_gap.png, id=1076, 1231.60126pt x 569.12625pt>
+File: images/band_gap.png Graphic file (type png)
+<use images/band_gap.png>
+Package pdftex.def Info: images/band_gap.png  used on input line 232.
+(pdftex.def)             Requested size: 483.69687pt x 223.5128pt.
 PGFPlots: reading {dat/eDOS.dat}
 Missing character: There is no ; in font nullfont!
 PGFPlots: reading {dat/eDOS.dat}
 Missing character: There is no ; in font nullfont!
 PGFPlots: reading {dat/eDOS.dat}
 Missing character: There is no ; in font nullfont!
-) (./crystallography/crystallography.tex [13pdfTeX warning (ext4): destination 
-with the same identifier (name{figure.1.6}) has been already used, duplicate ig
-nored
+) (./crystallography/crystallography.tex
+[14pdfTeX warning (ext4): destination with the same identifier (name{figure.1.6
+}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.1 \chapter
-            {Crystallography and Point Defects}] [14pdfTeX warning (ext4): dest
-ination with the same identifier (name{table.1.2}) has been already used, dupli
-cate ignored
+            {Crystallography and Point Defects} <./images/band_gap.png>]
+[15pdfTeX warning (ext4): destination with the same identifier (name{figure.1.7
+}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.1 \chapter
+            {Crystallography and Point Defects}pdfTeX warning (ext4): destinati
+on with the same identifier (name{table.1.2}) has been already used, duplicate 
+ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.1 \chapter
             {Crystallography and Point Defects}]
 Chapter 2.
-<images/zro2_binary_phase.png, id=1058, 803.0pt x 616.3025pt>
+<images/zro2_binary_phase.png, id=1092, 803.0pt x 616.3025pt>
 File: images/zro2_binary_phase.png Graphic file (type png)
 <use images/zro2_binary_phase.png>
 Package pdftex.def Info: images/zro2_binary_phase.png  used on input line 11.
 (pdftex.def)             Requested size: 333.65538pt x 256.0748pt.
-[15
+[16
 
 pdfTeX warning (ext4): destination with the same identifier (name{figure.2.1}) 
 has been already used, duplicate ignored
@@ -1806,12 +1825,12 @@ has been already used, duplicate ignored
                                                   \fi \fi 
 l.19 
       <./images/zro2_binary_phase.png>]
-<images/coordination.png, id=1066, 610.28pt x 321.2pt>
+<images/coordination.png, id=1101, 610.28pt x 321.2pt>
 File: images/coordination.png Graphic file (type png)
 <use images/coordination.png>
 Package pdftex.def Info: images/coordination.png  used on input line 22.
 (pdftex.def)             Requested size: 335.18011pt x 176.407pt.
-<images/zr_centre_mono.png, id=1069, 641.39626pt x 675.52374pt>
+<images/zr_centre_mono.png, id=1104, 641.39626pt x 675.52374pt>
 File: images/zr_centre_mono.png Graphic file (type png)
 <use images/zr_centre_mono.png>
 Package pdftex.def Info: images/zr_centre_mono.png  used on input line 29.
@@ -1823,23 +1842,42 @@ File: omlcmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <12> not available
 (Font)              Font shape `OML/cmm/m/it' tried instead on input line 43.
- [16pdfTeX warning (ext4): destination with the same identifier (name{figure.2.
+<images/cotunnite_structure.png, id=1106, 469.755pt x 383.4325pt>
+File: images/cotunnite_structure.png Graphic file (type png)
+<use images/cotunnite_structure.png>
+Package pdftex.def Info: images/cotunnite_structure.png  used on input line 61.
+
+(pdftex.def)             Requested size: 313.74506pt x 256.0748pt.
+ [17pdfTeX warning (ext4): destination with the same identifier (name{figure.2.
 2}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.52 
-     pdfTeX warning (ext4): destination with the same identifier (name{figure.2
-.3}) has been already used, duplicate ignored
+l.64 \end{figure}
+                 pdfTeX warning (ext4): destination with the same identifier (n
+ame{figure.2.3}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.52 
-      <./images/coordination.png> <./images/zr_centre_mono.png>]
-<images/zirconiaphasediagram.png, id=1083, 673.51625pt x 526.96875pt>
+l.64 \end{figure}
+                  <./images/coordination.png> <./images/zr_centre_mono.png>]
+[18pdfTeX warning (ext4): destination with the same identifier (name{table.2.1}
+) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.69 
+     pdfTeX warning (ext4): destination with the same identifier (name{figure.2
+.4}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.69 
+      <./images/cotunnite_structure.png>]
+<images/zirconiaphasediagram.png, id=1124, 673.51625pt x 526.96875pt>
 File: images/zirconiaphasediagram.png Graphic file (type png)
 <use images/zirconiaphasediagram.png>
-Package pdftex.def Info: images/zirconiaphasediagram.png  used on input line 58
+Package pdftex.def Info: images/zirconiaphasediagram.png  used on input line 75
 .
 (pdftex.def)             Requested size: 363.6728pt x 284.52756pt.
 PGFPlots: reading {dat/zr_o_bond_distances.dat}
@@ -1848,26 +1886,20 @@ PGFPlots: reading {dat/zr_o_bond_distances.dat}
 Missing character: There is no ; in font nullfont!
 PGFPlots: reading {dat/zr_o_bond_distances.dat}
 Missing character: There is no ; in font nullfont!
- [17pdfTeX warning (ext4): destination with the same identifier (name{table.2.1
-}) has been already used, duplicate ignored
+ [19pdfTeX warning (ext4): destination with the same identifier (name{figure.2.
+5}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.81 
-     pdfTeX warning (ext4): destination with the same identifier (name{figure.2
-.4}) has been already used, duplicate ignored
-
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.81 
-      <./images/zirconiaphasediagram.png>] [18pdfTeX warning (ext4): destinatio
-n with the same identifier (name{figure.2.5}) has been already used, duplicate 
+l.98 
+      <./images/zirconiaphasediagram.png>] [20pdfTeX warning (ext4): destinatio
+n with the same identifier (name{figure.2.6}) has been already used, duplicate 
 ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.81 
-     ]) (./compmethodology/compmethodology.tex [19] [20pdfTeX warning (ext4): d
+l.98 
+     ]) (./compmethodology/compmethodology.tex [21] [22pdfTeX warning (ext4): d
 estination with the same identifier (name{table.2.2}) has been already used, du
 plicate ignored
 
@@ -1876,65 +1908,65 @@ plicate ignored
 l.1 \chapter
             {Computational Methodology}]
 Chapter 3.
-[21
+[23
 
-] [22] [23]
-<images/pseudopotential.png, id=1139, 3010.24625pt x 2257.43375pt>
+] [24] [25]
+<images/pseudopotential.png, id=1181, 3010.24625pt x 2257.43375pt>
 File: images/pseudopotential.png Graphic file (type png)
 <use images/pseudopotential.png>
 Package pdftex.def Info: images/pseudopotential.png  used on input line 58.
 (pdftex.def)             Requested size: 379.40327pt x 284.52756pt.
-<images/oxygen_otf_pp.png, id=1144, 1009.7725pt x 437.635pt>
+<images/oxygen_otf_pp.png, id=1186, 1009.7725pt x 437.635pt>
 File: images/oxygen_otf_pp.png Graphic file (type png)
 <use images/oxygen_otf_pp.png>
 Package pdftex.def Info: images/oxygen_otf_pp.png  used on input line 69.
 (pdftex.def)             Requested size: 479.24632pt x 207.7052pt.
- [24] [25pdfTeX warning (ext4): destination with the same identifier (name{figu
+ [26] [27pdfTeX warning (ext4): destination with the same identifier (name{figu
 re.3.1}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.72 \end{figure}
                   <./images/pseudopotential.png>]
-<images/zirconium_otf_pp.png, id=1154, 1010.77625pt x 778.91pt>
+<images/zirconium_otf_pp.png, id=1196, 1010.77625pt x 778.91pt>
 File: images/zirconium_otf_pp.png Graphic file (type png)
 <use images/zirconium_otf_pp.png>
 Package pdftex.def Info: images/zirconium_otf_pp.png  used on input line 78.
 (pdftex.def)             Requested size: 443.0618pt x 341.43306pt.
- [26pdfTeX warning (ext4): destination with the same identifier (name{figure.3.
+ [28pdfTeX warning (ext4): destination with the same identifier (name{figure.3.
 2}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.101 
-       <./images/oxygen_otf_pp.png>] [27pdfTeX warning (ext4): destination with
+       <./images/oxygen_otf_pp.png>] [29pdfTeX warning (ext4): destination with
  the same identifier (name{figure.3.3}) has been already used, duplicate ignore
 d
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.101 
-       <./images/zirconium_otf_pp.png>] [28]
-<images/PeriodicBoundaryThesis.png, id=1177, 1587.9325pt x 849.1725pt>
+       <./images/zirconium_otf_pp.png>] [30]
+<images/PeriodicBoundaryThesis.png, id=1220, 1587.9325pt x 849.1725pt>
 File: images/PeriodicBoundaryThesis.png Graphic file (type png)
 <use images/PeriodicBoundaryThesis.png>
 Package pdftex.def Info: images/PeriodicBoundaryThesis.png  used on input line 
 118.
 (pdftex.def)             Requested size: 372.4373pt x 199.16928pt.
- [29pdfTeX warning (ext4): destination with the same identifier (name{figure.3.
+ [31pdfTeX warning (ext4): destination with the same identifier (name{figure.3.
 4}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.128 
-       <./images/PeriodicBoundaryThesis.png>] [30pdfTeX warning (ext4): destina
+       <./images/PeriodicBoundaryThesis.png>] [32pdfTeX warning (ext4): destina
 tion with the same identifier (name{table.3.1}) has been already used, duplicat
 e ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.153 
-      ] [31] [32] [33]
+      ] [33] [34] [35]
 PGFPlots: reading {dat/1e5iconctet1500_sc_e-1.dat}
 Missing character: There is no ; in font nullfont!
 PGFPlots: reading {dat/1e5iconctet1500_sc_e-1.dat}
@@ -1962,14 +1994,14 @@ PGFPlots: reading {dat/1e3iconctet1500_sc_e-1.dat}
 PGFPlots: reading {dat/1e3iconctet1500_sc_e-1.dat}
 PGFPlots: reading {dat/1e3iconctet1500_sc_e-1.dat}
 PGFPlots: reading {dat/1e3iconctet1500_sc_e-1.dat}
- [34]
+ [36]
 PGFPlots: reading {dat/convergence.dat}
 Missing character: There is no ; in font nullfont!
 PGFPlots: reading {dat/convergence.dat}
 Missing character: There is no ; in font nullfont!
 PGFPlots: reading {dat/convergence.dat}
 Missing character: There is no ; in font nullfont!
- [35pdfTeX warning (ext4): destination with the same identifier (name{figure.3.
+ [37pdfTeX warning (ext4): destination with the same identifier (name{figure.3.
 5}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
@@ -1982,13 +2014,13 @@ PGFPlots: reading {dat/kpoint_convergence.dat}
 Missing character: There is no ; in font nullfont!
 PGFPlots: reading {dat/kpoint_convergence.dat}
 Missing character: There is no ; in font nullfont!
- [36pdfTeX warning (ext4): destination with the same identifier (name{figure.3.
+ [38pdfTeX warning (ext4): destination with the same identifier (name{figure.3.
 6}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.356 
-      ] [37pdfTeX warning (ext4): destination with the same identifier (name{fi
+      ] [39pdfTeX warning (ext4): destination with the same identifier (name{fi
 gure.3.7}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
@@ -1996,44 +2028,43 @@ gure.3.7}) has been already used, duplicate ignored
 l.362 
       ]
 PGFPlots: reading {dat/otf_pp_test.dat}
- [38]
-<images/iodine_geom.png, id=1249, 368.0952pt x 121.8954pt>
+ [40] [41pdfTeX warning (ext4): destination with the same identifier (name{figu
+re.3.8}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.417 
+      pdfTeX warning (ext4): destination with the same identifier (name{table.3
+.2}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.417 
+      ]
+<images/iodine_geom.png, id=1296, 368.0952pt x 121.8954pt>
 File: images/iodine_geom.png Graphic file (type png)
 <use images/iodine_geom.png>
-Package pdftex.def Info: images/iodine_geom.png  used on input line 419.
+Package pdftex.def Info: images/iodine_geom.png  used on input line 422.
 (pdftex.def)             Requested size: 300.7279pt x 99.58464pt.
- [39pdfTeX warning (ext4): destination with the same identifier (name{figure.3.
-8}) has been already used, duplicate ignored
+PGFPlots: reading {dat/plus_u_mono.dat}
+Missing character: There is no ; in font nullfont!
+PGFPlots: reading {dat/plus_u_tet.dat}
+Missing character: There is no ; in font nullfont!
+PGFPlots: reading {dat/plus_u_cubic.dat}
+Missing character: There is no ; in font nullfont!
+ [42pdfTeX warning (ext4): destination with the same identifier (name{figure.3.
+9}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.427 
-      pdfTeX warning (ext4): destination with the same identifier (name{figure.
-3.9}) has been already used, duplicate ignored
-
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.427 
+l.458 
        <./images/iodine_geom.png>]
 PGFPlots: reading {dat/plus_u_mono.dat}
 Missing character: There is no ; in font nullfont!
-PGFPlots: reading {dat/plus_u_tet.dat}
-Missing character: There is no ; in font nullfont!
-PGFPlots: reading {dat/plus_u_cubic.dat}
-Missing character: There is no ; in font nullfont!
 PGFPlots: reading {dat/plus_u_mono.dat}
 Missing character: There is no ; in font nullfont!
 PGFPlots: reading {dat/plus_u_mono.dat}
 Missing character: There is no ; in font nullfont!
-PGFPlots: reading {dat/plus_u_mono.dat}
-Missing character: There is no ; in font nullfont!
- [40pdfTeX warning (ext4): destination with the same identifier (name{table.3.2
-}) has been already used, duplicate ignored
-
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.469 \end{figure}
-                  ]
 PGFPlots: reading {dat/plus_u_tet.dat}
 Missing character: There is no ; in font nullfont!
 PGFPlots: reading {dat/plus_u_tet.dat}
@@ -2041,13 +2072,13 @@ Missing character: There is no ; in font nullfont!
 PGFPlots: reading {dat/plus_u_tet.dat}
 PGFPlots: reading {dat/plus_u_cubic.dat}
 Missing character: There is no ; in font nullfont!
-) (./defects/defects.tex [41pdfTeX warning (ext4): destination with the same id
+) (./defects/defects.tex [43pdfTeX warning (ext4): destination with the same id
 entifier (name{figure.3.10}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.1 \chapter
-            {Defects}] [42pdfTeX warning (ext4): destination with the same iden
+            {Defects}] [44pdfTeX warning (ext4): destination with the same iden
 tifier (name{figure.3.11}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
@@ -2059,7 +2090,7 @@ r (name{figure.3.12}) has been already used, duplicate ignored
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.1 \chapter
-            {Defects}] [43pdfTeX warning (ext4): destination with the same iden
+            {Defects}] [45pdfTeX warning (ext4): destination with the same iden
 tifier (name{figure.3.13}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
@@ -2067,32 +2098,32 @@ tifier (name{figure.3.13}) has been already used, duplicate ignored
 l.1 \chapter
             {Defects}]
 Chapter 4.
-[44
+[46
 
-] [45pdfTeX warning (ext4): destination with the same identifier (name{table.4.
+] [47pdfTeX warning (ext4): destination with the same identifier (name{table.4.
 1}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.57 
      ]
-<images/zr_centre_tet.png, id=1291, 653.44125pt x 654.445pt>
+<images/zr_centre_tet.png, id=1335, 653.44125pt x 654.445pt>
 File: images/zr_centre_tet.png Graphic file (type png)
 <use images/zr_centre_tet.png>
 Package pdftex.def Info: images/zr_centre_tet.png  used on input line 71.
 (pdftex.def)             Requested size: 170.44907pt x 170.71652pt.
-<images/sd_cubic_zro2.png, id=1292, 704.6325pt x 653.44125pt>
+<images/sd_cubic_zro2.png, id=1336, 704.6325pt x 653.44125pt>
 File: images/sd_cubic_zro2.png Graphic file (type png)
 <use images/sd_cubic_zro2.png>
 Package pdftex.def Info: images/sd_cubic_zro2.png  used on input line 78.
 (pdftex.def)             Requested size: 184.08177pt x 170.71652pt.
- [46pdfTeX warning (ext4): destination with the same identifier (name{figure.4.
+ [48pdfTeX warning (ext4): destination with the same identifier (name{figure.4.
 1}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.84 
-      <./images/zr_centre_tet.png>] [47pdfTeX warning (ext4): destination with 
+      <./images/zr_centre_tet.png>] [49pdfTeX warning (ext4): destination with 
 the same identifier (name{figure.4.2}) has been already used, duplicate ignored
 
 
@@ -2100,17 +2131,17 @@ the same identifier (name{figure.4.2}) has been already used, duplicate ignored
                                                   \fi \fi 
 l.98 \subsection
                 {Oxygen pressure dependence} <./images/sd_cubic_zro2.png>])
-(./results1/results1.tex [48]
+(./results1/results1.tex [50]
 Chapter 5.
-[49
+[51
 
-] [50] [51] [52] [53pdfTeX warning (ext4): destination with the same identifier
+] [52] [53] [54] [55pdfTeX warning (ext4): destination with the same identifier
  (name{table.5.1}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.148 
-      ] [54pdfTeX warning (ext4): destination with the same identifier (name{ta
+      ] [56pdfTeX warning (ext4): destination with the same identifier (name{ta
 ble.5.2}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
@@ -2137,13 +2168,13 @@ PGFPlots: reading {dat/intrinsic_mono.dat}
 Missing character: There is no ; in font nullfont!
 PGFPlots: reading {dat/intrinsic_mono.dat}
 Missing character: There is no ; in font nullfont!
- [55pdfTeX warning (ext4): destination with the same identifier (name{table.5.4
+ [57pdfTeX warning (ext4): destination with the same identifier (name{table.5.4
 }) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.255 \end{figure}
-                  ] [56pdfTeX warning (ext4): destination with the same identif
+                  ] [58pdfTeX warning (ext4): destination with the same identif
 ier (name{table.5.5}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
@@ -2166,27 +2197,27 @@ PGFPlots: reading {dat/intrinsic_cubic.dat}
 Missing character: There is no ; in font nullfont!
 PGFPlots: reading {dat/intrinsic_cubic.dat}
 Missing character: There is no ; in font nullfont!
-) (./results2/results2.tex [57pdfTeX warning (ext4): destination with the same 
+) (./results2/results2.tex [59pdfTeX warning (ext4): destination with the same 
 identifier (name{figure.5.1}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.1 \chapter
-            {Iodine defect equilibria in \zirconia}] [58pdfTeX warning (ext4): 
+            {Iodine defect equilibria in \zirconia}] [60pdfTeX warning (ext4): 
 destination with the same identifier (name{figure.5.2}) has been already used, 
 duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.1 \chapter
-            {Iodine defect equilibria in \zirconia}] [59pdfTeX warning (ext4): 
+            {Iodine defect equilibria in \zirconia}] [61pdfTeX warning (ext4): 
 destination with the same identifier (name{figure.5.3}) has been already used, 
 duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.1 \chapter
-            {Iodine defect equilibria in \zirconia}] [60pdfTeX warning (ext4): 
+            {Iodine defect equilibria in \zirconia}] [62pdfTeX warning (ext4): 
 destination with the same identifier (name{figure.5.4}) has been already used, 
 duplicate ignored
 
@@ -2195,9 +2226,9 @@ duplicate ignored
 l.1 \chapter
             {Iodine defect equilibria in \zirconia}]
 Chapter 6.
-[61
+[63
 
-] [62] [63] [64] [65] [66] [67]
+] [64] [65] [66] [67] [68] [69]
 PGFPlots: reading {dat/1e5iconcmono650.dat}
 Missing character: There is no ; in font nullfont!
 PGFPlots: reading {dat/1e5iconcmono650.dat}
@@ -2219,7 +2250,7 @@ PGFPlots: reading {dat/1e3iconcmono650.dat}
 PGFPlots: reading {dat/1e3iconcmono650.dat}
 PGFPlots: reading {dat/1e3iconcmono650.dat}
 PGFPlots: reading {dat/1e3iconcmono650.dat}
- [68] [69pdfTeX warning (ext4): destination with the same identifier (name{tabl
+ [70] [71pdfTeX warning (ext4): destination with the same identifier (name{tabl
 e.6.1}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
@@ -2267,7 +2298,7 @@ PGFPlots: reading {dat/1e3iconctet1500.dat}
 PGFPlots: reading {dat/1e3iconctet1500.dat}
 PGFPlots: reading {dat/1e3iconctet1500.dat}
 PGFPlots: reading {dat/1e3iconctet1500.dat}
- [70pdfTeX warning (ext4): destination with the same identifier (name{figure.6.
+ [72pdfTeX warning (ext4): destination with the same identifier (name{figure.6.
 1}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
@@ -2279,12 +2310,12 @@ l.321
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.321 
-      ] [71] [72]) (./results3/results3.tex [73]
+      ] [73] [74]) (./results3/results3.tex [75]
 Chapter 7.
-[74
+[76
 
-] [75] [76] [77] [78] [79] [80]
-<images/fissionyield.png, id=1621, 1074.0125pt x 1422.31375pt>
+] [77] [78] [79] [80] [81] [82]
+<images/fissionyield.png, id=1665, 1074.0125pt x 1422.31375pt>
 File: images/fissionyield.png Graphic file (type png)
 <use images/fissionyield.png>
 Package pdftex.def Info: images/fissionyield.png  used on input line 128.
@@ -2441,7 +2472,7 @@ PGFPlots: reading {dat/cs_tet_10-3.dat}
 PGFPlots: reading {dat/cs_tet_10-3.dat}
 PGFPlots: reading {dat/cs_tet_10-3.dat}
 PGFPlots: reading {dat/cs_tet_10-3.dat}
- [81] [82pdfTeX warning (ext4): destination with the same identifier (name{figu
+ [83] [84pdfTeX warning (ext4): destination with the same identifier (name{figu
 re.7.1}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
@@ -2453,7 +2484,7 @@ l.489
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.489 
-       <./images/fissionyield.png>] [83pdfTeX warning (ext4): destination with 
+       <./images/fissionyield.png>] [85pdfTeX warning (ext4): destination with 
 the same identifier (name{figure.7.3}) has been already used, duplicate ignored
 
 
@@ -2466,7 +2497,7 @@ l.489
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.489 
-      ] [84pdfTeX warning (ext4): destination with the same identifier (name{fi
+      ] [86pdfTeX warning (ext4): destination with the same identifier (name{fi
 gure.7.5}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
@@ -2478,13 +2509,13 @@ l.489
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.489 
-      ] [85pdfTeX warning (ext4): destination with the same identifier (name{ta
+      ] [87pdfTeX warning (ext4): destination with the same identifier (name{ta
 ble.7.2}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.493 
-      ] [86] [87] [88] [89] [90]
+      ] [88] [89] [90] [91] [92]
 PGFPlots: reading {dat/te_tet_10-5.dat}
 Missing character: There is no ; in font nullfont!
 PGFPlots: reading {dat/te_tet_10-5.dat}
@@ -2554,13 +2585,13 @@ PGFPlots: reading {dat/te_tet_10-3.dat}
 PGFPlots: reading {dat/te_tet_10-3.dat}
 PGFPlots: reading {dat/te_tet_10-3.dat}
 PGFPlots: reading {dat/te_tet_10-3.dat}
- [91pdfTeX warning (ext4): destination with the same identifier (name{figure.7.
+ [93pdfTeX warning (ext4): destination with the same identifier (name{figure.7.
 6}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.664 \end{landscape}
-                     ] [92
+                     ] [94
 
 
 ]
@@ -2633,13 +2664,13 @@ PGFPlots: reading {dat/xe_tet_10-3.dat}
 PGFPlots: reading {dat/xe_tet_10-3.dat}
 PGFPlots: reading {dat/xe_tet_10-3.dat}
 PGFPlots: reading {dat/xe_tet_10-3.dat}
- [93pdfTeX warning (ext4): destination with the same identifier (name{figure.7.
+ [95pdfTeX warning (ext4): destination with the same identifier (name{figure.7.
 7}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.753 \end{landscape}
-                     ] [94
+                     ] [96
 
 
 ]
@@ -2712,30 +2743,34 @@ PGFPlots: reading {dat/cs_tet_10-3.dat}
 PGFPlots: reading {dat/cs_tet_10-3.dat}
 PGFPlots: reading {dat/cs_tet_10-3.dat}
 PGFPlots: reading {dat/cs_tet_10-3.dat}
- [95pdfTeX warning (ext4): destination with the same identifier (name{figure.7.
+ [97pdfTeX warning (ext4): destination with the same identifier (name{figure.7.
 8}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.837 \end{landscape}
-                     ]) (./future/future.tex [96
+                     ]) (./future/future.tex [98
 
 
 ]
 Chapter 8.
-) [97
+) [99
 
-] (./thesis.bbl [98] [99
+] (./thesis.bbl (./thesis.brf)
+\tf@brf=\write9
+\openout9 = `thesis.brf'.
 
-] [100] [101] [102] [103] [104] [105] [106])
-[107]pdfTeX warning (ext4): destination with the same identifier (name{chapter.
-1}) has been already used, duplicate ignored
+ [100] [101
+
+] [102] [103] [104] [105]
+[106] [107] [108] [109] [110]) [111]pdfTeX warning (ext4): destination with the
+ same identifier (name{chapter.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.54 \chapter{ParaSweep}
                         
 Appendix A.
-[108
+[112
 
 ]pdfTeX warning (ext4): destination with the same identifier (name{chapter.2}) 
 has been already used, duplicate ignored
@@ -2744,7 +2779,7 @@ has been already used, duplicate ignored
 l.59 \chapter{CASTEP and HPC Scripts}
                                      
 Appendix B.
-[109
+[113
 
 ]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 63.
@@ -2753,14 +2788,16 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 63.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 63.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 63.
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 98913D78191D70D459EDE80150CAFE0A;8729.
+(rerunfilecheck)             Checksum: 35A27C330D4B94467C558A45F206996D;8921.
+Package rerunfilecheck Info: File `thesis.brf' has not changed.
+(rerunfilecheck)             Checksum: E9AC45EBA61DEC5FDBF009AD606856EF;8254.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 63.
  ) 
 Here is how much of TeX's memory you used:
- 40943 strings out of 492649
- 946024 string characters out of 6129623
- 1996004 words of memory out of 5000000
- 43629 multiletter control sequences out of 15000+600000
+ 41723 strings out of 492649
+ 958568 string characters out of 6129623
+ 2006153 words of memory out of 5000000
+ 44385 multiletter control sequences out of 15000+600000
  550878 words of font info for 103 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  68i,24n,113p,10436b,2284s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -2784,10 +2821,10 @@ e/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb></usr/local/texlive
 /2018/texmf-dist/fonts/type1/public/cm-super/sfbx0800.pfb></usr/local/texlive/2
 018/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive/201
 8/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on thesis.pdf (130 pages, 3793026 bytes).
+Output written on thesis.pdf (134 pages, 3947461 bytes).
 PDF statistics:
- 1961 PDF objects out of 2073 (max. 8388607)
- 1747 compressed objects within 18 object streams
- 463 named destinations out of 1000 (max. 500000)
- 1074 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2193 PDF objects out of 2487 (max. 8388607)
+ 1967 compressed objects within 20 object streams
+ 475 named destinations out of 1000 (max. 500000)
+ 1108 words of extra memory for PDF output out of 10000 (max. 10000000)
 
