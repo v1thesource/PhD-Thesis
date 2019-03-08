@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2019.3.3)  8 MAR 2019 18:20
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2019.3.3)  8 MAR 2019 18:44
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1746,12 +1746,12 @@ l.66
 <images/UO_phase_diagram.png, id=1049, 603.25375pt x 613.29124pt>
 File: images/UO_phase_diagram.png Graphic file (type png)
 <use images/UO_phase_diagram.png>
-Package pdftex.def Info: images/UO_phase_diagram.png  used on input line 163.
+Package pdftex.def Info: images/UO_phase_diagram.png  used on input line 162.
 (pdftex.def)             Requested size: 307.85785pt x 312.9803pt.
 <images/fissionyield.jpg, id=1056, 258.62508pt x 342.49696pt>
 File: images/fissionyield.jpg Graphic file (type jpg)
 <use images/fissionyield.jpg>
-Package pdftex.def Info: images/fissionyield.jpg  used on input line 171.
+Package pdftex.def Info: images/fissionyield.jpg  used on input line 170.
 (pdftex.def)             Requested size: 236.35153pt x 312.9803pt.
  [10]
 [11pdfTeX warning (ext4): destination with the same identifier (name{figure.1.4
@@ -1759,57 +1759,56 @@ Package pdftex.def Info: images/fissionyield.jpg  used on input line 171.
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.184 \item T
-             hese are mainly pair potentials (although many-bodied potential...
+l.184 \item M
+             olecular dynamics allows for large system sizes (millions of at...
  <./images/UO_phase_diagram.png>] [12pdfTeX warning (ext4): destination with th
 e same identifier (name{figure.1.5}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.184 \item T
-             hese are mainly pair potentials (although many-bodied potential...
+l.184 \item M
+             olecular dynamics allows for large system sizes (millions of at...
  <./images/fissionyield.jpg>] [13]
 <images/band_gap.png, id=1079, 1231.60126pt x 569.12625pt>
 File: images/band_gap.png Graphic file (type png)
 <use images/band_gap.png>
-Package pdftex.def Info: images/band_gap.png  used on input line 206.
+Package pdftex.def Info: images/band_gap.png  used on input line 207.
 (pdftex.def)             Requested size: 483.69687pt x 223.5128pt.
- [14pdfTeX warning (ext4): destination with the same identifier (name{figure.1.
-6}) has been already used, duplicate ignored
-
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.213 \item N
-             on-metals exhibit an energy gap between valence and conduction ...
- <./images/band_gap.png>]
 PGFPlots: reading {dat/eDOS.dat}
 Missing character: There is no ; in font nullfont!
 PGFPlots: reading {dat/eDOS.dat}
 Missing character: There is no ; in font nullfont!
 PGFPlots: reading {dat/eDOS.dat}
 Missing character: There is no ; in font nullfont!
-) (./crystallography/crystallography.tex [15pdfTeX warning (ext4): destination 
-with the same identifier (name{figure.1.7}) has been already used, duplicate ig
-nored
+) (./crystallography/crystallography.tex
+[14] [15pdfTeX warning (ext4): destination with the same identifier (name{figur
+e.1.6}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.1 \chapter
             {Crystallography and Point Defects}pdfTeX warning (ext4): destinati
-on with the same identifier (name{table.1.1}) has been already used, duplicate 
-ignored
+on with the same identifier (name{figure.1.7}) has been already used, duplicate
+ ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.1 \chapter
+            {Crystallography and Point Defects} <./images/band_gap.png>]
+[16pdfTeX warning (ext4): destination with the same identifier (name{table.1.1}
+) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.1 \chapter
             {Crystallography and Point Defects}]
 Chapter 2.
-<images/zro2_binary_phase.png, id=1095, 803.0pt x 616.3025pt>
+<images/zro2_binary_phase.png, id=1100, 803.0pt x 616.3025pt>
 File: images/zro2_binary_phase.png Graphic file (type png)
 <use images/zro2_binary_phase.png>
 Package pdftex.def Info: images/zro2_binary_phase.png  used on input line 11.
 (pdftex.def)             Requested size: 333.65538pt x 256.0748pt.
-[16
+[17
 
 pdfTeX warning (ext4): destination with the same identifier (name{figure.2.1}) 
 has been already used, duplicate ignored
@@ -1818,12 +1817,12 @@ has been already used, duplicate ignored
                                                   \fi \fi 
 l.19 
       <./images/zro2_binary_phase.png>]
-<images/coordination.png, id=1104, 610.28pt x 321.2pt>
+<images/coordination.png, id=1108, 610.28pt x 321.2pt>
 File: images/coordination.png Graphic file (type png)
 <use images/coordination.png>
 Package pdftex.def Info: images/coordination.png  used on input line 22.
 (pdftex.def)             Requested size: 335.18011pt x 176.407pt.
-<images/zr_centre_mono.png, id=1107, 641.39626pt x 675.52374pt>
+<images/zr_centre_mono.png, id=1111, 641.39626pt x 675.52374pt>
 File: images/zr_centre_mono.png Graphic file (type png)
 <use images/zr_centre_mono.png>
 Package pdftex.def Info: images/zr_centre_mono.png  used on input line 29.
@@ -1835,7 +1834,7 @@ File: omlcmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <12> not available
 (Font)              Font shape `OML/cmm/m/it' tried instead on input line 43.
- [17pdfTeX warning (ext4): destination with the same identifier (name{figure.2.
+ [18pdfTeX warning (ext4): destination with the same identifier (name{figure.2.
 2}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
@@ -1850,18 +1849,18 @@ has been already used, duplicate ignored
 l.57 \item A
             lso due to the high temperature, the stability of the cubic phas...
  <./images/coordination.png> <./images/zr_centre_mono.png>]
-<images/tet_vs_cubic.png, id=1115, 3094.56125pt x 1785.67125pt>
+<images/tet_vs_cubic.png, id=1119, 3094.56125pt x 1785.67125pt>
 File: images/tet_vs_cubic.png Graphic file (type png)
 <use images/tet_vs_cubic.png>
 Package pdftex.def Info: images/tet_vs_cubic.png  used on input line 62.
 (pdftex.def)             Requested size: 345.12471pt x 199.16928pt.
-<images/cotunnite_structure.png, id=1116, 469.755pt x 383.4325pt>
+<images/cotunnite_structure.png, id=1120, 469.755pt x 383.4325pt>
 File: images/cotunnite_structure.png Graphic file (type png)
 <use images/cotunnite_structure.png>
 Package pdftex.def Info: images/cotunnite_structure.png  used on input line 75.
 
 (pdftex.def)             Requested size: 313.74506pt x 256.0748pt.
- [18pdfTeX warning (ext4): destination with the same identifier (name{table.2.1
+ [19pdfTeX warning (ext4): destination with the same identifier (name{table.2.1
 }) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
@@ -1874,112 +1873,112 @@ ame{figure.2.4}) has been already used, duplicate ignored
                                                   \fi \fi 
 l.78 \end{figure}
                   <./images/tet_vs_cubic.png>]
-<images/zirconiaphasediagram.png, id=1128, 673.51625pt x 526.96875pt>
+<images/zirconiaphasediagram.png, id=1132, 673.51625pt x 526.96875pt>
 File: images/zirconiaphasediagram.png Graphic file (type png)
 <use images/zirconiaphasediagram.png>
 Package pdftex.def Info: images/zirconiaphasediagram.png  used on input line 89
 .
 (pdftex.def)             Requested size: 363.6728pt x 284.52756pt.
-PGFPlots: reading {dat/zr_o_bond_distances.dat}
-Missing character: There is no ; in font nullfont!
-PGFPlots: reading {dat/zr_o_bond_distances.dat}
-Missing character: There is no ; in font nullfont!
-PGFPlots: reading {dat/zr_o_bond_distances.dat}
-Missing character: There is no ; in font nullfont!
- [19pdfTeX warning (ext4): destination with the same identifier (name{figure.2.
+ [20pdfTeX warning (ext4): destination with the same identifier (name{figure.2.
 5}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.112 
-       <./images/cotunnite_structure.png>] [20pdfTeX warning (ext4): destinatio
-n with the same identifier (name{figure.2.6}) has been already used, duplicate 
-ignored
+l.91 \end{figure}
+                  <./images/cotunnite_structure.png>]
+PGFPlots: reading {dat/zr_o_bond_distances.dat}
+Missing character: There is no ; in font nullfont!
+PGFPlots: reading {dat/zr_o_bond_distances.dat}
+Missing character: There is no ; in font nullfont!
+PGFPlots: reading {dat/zr_o_bond_distances.dat}
+Missing character: There is no ; in font nullfont!
+ [21pdfTeX warning (ext4): destination with the same identifier (name{figure.2.
+6}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.112 
-       <./images/zirconiaphasediagram.png>] [21pdfTeX warning (ext4): destinati
+l.116 
+       <./images/zirconiaphasediagram.png>] [22pdfTeX warning (ext4): destinati
 on with the same identifier (name{figure.2.7}) has been already used, duplicate
  ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.112 
-      ] [22]) (./compmethodology/compmethodology.tex [23pdfTeX warning (ext4): 
-destination with the same identifier (name{table.2.2}) has been already used, d
-uplicate ignored
+l.116 
+      ] [23pdfTeX warning (ext4): destination with the same identifier (name{ta
+ble.2.2}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1 \chapter
-            {Computational Methodology}pdfTeX warning (ext4): destination with 
-the same identifier (name{table.2.3}) has been already used, duplicate ignored
+l.157 
+      ]) (./compmethodology/compmethodology.tex [24pdfTeX warning (ext4): desti
+nation with the same identifier (name{table.2.3}) has been already used, duplic
+ate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.1 \chapter
             {Computational Methodology}]
 Chapter 3.
-[24
+[25
 
-] [25] [26]
-<images/pseudopotential.png, id=1198, 3010.24625pt x 2257.43375pt>
+] [26] [27]
+<images/pseudopotential.png, id=1202, 3010.24625pt x 2257.43375pt>
 File: images/pseudopotential.png Graphic file (type png)
 <use images/pseudopotential.png>
 Package pdftex.def Info: images/pseudopotential.png  used on input line 58.
 (pdftex.def)             Requested size: 379.40327pt x 284.52756pt.
-<images/oxygen_otf_pp.png, id=1203, 1009.7725pt x 437.635pt>
+<images/oxygen_otf_pp.png, id=1207, 1009.7725pt x 437.635pt>
 File: images/oxygen_otf_pp.png Graphic file (type png)
 <use images/oxygen_otf_pp.png>
 Package pdftex.def Info: images/oxygen_otf_pp.png  used on input line 69.
 (pdftex.def)             Requested size: 479.24632pt x 207.7052pt.
- [27] [28pdfTeX warning (ext4): destination with the same identifier (name{figu
+ [28] [29pdfTeX warning (ext4): destination with the same identifier (name{figu
 re.3.1}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.72 \end{figure}
                   <./images/pseudopotential.png>]
-<images/zirconium_otf_pp.png, id=1215, 1010.77625pt x 778.91pt>
+<images/zirconium_otf_pp.png, id=1219, 1010.77625pt x 778.91pt>
 File: images/zirconium_otf_pp.png Graphic file (type png)
 <use images/zirconium_otf_pp.png>
 Package pdftex.def Info: images/zirconium_otf_pp.png  used on input line 78.
 (pdftex.def)             Requested size: 443.0618pt x 341.43306pt.
- [29pdfTeX warning (ext4): destination with the same identifier (name{figure.3.
+ [30pdfTeX warning (ext4): destination with the same identifier (name{figure.3.
 2}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.101 
-       <./images/oxygen_otf_pp.png>] [30pdfTeX warning (ext4): destination with
+       <./images/oxygen_otf_pp.png>] [31pdfTeX warning (ext4): destination with
  the same identifier (name{figure.3.3}) has been already used, duplicate ignore
 d
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.101 
-       <./images/zirconium_otf_pp.png>] [31]
-<images/PeriodicBoundaryThesis.png, id=1237, 1587.9325pt x 849.1725pt>
+       <./images/zirconium_otf_pp.png>] [32]
+<images/PeriodicBoundaryThesis.png, id=1241, 1587.9325pt x 849.1725pt>
 File: images/PeriodicBoundaryThesis.png Graphic file (type png)
 <use images/PeriodicBoundaryThesis.png>
 Package pdftex.def Info: images/PeriodicBoundaryThesis.png  used on input line 
 118.
 (pdftex.def)             Requested size: 483.69687pt x 258.66682pt.
- [32pdfTeX warning (ext4): destination with the same identifier (name{figure.3.
+ [33pdfTeX warning (ext4): destination with the same identifier (name{figure.3.
 4}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.128 
-       <./images/PeriodicBoundaryThesis.png>] [33pdfTeX warning (ext4): destina
+       <./images/PeriodicBoundaryThesis.png>] [34pdfTeX warning (ext4): destina
 tion with the same identifier (name{table.3.1}) has been already used, duplicat
 e ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.153 
-      ] [34] [35] [36]
+      ] [35] [36] [37]
 PGFPlots: reading {dat/1e5iconctet1500_sc_e-1.dat}
 Missing character: There is no ; in font nullfont!
 PGFPlots: reading {dat/1e5iconctet1500_sc_e-1.dat}
@@ -2007,14 +2006,14 @@ PGFPlots: reading {dat/1e3iconctet1500_sc_e-1.dat}
 PGFPlots: reading {dat/1e3iconctet1500_sc_e-1.dat}
 PGFPlots: reading {dat/1e3iconctet1500_sc_e-1.dat}
 PGFPlots: reading {dat/1e3iconctet1500_sc_e-1.dat}
- [37]
+ [38]
 PGFPlots: reading {dat/convergence.dat}
 Missing character: There is no ; in font nullfont!
 PGFPlots: reading {dat/convergence.dat}
 Missing character: There is no ; in font nullfont!
 PGFPlots: reading {dat/convergence.dat}
 Missing character: There is no ; in font nullfont!
- [38pdfTeX warning (ext4): destination with the same identifier (name{figure.3.
+ [39pdfTeX warning (ext4): destination with the same identifier (name{figure.3.
 5}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
@@ -2027,13 +2026,13 @@ PGFPlots: reading {dat/kpoint_convergence.dat}
 Missing character: There is no ; in font nullfont!
 PGFPlots: reading {dat/kpoint_convergence.dat}
 Missing character: There is no ; in font nullfont!
- [39pdfTeX warning (ext4): destination with the same identifier (name{figure.3.
+ [40pdfTeX warning (ext4): destination with the same identifier (name{figure.3.
 6}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.356 
-      ] [40pdfTeX warning (ext4): destination with the same identifier (name{fi
+      ] [41pdfTeX warning (ext4): destination with the same identifier (name{fi
 gure.3.7}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
@@ -2041,7 +2040,7 @@ gure.3.7}) has been already used, duplicate ignored
 l.362 
       ]
 PGFPlots: reading {dat/otf_pp_test.dat}
- [41] [42pdfTeX warning (ext4): destination with the same identifier (name{figu
+ [42] [43pdfTeX warning (ext4): destination with the same identifier (name{figu
 re.3.8}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
@@ -2054,7 +2053,7 @@ l.417
                                                   \fi \fi 
 l.417 
       ]
-<images/iodine_geom.png, id=1313, 368.0952pt x 121.8954pt>
+<images/iodine_geom.png, id=1318, 368.0952pt x 121.8954pt>
 File: images/iodine_geom.png Graphic file (type png)
 <use images/iodine_geom.png>
 Package pdftex.def Info: images/iodine_geom.png  used on input line 422.
@@ -2065,7 +2064,7 @@ PGFPlots: reading {dat/plus_u_tet.dat}
 Missing character: There is no ; in font nullfont!
 PGFPlots: reading {dat/plus_u_cubic.dat}
 Missing character: There is no ; in font nullfont!
- [43pdfTeX warning (ext4): destination with the same identifier (name{figure.3.
+ [44pdfTeX warning (ext4): destination with the same identifier (name{figure.3.
 9}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
@@ -2085,13 +2084,13 @@ Missing character: There is no ; in font nullfont!
 PGFPlots: reading {dat/plus_u_tet.dat}
 PGFPlots: reading {dat/plus_u_cubic.dat}
 Missing character: There is no ; in font nullfont!
-) (./defects/defects.tex [44pdfTeX warning (ext4): destination with the same id
+) (./defects/defects.tex [45pdfTeX warning (ext4): destination with the same id
 entifier (name{figure.3.10}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.1 \chapter
-            {Defects}] [45pdfTeX warning (ext4): destination with the same iden
+            {Defects}] [46pdfTeX warning (ext4): destination with the same iden
 tifier (name{figure.3.11}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
@@ -2103,7 +2102,7 @@ r (name{figure.3.12}) has been already used, duplicate ignored
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.1 \chapter
-            {Defects}] [46pdfTeX warning (ext4): destination with the same iden
+            {Defects}] [47pdfTeX warning (ext4): destination with the same iden
 tifier (name{figure.3.13}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
@@ -2111,32 +2110,32 @@ tifier (name{figure.3.13}) has been already used, duplicate ignored
 l.1 \chapter
             {Defects}]
 Chapter 4.
-[47
+[48
 
-] [48pdfTeX warning (ext4): destination with the same identifier (name{table.4.
+] [49pdfTeX warning (ext4): destination with the same identifier (name{table.4.
 1}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.57 
      ]
-<images/zr_centre_tet.png, id=1352, 653.44125pt x 654.445pt>
+<images/zr_centre_tet.png, id=1356, 653.44125pt x 654.445pt>
 File: images/zr_centre_tet.png Graphic file (type png)
 <use images/zr_centre_tet.png>
 Package pdftex.def Info: images/zr_centre_tet.png  used on input line 71.
 (pdftex.def)             Requested size: 170.44907pt x 170.71652pt.
-<images/sd_cubic_zro2.png, id=1353, 704.6325pt x 653.44125pt>
+<images/sd_cubic_zro2.png, id=1357, 704.6325pt x 653.44125pt>
 File: images/sd_cubic_zro2.png Graphic file (type png)
 <use images/sd_cubic_zro2.png>
 Package pdftex.def Info: images/sd_cubic_zro2.png  used on input line 78.
 (pdftex.def)             Requested size: 184.08177pt x 170.71652pt.
- [49pdfTeX warning (ext4): destination with the same identifier (name{figure.4.
+ [50pdfTeX warning (ext4): destination with the same identifier (name{figure.4.
 1}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.84 
-      <./images/zr_centre_tet.png>] [50pdfTeX warning (ext4): destination with 
+      <./images/zr_centre_tet.png>] [51pdfTeX warning (ext4): destination with 
 the same identifier (name{figure.4.2}) has been already used, duplicate ignored
 
 
@@ -2144,17 +2143,17 @@ the same identifier (name{figure.4.2}) has been already used, duplicate ignored
                                                   \fi \fi 
 l.98 \subsection
                 {Oxygen pressure dependence} <./images/sd_cubic_zro2.png>])
-(./results1/results1.tex [51]
+(./results1/results1.tex [52]
 Chapter 5.
-[52
+[53
 
-] [53] [54] [55] [56pdfTeX warning (ext4): destination with the same identifier
+] [54] [55] [56] [57pdfTeX warning (ext4): destination with the same identifier
  (name{table.5.1}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.148 
-      ] [57pdfTeX warning (ext4): destination with the same identifier (name{ta
+      ] [58pdfTeX warning (ext4): destination with the same identifier (name{ta
 ble.5.2}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
@@ -2181,13 +2180,13 @@ PGFPlots: reading {dat/intrinsic_mono.dat}
 Missing character: There is no ; in font nullfont!
 PGFPlots: reading {dat/intrinsic_mono.dat}
 Missing character: There is no ; in font nullfont!
- [58pdfTeX warning (ext4): destination with the same identifier (name{table.5.4
+ [59pdfTeX warning (ext4): destination with the same identifier (name{table.5.4
 }) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.255 \end{figure}
-                  ] [59pdfTeX warning (ext4): destination with the same identif
+                  ] [60pdfTeX warning (ext4): destination with the same identif
 ier (name{table.5.5}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
@@ -2210,27 +2209,27 @@ PGFPlots: reading {dat/intrinsic_cubic.dat}
 Missing character: There is no ; in font nullfont!
 PGFPlots: reading {dat/intrinsic_cubic.dat}
 Missing character: There is no ; in font nullfont!
-) (./results2/results2.tex [60pdfTeX warning (ext4): destination with the same 
+) (./results2/results2.tex [61pdfTeX warning (ext4): destination with the same 
 identifier (name{figure.5.1}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.1 \chapter
-            {Iodine defect equilibria in \zirconia}] [61pdfTeX warning (ext4): 
+            {Iodine defect equilibria in \zirconia}] [62pdfTeX warning (ext4): 
 destination with the same identifier (name{figure.5.2}) has been already used, 
 duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.1 \chapter
-            {Iodine defect equilibria in \zirconia}] [62pdfTeX warning (ext4): 
+            {Iodine defect equilibria in \zirconia}] [63pdfTeX warning (ext4): 
 destination with the same identifier (name{figure.5.3}) has been already used, 
 duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.1 \chapter
-            {Iodine defect equilibria in \zirconia}] [63pdfTeX warning (ext4): 
+            {Iodine defect equilibria in \zirconia}] [64pdfTeX warning (ext4): 
 destination with the same identifier (name{figure.5.4}) has been already used, 
 duplicate ignored
 
@@ -2239,9 +2238,9 @@ duplicate ignored
 l.1 \chapter
             {Iodine defect equilibria in \zirconia}]
 Chapter 6.
-[64
+[65
 
-] [65] [66] [67] [68] [69] [70]
+] [66] [67] [68] [69] [70] [71]
 PGFPlots: reading {dat/1e5iconcmono650.dat}
 Missing character: There is no ; in font nullfont!
 PGFPlots: reading {dat/1e5iconcmono650.dat}
@@ -2263,7 +2262,7 @@ PGFPlots: reading {dat/1e3iconcmono650.dat}
 PGFPlots: reading {dat/1e3iconcmono650.dat}
 PGFPlots: reading {dat/1e3iconcmono650.dat}
 PGFPlots: reading {dat/1e3iconcmono650.dat}
- [71] [72pdfTeX warning (ext4): destination with the same identifier (name{tabl
+ [72] [73pdfTeX warning (ext4): destination with the same identifier (name{tabl
 e.6.1}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
@@ -2311,7 +2310,7 @@ PGFPlots: reading {dat/1e3iconctet1500.dat}
 PGFPlots: reading {dat/1e3iconctet1500.dat}
 PGFPlots: reading {dat/1e3iconctet1500.dat}
 PGFPlots: reading {dat/1e3iconctet1500.dat}
- [73pdfTeX warning (ext4): destination with the same identifier (name{figure.6.
+ [74pdfTeX warning (ext4): destination with the same identifier (name{figure.6.
 1}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
@@ -2323,12 +2322,12 @@ l.321
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.321 
-      ] [74] [75]) (./results3/results3.tex [76]
+      ] [75] [76]) (./results3/results3.tex [77]
 Chapter 7.
-[77
+[78
 
-] [78] [79] [80] [81] [82] [83]
-<images/fissionyield.png, id=1682, 1074.0125pt x 1422.31375pt>
+] [79] [80] [81] [82] [83] [84]
+<images/fissionyield.png, id=1686, 1074.0125pt x 1422.31375pt>
 File: images/fissionyield.png Graphic file (type png)
 <use images/fissionyield.png>
 Package pdftex.def Info: images/fissionyield.png  used on input line 128.
@@ -2485,7 +2484,7 @@ PGFPlots: reading {dat/cs_tet_10-3.dat}
 PGFPlots: reading {dat/cs_tet_10-3.dat}
 PGFPlots: reading {dat/cs_tet_10-3.dat}
 PGFPlots: reading {dat/cs_tet_10-3.dat}
- [84] [85pdfTeX warning (ext4): destination with the same identifier (name{figu
+ [85] [86pdfTeX warning (ext4): destination with the same identifier (name{figu
 re.7.1}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
@@ -2497,7 +2496,7 @@ l.489
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.489 
-       <./images/fissionyield.png>] [86pdfTeX warning (ext4): destination with 
+       <./images/fissionyield.png>] [87pdfTeX warning (ext4): destination with 
 the same identifier (name{figure.7.3}) has been already used, duplicate ignored
 
 
@@ -2510,7 +2509,7 @@ l.489
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.489 
-      ] [87pdfTeX warning (ext4): destination with the same identifier (name{fi
+      ] [88pdfTeX warning (ext4): destination with the same identifier (name{fi
 gure.7.5}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
@@ -2522,13 +2521,13 @@ l.489
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.489 
-      ] [88pdfTeX warning (ext4): destination with the same identifier (name{ta
+      ] [89pdfTeX warning (ext4): destination with the same identifier (name{ta
 ble.7.2}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.493 
-      ] [89] [90] [91] [92] [93]
+      ] [90] [91] [92] [93] [94]
 PGFPlots: reading {dat/te_tet_10-5.dat}
 Missing character: There is no ; in font nullfont!
 PGFPlots: reading {dat/te_tet_10-5.dat}
@@ -2598,13 +2597,13 @@ PGFPlots: reading {dat/te_tet_10-3.dat}
 PGFPlots: reading {dat/te_tet_10-3.dat}
 PGFPlots: reading {dat/te_tet_10-3.dat}
 PGFPlots: reading {dat/te_tet_10-3.dat}
- [94pdfTeX warning (ext4): destination with the same identifier (name{figure.7.
+ [95pdfTeX warning (ext4): destination with the same identifier (name{figure.7.
 6}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.664 \end{landscape}
-                     ] [95
+                     ] [96
 
 
 ]
@@ -2677,13 +2676,13 @@ PGFPlots: reading {dat/xe_tet_10-3.dat}
 PGFPlots: reading {dat/xe_tet_10-3.dat}
 PGFPlots: reading {dat/xe_tet_10-3.dat}
 PGFPlots: reading {dat/xe_tet_10-3.dat}
- [96pdfTeX warning (ext4): destination with the same identifier (name{figure.7.
+ [97pdfTeX warning (ext4): destination with the same identifier (name{figure.7.
 7}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.753 \end{landscape}
-                     ] [97
+                     ] [98
 
 
 ]
@@ -2756,34 +2755,34 @@ PGFPlots: reading {dat/cs_tet_10-3.dat}
 PGFPlots: reading {dat/cs_tet_10-3.dat}
 PGFPlots: reading {dat/cs_tet_10-3.dat}
 PGFPlots: reading {dat/cs_tet_10-3.dat}
- [98pdfTeX warning (ext4): destination with the same identifier (name{figure.7.
+ [99pdfTeX warning (ext4): destination with the same identifier (name{figure.7.
 8}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.837 \end{landscape}
-                     ]) (./future/future.tex [99
+                     ]) (./future/future.tex [100
 
 
 ]
 Chapter 8.
-) [100
+) [101
 
 ] (./thesis.bbl (./thesis.brf)
 \tf@brf=\write9
 \openout9 = `thesis.brf'.
 
- [101] [102
+ [102] [103
 
-] [103] [104] [105] [106]
-[107] [108] [109] [110] [111]) [112]pdfTeX warning (ext4): destination with the
+] [104] [105] [106] [107]
+[108] [109] [110] [111] [112]) [113]pdfTeX warning (ext4): destination with the
  same identifier (name{chapter.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.54 \chapter{ParaSweep}
                         
 Appendix A.
-[113
+[114
 
 ]pdfTeX warning (ext4): destination with the same identifier (name{chapter.2}) 
 has been already used, duplicate ignored
@@ -2792,7 +2791,7 @@ has been already used, duplicate ignored
 l.59 \chapter{CASTEP and HPC Scripts}
                                      
 Appendix B.
-[114
+[115
 
 ]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 63.
@@ -2803,13 +2802,13 @@ Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 63.
 Package rerunfilecheck Info: File `thesis.out' has not changed.
 (rerunfilecheck)             Checksum: 63315E736FC21D900A098BCA82772DF1;8784.
 Package rerunfilecheck Info: File `thesis.brf' has not changed.
-(rerunfilecheck)             Checksum: B3890A025232E814C0F79234F94BCC56;8584.
+(rerunfilecheck)             Checksum: 3DC3B94BD5EE43F346F3DC9CFDB0379F;8584.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 63.
  ) 
 Here is how much of TeX's memory you used:
- 41752 strings out of 492649
- 959274 string characters out of 6129623
- 2005892 words of memory out of 5000000
+ 41753 strings out of 492649
+ 959282 string characters out of 6129623
+ 2007892 words of memory out of 5000000
  44406 multiletter control sequences out of 15000+600000
  550878 words of font info for 103 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -2834,10 +2833,10 @@ e/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb></usr/local/texlive
 /2018/texmf-dist/fonts/type1/public/cm-super/sfbx0800.pfb></usr/local/texlive/2
 018/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive/201
 8/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on thesis.pdf (135 pages, 4000889 bytes).
+Output written on thesis.pdf (136 pages, 4001834 bytes).
 PDF statistics:
- 2220 PDF objects out of 2487 (max. 8388607)
- 1988 compressed objects within 20 object streams
- 482 named destinations out of 1000 (max. 500000)
+ 2224 PDF objects out of 2487 (max. 8388607)
+ 1991 compressed objects within 20 object streams
+ 483 named destinations out of 1000 (max. 500000)
  1097 words of extra memory for PDF output out of 10000 (max. 10000000)
 
