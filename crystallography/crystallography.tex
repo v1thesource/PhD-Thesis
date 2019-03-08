@@ -50,6 +50,20 @@ A unit cell of monoclinic \zirconia\ is illustrated in Figure \ref{figure:coordi
 
 \subsection{Cubic}
 
+\subsubsection{Cubic phase stability}
+
+\begin{itemize}
+\item The existence of a cubic phase in undoped \zirconia\ is debated. The high temperatures required for stabilisation of the cubic phase and the similarity to the tetragonal phase make it difficult to discern as a third phase.
+\item Also due to the high temperature, the stability of the cubic phase in DFT calculations may be inaccurate. This is discussed further in Chapter 3.
+\end{itemize}
+
+\begin{figure}[htp]
+\centering
+\includegraphics[height=7cm]{images/tet_vs_cubic.png}
+\caption{\textbf{A}) Tetragonal \zirconia\ viewed along the [110] direction. \textbf{B}) Cubic \zirconia\ viewed along the [100] direction. Zirconium atoms are shown in green and oxygen atoms in red.}
+\label{figure:tetvscubic}
+\end{figure}
+
 \subsection{Other phases}
 
 \subsubsection{Cotunnite}
@@ -98,9 +112,44 @@ The tetragonal and cubic phases of \zirconia\ are stabilised at high pressure. S
 
 \subsection{Dopant stabilisation (lower valence cations)}
 
-Some dopants will also stabilise the tetragonal and cubic phases of \zirconia. The most technologically significant of which is yttrium, which at concentrations of 15\% (atomic), fully stabilises the cubic phase. Zirconia stabilised this way is known as yttria-stabilised zirconia (YSZ). The way this works is by trivalent yttrium promoting the inclusion of charge compensating oxygen vacancy defects (see equation XXX). This works in a similar way with several other cation dopants such as trivalent scandium and divalent magnesium.
+Particular kinds of dopants will also stabilise the tetragonal and cubic phases of \zirconia. The most technologically significant of which is yttrium, which at concentrations of 15\% (atomic), fully stabilises the cubic phase. Zirconia stabilised this way is known as yttria-stabilised zirconia (YSZ). This works by trivalent yttrium promoting the inclusion of charge compensating oxygen vacancy defects (see Equation \ref{equation:YSZ}). This works in a similar way with several other cation dopants such as trivalent scandium from Sc$_{2}$O$_{3}$, or divalent magnesium from MgO (Equation \ref{equation:mg_stabilised_zro2}).
 
-\section{Point Defects}
+\begin{equation}
+Y_{2}O_{3} = 2\ch{Y_{Zr}^{'}} + \ch{V_{O}^{**}} + 3\ch{O_{O}^{x}} 
+\label{equation:YSZ}
+\end{equation}
+
+\begin{equation}
+MgO= \ch{Mg_{Zr}^{''}} + \ch{V_{O}^{**}} + \ch{O_{O}^{x}} 
+\label{equation:mg_stabilised_zro2}
+\end{equation}
+
+While \zirconia\ would ideally adopt the regular cubic fluorite structure, we only observe cubic stabilisation at elevated temperatures where the ionic radii of the zirconium ion increases (and possibly a stabilising phonon mode contribution). Yttrium is known to stabilise the cubic phase in \zirconia\ at standard conditions. This stabilising effect is observed because the yttrium ion is of the appropriate size to maintain the oxygen ions and vacancies in the VIII coordination at low temperatures, as can be seen from ionic radii values in Table \ref{figure:ionicradii}. 
+
+%This is accomplished by substituting a Zr\textsuperscript{4+} ion with Y\textsuperscript{3+} and the binding of two neighbouring oxygen vacancies, effectively producing a sub-unit of yttria (Y\textsubscript{2}O\textsubscript{3}) in the \zirconia\ lattice. 
+
+\begin{table}[htp]
+\onehalfspacing
+\centering
+\caption{Ionic radii of Zr\textsuperscript{4+} and Y\textsuperscript{3+} in various coordination environments. Values taken from \cite{Shannon1976}.}
+\label{figure:ionicradii}
+\begin{tabular}{ccc}
+\hline
+Ion & Coordination & Ionic Radius (\r{A}) \\ \hline
+\multicolumn{1}{c}{\multirow{6}{*}{Zr\textsuperscript{4+}}} & \multicolumn{1}{c}{IV} & 0.59 \\
+\multicolumn{1}{c}{} & \multicolumn{1}{c}{V} & 0.66 \\
+\multicolumn{1}{c}{} & \multicolumn{1}{c}{VI} & 0.72 \\
+\multicolumn{1}{c}{} & \multicolumn{1}{c}{VII} & 0.78 \\
+\multicolumn{1}{c}{} & \multicolumn{1}{c}{VIII} & 0.84 \\
+\multicolumn{1}{c}{} & \multicolumn{1}{c}{IX} & 0.89 \\ \hline
+\multicolumn{1}{c}{\multirow{4}{*}{Y\textsuperscript{3+}}} & \multicolumn{1}{c}{VI} & 0.90 \\
+\multicolumn{1}{c}{} & \multicolumn{1}{c}{VII} & 0.96 \\
+\multicolumn{1}{c}{} & \multicolumn{1}{c}{VIII} & 1.019 \\
+\multicolumn{1}{c}{} & \multicolumn{1}{c}{IX} & 1.075 \\ \hline
+\end{tabular}
+\end{table}
+
+%\section{Point Defects}
 
 \subsection{Kr\"{o}ger-Vink notation}
 

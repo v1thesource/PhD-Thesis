@@ -16,110 +16,108 @@
 \BOOKMARK [2][-]{subsection.1.3.2}{Oxide growth mechanism}{section.1.3}% 16
 \BOOKMARK [2][-]{subsection.1.3.3}{Outer oxide vs inner oxide}{section.1.3}% 17
 \BOOKMARK [2][-]{subsection.1.3.4}{Sources of oxygen}{section.1.3}% 18
-\BOOKMARK [2][-]{subsection.1.3.5}{Cubic phase stability}{section.1.3}% 19
-\BOOKMARK [1][-]{section.1.4}{Atomistic Simulation}{chapter.1}% 20
-\BOOKMARK [2][-]{subsection.1.4.1}{Classical approach - molecular dynamics}{section.1.4}% 21
-\BOOKMARK [2][-]{subsection.1.4.2}{Quantum mechanical approach - DFT}{section.1.4}% 22
-\BOOKMARK [2][-]{subsection.1.4.3}{Band gap}{section.1.4}% 23
-\BOOKMARK [0][-]{chapter.2}{Crystallography and Point Defects}{}% 24
-\BOOKMARK [1][-]{section.2.1}{ZrO phases and stabilisation}{chapter.2}% 25
-\BOOKMARK [2][-]{subsection.2.1.1}{Monoclinic}{section.2.1}% 26
-\BOOKMARK [2][-]{subsection.2.1.2}{Tetragonal}{section.2.1}% 27
-\BOOKMARK [2][-]{subsection.2.1.3}{Cubic}{section.2.1}% 28
-\BOOKMARK [2][-]{subsection.2.1.4}{Other phases}{section.2.1}% 29
-\BOOKMARK [2][-]{subsection.2.1.5}{Pressure stabilisation \(isochoric + autostabilisation\)}{section.2.1}% 30
-\BOOKMARK [2][-]{subsection.2.1.6}{Dopant stabilisation \(lower valence cations\)}{section.2.1}% 31
-\BOOKMARK [1][-]{section.2.2}{Point Defects}{chapter.2}% 32
-\BOOKMARK [2][-]{subsection.2.2.1}{Kr\366ger-Vink notation}{section.2.2}% 33
-\BOOKMARK [0][-]{chapter.3}{Computational Methodology}{}% 34
-\BOOKMARK [1][-]{section.3.1}{Density functional theory}{chapter.3}% 35
-\BOOKMARK [2][-]{subsection.3.1.1}{The Schr\366dinger equation}{section.3.1}% 36
-\BOOKMARK [2][-]{subsection.3.1.2}{Kohn-Sham Method}{section.3.1}% 37
-\BOOKMARK [2][-]{subsection.3.1.3}{Pseudopotentials}{section.3.1}% 38
-\BOOKMARK [1][-]{section.3.2}{Periodic boundaries}{chapter.3}% 39
-\BOOKMARK [2][-]{subsection.3.2.1}{Bloch's theorem}{section.3.2}% 40
-\BOOKMARK [2][-]{subsection.3.2.2}{Plane-waves}{section.3.2}% 41
-\BOOKMARK [1][-]{section.3.3}{Computational details}{chapter.3}% 42
-\BOOKMARK [2][-]{subsection.3.3.1}{Cell dimensions and initialisation}{section.3.3}% 43
-\BOOKMARK [2][-]{subsection.3.3.2}{Geometry optimisation}{section.3.3}% 44
-\BOOKMARK [2][-]{subsection.3.3.3}{Convergence criteria for geometry optimisation}{section.3.3}% 45
-\BOOKMARK [2][-]{subsection.3.3.4}{Charged cell correction}{section.3.3}% 46
-\BOOKMARK [2][-]{subsection.3.3.5}{Stiffness tensor generation}{section.3.3}% 47
-\BOOKMARK [2][-]{subsection.3.3.6}{Strain method for defect volumes}{section.3.3}% 48
-\BOOKMARK [2][-]{subsection.3.3.7}{Isobaric method for defect volumes}{section.3.3}% 49
-\BOOKMARK [1][-]{section.3.4}{Defect equilibria}{chapter.3}% 50
-\BOOKMARK [2][-]{subsection.3.4.1}{Effect of space charge}{section.3.4}% 51
-\BOOKMARK [1][-]{section.3.5}{Convergence testing}{chapter.3}% 52
-\BOOKMARK [2][-]{subsection.3.5.1}{Plane-wave cut-off energy}{section.3.5}% 53
-\BOOKMARK [2][-]{subsection.3.5.2}{k-point convergence}{section.3.5}% 54
-\BOOKMARK [2][-]{subsection.3.5.3}{Exchange-correlation functionals}{section.3.5}% 55
-\BOOKMARK [2][-]{subsection.3.5.4}{On-the-fly pseudopotentials}{section.3.5}% 56
-\BOOKMARK [2][-]{subsection.3.5.5}{Unit cells}{section.3.5}% 57
-\BOOKMARK [2][-]{subsection.3.5.6}{Chemical potential of iodine}{section.3.5}% 58
-\BOOKMARK [2][-]{subsection.3.5.7}{+U study}{section.3.5}% 59
-\BOOKMARK [0][-]{chapter.4}{Defects}{}% 60
-\BOOKMARK [1][-]{section.4.1}{Placeholder}{chapter.4}% 61
-\BOOKMARK [2][-]{subsection.4.1.1}{Incorporation and defect formation energies}{section.4.1}% 62
-\BOOKMARK [1][-]{section.4.2}{Brouwer diagrams}{chapter.4}% 63
-\BOOKMARK [2][-]{subsection.4.2.1}{Defect equilibria}{section.4.2}% 64
-\BOOKMARK [2][-]{subsection.4.2.2}{Oxygen pressure dependence}{section.4.2}% 65
-\BOOKMARK [0][-]{chapter.5}{Intrinsic defect study}{}% 66
-\BOOKMARK [1][-]{section.5.1}{Introduction}{chapter.5}% 67
-\BOOKMARK [2][-]{subsection.5.1.1}{Applications}{section.5.1}% 68
-\BOOKMARK [2][-]{subsection.5.1.2}{Crystal structures}{section.5.1}% 69
-\BOOKMARK [2][-]{subsection.5.1.3}{Previous work}{section.5.1}% 70
-\BOOKMARK [1][-]{section.5.2}{Methodology}{chapter.5}% 71
-\BOOKMARK [2][-]{subsection.5.2.1}{Simulation parameters}{section.5.2}% 72
-\BOOKMARK [2][-]{subsection.5.2.2}{Temperature dependence}{section.5.2}% 73
-\BOOKMARK [2][-]{subsection.5.2.3}{Defect formation energies}{section.5.2}% 74
-\BOOKMARK [2][-]{subsection.5.2.4}{Brouwer diagrams}{section.5.2}% 75
-\BOOKMARK [1][-]{section.5.3}{Cubic phase collapse}{chapter.5}% 76
-\BOOKMARK [1][-]{section.5.4}{Defect formation energies}{chapter.5}% 77
-\BOOKMARK [1][-]{section.5.5}{Elastic constants and defect relaxation volumes}{chapter.5}% 78
-\BOOKMARK [1][-]{section.5.6}{Helmholtz energies}{chapter.5}% 79
-\BOOKMARK [1][-]{section.5.7}{Defect equilibria}{chapter.5}% 80
-\BOOKMARK [1][-]{section.5.8}{Summary}{chapter.5}% 81
-\BOOKMARK [0][-]{chapter.6}{Iodine defect equilibria in ZrO}{}% 82
-\BOOKMARK [1][-]{section.6.1}{Introduction}{chapter.6}% 83
-\BOOKMARK [2][-]{subsection.6.1.1}{Iodine stress-corrosion cracking}{section.6.1}% 84
-\BOOKMARK [2][-]{subsection.6.1.2}{Pellet-cladding interaction}{section.6.1}% 85
-\BOOKMARK [2][-]{subsection.6.1.3}{Oxygen competition}{section.6.1}% 86
-\BOOKMARK [1][-]{section.6.2}{Methodology}{chapter.6}% 87
-\BOOKMARK [2][-]{subsection.6.2.1}{Computational details}{section.6.2}% 88
-\BOOKMARK [2][-]{subsection.6.2.2}{Incorporation energies}{section.6.2}% 89
-\BOOKMARK [2][-]{subsection.6.2.3}{Defect Equilibrium Response to Oxygen Partial Pressure}{section.6.2}% 90
-\BOOKMARK [1][-]{section.6.3}{Results}{chapter.6}% 91
-\BOOKMARK [2][-]{subsection.6.3.1}{Incorporation energies}{section.6.3}% 92
-\BOOKMARK [2][-]{subsection.6.3.2}{Temperature dependence}{section.6.3}% 93
-\BOOKMARK [2][-]{subsection.6.3.3}{Dopant concentration dependence}{section.6.3}% 94
-\BOOKMARK [2][-]{subsection.6.3.4}{Brouwer Diagrams}{section.6.3}% 95
-\BOOKMARK [1][-]{section.6.4}{Summary}{chapter.6}% 96
-\BOOKMARK [0][-]{chapter.7}{Radioparagenesis of fission products in tetragonal ZrO}{}% 97
-\BOOKMARK [1][-]{section.7.1}{Introduction}{chapter.7}% 98
-\BOOKMARK [1][-]{section.7.2}{Methodology}{chapter.7}% 99
-\BOOKMARK [2][-]{subsection.7.2.1}{Computational Parameters}{section.7.2}% 100
-\BOOKMARK [2][-]{subsection.7.2.2}{Defect Volumes}{section.7.2}% 101
-\BOOKMARK [2][-]{subsection.7.2.3}{Defect Equilibrium Response to Oxygen Partial Pressure}{section.7.2}% 102
-\BOOKMARK [1][-]{section.7.3}{Results}{chapter.7}% 103
-\BOOKMARK [2][-]{subsection.7.3.1}{Brouwer Diagrams}{section.7.3}% 104
-\BOOKMARK [1][-]{section.7.4}{Conclusions}{chapter.7}% 105
-\BOOKMARK [2][-]{subsection.7.4.1}{Radioparagenesis}{section.7.4}% 106
-\BOOKMARK [2][-]{subsection.7.4.2}{Site preference of fission products}{section.7.4}% 107
-\BOOKMARK [1][-]{section.7.5}{Methodology}{chapter.7}% 108
-\BOOKMARK [2][-]{subsection.7.5.1}{Simulation parameters}{section.7.5}% 109
-\BOOKMARK [2][-]{subsection.7.5.2}{Brouwer diagram generation}{section.7.5}% 110
-\BOOKMARK [2][-]{subsection.7.5.3}{Defect Volumes}{section.7.5}% 111
-\BOOKMARK [1][-]{section.7.6}{Defect equilibria}{chapter.7}% 112
-\BOOKMARK [2][-]{subsection.7.6.1}{Tellurium}{section.7.6}% 113
-\BOOKMARK [2][-]{subsection.7.6.2}{Iodine}{section.7.6}% 114
-\BOOKMARK [2][-]{subsection.7.6.3}{Xenon}{section.7.6}% 115
-\BOOKMARK [2][-]{subsection.7.6.4}{Caesium}{section.7.6}% 116
-\BOOKMARK [1][-]{section.7.7}{Summary}{chapter.7}% 117
-\BOOKMARK [0][-]{chapter.8}{Future work}{}% 118
-\BOOKMARK [1][-]{section.8.1}{Fission product empirical potential}{chapter.8}% 119
-\BOOKMARK [1][-]{section.8.2}{Grain boundary transport}{chapter.8}% 120
-\BOOKMARK [1][-]{section.8.3}{Zr/ZrO/ZrO interface study}{chapter.8}% 121
-\BOOKMARK [0][-]{section.8.3}{References}{}% 122
-\BOOKMARK [0][-]{chapter*.21}{Appendix}{}% 123
-\BOOKMARK [0][-]{chapter.1}{ParaSweep}{}% 124
-\BOOKMARK [0][-]{chapter.2}{CASTEP and HPC Scripts}{}% 125
+\BOOKMARK [1][-]{section.1.4}{Atomistic Simulation}{chapter.1}% 19
+\BOOKMARK [2][-]{subsection.1.4.1}{Classical approach - molecular dynamics}{section.1.4}% 20
+\BOOKMARK [2][-]{subsection.1.4.2}{Quantum mechanical approach - DFT}{section.1.4}% 21
+\BOOKMARK [2][-]{subsection.1.4.3}{Band gap}{section.1.4}% 22
+\BOOKMARK [0][-]{chapter.2}{Crystallography and Point Defects}{}% 23
+\BOOKMARK [1][-]{section.2.1}{ZrO phases and stabilisation}{chapter.2}% 24
+\BOOKMARK [2][-]{subsection.2.1.1}{Monoclinic}{section.2.1}% 25
+\BOOKMARK [2][-]{subsection.2.1.2}{Tetragonal}{section.2.1}% 26
+\BOOKMARK [2][-]{subsection.2.1.3}{Cubic}{section.2.1}% 27
+\BOOKMARK [2][-]{subsection.2.1.4}{Other phases}{section.2.1}% 28
+\BOOKMARK [2][-]{subsection.2.1.5}{Pressure stabilisation \(isochoric + autostabilisation\)}{section.2.1}% 29
+\BOOKMARK [2][-]{subsection.2.1.6}{Dopant stabilisation \(lower valence cations\)}{section.2.1}% 30
+\BOOKMARK [2][-]{subsection.2.1.7}{Kr\366ger-Vink notation}{section.2.1}% 31
+\BOOKMARK [0][-]{chapter.3}{Computational Methodology}{}% 32
+\BOOKMARK [1][-]{section.3.1}{Density functional theory}{chapter.3}% 33
+\BOOKMARK [2][-]{subsection.3.1.1}{The Schr\366dinger equation}{section.3.1}% 34
+\BOOKMARK [2][-]{subsection.3.1.2}{Kohn-Sham Method}{section.3.1}% 35
+\BOOKMARK [2][-]{subsection.3.1.3}{Pseudopotentials}{section.3.1}% 36
+\BOOKMARK [1][-]{section.3.2}{Periodic boundaries}{chapter.3}% 37
+\BOOKMARK [2][-]{subsection.3.2.1}{Bloch's theorem}{section.3.2}% 38
+\BOOKMARK [2][-]{subsection.3.2.2}{Plane-waves}{section.3.2}% 39
+\BOOKMARK [1][-]{section.3.3}{Computational details}{chapter.3}% 40
+\BOOKMARK [2][-]{subsection.3.3.1}{Cell dimensions and initialisation}{section.3.3}% 41
+\BOOKMARK [2][-]{subsection.3.3.2}{Geometry optimisation}{section.3.3}% 42
+\BOOKMARK [2][-]{subsection.3.3.3}{Convergence criteria for geometry optimisation}{section.3.3}% 43
+\BOOKMARK [2][-]{subsection.3.3.4}{Charged cell correction}{section.3.3}% 44
+\BOOKMARK [2][-]{subsection.3.3.5}{Stiffness tensor generation}{section.3.3}% 45
+\BOOKMARK [2][-]{subsection.3.3.6}{Strain method for defect volumes}{section.3.3}% 46
+\BOOKMARK [2][-]{subsection.3.3.7}{Isobaric method for defect volumes}{section.3.3}% 47
+\BOOKMARK [1][-]{section.3.4}{Defect equilibria}{chapter.3}% 48
+\BOOKMARK [2][-]{subsection.3.4.1}{Effect of space charge}{section.3.4}% 49
+\BOOKMARK [1][-]{section.3.5}{Convergence testing}{chapter.3}% 50
+\BOOKMARK [2][-]{subsection.3.5.1}{Plane-wave cut-off energy}{section.3.5}% 51
+\BOOKMARK [2][-]{subsection.3.5.2}{k-point convergence}{section.3.5}% 52
+\BOOKMARK [2][-]{subsection.3.5.3}{Exchange-correlation functionals}{section.3.5}% 53
+\BOOKMARK [2][-]{subsection.3.5.4}{On-the-fly pseudopotentials}{section.3.5}% 54
+\BOOKMARK [2][-]{subsection.3.5.5}{Unit cells}{section.3.5}% 55
+\BOOKMARK [2][-]{subsection.3.5.6}{Chemical potential of iodine}{section.3.5}% 56
+\BOOKMARK [2][-]{subsection.3.5.7}{+U study}{section.3.5}% 57
+\BOOKMARK [0][-]{chapter.4}{Defects}{}% 58
+\BOOKMARK [1][-]{section.4.1}{Placeholder}{chapter.4}% 59
+\BOOKMARK [2][-]{subsection.4.1.1}{Incorporation and defect formation energies}{section.4.1}% 60
+\BOOKMARK [1][-]{section.4.2}{Brouwer diagrams}{chapter.4}% 61
+\BOOKMARK [2][-]{subsection.4.2.1}{Defect equilibria}{section.4.2}% 62
+\BOOKMARK [2][-]{subsection.4.2.2}{Oxygen pressure dependence}{section.4.2}% 63
+\BOOKMARK [0][-]{chapter.5}{Intrinsic defect study}{}% 64
+\BOOKMARK [1][-]{section.5.1}{Introduction}{chapter.5}% 65
+\BOOKMARK [2][-]{subsection.5.1.1}{Applications}{section.5.1}% 66
+\BOOKMARK [2][-]{subsection.5.1.2}{Crystal structures}{section.5.1}% 67
+\BOOKMARK [2][-]{subsection.5.1.3}{Previous work}{section.5.1}% 68
+\BOOKMARK [1][-]{section.5.2}{Methodology}{chapter.5}% 69
+\BOOKMARK [2][-]{subsection.5.2.1}{Simulation parameters}{section.5.2}% 70
+\BOOKMARK [2][-]{subsection.5.2.2}{Temperature dependence}{section.5.2}% 71
+\BOOKMARK [2][-]{subsection.5.2.3}{Defect formation energies}{section.5.2}% 72
+\BOOKMARK [2][-]{subsection.5.2.4}{Brouwer diagrams}{section.5.2}% 73
+\BOOKMARK [1][-]{section.5.3}{Cubic phase collapse}{chapter.5}% 74
+\BOOKMARK [1][-]{section.5.4}{Defect formation energies}{chapter.5}% 75
+\BOOKMARK [1][-]{section.5.5}{Elastic constants and defect relaxation volumes}{chapter.5}% 76
+\BOOKMARK [1][-]{section.5.6}{Helmholtz energies}{chapter.5}% 77
+\BOOKMARK [1][-]{section.5.7}{Defect equilibria}{chapter.5}% 78
+\BOOKMARK [1][-]{section.5.8}{Summary}{chapter.5}% 79
+\BOOKMARK [0][-]{chapter.6}{Iodine defect equilibria in ZrO}{}% 80
+\BOOKMARK [1][-]{section.6.1}{Introduction}{chapter.6}% 81
+\BOOKMARK [2][-]{subsection.6.1.1}{Iodine stress-corrosion cracking}{section.6.1}% 82
+\BOOKMARK [2][-]{subsection.6.1.2}{Pellet-cladding interaction}{section.6.1}% 83
+\BOOKMARK [2][-]{subsection.6.1.3}{Oxygen competition}{section.6.1}% 84
+\BOOKMARK [1][-]{section.6.2}{Methodology}{chapter.6}% 85
+\BOOKMARK [2][-]{subsection.6.2.1}{Computational details}{section.6.2}% 86
+\BOOKMARK [2][-]{subsection.6.2.2}{Incorporation energies}{section.6.2}% 87
+\BOOKMARK [2][-]{subsection.6.2.3}{Defect Equilibrium Response to Oxygen Partial Pressure}{section.6.2}% 88
+\BOOKMARK [1][-]{section.6.3}{Results}{chapter.6}% 89
+\BOOKMARK [2][-]{subsection.6.3.1}{Incorporation energies}{section.6.3}% 90
+\BOOKMARK [2][-]{subsection.6.3.2}{Temperature dependence}{section.6.3}% 91
+\BOOKMARK [2][-]{subsection.6.3.3}{Dopant concentration dependence}{section.6.3}% 92
+\BOOKMARK [2][-]{subsection.6.3.4}{Brouwer Diagrams}{section.6.3}% 93
+\BOOKMARK [1][-]{section.6.4}{Summary}{chapter.6}% 94
+\BOOKMARK [0][-]{chapter.7}{Radioparagenesis of fission products in tetragonal ZrO}{}% 95
+\BOOKMARK [1][-]{section.7.1}{Introduction}{chapter.7}% 96
+\BOOKMARK [1][-]{section.7.2}{Methodology}{chapter.7}% 97
+\BOOKMARK [2][-]{subsection.7.2.1}{Computational Parameters}{section.7.2}% 98
+\BOOKMARK [2][-]{subsection.7.2.2}{Defect Volumes}{section.7.2}% 99
+\BOOKMARK [2][-]{subsection.7.2.3}{Defect Equilibrium Response to Oxygen Partial Pressure}{section.7.2}% 100
+\BOOKMARK [1][-]{section.7.3}{Results}{chapter.7}% 101
+\BOOKMARK [2][-]{subsection.7.3.1}{Brouwer Diagrams}{section.7.3}% 102
+\BOOKMARK [1][-]{section.7.4}{Conclusions}{chapter.7}% 103
+\BOOKMARK [2][-]{subsection.7.4.1}{Radioparagenesis}{section.7.4}% 104
+\BOOKMARK [2][-]{subsection.7.4.2}{Site preference of fission products}{section.7.4}% 105
+\BOOKMARK [1][-]{section.7.5}{Methodology}{chapter.7}% 106
+\BOOKMARK [2][-]{subsection.7.5.1}{Simulation parameters}{section.7.5}% 107
+\BOOKMARK [2][-]{subsection.7.5.2}{Brouwer diagram generation}{section.7.5}% 108
+\BOOKMARK [2][-]{subsection.7.5.3}{Defect Volumes}{section.7.5}% 109
+\BOOKMARK [1][-]{section.7.6}{Defect equilibria}{chapter.7}% 110
+\BOOKMARK [2][-]{subsection.7.6.1}{Tellurium}{section.7.6}% 111
+\BOOKMARK [2][-]{subsection.7.6.2}{Iodine}{section.7.6}% 112
+\BOOKMARK [2][-]{subsection.7.6.3}{Xenon}{section.7.6}% 113
+\BOOKMARK [2][-]{subsection.7.6.4}{Caesium}{section.7.6}% 114
+\BOOKMARK [1][-]{section.7.7}{Summary}{chapter.7}% 115
+\BOOKMARK [0][-]{chapter.8}{Future work}{}% 116
+\BOOKMARK [1][-]{section.8.1}{Fission product empirical potential}{chapter.8}% 117
+\BOOKMARK [1][-]{section.8.2}{Grain boundary transport}{chapter.8}% 118
+\BOOKMARK [1][-]{section.8.3}{Zr/ZrO/ZrO interface study}{chapter.8}% 119
+\BOOKMARK [0][-]{section.8.3}{References}{}% 120
+\BOOKMARK [0][-]{chapter*.22}{Appendix}{}% 121
+\BOOKMARK [0][-]{chapter.1}{ParaSweep}{}% 122
+\BOOKMARK [0][-]{chapter.2}{CASTEP and HPC Scripts}{}% 123

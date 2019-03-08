@@ -1,11 +1,5 @@
 \begin{thebibliography}{10}
 
-\bibitem{Shannon1976}
-R~D Shannon.
-\newblock {Revised effective ionic radii and systematic studies of interatomic
-  distances in halides and chalcogenides}.
-\newblock {\em Acta Crystallographica Section A}, 32(5):751--767, 1976.
-
 \bibitem{French1994}
 R~French, S~Glass, F~Ohuchi, Y~Xu, and W~Ching.
 \newblock {Experimental and theoretical determination of the electronic
@@ -16,6 +10,12 @@ C~J Howard, R~J Hill, and B~E Reichert.
 \newblock {Structures of ZrO2 polymorphs at room temperature by
   high‐resolution neutron powder diffraction}.
 \newblock {\em Acta Crystallographica Section B}, 44(2):116--120, 1988.
+
+\bibitem{Shannon1976}
+R~D Shannon.
+\newblock {Revised effective ionic radii and systematic studies of interatomic
+  distances in halides and chalcogenides}.
+\newblock {\em Acta Crystallographica Section A}, 32(5):751--767, 1976.
 
 \bibitem{iodinefissionyields}
 A~L Nichols, D~L Aldama, and M~Verpelli.
@@ -36,11 +36,37 @@ N~K Aras, M~P Menon, and G~E Gordon.
 
 \bibitem{BenRGPlotIsotopes}
 {BenRG}.
-\newblock {Plot of atomic isotopes}.
+\newblock {Plot of atomic isotopes}, 2009.
 
 \bibitem{FastfissionBindingCurve}
 {Fastfission}.
-\newblock {Binding energy curve}.
+\newblock {Binding energy curve}, 2007.
+
+\bibitem{katz2007chemistry}
+Joseph~J Katz.
+\newblock {\em The Chemistry of the Actinide and Transactinide Elements
+  (Volumes 1-5)}, volume~1.
+\newblock Springer Science \& Business Media, 2007.
+
+\bibitem{rand1978thermodynamic}
+MH~Rand, RJ~Ackermann, F~Gronvold, FL~Oetting, and A~Pattoret.
+\newblock The thermodynamic properties of the urania phase.
+\newblock {\em Revue Internationale des Hautes Temperatures et des
+  Refractaires}, 15(4):355--365, 1978.
+
+\bibitem{chevalier2002progress}
+P-Y Chevalier, Evelyne Fischer, and Bertrand Cheynet.
+\newblock Progress in the thermodynamic modelling of the o--u binary system.
+\newblock {\em Journal of nuclear materials}, 303(1):1--28, 2002.
+
+\bibitem{gueneau2002thermodynamic}
+C~Gu{\'e}neau, M~Baichi, D~a~al Labroche, C~Chatillon, and Bo~Sundman.
+\newblock Thermodynamic assessment of the uranium--oxygen system.
+\newblock {\em Journal of Nuclear Materials}, 304(2-3):161--175, 2002.
+
+\bibitem{Chetvorno2017}
+Chetvorno.
+\newblock {Solid State Electronic Band Structure}, 2017.
 
 \bibitem{Abriata1986TheSystem}
 J.~P. Abriata, J.~Garc{\'{e}}s, and R.~Versaci.
@@ -160,10 +186,6 @@ J~K Dawson, G~Long, W~E Seddon, and J~F White.
 H~A Porte, J~G Schnizlein, R~C Vogel, and D~F Fischer.
 \newblock {Oxidation of zirconium and zirconium alloys}.
 \newblock {\em Journal of the Electrochemical Society}, 107(6):506--515, 1960.
-
-\bibitem{Chetvorno2017}
-Chetvorno.
-\newblock {Solid State Electronic Band Structure}, 2017.
 
 \bibitem{Gupta1977}
 T~K Gupta, J~H Bechtold, R~C Kuznicki, L~H Cadoff, and B~R Rossing.

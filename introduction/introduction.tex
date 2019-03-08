@@ -2,7 +2,7 @@
 
 \section{Nuclear Power}
 
-Towards the second half of the twentieth century, the energy confined within atomic nuclei was first utilised for commercial electrical power. This marked a significant departure from previous forms of commercial energy production, which relied on less energetically lucrative sources such as combustion of coal, oil and gas. Indeed, the closest we had come to utilising nuclear energy commercially was through geothermal power, where the thermal energy is partly due to radiogenic heat from unstable isotopes in the Earth's mantle \cite{gando2011partial} . 
+In the summer of 1956, the world's first commercial nuclear power plant was connected to the grid in the north of England. This marked a significant departure from previous forms of commercial energy production, which relied on less energetically lucrative sources such as combustion of coal, oil and gas. Indeed, the closest we had come to utilising nuclear energy commercially was through geothermal power, where the thermal energy is partly due to radiogenic heat from unstable isotopes in the Earth's mantle \cite{gando2011partial} . 
 %which relied on the chemical reactions of coal oil and gas
 %Combustion is a chemical process, where energy differences between reactants and products are exploited via electron exchange. Nuclear energy however, exploits the energy difference between nuclei. Both rely on the conversion of mass into energy, however, the amount of energy that can be extracted varies by several orders of magnitude
 Combustion is a chemical process where energy differences between reactants and products are exploited via electron exchange. Nuclear energy however, exploits the energy difference between nuclei. Both rely on the conversion of mass into energy, however, the amount of energy that can be extracted from the nucleus is several orders of magnitude greater.
@@ -147,36 +147,24 @@ An oxide layer will typically form on the surface of zirconium metal even at ver
 
 \subsection{Outer oxide vs inner oxide}
 The fuel cladding of an LWR develops an oxide on both the inner and outer surfaces due to exposure to oxygen in air during manufacture. 
+
 \subsection{Sources of oxygen}
 
-\begin{itemize}
-\item Initial oxidation occurs due to exposure to oxygen in air during manufacturing
-\item Evolution of oxygen from UO2 fuel pellet
-\end{itemize}
+The internal oxide layer is present before fuel claddings are pressurised with helium gas and sealed. This is from the normal oxidation of Zr in air, where the oxygen pressure is 0.21 atm. After capping of the fuel rods, the only other available oxygen is from the UO$_{2}$ fuel pellets.
 
+Uranium oxides have a wide range of non-stoichiometric compositions, with U/O ratios ranging from 1.67 to 2.24 in solid UO$_{2 \pm x}$, as shown in Figure \ref{figure:U_O_phase_diagram}. The oxide form U$_{3}$O$_{8-y}$ also exists and is more kinetically and thermodynamically stable than UO$_{2}$, but has lower density, making it less suitable for use as a fuel form. The different stoichiometries have different equilibrium O$_{2}$ pressures at constant temperature (REF TABLE), allowing some level of tweaking the internal cladding environment depending on whether more or less oxygen is desired. 
 
-While \zirconia\ would ideally adopt the regular cubic fluorite structure, we only observe cubic stabilisation at elevated temperatures where the ionic radii of the zirconium ion increases (and possibly a stabilising phonon mode contribution). Yttrium is known to stabilise the cubic phase in \zirconia\ at standard conditions. This is accomplished by substituting a Zr\textsuperscript{4+} ion with Y\textsuperscript{3+} and the binding of two neighbouring oxygen vacancies, effectively producing a sub-unit of yttria (Y\textsubscript{2}O\textsubscript{3}) in the \zirconia\ lattice. This stabilising effect is observed because the yttrium ion is of the appropriate size to maintain the oxygen ions and vacancies in the VIII coordination at low temperatures, as can be seen from ionic radii values in Table \ref{figure:ionicradii}. 
+Oxygen and oxygen precursors may also be produced directly from fission of U
+$_{235}$, but this contribution is insignificant compared to changing the stoichiometry of the fuel pellet. Indeed, liberation of oxygen from UO
+$_{2 \pm x}$ due to fission (which is also a function of the fuel's stoichiometry) is a more significant contributor to the oxygen pressure than direct production via fission.
 
-\begin{table}[htp]
-\onehalfspacing
+\begin{figure}[htp]
 \centering
-\caption{Ionic radii of Zr\textsuperscript{4+} and Y\textsuperscript{3+} in various coordination environments. Values taken from \cite{Shannon1976}.}
-\label{figure:ionicradii}
-\begin{tabular}{ccc}
-\hline
-Ion & Coordination & Ionic Radius (\r{A}) \\ \hline
-\multicolumn{1}{c}{\multirow{6}{*}{Zr\textsuperscript{4+}}} & \multicolumn{1}{c}{IV} & 0.59 \\
-\multicolumn{1}{c}{} & \multicolumn{1}{c}{V} & 0.66 \\
-\multicolumn{1}{c}{} & \multicolumn{1}{c}{VI} & 0.72 \\
-\multicolumn{1}{c}{} & \multicolumn{1}{c}{VII} & 0.78 \\
-\multicolumn{1}{c}{} & \multicolumn{1}{c}{VIII} & 0.84 \\
-\multicolumn{1}{c}{} & \multicolumn{1}{c}{IX} & 0.89 \\ \hline
-\multicolumn{1}{c}{\multirow{4}{*}{Y\textsuperscript{3+}}} & \multicolumn{1}{c}{VI} & 0.90 \\
-\multicolumn{1}{c}{} & \multicolumn{1}{c}{VII} & 0.96 \\
-\multicolumn{1}{c}{} & \multicolumn{1}{c}{VIII} & 1.019 \\
-\multicolumn{1}{c}{} & \multicolumn{1}{c}{IX} & 1.075 \\ \hline
-\end{tabular}
-\end{table}
+\includegraphics[height=11cm]{images/UO_phase_diagram.png}
+\caption{Partial U-O temperature phase diagram between O/U ratios of 1.2 and 2.25. Figure taken from \cite{katz2007chemistry}, with phase boundaries from \cite{rand1978thermodynamic, chevalier2002progress, gueneau2002thermodynamic}.}
+\label{figure:U_O_phase_diagram}
+\end{figure}
+
 
 \begin{figure}[htp]
 \centering
@@ -185,20 +173,6 @@ Ion & Coordination & Ionic Radius (\r{A}) \\ \hline
 % M. F. James, R. W. Mills and D. R. Weaver (1991) UKAEA Reports, AEA-TRS-1015, AEA-TRS-1018 
          %  and AEA-TRS-1019.
 \label{figure:fissionyield}
-\end{figure}
-
-\subsection{Cubic phase stability}
-
-\begin{itemize}
-\item The existence of a cubic phase in undoped \zirconia\ is debated. The high temperatures required for stabilisation of the cubic phase and the similarity to the tetragonal phase make it difficult to discern as a third phase.
-\item Also due to the high temperature, the stability of the cubic phase in DFT calculations may be inaccurate. This is discussed further in Chapter 3.
-\end{itemize}
-
-\begin{figure}[htp]
-\centering
-\includegraphics[height=7cm]{images/tet_vs_cubic.png}
-\caption{\textbf{A}) Tetragonal \zirconia\ viewed along the [110] direction. \textbf{B}) Cubic \zirconia\ viewed along the [100] direction. Zirconium atoms are shown in green and oxygen atoms in red.}
-\label{figure:tetvscubic}
 \end{figure}
 
 \section{Atomistic Simulation}

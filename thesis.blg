@@ -3,44 +3,44 @@ Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: thesis.aux
 The style file: unsrt.bst
 Database file #1: Mendeley.bib
-You've used 95 entries,
+You've used 99 entries,
             1791 wiz_defined-function locations,
-            1033 strings with 20379 characters,
-and the built_in function-call counts, 21330 in all, are:
-= -- 1827
-> -- 1135
-< -- 5
-+ -- 416
-- -- 321
-* -- 1618
-:= -- 3538
-add.period$ -- 284
-call.type$ -- 95
-change.case$ -- 92
+            1054 strings with 21058 characters,
+and the built_in function-call counts, 22279 in all, are:
+= -- 1911
+> -- 1184
+< -- 6
++ -- 434
+- -- 335
+* -- 1697
+:= -- 3693
+add.period$ -- 296
+call.type$ -- 99
+change.case$ -- 95
 chr.to.int$ -- 0
-cite$ -- 95
-duplicate$ -- 851
-empty$ -- 2007
-format.name$ -- 321
-if$ -- 4579
+cite$ -- 99
+duplicate$ -- 888
+empty$ -- 2095
+format.name$ -- 335
+if$ -- 4782
 int.to.chr$ -- 0
-int.to.str$ -- 95
-missing$ -- 88
-newline$ -- 472
-num.names$ -- 95
-pop$ -- 201
+int.to.str$ -- 99
+missing$ -- 93
+newline$ -- 492
+num.names$ -- 99
+pop$ -- 214
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 338
+skip$ -- 344
 stack$ -- 0
-substring$ -- 1409
-swap$ -- 121
-text.length$ -- 5
+substring$ -- 1475
+swap$ -- 126
+text.length$ -- 6
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 0
-while$ -- 209
-width$ -- 97
-write$ -- 1015
+while$ -- 219
+width$ -- 101
+write$ -- 1061
