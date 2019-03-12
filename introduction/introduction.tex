@@ -48,14 +48,14 @@ Larger nuclei will generally have a greater total binding energy value compared 
 \begin{figure}[htp]
 \centering
 \includegraphics[height=11cm]{images/Isotopes_and_half-life.png}
-\caption{Plot of neutron number against proton number for nuclei with half-lives greater than 10${^{-4}}$s. Half-life of the dominant decay mode is shown. Taken from \cite{BenRGPlotIsotopes}.}
+\caption{Plot of neutron number against proton number for nuclei with half-lives greater than 10${^{-4}}$s. Half-life of the dominant decay mode is shown. Taken from \cite{BenRG}.}
 \label{figure:NZcurve}
 \end{figure}
 
 \begin{figure}[htp]
 \centering
 \includegraphics[height=11cm]{images/Binding_energy_curve.png}
-\caption{Plot binding energy per nucleon against mass number. Arrows indicate the reaction shown in equation \ref{fission}. Adapted from \cite{FastfissionBindingCurve}.}
+\caption{Plot binding energy per nucleon against mass number. Arrows indicate the reaction shown in equation \ref{fission}. Adapted from \cite{Fastfission}.}
 \label{figure:bindingenergy}
 \end{figure}
 
@@ -92,9 +92,9 @@ Fuel assemblies in nuclear reactors are bundles of fuel pins. In most commercial
 
 While ionising radiation is always present in the environment as background radiation, the intensity of radiation in a nuclear reactor is so great that it presents significant engineering challenges because of how it affects different materials.
 
-Radiation hardening (also known as radiation embrittlement) is a phenomenon which affects most materials subjected to ionising radiation. It is characterised by a loss of plasticity caused by radiation damage over time, leading to an increased risk of cracks and failure of components. While zirconium is a very useful nuclear material due to it's neutron transparency, it is still susceptible to this type of damage \cite{Wisner1998CombinedZircaloy-2}. Beyond certain levels of radiation damage, phase changes may also occur. In \zirconia\ however,  
+Radiation hardening (also known as radiation embrittlement) is a phenomenon which affects most materials subjected to ionising radiation. It is characterised by a loss of plasticity caused by radiation damage over time, leading to an increased risk of cracks and failure of components. While zirconium is a very useful nuclear material due to it's neutron transparency, it is still susceptible to this type of damage \cite{Wisner1998}. Beyond certain levels of radiation damage, phase changes may also occur. In \zirconia\ however,  
 
-Amorphisation is another effect of radiation damage. This is characterised by a loss of long-range order of atoms in a crystal. This typically occurs beyond a certain threshold of radiation damage depending on the material, called the critical amorphisation dose. Amorphisation is problematic because the loss of a defined crystal structure results in both a reduction in structural stability (amorphous materials have a higher Gibbs free energy than their crystalline counterparts) and causes swelling of the material \cite{Einfal2013MethodsState}. In the literature, there is evidence of amorphisation in cubic stabilised \zirconia\ when bombarded with Cs$^{+}$ ions up to a fluence of $1 \times 10^{21}$ ions m$^{-2}$ \cite{amorphization2000wang}. However, no amorphisation is seen at an Xe$^{2+}$ fluence of $2 \times 10^{21}$ ions m$^{-2}$, or an I$^{+}$ fluence of $5 \times 10^{19}$ ions m$^{-2}$ \cite{sickafus1999radiation}.
+Amorphisation is another effect of radiation damage. This is characterised by a loss of long-range order of atoms in a crystal. This typically occurs beyond a certain threshold of radiation damage depending on the material, called the critical amorphisation dose. Amorphisation is problematic because the loss of a defined crystal structure results in both a reduction in structural stability (amorphous materials have a higher Gibbs free energy than their crystalline counterparts) and causes swelling of the material \cite{Einfal2013}. In the literature, there is evidence of amorphisation in cubic stabilised \zirconia\ when bombarded with Cs$^{+}$ ions up to a fluence of $1 \times 10^{21}$ ions m$^{-2}$ \cite{amorphization2000wang}. However, no amorphisation is seen at an Xe$^{2+}$ fluence of $2 \times 10^{21}$ ions m$^{-2}$, or an I$^{+}$ fluence of $5 \times 10^{19}$ ions m$^{-2}$ \cite{sickafus1999radiation}.
 
 One material phenomenon exclusive to nuclear reactor environments is neutron activation. The high free neutron environment leads to neutron capture in various nuclei within the reactor, including those of the fuel assemblies, coolant and RPV. There are many possible (n,x) reactions that may occur in materials experiencing a neutron flux, but of particular concern is transmutation of nuclei following a nuclear capture event. When a stable nucleus captures a neutron and becomes unstable, the nucleus may then emit particles to reduce it's free energy, altering it's atomic number in the process. This new element will have different chemical properties compared to the parent nucleus by virtue of a different electronic structure. This will change the elemental composition of a material, typically in an unfavourable way with dopants that negatively affect some desired material property. The extremely large number of nuclei relative to neutron flux means that this effect is small, though over time this becomes more significant due to accumulation of these dopant elements.
 
@@ -179,6 +179,8 @@ $_{2 \pm x}$ due to fission (which is also a function of the fuel's stoichiometr
 \section{Atomistic Simulation}
 
 \subsection{Classical approach - molecular dynamics}
+
+Molecular dynamics uses classical mechanics as the basis for calculations 
 
 Add a figure here showing lennard jones. Also show the basic equations.
 

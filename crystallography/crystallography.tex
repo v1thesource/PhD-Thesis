@@ -9,7 +9,7 @@
 \begin{figure}[htp]
 \centering
 \includegraphics[height=9cm]{images/zro2_binary_phase.png}
-\caption{Binary phase diagram of the Zr and O$_{2}$ system. Taken from \cite{Abriata1986TheSystem}.}
+\caption{Binary phase diagram of the Zr and O$_{2}$ system. Taken from \cite{Abriata1986}.}
 \label{figure:binary_phase_diagram}
 \end{figure}
 
@@ -33,18 +33,49 @@ A unit cell of monoclinic \zirconia\ is illustrated in Figure \ref{figure:coordi
 
 
 \begin{table}[htp]
-\centering
 \onehalfspacing
-\caption{\zirconia\ crystal structures and their stable temperatures at 1 atm \cite{Howard1988}.}
-\label{table:phases}
-\begin{tabular}{ccc}
+\centering
+\caption{\zirconia\ phases and their details. Reproduced from \cite{kisi1998crystal}.}
+\label{my-label}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{ccccccccccc}
 \hline
-{Crystal Structure} & {Space Group}    & {Temperature Range (K)} \\ \hline
-\multicolumn{1}{c}{Monoclinic} & \multicolumn{1}{c}{$P2_1/c$} & \multicolumn{1}{c}{$T$ \textless\ 1440}     \\
-\multicolumn{1}{c}{Tetragonal} & \multicolumn{1}{c}{$P4_2/nmc$} & \multicolumn{1}{c}{1440 \textless\ $T$ \textless\ 2640}        \\
-\multicolumn{1}{c}{Cubic} & \multicolumn{1}{c}{$Fm\overline{3}m$}     & \multicolumn{1}{c}{2640 \textless\ $T$ \textless\ 2950}      \\ \hline
-\end{tabular}
+\multirow{3}{*}{Phase} & \multirow{3}{*}{\begin{tabular}[c]{@{}c@{}}Stability\\ range\\ (K, GPa)\end{tabular}} & \multicolumn{4}{c}{\multirow{2}{*}{\begin{tabular}[c]{@{}c@{}}Cell parameters (\r{A})\\ (Extrapolated to room temperature)\end{tabular}}} & \multicolumn{4}{c}{\multirow{2}{*}{Atom positions}} & \multirow{3}{*}{\begin{tabular}[c]{@{}c@{}}Space\\ group\end{tabular}} \\
+ &  & \multicolumn{4}{c}{} & \multicolumn{4}{c}{} &  \\ \cline{3-10}
+ &  & $a$ & $b$ & $c$ & $\beta$ & Atom & $x$ & $y$ & $z$ &  \\ \hline
+\multirow{2}{*}{Cubic} & \multirow{2}{*}{2377-2710 K} & \multirow{2}{*}{5.117} & \multirow{2}{*}{5.117} & \multirow{2}{*}{5.117} & \multirow{2}{*}{90} & Zr & 0 & 0 & 0 & \multirow{2}{*}{F$m\overline{3}m$} \\
+ &  &  &  &  &  & O & 0.25 & 0.25 & 0.25 &  \\ \hline
+\multirow{2}{*}{Tetragonal} & \multirow{2}{*}{1205-2377 K} & \multirow{2}{*}{5.074} & \multirow{2}{*}{5.074} & \multirow{2}{*}{5.188} & \multirow{2}{*}{90} & Zr & 0 & 0 & 0 & \multirow{2}{*}{P$4_{2}/nmc$} \\
+ &  &  &  &  &  & O & 0.25 & 0.25 & 0.2044 &  \\ \hline
+\multirow{3}{*}{Monoclinic \cite{Howard1988}} & \multirow{3}{*}{0-1205 K} & \multirow{3}{*}{5.1507} & \multirow{3}{*}{5.2028} & \multirow{3}{*}{5.3156} & \multirow{3}{*}{99.194} & Zr & 0.2754 & 0.0395 & 0.2083 & \multirow{3}{*}{P$2_{1}/c$} \\
+ &  &  &  &  &  & O1 & 0.0700 & 0.3317 & 0.3477 &  \\
+ &  &  &  &  &  & O2 & 0.4416 & 0.7569 & 0.4792 &  \\ \hline
+\multirow{3}{*}{Ortho I} & \multirow{3}{*}{3.5-15 GPa} & \multirow{3}{*}{5.0431} & \multirow{3}{*}{5.2615} & \multirow{3}{*}{5.0910} & \multirow{3}{*}{90} & Zr & 0.2686 & 0.0332 & 0.2558 & \multirow{3}{*}{P$bca$} \\
+ &  &  &  &  &  & O1 & 0.0822 & 0.3713 & 0.1310 &  \\
+ &  &  &  &  &  & O2 & 0.5442 & 0.2447 & 0.0052 &  \\ \hline
+\multirow{3}{*}{\begin{tabular}[c]{@{}c@{}}Ortho II\\ (cotunnite)\end{tabular}} & \multirow{3}{*}{\textgreater 15 GPa} & \multirow{3}{*}{5.593} & \multirow{3}{*}{6.484} & \multirow{3}{*}{3.333} & \multirow{3}{*}{90} & Zr & 0.256 & 0.110 & 0.25 & \multirow{3}{*}{P$nam$} \\
+ &  &  &  &  &  & O1 & 0.356 & 0.422 & 0.25 &  \\
+ &  &  &  &  &  & O2 & 0.022 & 0.331 & 0.75 &  \\ \hline
+\multirow{3}{*}{Ortho (PSZ)} & \multirow{3}{*}{0-500 K} & \multirow{3}{*}{5.068} & \multirow{3}{*}{5.260} & \multirow{3}{*}{5.077} & \multirow{3}{*}{90} & Zr & 0.267 & 0.030 & 0.250 & \multirow{3}{*}{P$bc2_{1}$} \\
+ &  &  &  &  &  & O1 & 0.068 & 0.361 & 0.106 &  \\
+ &  &  &  &  &  & O2 & 0.537 & 0.229 & 0 &  \\ \hline
+\end{tabular}%
+}
 \end{table}
+
+%\begin{table}[htp]
+%\centering
+%\onehalfspacing
+%\caption{\zirconia\ crystal structures and their stable temperatures at 1 atm \cite{Howard1988}.}
+%\label{table:phases}
+%\begin{tabular}{ccc}
+%\hline
+%{Crystal Structure} & {Space Group}    & {Temperature Range (K)} \\ \hline
+%\multicolumn{1}{c}{Monoclinic} & \multicolumn{1}{c}{$P2_1/c$} & \multicolumn{1}{c}{$T$ \textless\ 1440}     \\
+%\multicolumn{1}{c}{Tetragonal} & \multicolumn{1}{c}{$P4_2/nmc$} & \multicolumn{1}{c}{1440 \textless\ $T$ \textless\ 2640}        \\
+%\multicolumn{1}{c}{Cubic} & \multicolumn{1}{c}{$Fm\overline{3}m$}     & \multicolumn{1}{c}{2640 \textless\ $T$ \textless\ 2950}      \\ \hline
+%\end{tabular}
+%\end{table}
 
 \subsection{Tetragonal}
 
@@ -68,12 +99,21 @@ A unit cell of monoclinic \zirconia\ is illustrated in Figure \ref{figure:coordi
 
 \subsubsection{Orthorhombic}
 
-Two orthorhombic phases of \zirconia\ have also been observed at high pressures. These structures are referred to as OI and OII, the latter of which is isostructural with cotunnite (PbCl$_{2}$).
+Two orthorhombic phases have also been observed at high pressures in pure \zirconia\ \cite{howard1991crystal}. These structures are referred to as OI and OII, the latter of which is isostructural with cotunnite (PbCl$_{2}$). A third orthorhombic phase ($bc2_{1}$) has also been reported in partially stabilised zirconia, but has not been found in pure zirconia \cite{kisi1998crystal}.
+
 
 \begin{figure}[htp]
   \centering
-      \includegraphics[height=9cm]{images/cotunnite_structure.png}
-  \caption{Illustration of the OII cotunnite crystal structure of \zirconia . Zirconium and oxygen ions are shaded dark and light respectively. Taken from \cite{Haines1997CharacterizationHafnia}.}
+      \includegraphics[width=\linewidth]{images/orthorhombic_I.png}
+  \caption{Illustrations of the orthorhombic OI (P$bca$) crystal structure of \zirconia\ showing \textbf{a)} the unit cell as seen from the $a$ direction and \textbf{b)} the zirconium ion centre with 7 coordinated oxygen ions. Zirconium and oxygen ions are coloured green and red respectively. Adapted from \cite{kisi1989crystal}.}
+  \label{fig:orthorhombic_I}
+\end{figure}
+
+
+\begin{figure}[htp]
+  \centering
+      \includegraphics[height=9cm]{images/orthorhombic_II.png}
+  \caption{Illustration of the OII cotunnite (P$nam$) crystal structure of \zirconia . Zirconium and oxygen ions are shaded dark and light respectively. Adapted from \cite{Haines1997}.}
   \label{fig:cotunnite_structure}
 \end{figure}
 

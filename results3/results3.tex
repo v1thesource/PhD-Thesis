@@ -23,6 +23,13 @@ The majority of thermal fission events occur in the outer rim of a fuel pellet. 
 
 With each nuclear decay comes a change in the chemical and therefore physical behaviour of the atom with its immediate environment. For example, an iodine dopant in \zirconia\ may decay into xenon, which may then have a significantly different thermodynamic equilibrium site preference from the one it inherited. Determining the behaviour of each of these elements in the oxide layer may provide information about the initiation of SCC in fuel cladding. We have therefore adopted a quantum-mechanical calculation approach to model the behaviour of the decay chain elements tellurium through caesium within tetragonal phase zirconia.
 
+\begin{figure}
+    \centering
+    \includegraphics[height=8cm]{images/te_decay_chain2.png}
+    \caption{Diagram of the production of Te$_{135}$ decay chain elements with decay modes and half-lives shown.}
+    \label{fig:decaychain}
+\end{figure}
+
 %Iodine is produced in the fuel pellet directly from fission and also from the decay of tellurium precursors. Both iodine and tellurium are relatively common fission products, with combined independent yields from thermal fission of U$_{235}$ above 5\% \cite{kennett1956mass, iodine129fissionyield, imanishi1976independent, iodinefissionyields, iodine132, amiel1975odd}. The majority of thermal fission events occur in the outer rim of the fuel pellet, and a fission product penetration depth of up to 8 $\mu$m in \zirconia\ \cite{degueldre2001behaviour} suggests a large degree of implantation within the oxide and the Zr metal into which the oxide grows, raising the concentration of I well above the equilibrium value. Iodine and many of its compounds (ZrI$_{4}$, CsI) are volatile and fuel pellets contain many cracks and spaces through which iodine may be rapidly transported to the cladding. When reactor power is increased during start-up, iodine is released in substantial quantities from the UO$_{2}$ pellet \cite{peehs1982experimental}. This is believed to cause crack propagation in the cladding when combined with stresses imposed on the cladding by the fuel pellet, a phenomenon known as pellet-cladding interaction (PCI). Upper limits on power ramping and holding times have therefore been established by fuel suppliers to mitigate potential PCI failures \cite{yagnik2005effect}. While these restrictions have reduced or prevented the incidence of PCI failures, they also impose costs on the operator due to longer ramping periods. This also restricts the ability of the nuclear reactor to load-follow grid demand. Cladding/fuel materials resistant to PCI failure are therefore of great interest in the nuclear power industry, promoting research into solutions such as cladding liners and doped fuel pellets \cite{nonon2005pci,yang2012effect}. \\
 
 %\item Power ramping: Increasing power, such as during reactor start-up, can lead to cladding failure.   %power must be ramped up gradually in order to avoid excessive temperature gradients in the fuel pins, but also to manage fission product concentrations. Due to the different half-lives of various fission products, a power ramp will cause a transient increase in the iodine concentration within a fuel pin
@@ -126,7 +133,7 @@ As fission products proceed down the decay chain from Te to Xe, the defects they
 \begin{figure}
     \centering
     \includegraphics[height=11cm]{images/fissionyield.png}
-    \caption{Plot of the percentage yield of nuclei with a given mass following a fission event. Range of masses corresponding to isotopes of Te, I, Xe and Cs are highlighted. Adapted from \cite{England1992OECDReport}.}
+    \caption{Plot of the percentage yield of nuclei with a given mass following a fission event. Range of masses corresponding to isotopes of Te, I, Xe and Cs are highlighted. Adapted from \cite{England1992}.}
     \label{fig:fissionyield}
 \end{figure}
 
@@ -462,26 +469,35 @@ Defect type & \begin{tabular}[c]{@{}c@{}}Defect volume relative\\ to perfect cry
 \end{tabular}
 \end{table}
 
+
 \begin{table}
 \onehalfspacing
-\caption{Independent fission product yields and half-lives for the major iodine isotopes and precursors in a thermal neutron reactor. Yields from \cite{iodinefissionyields, iodine132}. All isotopes undergo single $\beta$- decay. Metastable states are included.}  \label{table:decaydata}
+\caption{Independent fission product yields and half-lives for the major iodine isotopes and precursors in a thermal neutron reactor. Yields from the Joint Evaluated Fission and Fusion File (JEFF 3.3). All isotopes undergo single $\beta$- decay. Metastable states are included.}  \label{table:decaydata}
 \begin{center}
 \begin{tabular}{c c c}
 \hline
 Isotope & Independent Yield (\%) & Half-life \\
 \hline
-\texorpdfstring{I\textsubscript{131}}{I131} & 0.00136 $\pm 0.00047$ & 8.023 d \cite{I131halflife} \\
-\texorpdfstring{Te\textsubscript{132}}{Te132} & 1.61 $\pm 0.37$ & 3.180 d \cite{Te132} \\
-\texorpdfstring{I\textsubscript{132}}{I132} & 0.017 $\pm 0.11$  & 2.295 h \cite{Te132} \\
-\texorpdfstring{Te\textsubscript{133}}{Te133} & 3.93 $\pm 0.15$ & 12.5 m \cite{iaeafissionyield} \\
-\texorpdfstring{I\textsubscript{133}}{I133} & 0.153 $\pm 0.053$ & 20.87 h \cite{I133} \\
-\texorpdfstring{Te\textsubscript{134}}{Te134} & 6.00 $\pm 0.47$ & 41.8 m \cite{iaeafissionyield} \\
-\texorpdfstring{I\textsubscript{134}}{I134} & 0.900 $\pm 0.08$  & 52.5 m \cite{Sonzogni2004} \\
-\texorpdfstring{Te\textsubscript{135}}{Te135} & 3.683 $\pm 0.56$ & 19.0 s \cite{iaeafissionyield} \\
-\texorpdfstring{I\textsubscript{135}}{I135} & 2.550 $\pm 0.54$ & 6.58 h \cite{Singh2008} \\ \hline
+\texorpdfstring{I\textsubscript{131}}{I131} & 0.0029604
+ & 8.023 d \cite{I131halflife} \\
+\texorpdfstring{Te\textsubscript{132}}{Te132} & 1.5042 & 3.180 d \cite{Te132} \\
+\texorpdfstring{I\textsubscript{132}}{I132} & 0.028399  & 2.295 h \cite{Te132} \\
+\texorpdfstring{Te\textsubscript{133}}{Te133} & 3.9386 & 12.5 m \cite{khazov2011nuclear} \\
+\texorpdfstring{I\textsubscript{133}}{I133} & 0.198194  & 20.87 h \cite{I133} \\
+\texorpdfstring{Te\textsubscript{134}}{Te134} & 6.3001 & 41.8 m \cite{Sonzogni2004} \\
+\texorpdfstring{I\textsubscript{134}}{I134} & 0.7673 & 52.5 m \cite{Sonzogni2004} \\
+\texorpdfstring{Te\textsubscript{135}}{Te135} & 3.4777 & 19.0 s \cite{tellurium135halflife} \\
+\texorpdfstring{I\textsubscript{135}}{I135} & 2.4635 & 6.58 h \cite{tellurium135halflife} \\ 
+\texorpdfstring{Te\textsubscript{136}}{Te136} & 1.6652 & 17.63  s \cite{Mccutchan2018} \\
+\texorpdfstring{I\textsubscript{136}}{I136} & 3.03823 & 83.4 s \cite{Mccutchan2018} \\
+\texorpdfstring{Te\textsubscript{137}}{Te137} & 0.48440 & 2.49 s \cite{browne2007nuclear} \\
+\texorpdfstring{I\textsubscript{137}}{I137} & 2.7026 & 24.5 s \cite{browne2007nuclear} \\ 
+\texorpdfstring{Te\textsubscript{138}}{Te138} & 0.11280 & 1.4 s \cite{chen2017nuclear} \\ 
+\texorpdfstring{I\textsubscript{138}}{I138} & 1.2419 & 6.26 s \cite{chen2017nuclear} \\  \hline
 \end{tabular}
 \end{center}
 \end{table}
+
 
 \subsection{Radioparagenesis}
 
