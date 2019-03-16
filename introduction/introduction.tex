@@ -1,6 +1,6 @@
 \chapter{Introduction}
 
-\section{Nuclear Power}
+\section{Nuclear Power} % Complete
 
 In the summer of 1956, the world's first commercial nuclear power plant was connected to the grid in the north of England. This marked a significant departure from previous forms of commercial energy production, which relied on less energetically lucrative sources such as combustion of coal, oil and gas. Indeed, the closest we had come to utilising nuclear energy commercially was through geothermal power, where the thermal energy is partly due to radiogenic heat from unstable isotopes in the Earth's mantle \cite{gando2011partial} . 
 %which relied on the chemical reactions of coal oil and gas
@@ -8,18 +8,18 @@ In the summer of 1956, the world's first commercial nuclear power plant was conn
 Combustion is a chemical process where energy differences between reactants and products are exploited via electron exchange. Nuclear energy however, exploits the energy difference between nuclei. Both rely on the conversion of mass into energy, however, the amount of energy that can be extracted from the nucleus is several orders of magnitude greater.
 %Combustion is a chemical process, and its use in commercial energy production is fundamentally about exploiting the free energy difference when electrons are exchanged between some reactants to produce some products. Nuclear energy, however, is about the direct conversion of mass into energy. The difference between the two is staggering.
 
-Consider methane, with an enthalpy of combustion of −887.2 kJ/mol \cite{thornton1917xv}. This is the equivalent of 9.14 eV per particle. By comparison, the energy release from fission of one uranium-235 nucleus is at least $1.65 \times 10^{8}$ eV, as shown in Figure \ref{figure:fissionenergy}.
+Consider methane, with an enthalpy of combustion of −887.2 kJ/mol \cite{thornton1917xv}. This is the equivalent of 9.14 eV per particle. By comparison, the total energy release from fission of one uranium-235 nucleus is at least $1.65 \times 10^{8}$ eV, as shown in Figure \ref{figure:fissionenergy}.
 
 \begin{figure}[htp]
 \centering
-\includegraphics[height=11cm]{images/fission_energy_total.png}
-\caption{Energy from thermal fission of U-235 as a function of mass ratios of child nuclei. Total energy release includes contributions from gamma rays and subsequent radioactive decays. Taken from \cite{aras1965ranges}.}
+\includegraphics[height=12cm]{images/fission_energy_total.png}
+\caption[Energy from thermal fission of U-235 as a function of mass ratios of child nuclei. Total energy release includes contributions from gamma rays and subsequent radioactive decays.]{Energy from thermal fission of U-235 as a function of mass ratios of child nuclei. Total energy release includes contributions from gamma rays and subsequent radioactive decays. Taken from \cite{aras1965ranges}.}
 \label{figure:fissionenergy}
 \end{figure}
 
 Combustion-based power as a technology has matured over hundreds of years, with modern optimisations only looking to offer fractional percent gains in efficiency. By comparison, nuclear power technology is far from mature, with large improvements yet to be realised. One such feature is load-following, an enormously useful feature for a power plant which is currently unavailable in nuclear reactors. The biggest hurdle to achieving load-following in nuclear reactors is the issue of pellet-cladding interaction (PCI), which is the basis of the work in this thesis.
 
-\subsection{Fission}
+\subsection{Fission} % Complete
 
 Commercial nuclear power plants extract energy through the process of fission, where a large nucleus is split into smaller nuclei. While it is also possible to extract energy from certain nuclei by the process of fusing them into larger ones, no fusion reactor currently exists which achieves a net positive energy output. At a fundamental level, both of these processes rely upon mass-energy equivalence. The relationship between mass and energy is shown using Einstein's famous equation:
 
@@ -47,56 +47,60 @@ Larger nuclei will generally have a greater total binding energy value compared 
 
 \begin{figure}[htp]
 \centering
-\includegraphics[height=11cm]{images/Isotopes_and_half-life.png}
-\caption{Plot of neutron number against proton number for nuclei with half-lives greater than 10${^{-4}}$s. Half-life of the dominant decay mode is shown. Taken from \cite{BenRG}.}
+\includegraphics[height=12cm]{images/Isotopes_and_half-life.png}
+\caption[Plot of neutron number against proton number for nuclei with half-lives greater than 10${^{-4}}$s. Half-life of the dominant decay mode is shown.]{Plot of neutron number against proton number for nuclei with half-lives greater than 10${^{-4}}$s. Half-life of the dominant decay mode is shown. Taken from \cite{BenRG}.}
 \label{figure:NZcurve}
 \end{figure}
 
 \begin{figure}[htp]
 \centering
-\includegraphics[height=11cm]{images/Binding_energy_curve.png}
-\caption{Plot binding energy per nucleon against mass number. Arrows indicate the reaction shown in equation \ref{fission}. Adapted from \cite{Fastfission}.}
+\includegraphics[width=14cm]{images/Binding_energy_curve.png}
+\caption[Plot binding energy per nucleon against mass number. Arrows indicate the reaction shown in equation \ref{fission}.]{Plot binding energy per nucleon against mass number. Arrows indicate the reaction shown in equation \ref{fission}. Adapted from \cite{Fastfission}.}
 \label{figure:bindingenergy}
 \end{figure}
 
 
-\subsection{Reactor design}
+\subsection{Reactor design} % Complete
 
-Commercial nuclear reactors are large boilers in a Rankine cycle, designed to maximise heat transfer to a working fluid. All nuclear plants use steam turbines on the generation side, though the reactor coolant may be another fluid in a separate loop, such as carbon dioxide in gas-cooled reactors (GCRs), or even in a separate water loop such as in pressurised water reactors (PWRs) and CANDU. The work in this thesis is focused on zirconium-based claddings which are used worldwide in all commercial reactors except GCRs and sodium-cooled fast reactors. The most prevalent reactor type is the PWR, followed by the boiling water reactor (BWR) {REFER TO TABLE}. 
+Commercial nuclear reactors are large boilers in a Rankine cycle, designed to maximise heat transfer to a working fluid. All nuclear plants use steam turbines on the generation side, though the reactor coolant may be another fluid in a separate loop, such as carbon dioxide in gas-cooled reactors (GCRs), or even in a separate water loop such as in pressurised water reactors (PWRs) and CANDU. 
 
+The most prevalent reactor type is the PWR, followed by the boiling water reactor (BWR). There are several other reactor types used around the world (enumerated in Figure \ref{figure:world_reactors}). The work in this thesis is focused on zirconium-based claddings which are used worldwide in all commercial reactors except GCRs and sodium-cooled fast reactors. In total, zirconium fuel cladding is used in over 95\% of all nuclear reactor fuel pins, and so improvements in these cladding materials have an effect across the entire industry.
 
-%Depending on the type of reactor, one or two coolant loops may be utilised. The generation side always involves 
+\begin{figure}[htp] % Reactors in the world
+\centering
+\includegraphics[width=15cm]{images/WNA_report2018.png}
+\caption[Type and number of different reactors operational worldwide as of the end of 2017.]{Type and number of different reactors operational worldwide as of the end of 2017. Taken from \cite{WNAreport2018}.}
+\label{figure:world_reactors}
+\end{figure}
 
-\begin{itemize}
-\item LWRs vs other kinds of reactors
-\item Zirconium cladding used because of strength + low thermal neutron abs cross section
-\item Thermal energy transferred from fuel to coolant
-\item RPV is pressurised to 150 bar in PWRs, less in BWRs and even less in CANDU
-\end{itemize}
+The fission of uranium takes place inside a steel reactor pressure vessel (RPV) which holds the fuel pins and control rods. The working fluid in a nuclear reactor is typically under high pressure, with PWR RPV operating pressures between 150 and 160 bar, while BWRs operate at lower pressures of around 70 bar \cite{kok2016nuclear, Server2010, Durmayaz2001}. The pressure of the coolant acts on the fuel cladding, generating radial and hoop stresses which influence crack formation. 
 
-\subsection{Nuclear reactor fuel pins}
+The operating temperature of the coolant in a typical PWR is approximately 600 K. This is a low temperature relative to the melting points of zirconium (2128 K) and zirconia (2988 K). This temperature together with the high pressure is chosen in order to keep the coolant in the liquid phase for safety reasons, though this limits the thermodynamic efficiency of the plant. The highest temperature in a reactor will occur in the nuclear fuel, with PWR fuel pellets reaching centreline temperatures of up to 1673 K \cite{beyer1998review}.
 
-Fuel assemblies in nuclear reactors are bundles of fuel pins. In most commercial reactors, these fuel pins are comprised of a zirconium-based cladding which is filled with UO$_{2}$ fuel pellets, each of which are approximately 1 cm$^{3}$ in volume. Once loaded with fuel pellets, the fuel pins are capped and filled with inert helium gas, pressurised to between 2 and 25 atm to improve heat transfer from the fuel pellets to the coolant as well as delaying inward creep deformation of the cladding due to the high coolant pressure \cite{King1980}. In the early stages of a fuel pin's life, there is a small gap between the fuel pellet and the cladding, known as the pellet-cladding gas gap. This gas gap slowly closes with increasing burn-up mostly due to swelling of the fuel pellets.
-
-\subsubsection{Zirconium cladding}
-
+For both PWRs and BWRs, the coolant is typically light water (as opposed to heavy water, D$_{2}$O). Water is used because it has many useful properties. It is cheap, plentiful, has a high heat capacity (compared to the gaseous coolant in gas cooled reactors), has low activation in a free neutron environment and also serves as a good radiation shield. In additional to its function as a coolant, water also acts as a neutron moderator, slowing down high-energy neutrons from fission events and nuclear decay processes. Moderation of neutrons is an important step in the nuclear reactor because slow thermal neutrons (i.e. neutrons at thermal equilibrium with the coolant) are significantly more likely to fission uranium nuclei than fast neutrons. Fast neutrons will typically escape from the fuel after they are generated, dispense most of their energy in the coolant via scattering with H and O nuclei, and then some will end up re-entering the fuel, where they will most likely fission a U$_{235}$ nucleus near the outer edge of the fuel pellet.
 
 
-\begin{itemize}
-\item Ceramic fuel pellets
-\item Pellet-cladding gas gap
-\item Cladding failure (great review here \cite{alam2011review})
-\end{itemize}
+\subsection{Fuel pins and cladding}
+
+Fuel assemblies in nuclear reactors are bundles of fuel pins. In most commercial reactors, these fuel pins are comprised of a zirconium-based cladding which is filled with UO$_{2}$ fuel pellets, each of which are approximately 1 cm$^{3}$ in volume. Once loaded with fuel pellets, the fuel pins are capped and filled with inert helium gas, pressurised to between 2 and 25 atm to improve heat transfer from the fuel pellets to the coolant as well as delaying inward creep deformation of the cladding due to the high coolant pressure \cite{King1980}. In the early stages of a fuel pin's life, there is a small gap between the fuel pellet and the cladding, known as the pellet-cladding gas gap. This gas gap slowly closes with increasing burn-up due to swelling of the fuel pellets.
+
+\begin{figure}[htp]
+\centering
+\includegraphics[width=14cm]{images/gas_gap.png}
+\caption[Plot binding energy per nucleon against mass number. Arrows indicate the reaction shown in equation \ref{fission}.]{Plot binding energy per nucleon against mass number. Arrows indicate the reaction shown in equation \ref{fission}.}
+\label{figure:gas_gap}
+\end{figure}
+
 
 \subsection{Effects of radiation on materials}
 
 While ionising radiation is always present in the environment as background radiation, the intensity of radiation in a nuclear reactor is so great that it presents significant engineering challenges because of how it affects different materials.
 
-Radiation hardening (also known as radiation embrittlement) is a phenomenon which affects most materials subjected to ionising radiation. It is characterised by a loss of plasticity caused by radiation damage over time, leading to an increased risk of cracks and failure of components. While zirconium is a very useful nuclear material due to it's neutron transparency, it is still susceptible to this type of damage \cite{Wisner1998}. Beyond certain levels of radiation damage, phase changes may also occur. In \zirconia\ however,  
+Radiation hardening (also known as radiation embrittlement) is a phenomenon which affects most materials subjected to ionising radiation. It is characterised by a loss of plasticity caused by radiation damage over time, leading to an increased risk of cracks and failure of components. While zirconium is a very useful nuclear material due to it's neutron transparency, it is still susceptible to this type of damage \cite{Wisner1998}. Beyond certain levels of radiation damage, phase changes may also occur. %In \zirconia\ however,  
 
 Amorphisation is another effect of radiation damage. This is characterised by a loss of long-range order of atoms in a crystal. This typically occurs beyond a certain threshold of radiation damage depending on the material, called the critical amorphisation dose. Amorphisation is problematic because the loss of a defined crystal structure results in both a reduction in structural stability (amorphous materials have a higher Gibbs free energy than their crystalline counterparts) and causes swelling of the material \cite{Einfal2013}. In the literature, there is evidence of amorphisation in cubic stabilised \zirconia\ when bombarded with Cs$^{+}$ ions up to a fluence of $1 \times 10^{21}$ ions m$^{-2}$ \cite{amorphization2000wang}. However, no amorphisation is seen at an Xe$^{2+}$ fluence of $2 \times 10^{21}$ ions m$^{-2}$, or an I$^{+}$ fluence of $5 \times 10^{19}$ ions m$^{-2}$ \cite{sickafus1999radiation}.
 
-One material phenomenon exclusive to nuclear reactor environments is neutron activation. The high free neutron environment leads to neutron capture in various nuclei within the reactor, including those of the fuel assemblies, coolant and RPV. There are many possible (n,x) reactions that may occur in materials experiencing a neutron flux, but of particular concern is transmutation of nuclei following a nuclear capture event. When a stable nucleus captures a neutron and becomes unstable, the nucleus may then emit particles to reduce it's free energy, altering it's atomic number in the process. This new element will have different chemical properties compared to the parent nucleus by virtue of a different electronic structure. This will change the elemental composition of a material, typically in an unfavourable way with dopants that negatively affect some desired material property. The extremely large number of nuclei relative to neutron flux means that this effect is small, though over time this becomes more significant due to accumulation of these dopant elements.
+One material phenomenon exclusive to nuclear reactor environments is neutron activation. The high free neutron environment leads to neutron capture in various nuclei within the reactor, including those of the fuel assemblies, coolant and RPV. There are many possible (n, x) reactions that may occur in materials experiencing a neutron flux, but of particular concern is transmutation of nuclei following a nuclear capture event. When a stable nucleus captures a neutron and becomes unstable, the nucleus may then emit particles to reduce it's free energy, altering it's atomic number in the process. This new element will have different chemical properties compared to the parent nucleus by virtue of a different electronic structure. This will change the elemental composition of a material, typically in an unfavourable way with dopants that negatively affect some desired material property. The extremely large number of nuclei relative to neutron flux means that this effect is small, though over time this becomes more significant due to accumulation of these dopant elements.
 
 \begin{itemize}
 \item Radiolysis
@@ -134,11 +138,20 @@ The oxidation of zirconium to produce \zirconia\ occurs during manufacture of th
 
 \subsection{Oxygen solubility of zirconium}
 
+Looking at the Zr-O binary phase diagram in Figure \ref{figure:binary_phase_diagram}, oxygen is soluble in zirconium up to 29\% of total molar mass when below 400 $^{\circ}$C, the operating temperature region of a typical PWR. Solubility increases slightly up to 35\% of total molar mass as temperature is increased to the liquidus line at 2065 $^{\circ}$C. This is important to note because in the literature, studies often assume that there is pure Zr metal immediately beneath the \zirconia\ layer, which is an assumption that will underestimate the extent to which repassivation occurs when the oxide layer is breached.
+
 \begin{itemize}
 \item Oxygen is soluble in zirconium up to 29\% molar mass at "insert temperature".
 \item Several PCI studies have assumed a mechanism whereby the \zirconia\ layer is fractured, allowing iodine to attack fresh metal surface, but these studies always assume that the exposed metal is oxygen-depleted.
 \item It is not oxygen depleted, therefore they will always overestimate the amount of oxygen necessary to form a new passive oxide layer.
 \end{itemize}
+
+\begin{figure}[htp]
+\centering
+\includegraphics[width=14cm]{images/zro2_binary_phase.png}
+\caption[Binary phase diagram of the Zr and O$_{2}$ system.]{Binary phase diagram of the Zr and O$_{2}$ system. Taken from \cite{Abriata1986}.}
+\label{figure:binary_phase_diagram}
+\end{figure}
 
 \subsection{Oxide growth mechanism}
 
@@ -148,6 +161,14 @@ Plot of oxide thickness over time here
 
 \subsection{Outer oxide vs inner oxide}
 The fuel cladding of an LWR develops an oxide on both the inner and outer surfaces due to exposure to oxygen in air during manufacture. 
+
+\begin{figure}[htp]
+\centering
+\includegraphics[height=12cm]{images/outer_oxide.png}
+\caption[STEM image of the outer oxide layer showing the prevalence of different \zirconia\ phases.]{STEM image of the outer oxide layer showing the prevalence of different \zirconia\ phases.. Taken from \cite{Hu2016}.}
+\label{figure:outer_oxide}
+\end{figure}
+
 
 \subsection{Sources of oxygen}
 
@@ -161,8 +182,8 @@ $_{2 \pm x}$ due to fission (which is also a function of the fuel's stoichiometr
 
 \begin{figure}[htp]
 \centering
-\includegraphics[height=11cm]{images/UO_phase_diagram.png}
-\caption{Partial U-O temperature phase diagram between O/U ratios of 1.2 and 2.25. Figure taken from \cite{katz2007chemistry}, with phase boundaries from \cite{rand1978thermodynamic, chevalier2002progress, gueneau2002thermodynamic}.}
+\includegraphics[height=12cm]{images/UO_phase_diagram.png}
+\caption[Partial U-O temperature phase diagram between O/U ratios of 1.2 and 2.25.]{Partial U-O temperature phase diagram between O/U ratios of 1.2 and 2.25. Figure taken from \cite{katz2007chemistry}, with phase boundaries from \cite{rand1978thermodynamic, chevalier2002progress, gueneau2002thermodynamic}.}
 \label{figure:U_O_phase_diagram}
 \end{figure}
 
@@ -209,20 +230,16 @@ In addition to the valence and conduction bands, we also need a value for the el
 \begin{figure}[htp]
 \centering
 \includegraphics[width=\linewidth]{images/band_gap.png}
-\caption{Illustration of the band gap in diamond as a function of interatomic spacing. Taken from \cite{Chetvorno2017}.}
+\caption[Illustration of the band gap in diamond as a function of interatomic spacing.]{Illustration of the band gap in diamond as a function of interatomic spacing. Taken from \cite{Chetvorno2017}.}
 \label{figure:band_gap}
 \end{figure}
 
-\begin{itemize}
-\item In a crystal, large numbers of electrons and many possible configurations lead to electron energy 'bands' made up of many quantised energies (electron band theory). See http://hyperphysics.phy-astr.gsu.edu/hbase/Solids/band.html
-\item Non-metals exhibit an energy gap between valence and conduction electron bands, demarcating insulators and conductors.
-\end{itemize}
 
 \begin{figure}
 \begin{center}
 \begin{tikzpicture}
 	\begin{axis}
-		[width=11cm, xlabel={Energy (eV)}, ylabel={Electronic density of states}, ymin=0, ymax=12, xmin=0, xmax=16, legend style={{draw=}, at={(0.05,0.95)}, anchor=north west, legend columns=1}]
+		[width=\linewidth*0.7, xlabel={Energy (eV)}, ylabel={Electronic density of states}, ymin=0, ymax=12, xmin=0, xmax=16, legend style={{draw=}, at={(0.05,0.95)}, anchor=north west, legend columns=1}]
 % 		\addplot[no marks] table [x=log(pO2)/atm, y=Electrons,]{tetintrinsic.dat}; \addlegendentry{e\SPSB{$\prime$}{}};
 %         \addplot[no marks, dashed] table [x=log(pO2)/atm, y=Holes, ]{tetintrinsic.dat}; \addlegendentry{h\SPSB{\textbf{\textperiodcentered}}{}};
 %         \addplot[no marks, densely dotted, red] table [x=log(pO2)/atm, y=VO+2,]{tetintrinsic.dat}; \addlegendentry{V\SPSB{\textbf{\textperiodcentered\textperiodcentered}}{O}};
@@ -244,7 +261,7 @@ In addition to the valence and conduction bands, we also need a value for the el
 \begin{table}[htp] % Band Gap
 \onehalfspacing
 \centering
-\caption{Experimentally determined band gaps alongside values calculated from DFT simulations for each crystal structure of zirconia. Experimental values taken from \cite{French1994}.}
+\caption[Experimentally determined band gaps alongside values calculated from DFT simulations for each crystal structure of zirconia.]{Experimentally determined band gaps alongside values calculated from DFT simulations for each crystal structure of zirconia. Experimental values taken from \cite{French1994}.}
 \begin{tabular}{ccc}
 {\bf }                                       & \multicolumn{2}{c}{{\bf Band gap (eV)}}      \\ \hline
 \multicolumn{1}{c}{{\bf Crystal Structure}} & \multicolumn{1}{c}{{\bf Expt.}} & {\bf DFT} \\ \hline

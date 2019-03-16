@@ -201,13 +201,15 @@ $C_{66}$                                         & 114.19        & 152.60       
 
 \section{Helmholtz energies}
 
-The calculated Helmholtz energies plotted in Figure \ref{Figure:helmholtz} show the correct order of stability for the three phases of \zirconia\ at low temperatures (monoclinic $->$ tetragonal $->$ cubic) . However, as temperature is increased, only a transition from monoclinic to tetragonal is seen. The cubic phase Helmholtz energy does fall below the monoclinic curve, but never below the tetragonal curve, thus predicting no tetragonal to cubic phase transition. It must also be noted that the transition temperatures are not predicted accurately. The tetragonal phase is predicted to have a lower energy than monoclinic at approximately 400 K.
+The calculated Helmholtz energies plotted in Figure \ref{Figure:helmholtz} show the correct order of stability for the three phases of \zirconia\ at low temperatures (monoclinic $\rightarrow$ tetragonal $\rightarrow$ cubic) . However, as temperature is increased, only a transition from monoclinic to tetragonal is seen. The cubic phase Helmholtz energy does fall below the monoclinic curve, but never below the tetragonal curve, thus predicting no tetragonal to cubic phase transition. 
+
+It must also be noted that the transition temperatures are not predicted accurately. The tetragonal phase is predicted to have a lower energy than monoclinic at approximately 400 K, while experiments indicate that the transition temperature is above 1400 K. This difference is too large to attribute to a kinetic barrier.
 
 \begin{figure}[ht] % Helmholtz
 \begin{center}
 \begin{tikzpicture}
 	\begin{axis}
-		[width=11cm, xlabel={Temperature (K)}, ylabel={Helmholtz free energy (eV)}, ymin=-28, ymax=-10, xmin=0, xmax=3000, legend style={{draw=}, at={(0.95,0.95)}, anchor=north east, legend columns=1}]
+		[width=\linewidth*0.7, xlabel={Temperature (K)}, ylabel={Helmholtz free energy (eV)}, ymin=-28, ymax=-10, xmin=0, xmax=3000, legend style={{draw=}, at={(0.95,0.95)}, anchor=north east, legend columns=1}]
 		\addplot[no marks] table [x=temperature, y=monoclinic,]{dat/helmholtz.dat}; \addlegendentry{Monoclinic};
         \addplot[no marks, dashed] table [x=temperature, y=tetragonal, ]{dat/helmholtz.dat}; \addlegendentry{Tetragonal};
         \addplot[no marks, densely dotted, black] table [x=temperature, y=cubic,]{dat/helmholtz.dat}; \addlegendentry{Cubic};
@@ -226,7 +228,7 @@ The intrinsic defect equilibria are shown in Brouwer diagrams in Figures \ref{fi
 \begin{center}
 \begin{tikzpicture}
 	\begin{axis}
-		[width=14cm, xlabel={\ch{log_{10}}($p_{O_{2}}$) (atm)}, ylabel={\ch{log_{10}}([D]) (per f.u.)}, ymin=-18, ymax=0, xmin=-35, xmax=0, legend style={{draw=}, at={(0.40,0.94)}, anchor=north west, legend columns=4, nodes={scale=1, transform shape}}]
+		[width=\linewidth*0.7, xlabel={\ch{log_{10}}($p_{O_{2}}$) (atm)}, ylabel={\ch{log_{10}}([D]) (per f.u.)}, ymin=-18, ymax=0, xmin=-35, xmax=0, legend style={{draw=}, at={(0.40,0.94)}, anchor=north west, legend columns=4, nodes={scale=1, transform shape}}]
         \addplot[no marks, draw=blue!70!black] table [x=pO2, y=electrons,]{dat/intrinsic_mono.dat}; \addlegendentry{\ch{e^{'}}}; \node at (-4.8,-13) {\ch{e^{'}}};
         \addplot[no marks, draw=red!85!black] table [x=pO2, y=holes,]{dat/intrinsic_mono.dat}; \addlegendentry{\ch{h^{\textperiodcentered}}}; \node at (-4.5,-8) {\ch{h^{\textperiodcentered}}};
         \addplot[no marks, draw=black!70!green] table [x=pO2, y=VO{2},]{dat/intrinsic_mono.dat}; \addlegendentry{\ch{V_{O}^{\textperiodcentered\textperiodcentered}}}; \node at (-33,-16.5) {\ch{V_{O}^{\textperiodcentered\textperiodcentered}}};
@@ -258,7 +260,7 @@ The intrinsic defect equilibria are shown in Brouwer diagrams in Figures \ref{fi
 \begin{center}
 \begin{tikzpicture}
 	\begin{axis}
-		[width=14cm, xlabel={\ch{log_{10}}($p_{O_{2}}$) (atm)}, ylabel={\ch{log_{10}}([D]) (per f.u.)}, ymin=-10, ymax=0, xmin=-35, xmax=0, legend style={{draw=}, at={(0.40,0.97)}, anchor=north west, legend columns=4, nodes={scale=1, transform shape}}]
+		[width=\linewidth*0.7, xlabel={\ch{log_{10}}($p_{O_{2}}$) (atm)}, ylabel={\ch{log_{10}}([D]) (per f.u.)}, ymin=-10, ymax=0, xmin=-35, xmax=0, legend style={{draw=}, at={(0.40,0.97)}, anchor=north west, legend columns=4, nodes={scale=1, transform shape}}]
         \addplot[no marks, draw=blue!70!black] table [x=pO2, y=electrons,]{dat/intrinsic_tet.dat}; \addlegendentry{\ch{e^{'}}}; \node at (-26.0,-2) {\ch{e^{'}}};
         \addplot[no marks, draw=red!85!black] table [x=pO2, y=holes,]{dat/intrinsic_tet.dat}; \addlegendentry{\ch{h^{\textperiodcentered}}}; \node at (-7,-3.6) {\ch{h^{\textperiodcentered}}};
         \addplot[no marks, draw=black!70!green] table [x=pO2, y=VO{2},]{dat/intrinsic_tet.dat}; \addlegendentry{\ch{V_{O}^{\textperiodcentered\textperiodcentered}}}; \node at (-28,-3) {\ch{V_{O}^{\textperiodcentered\textperiodcentered}}};
@@ -290,7 +292,7 @@ The intrinsic defect equilibria are shown in Brouwer diagrams in Figures \ref{fi
 \begin{center}
 \begin{tikzpicture}
 	\begin{axis}
-		[width=14cm, xlabel={\ch{log_{10}}($p_{O_{2}}$) (atm)}, ylabel={\ch{log_{10}}([D]) (per f.u.)}, ymin=-10, ymax=0, xmin=-35, xmax=0, legend style={{draw=}, at={(0.60,0.97)}, anchor=north west, legend columns=3, nodes={scale=1, transform shape}}]
+		[width=\linewidth*0.7, xlabel={\ch{log_{10}}($p_{O_{2}}$) (atm)}, ylabel={\ch{log_{10}}([D]) (per f.u.)}, ymin=-10, ymax=0, xmin=-35, xmax=0, legend style={{draw=}, at={(0.60,0.97)}, anchor=north west, legend columns=3, nodes={scale=1, transform shape}}]
         \addplot[no marks, draw=blue!70!black] table [x=pO2, y=electrons,]{dat/intrinsic_cubic.dat}; \addlegendentry{\ch{e^{'}}}; \node at (-17.0,-1) {\ch{e^{'}}};
         \addplot[no marks, draw=red!85!black] table [x=pO2, y=holes,]{dat/intrinsic_cubic.dat}; \addlegendentry{\ch{h^{\textperiodcentered}}}; \node at (-8,-7.5) {\ch{h^{\textperiodcentered}}};
         \addplot[no marks, draw=black!70!green] table [x=pO2, y=VO{2},]{dat/intrinsic_cubic.dat}; \addlegendentry{\ch{V_{O}^{\textperiodcentered\textperiodcentered}}}; \node at (-20,-1.7) {\ch{V_{O}^{\textperiodcentered\textperiodcentered}}};
