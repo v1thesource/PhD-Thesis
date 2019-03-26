@@ -74,6 +74,95 @@ Using our generalised formula for $\mu_{O_2}$, we fix the temperature within the
 
 \section{Defect formation energies}
 
+\begin{figure}[htp]
+\begin{center}
+\begin{tikzpicture}
+	\begin{axis}
+		[width=11cm, xlabel={Fermi level (eV)}, ylabel={Formation energy (eV) per \zirconia\ }, ymin=-10, ymax=18, xmin=0, xmax=6, legend style={{draw=}, at={(0.95,0.95)}, anchor=north east, legend columns=1}]
+		\addplot[no marks, blue] table [x=ZRmono1, y=ZRmono2,]{dat/vacancies.dat}; \addlegendentry{Zr};
+        \addplot[no marks, red, dashed] table [x=O3mono1, y=O3mono2,]{dat/vacancies.dat}; \addlegendentry{O (III)};
+        \addplot[no marks, red] table [x=O4mono1, y=O4mono2,]{dat/vacancies.dat}; \addlegendentry{O (IV)};
+			\end{axis}
+		\end{tikzpicture}
+		\caption{Monoclinic phase formation energies of intrinsic vacancy defects as a function of Fermi level. Gradient indicates defect charge. Oxygen coordination number shown in legend.}
+		\label{figure:monovacancies}
+	\end{center}
+\end{figure}
+
+
+\begin{figure}[htp]
+\begin{center}
+\begin{tikzpicture}
+	\begin{axis}
+		[width=11cm, xlabel={Fermi level (eV)}, ylabel={Formation energy (eV) per \zirconia\ }, ymin=-10, ymax=18, xmin=0, xmax=6, legend style={{draw=}, at={(0.95,0.95)}, anchor=north east, legend columns=1}]
+		\addplot[no marks, blue] table [x=ZRtet1, y=ZRtet2,]{dat/vacancies.dat}; \addlegendentry{Zr};
+        \addplot[no marks, red] table [x=Otet1, y=Otet2,]{dat/vacancies.dat}; \addlegendentry{O};
+			\end{axis}
+		\end{tikzpicture}
+		\caption{Tetragonal phase formation energies of intrinsic vacancy defects as a function of Fermi level. Gradient indicates defect charge.}
+		\label{figure:tetvacancies}
+	\end{center}
+\end{figure}
+
+\begin{figure}[htp]
+\begin{center}
+\begin{tikzpicture}
+	\begin{axis}
+		[width=11cm, xlabel={Fermi level (eV)}, ylabel={Formation energy (eV) per \zirconia\ }, ymin=-10, ymax=18, xmin=0, xmax=6, legend style={{draw=}, at={(0.95,0.95)}, anchor=north east, legend columns=1}]
+		\addplot[no marks, blue] table [x=ZRcubic1, y=ZRcubic2,]{dat/vacancies.dat}; \addlegendentry{Zr};
+        \addplot[no marks, red] table [x=Ocubic1, y=Ocubic2,]{dat/vacancies.dat}; \addlegendentry{O};
+			\end{axis}
+		\end{tikzpicture}
+		\caption{Cubic phase formation energies of intrinsic vacancy defects as a function of Fermi level. Gradient indicates defect charge.}
+		\label{figure:cubicvacancies}
+	\end{center}
+\end{figure}
+
+\begin{figure}[htp]
+\begin{center}
+\begin{tikzpicture}
+	\begin{axis}
+		[width=11.5cm, xlabel={Fermi level (eV)}, ylabel={Formation energy (eV) per \zirconia\ }, ymin=4, ymax=11, xmin=0, xmax=6, legend style={{draw=}, at={(0.5,0.05)}, anchor=south, legend columns=2}]
+		\addplot[no marks, red] table [x=2a1, y=2a2,]{dat/monointer.dat}; \addlegendentry{$2a\overline{1}$};
+        \addplot[no marks, red, dashed] table [x=2b1, y=2b2, ]{dat/monointer.dat}; \addlegendentry{$2b\overline{1}$};
+        \addplot[no marks, blue] table [x=2c1, y=2c2,]{dat/monointer.dat}; \addlegendentry{$2c\overline{1}$};
+        \addplot[no marks, blue, dashed] table [x=2d1, y=2d2,]{dat/monointer.dat}; \addlegendentry{$2d\overline{1}$};
+			\end{axis}
+		\end{tikzpicture}
+		\caption{Monoclinic phase formation energies of iodine interstitial defects as a function of Fermi level. Gradient indicates defect charge.}
+		\label{figure:monointer}
+	\end{center}
+\end{figure}
+
+
+\begin{figure}[htp]
+\begin{center}
+\begin{tikzpicture}
+	\begin{axis}
+		[width=11cm, xlabel={Fermi level (eV)}, ylabel={Formation energy (eV) per \zirconia\ }, ymin=6, ymax=11, xmin=0, xmax=6, legend style={{draw=}, at={(0.5,0.05)}, anchor=south, legend columns=1}]
+		\addplot[no marks, red] table [x=2atet1, y=2atet2,]{dat/tetcubicinter.dat}; \addlegendentry{$2a\overline{4}m2$};
+        \addplot[no marks, blue] table [x=8etet1, y=8etet2, ]{dat/tetcubicinter.dat}; \addlegendentry{$8e\overline{1}$};
+			\end{axis}
+		\end{tikzpicture}
+		\caption{Tetragonal phase formation energies of iodine interstitial defects as a function of Fermi level. Gradient indicates defect charge.}
+		\label{figure:tetinter}
+	\end{center}
+\end{figure}
+
+\begin{figure}[htp]
+\begin{center}
+\begin{tikzpicture}
+	\begin{axis}
+		[width=11cm, xlabel={Fermi level (eV)}, ylabel={Formation energy (eV) per \zirconia\ }, ymin=8, ymax=13, xmin=0, xmax=6, legend style={{draw=}, at={(0.5,0.05)}, anchor=south, legend columns=1}]
+		\addplot[no marks, red] table [x=24cubic1, y=24cubic2,]{dat/tetcubicinter.dat}; \addlegendentry{$24dm.mm$};
+        \addplot[no marks, blue] table [x=4bmcubic1, y=4bmcubic2, ]{dat/tetcubicinter.dat}; \addlegendentry{$4bm\overline{3}m$};
+			\end{axis}
+		\end{tikzpicture}
+		\caption{Cubic phase formation energies of iodine interstitial defects as a function of Fermi level. Gradient indicates defect charge.}
+		\label{figure:cubicinter}
+	\end{center}
+\end{figure}
+
 Defect volumes of isolated Frenkel defects can be seen in Table \ref{defect_volumes_clusters_isolated}.
 
 

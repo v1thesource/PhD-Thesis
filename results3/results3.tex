@@ -10,6 +10,13 @@ Stress-corrosion cracking (SCC) in nuclear fuel pins is an issue related to earl
 
 Nuclear fuel claddings have unique materials challenges owing to the highly active environment in which they operate and the creation of unstable isotopes. Corrosive species in the pin such as iodine, produced directly as a result of uranium fission are known to play a role in SCC \cite{Sidky1998, Fregonese1998, iodinezrmetal}. However, iodine nuclei produced from fission are unstable. Fission of uranium produces iodine precursors, mainly unstable isotopes of tellurium. Both iodine and tellurium are relatively common fission products, with combined independent yields from thermal fission of U$_{235}$ above 5\% \cite{kennett1956mass, iodine129fissionyield, imanishi1976independent, iaeafissionyield, iodine132, amiel1975odd}. In addition, xenon and caesium are also common fission products, as shown in Figure \ref{fig:fissionyield}, with fission product masses firmly within the heavy nuclide peak of uranium and plutonium fission product distribution curves.   
 
+\begin{figure}
+    \centering
+    \includegraphics[height=11cm]{images/fissionyield.png}
+    \caption[Plot of the percentage yield of nuclei with a given mass following a fission event. Range of masses corresponding to isotopes of Te, I, Xe and Cs are highlighted.]{Plot of the percentage yield of nuclei with a given mass following a fission event. Range of masses corresponding to isotopes of Te, I, Xe and Cs are highlighted. Adapted from \cite{England1992}.}
+    \label{fig:fissionyield}
+\end{figure}
+
 Previous work on defect equilibria in \zirconia\ considered the internal oxide layer's effectiveness as a barrier to iodine \cite{kenichiodine2018}. It was found that the tetragonal phase of \zirconia\ is a better barrier to iodine ingress than monoclinic \zirconia , especially at higher oxygen partial pressures. It is also established that tetragonal \zirconia\ will always be present on the inner surface of the cladding in significant quantities because it is self-stabilised by the stresses imposed as the oxide grows into the zirconium metal, in addition to compressive residual stresses induced by radiation damage \cite{causey2005review}. The iodine defect study, however, only informs us about one part of the SCC process. For a more holistic understanding, the life cycle of the iodine must also be taken into account.    
 
 %SCC studies of the internal surface of zirconium-based fuel claddings have been conducted, which indicate that iodine is likely to be one of the main corrosive species involved in promoting crack growth \cite{rosenbaum1966interaction, Cox1990Pellet-cladReview,Fregonese1998AmountIodine,Sidky1998IodineReview}. The exact mechanism for iodine SCC has not yet been determined due to difficulties observing the internal cladding surface in-situ, while experimental studies are not yet capable of reproducing the conditions under which such failures occur. This study focuses on the oxide on the internal surface of the fuel cladding, following from a previous study on iodine in the oxide layer. \\
@@ -25,7 +32,7 @@ With each nuclear decay comes a change in the chemical and therefore physical be
 
 \begin{figure}
     \centering
-    \includegraphics[height=9cm]{images/te_decay_chain2.png}
+    \includegraphics[height=9.5cm]{images/te_decay_chain2.png}
     \caption{Diagram of the production of Te$_{135}$ decay chain elements with decay modes and half-lives shown.}
     \label{fig:decaychain}
 \end{figure}
@@ -90,58 +97,15 @@ Using our generalised formula for $\mu_{O_2}$, we fix the temperature within the
 
 Brouwer diagrams for tellurium defects are shown in Figure \ref{figure:telluriumbrouwer}. At a tellurium defect concentration of $10^{-5}$ parts per f.u. \zirconia , the dominant defect was \ch{Te_{O}^{**}} over the oxygen pressure range of $10^{-28}$ to $10^{-7}$ atm. This is mainly charge compensated by intrinsic electronic defects at lower oxygen pressures, and zirconium vacancies at higher oxygen pressures. At higher oxygen pressures, tellurium preferentially occupies zirconium sites, producing the defect \ch{Te_{Zr}^{'''}}, this time charge compensated by positive hole defects. 
 
-Tellurium on an oxygen site adopts a 0 charge state, which while not obvious (it may be expected to act like oxygen, also a group 6 element), can be reasoned when considering chemical behaviour. Oxygen on its native site will readily adopt a charge state of -2. Tellurium on the other hand, exhibits more metallic behaviour, preferring to get oxidised itself. However, the \ch{V_{O}^{**}} site is highly reducing, and will counter the tellurium ion's proclivity to oxidise. The overall effect on tellurium in this case is to maintain its original electronic structure. Finally, when the tellurium concentration is increased to $10^{-3}$ parts/fu, greater occupancy on the zirconium site is predicted above oxygen pressures of $10^{-17}$ atm, forming the defect \ch{Te_{Zr}^{'''}}. This corresponds to a tellurium charge state of +1. While we would expect an even more positive charge state for tellurium, in this case it is the dominant negative defect by an order of magnitude and is necessary to charge compensate positive hole and \ch{Te_{O}^{**}} defects. 
-
-In terms of defect volume, \ch{Te_{O}^{**}} has a slightly positive volume of 2.74 \r{A}$^{3}$. This is quite large for a positively charged defect (\ch{V_{O}^{**}} has a defect volume of -40.45 \r{A}$^{3}$), very likely due to the large size of the tellurium atom itself. When tellurium occupies the zirconium site, the resulting \ch{Te_{Zr}^{'''}} has a defect volume of 59.93 \r{A}$^{3}$. While this is lower than the defect volume of \ch{V_{Zr}^{''''}} (88.93 \r{A}$^{3}$)
+Tellurium on an oxygen site adopts a 0 charge state, which while not obvious (it may be expected to act like oxygen, also a group 6 element), can be understood when considering chemical behaviour. Oxygen on its native site will readily adopt a charge state of -2. Tellurium on the other hand, exhibits more metallic behaviour, preferring to be oxidised itself (the electronegativities of oxygen and tellurium are 3.5 and 2.1 respectively). However, the \ch{V_{O}^{**}} site is highly reducing, and will counter the tellurium ion's proclivity to oxidise. The overall effect on tellurium in this case is to maintain its original electronic structure. Finally, when the tellurium concentration is increased to $10^{-3}$ parts/fu, greater occupancy on the zirconium site is predicted above oxygen pressures of $10^{-17}$ atm, forming the defect \ch{Te_{Zr}^{'''}}. This corresponds to a tellurium charge state of +1. While we would expect an even more positive charge state for tellurium, in this case it is the dominant negative defect by an order of magnitude and is necessary to charge compensate positive hole and \ch{Te_{O}^{**}} defects. 
 
 
-\subsubsection{Iodine}
-
-Iodine was previously predicted in Brouwer diagrams (Figure \ref{figure:tikzbrouwerconctet_chap7} to produce the defects \ch{I_{O}^{*}} and \ch{I_{Zr}^{'''}} at low and high oxygen pressures respectively. Since the extrinsic defect site is similar for tellurium defects over most oxygen pressures, $\beta$- decay of tellurium could have directly produced these iodine defects without requiring a change of site. Thus, \ch{Te_{O}^{**}} would decay and produce \ch{I_{O}^{*}} with a defect volume of 29.90 \r{A}$^{3}$, and \ch{Te_{Zr}^{'''}} would decay and produce \ch{I_{Zr}^{'''}} with a defect volume of 87.07 \r{A}$^{3}$. At the oxygen site, this means a defect volume change from 2.74 to 29.90 \r{A}$^{3}$. This increase is in large part due to the change in charge state from 0 to -1, as the ions are of similar size otherwise. 
-
-Similarly at the zirconium site, the defect volume changes from 59.93 to 87.07 \r{A}$^{3}$. Both of these are relatively large increases in defect volume and will come with an increase in lattice stress in the immediate vicinity of the defect, especially if highly constrained. Of course, this  process will take place continuously over time as tellurium atoms decay, with half-lives ranging from seconds to hours depending on the isotope. It is of note however, that PCI failures tend to occur after power ramps with a time delay, even up to an hour after the transient. While not conclusive, this may hint at a mechanism involving decay processes. 
-
-%Brouwer diagrams for the tetragonal phase are shown in Figure \ref{figure:tikzbrouwerconctet}. As these diagrams were generated at a temperature of 1500 K (at which the tetragonal phase becomes stable), intrinsic defect concentrations were significantly higher than in the monoclinic diagrams for all oxygen pressures (though trends remained the same). Intrinsic defects \ch{e^{'}}, \ch{h^{*}}, \ch{V_{O}^{**}} and \ch{V_{Zr}^{''''}} were dominant across most oxygen pressures at an iodine concentration of $10^{-5}$ parts/fu. Only around stoichiometry do extrinsic defect concentrations approach intrinsic values (which as mentioned earlier is why this concentration of iodine was chosen). Across all oxygen pressures, \ch{I_{O}^{*}} and \ch{I_{Zr}^{'''}} are the major iodine defects. Between $10^{-15}$ and $10^{-5}$ atm, Figure \ref{figure:tikzbrouwerconctet} illustrates that the major iodine defect swaps from \ch{I_{O}^{*}} to \ch{I_{Zr}^{'''}}. \\ 
-
-%When the iodine concentration was increased to $10^{-3}$ parts/fu, a significant change in defect equilibria was predicted. The oxygen pressure at stoichiometry increased from $10^{-10}$ to $10^{-6.5}$ atm (for monoclinic \zirconia, it remained at $10^{-7.5}$ atm regardless of iodine concentration). Nevertheless, \ch{I_{O}^{*}} and \ch{I_{Zr}^{'''}} remain the dominant defect pair between oxygen pressures of $10^{-15}$ and $10^{-5}$ atm (as they are at the lower iodine concentration). However, \ch{I_{O}^{*}} and \ch{I_{Zr}^{'''}} became higher concentration defects than both intrinsic \ch{V_{O}^{**}} and \ch{V_{Zr}^{''''}} defects. We also observe that Zr vacancies no longer serve as the main negative charge-compensation defect near stoichiometry, leaving \ch{I_{Zr}^{'''}} as the most energetically favourable negatively-charged defect.  \\
-
-%Unlike in the Brouwer diagrams for the monoclinic phase, for the tetragonal phase, the concentration of iodine substitutional defects on oxygen sites decreases more steeply at high oxygen pressures, peaking near stoichiometry. \ch{I_{O}^{***}} in particular, which was the dominant defect at high oxygen pressures in monoclinic \zirconia , becomes insignificant under the same conditions in the tetragonal phase, with iodine confined to Zr sites. This behaviour is indicative of a `barrier' effect against iodine at high oxygen partial pressures, with oxygen out-competing iodine for oxygen sites. Given that the inner oxide is likely to have a higher tetragonal phase fraction than the external oxide, due to the incorporation of fission products, this result could help to explain why there appears to be an oxygen effect on PCI-related SCC of zirconium alloys \cite{hofmann1984stress}. \\
-
-%Another effect considered was the space charge of the system. Electrons have a higher rate of diffusion than oxygen vacancies in \zirconia , leading to a build-up of oxygen vacancies near the metal-oxide interface as corrosion progresses \cite{bojinov2010influence}. This results in an overall positive charge (since the dominant oxygen vacancy is \ch{V_{O}^{**}} referred to as a space charge. When included in our Brouwer diagrams, this space charge had a negligible effect on the concentration or charge state of iodine up to a charge of $10^{-1}$ holes per f.u. \zirconia . This corresponds to a high concentration of oxygen vacancies relative to the equilibrium concentration, predicting that a significant deviation from the equilibrium is not expected near the metal oxide interface as a result of a positive space charge.
-
-\subsubsection{Xenon}
-
-Brouwer diagrams for xenon defects are shown in Figure \ref{figure:xenonbrouwer}. At a xenon concentration of $10^{-5}$ parts/fu \zirconia , the dominant xenon defect is \ch{Xe_{O}^{**}} at low oxygen pressures, and a combination of \ch{Xe_{O}^{**}}, \ch{Xe_{Zr}^{''''}} and \ch{Xe_{Zr}^{'''}} at stoichiometry ($10^{-9}$ atm) and higher. At a higher xenon concentration of $10^{-3}$ parts/fu \zirconia , \ch{Xe_{O}^{**}} becomes the dominant defect over a greater oxygen pressure range, from $10^{-30}$ to $10^{-5}$ atm, with \ch{Xe_{Zr}^{''''}} also present in high concentrations at oxygen pressures above $10^{-20}$ atm. As a noble gas, it is expected that xenon in a 0 charge state (\ch{Xe_{O}^{**}} and \ch{Xe_{Zr}^{''''}}) will be prevalent since the full electronic shell provides a stable configuration.
-
-\ch{Xe_{O}^{**}} and \ch{Xe_{Zr}^{''''}} have defect volumes of 9.02 and 115.50 \r{A}$^{3}$ respectively. Following from the decay of iodine, the defect volume on the oxygen site will fall from 29.90 \r{A}$^{3}$, while the defect volume on the zirconium site increases from 87.07 \r{A}$^{3}$. The defect volume reduction on the oxygen site can be attributed to the charge state changing from -1 to 0 (i.e. \ch{I_{O}^{*}} to \ch{Xe_{O}^{**}}), resulting in a smaller defect. The opposite is true for the zirconium site, where the charge state changes from +1 to 0 (\ch{I_{Zr}^{'''}} to \ch{Xe_{Zr}^{''''}}).
-
-\subsubsection{Caesium}
-
-Brouwer diagrams for caesium defects are shown in Figure \ref{figure:caesiumbrouwer}. Caesium defects were mostly unaffected by a change in oxygen pressure, with dominant defects only changing from \ch{Cs_{O}^{**}} to \ch{Cs_{Zr}^{'''}} at an oxygen pressure of $10^{-30.5}$ atm, regardless of the caesium concentration. However, because additional charge compensation for caesium defects is necessary at higher caesium concentrations, we see an increase in the concentration of \ch{V_{O}^{**}} to compensate for the negative \ch{Cs_{Zr}^{'''}} defects. 
-
-The defect volumes of \ch{Cs_{O}^{**}} and \ch{Cs_{Zr}^{'''}} were 4.38 and 90.37 \r{A}$^{3}$ respectively, less than the Xe defects on the same site. This is consistent with the fact that Cs has a much smaller first ionisation energy than Xe, therefore presenting a smaller energy barrier to reducing it's size on either site to improve lattice fit. Because of this, we do not expect further stresses being imposed on the lattice after Xe decays to Cs. We therefore consider that only Te, I and Xe will be significant in this mechanism, as the only contribution to lattice stresses due to Cs would have occurred through direct implantation after fission. 
-
-%We can therefore not consider Cs in this process, narrowing it down to Te, I, and Xe. 
-
-% healing radiation damage occurs much faster than the decay of isotopes. 
-
-\section{Conclusions}
-
-As fission products proceed down the decay chain from Te to Xe, the defects they produce in \zirconia\ have progressively larger volumes. The change in defect volume when \ch{Te_{Zr}^{'''}} decays and produces \ch{I_{Zr}^{'''}} is +27.14 \r{A}$^{3}$. This then decays and produces the defect \ch{Xe_{Zr}^{''''}}, which leads to an even larger change in defect volume of +28.43 \r{A}$^{3}$. Similarly, at the oxygen site, \ch{Te_{O}^{**}} decays to produce \ch{I_{O}^{*}}, with a resulting defect volume change of +27.16 \r{A}$^{3}$. The lattice mismatch of these defects in \zirconia\ will generate stresses and promote crack formation, exposing Zr metal. If enough fission products are implanted simultaneously, the rate of crack formation may become faster than new passivating oxide can be produced, and typical I-SCC mechanisms will take over to failure. This process may be a contributing factor to fuel cladding failures observed after a power ramp, with reported time delays between ramp and failure aligning with the decay rate of Te and I isotopes. 
-
-
-\begin{figure}
-    \centering
-    \includegraphics[height=11cm]{images/fissionyield.png}
-    \caption[Plot of the percentage yield of nuclei with a given mass following a fission event. Range of masses corresponding to isotopes of Te, I, Xe and Cs are highlighted.]{Plot of the percentage yield of nuclei with a given mass following a fission event. Range of masses corresponding to isotopes of Te, I, Xe and Cs are highlighted. Adapted from \cite{England1992}.}
-    \label{fig:fissionyield}
-\end{figure}
-
+\begin{landscape}
 \begin{figure}[htp] % Tellurium 1
 \begin{center}
 \begin{tikzpicture}
 	\begin{axis}
-		[width=8.22cm, xlabel={\ch{log_{10}}($p_{O_{2}}$) (atm)}, ylabel={\ch{log_{10}}([D]) (per f.u.)}, ymin=-10, ymax=0, xmin=-35, xmax=0, legend style={{draw=}, at={(0.30,1.47)}, anchor=north west, legend columns=3, nodes={scale=0.75, transform shape}}]
+		[width=12.35cm, xlabel={\ch{log_{10}}($p_{O_{2}}$) (atm)}, ylabel={\ch{log_{10}}([D]) (per f.u.)}, ymin=-10, ymax=0, xmin=-35, xmax=0, legend style={{draw=}, at={(0.30,1.47)}, anchor=north west, legend columns=3, nodes={scale=0.75, transform shape}}]
         \addplot[no marks, draw=blue!70!black] table [x=pO2, y=electrons,]{dat/te_tet_10-5.dat}; \addlegendentry{\ch{e^{'}}}; \node at (-26.0,-1.9) {\ch{e^{'}}};
         \addplot[no marks, draw=red!85!black] table [x=pO2, y=holes,]{dat/te_tet_10-5.dat}; \addlegendentry{\ch{h^{\textperiodcentered}}}; \node at (-7,-3.6) {\ch{h^{\textperiodcentered}}};
         \addplot[no marks, draw=black!70!green] table [x=pO2, y=VO{2},]{dat/te_tet_10-5.dat}; \addlegendentry{\ch{V_{O}^{\textperiodcentered\textperiodcentered}}}; \node at (-26.7,-3.3) {\ch{V_{O}^{\textperiodcentered\textperiodcentered}}};
@@ -175,7 +139,7 @@ As fission products proceed down the decay chain from Te to Xe, the defects they
 \end{tikzpicture}
 \begin{tikzpicture} % Tellurium 2
 	\begin{axis}
-		[width=8.22cm, xlabel={\ch{log_{10}}($p_{O_{2}}$) (atm)}, yticklabels={}, ymin=-10, ymax=0, xmin=-35, xmax=0]
+		[width=12.35cm, xlabel={\ch{log_{10}}($p_{O_{2}}$) (atm)}, yticklabels={}, ymin=-10, ymax=0, xmin=-35, xmax=0]
         \addplot[no marks, draw=blue!70!black] table [x=pO2, y=electrons,]{dat/te_tet_10-3.dat}; \node at (-27,-1.7) {\ch{e^{'}}};
         \addplot[no marks, draw=red!85!black] table [x=pO2, y=holes,]{dat/te_tet_10-3.dat}; %\node at (-2.5,-2.1) {\ch{h^{\textperiodcentered}}};
         \addplot[no marks, draw=black!70!green] table [x=pO2, y=VO{2},]{dat/te_tet_10-3.dat}; 
@@ -211,13 +175,23 @@ As fission products proceed down the decay chain from Te to Xe, the defects they
 		\label{figure:telluriumbrouwer}
 	\end{center}
 \end{figure}
+\end{landscape}
 
+The presence of these defects and their sizes will have an effect on the lattice, particularly if there is a lattice mismatch which results in a significant local strain. In terms of defect volume, \ch{Te_{O}^{**}} has a slightly positive volume of 2.74 \r{A}$^{3}$ relative to the non-defective crystal. This is quite large for a positively charged defect (\ch{V_{O}^{**}} has a defect volume of -40.45 \r{A}$^{3}$), very likely due to the large size of the tellurium atom itself. When tellurium occupies the zirconium site, the resulting \ch{Te_{Zr}^{'''}} has a defect volume of 59.93 \r{A}$^{3}$. While this is lower than the defect volume of \ch{V_{Zr}^{''''}} (88.93 \r{A}$^{3}$), it is still an increase in volume relative to the non-defective crystal and will impart a strain on the lattice which, at a high enough defect concentration, could contribute to crack formation.
 
+\subsubsection{Iodine}
+
+Iodine was previously predicted in Brouwer diagrams (Figure \ref{figure:tikzbrouwerconctet_chap7} to produce the defects \ch{I_{O}^{*}} and \ch{I_{Zr}^{'''}} at low and high oxygen pressures respectively. Since the extrinsic defect site is similar for tellurium defects over most oxygen pressures, $\beta$- decay of tellurium could have directly produced these iodine defects without requiring a change of site. Thus, \ch{Te_{O}^{**}} would decay and produce \ch{I_{O}^{*}} with a defect volume of 29.90 \r{A}$^{3}$, and \ch{Te_{Zr}^{'''}} would decay and produce \ch{I_{Zr}^{'''}} with a defect volume of 87.07 \r{A}$^{3}$. At the oxygen site, this means a defect volume change from 2.74 to 29.90 \r{A}$^{3}$. This increase is in large part due to the change in charge state from 0 to -1, as the ions are of similar size otherwise. 
+
+Similarly at the zirconium site, the defect volume changes from 59.93 to 87.07 \r{A}$^{3}$. Both of these are relatively large increases in defect volume and will come with an increase in lattice stress in the immediate vicinity of the defect, especially if highly constrained. Of course, this  process will take place continuously over time as tellurium atoms decay, with half-lives ranging from seconds to hours depending on the isotope. It is of note however, that PCI failures tend to occur after power ramps with a time delay, even up to an hour after the transient. While not conclusive, this may hint at a mechanism involving decay processes. 
+
+%-----Brouwer Diagram Iodine-----%
+\begin{landscape}
 \begin{figure}[htp] % Iodine
 \begin{center}
 \begin{tikzpicture}
 	\begin{axis}
-		[width=8.22cm, xlabel={\ch{log_{10}}($p_{O_{2}}$) (atm)}, ylabel={\ch{log_{10}}([D]) (per f.u.)}, ymin=-10, ymax=0, xmin=-35, xmax=0, legend style={{draw=}, at={(0.40,0.97)}, anchor=north west, legend columns=3, nodes={scale=0.75, transform shape}}]
+		[width=12.35cm, xlabel={\ch{log_{10}}($p_{O_{2}}$) (atm)}, ylabel={\ch{log_{10}}([D]) (per f.u.)}, ymin=-10, ymax=0, xmin=-35, xmax=0, legend style={{draw=}, at={(0.40,0.97)}, anchor=north west, legend columns=3, nodes={scale=0.75, transform shape}}]
         \addplot[no marks, draw=blue!70!black] table [x=pO2, y=electrons,]{dat/1e5iconctet1500.dat}; \addlegendentry{\ch{e^{'}}}; \node at (-26.0,-1.9) {\ch{e^{'}}};
         \addplot[no marks, draw=red!85!black] table [x=pO2, y=holes,]{dat/1e5iconctet1500.dat}; \addlegendentry{\ch{h^{\textperiodcentered}}}; \node at (-7,-3.6) {\ch{h^{\textperiodcentered}}};
         \addplot[no marks, draw=black!70!green] table [x=pO2, y=VO{2},]{dat/1e5iconctet1500.dat}; \addlegendentry{\ch{V_{O}^{\textperiodcentered\textperiodcentered}}}; \node at (-26.7,-3.3) {\ch{V_{O}^{\textperiodcentered\textperiodcentered}}};
@@ -251,7 +225,7 @@ As fission products proceed down the decay chain from Te to Xe, the defects they
 \end{tikzpicture}
 \begin{tikzpicture} % Iodine 2
 	\begin{axis}
-		[width=8.22cm, xlabel={\ch{log_{10}}($p_{O_{2}}$) (atm)}, yticklabels={}, ymin=-10, ymax=0, xmin=-35, xmax=0]
+		[width=12.35cm, xlabel={\ch{log_{10}}($p_{O_{2}}$) (atm)}, yticklabels={}, ymin=-10, ymax=0, xmin=-35, xmax=0]
         \addplot[no marks, draw=blue!70!black] table [x=pO2, y=electrons,]{dat/1e3iconctet1500.dat}; \node at (-27,-1.7) {\ch{e^{'}}};
         \addplot[no marks, draw=red!85!black] table [x=pO2, y=holes,]{dat/1e3iconctet1500.dat}; \node at (-2.5,-2.1) {\ch{h^{\textperiodcentered}}};
         \addplot[no marks, draw=black!70!green] table [x=pO2, y=VO{2},]{dat/1e3iconctet1500.dat}; 
@@ -287,13 +261,30 @@ As fission products proceed down the decay chain from Te to Xe, the defects they
 		\label{figure:tikzbrouwerconctet_chap7}
 	\end{center}
 \end{figure}
+\end{landscape}
+
+%Brouwer diagrams for the tetragonal phase are shown in Figure \ref{figure:tikzbrouwerconctet}. As these diagrams were generated at a temperature of 1500 K (at which the tetragonal phase becomes stable), intrinsic defect concentrations were significantly higher than in the monoclinic diagrams for all oxygen pressures (though trends remained the same). Intrinsic defects \ch{e^{'}}, \ch{h^{*}}, \ch{V_{O}^{**}} and \ch{V_{Zr}^{''''}} were dominant across most oxygen pressures at an iodine concentration of $10^{-5}$ parts/fu. Only around stoichiometry do extrinsic defect concentrations approach intrinsic values (which as mentioned earlier is why this concentration of iodine was chosen). Across all oxygen pressures, \ch{I_{O}^{*}} and \ch{I_{Zr}^{'''}} are the major iodine defects. Between $10^{-15}$ and $10^{-5}$ atm, Figure \ref{figure:tikzbrouwerconctet} illustrates that the major iodine defect swaps from \ch{I_{O}^{*}} to \ch{I_{Zr}^{'''}}. \\ 
+
+%When the iodine concentration was increased to $10^{-3}$ parts/fu, a significant change in defect equilibria was predicted. The oxygen pressure at stoichiometry increased from $10^{-10}$ to $10^{-6.5}$ atm (for monoclinic \zirconia, it remained at $10^{-7.5}$ atm regardless of iodine concentration). Nevertheless, \ch{I_{O}^{*}} and \ch{I_{Zr}^{'''}} remain the dominant defect pair between oxygen pressures of $10^{-15}$ and $10^{-5}$ atm (as they are at the lower iodine concentration). However, \ch{I_{O}^{*}} and \ch{I_{Zr}^{'''}} became higher concentration defects than both intrinsic \ch{V_{O}^{**}} and \ch{V_{Zr}^{''''}} defects. We also observe that Zr vacancies no longer serve as the main negative charge-compensation defect near stoichiometry, leaving \ch{I_{Zr}^{'''}} as the most energetically favourable negatively-charged defect.  \\
+
+%Unlike in the Brouwer diagrams for the monoclinic phase, for the tetragonal phase, the concentration of iodine substitutional defects on oxygen sites decreases more steeply at high oxygen pressures, peaking near stoichiometry. \ch{I_{O}^{***}} in particular, which was the dominant defect at high oxygen pressures in monoclinic \zirconia , becomes insignificant under the same conditions in the tetragonal phase, with iodine confined to Zr sites. This behaviour is indicative of a `barrier' effect against iodine at high oxygen partial pressures, with oxygen out-competing iodine for oxygen sites. Given that the inner oxide is likely to have a higher tetragonal phase fraction than the external oxide, due to the incorporation of fission products, this result could help to explain why there appears to be an oxygen effect on PCI-related SCC of zirconium alloys \cite{hofmann1984stress}. \\
+
+%Another effect considered was the space charge of the system. Electrons have a higher rate of diffusion than oxygen vacancies in \zirconia , leading to a build-up of oxygen vacancies near the metal-oxide interface as corrosion progresses \cite{bojinov2010influence}. This results in an overall positive charge (since the dominant oxygen vacancy is \ch{V_{O}^{**}} referred to as a space charge. When included in our Brouwer diagrams, this space charge had a negligible effect on the concentration or charge state of iodine up to a charge of $10^{-1}$ holes per f.u. \zirconia . This corresponds to a high concentration of oxygen vacancies relative to the equilibrium concentration, predicting that a significant deviation from the equilibrium is not expected near the metal oxide interface as a result of a positive space charge.
+
+\subsubsection{Xenon}
+
+Brouwer diagrams for xenon defects are shown in Figure \ref{figure:xenonbrouwer}. At a xenon concentration of $10^{-5}$ parts/fu \zirconia , the dominant xenon defect is \ch{Xe_{O}^{**}} at low oxygen pressures, and a combination of \ch{Xe_{O}^{**}}, \ch{Xe_{Zr}^{''''}} and \ch{Xe_{Zr}^{'''}} at stoichiometry ($10^{-9}$ atm) and higher. At a higher xenon concentration of $10^{-3}$ parts/fu \zirconia , \ch{Xe_{O}^{**}} becomes the dominant defect over a greater oxygen pressure range, from $10^{-30}$ to $10^{-5}$ atm, with \ch{Xe_{Zr}^{''''}} also present in high concentrations at oxygen pressures above $10^{-20}$ atm. As a noble gas, it is expected that xenon in a 0 charge state (\ch{Xe_{O}^{**}} and \ch{Xe_{Zr}^{''''}}) will be prevalent since the full electronic shell provides a stable configuration.
+
+\ch{Xe_{O}^{**}} and \ch{Xe_{Zr}^{''''}} have defect volumes of 9.02 and 115.50 \r{A}$^{3}$ respectively. Following from the decay of iodine, the defect volume on the oxygen site will fall from 29.90 \r{A}$^{3}$, while the defect volume on the zirconium site increases from 87.07 \r{A}$^{3}$. The defect volume reduction on the oxygen site can be attributed to the charge state changing from -1 to 0 (i.e. \ch{I_{O}^{*}} to \ch{Xe_{O}^{**}}), resulting in a smaller defect. The opposite is true for the zirconium site, where the charge state changes from +1 to 0 (\ch{I_{Zr}^{'''}} to \ch{Xe_{Zr}^{''''}}).
 
 %---------------------------
+
+\begin{landscape}
 \begin{figure}[htp] % XENON
 \begin{center}
 \begin{tikzpicture}
 	\begin{axis}
-		[width=8.22cm, xlabel={\ch{log_{10}}($p_{O_{2}}$) (atm)}, ylabel={\ch{log_{10}}([D]) (per f.u.)}, ymin=-10, ymax=0, xmin=-35, xmax=0, legend style={{draw=}, at={(0.30,1.47)}, anchor=north west, legend columns=3, nodes={scale=0.75, transform shape}}]
+		[width=12.35cm, xlabel={\ch{log_{10}}($p_{O_{2}}$) (atm)}, ylabel={\ch{log_{10}}([D]) (per f.u.)}, ymin=-10, ymax=0, xmin=-35, xmax=0, legend style={{draw=}, at={(0.30,1.47)}, anchor=north west, legend columns=3, nodes={scale=0.75, transform shape}}]
         \addplot[no marks, draw=blue!70!black] table [x=pO2, y=electrons,]{dat/xe_tet_10-5.dat}; \addlegendentry{\ch{e^{'}}}; \node at (-26.0,-1.9) {\ch{e^{'}}};
         \addplot[no marks, draw=red!85!black] table [x=pO2, y=holes,]{dat/xe_tet_10-5.dat}; \addlegendentry{\ch{h^{\textperiodcentered}}}; \node at (-7,-3.6) {\ch{h^{\textperiodcentered}}};
         \addplot[no marks, draw=black!70!green] table [x=pO2, y=VO{2},]{dat/xe_tet_10-5.dat}; \addlegendentry{\ch{V_{O}^{\textperiodcentered\textperiodcentered}}}; \node at (-26.7,-3.3) {\ch{V_{O}^{\textperiodcentered\textperiodcentered}}};
@@ -327,7 +318,7 @@ As fission products proceed down the decay chain from Te to Xe, the defects they
 \end{tikzpicture}
 \begin{tikzpicture} % XENON 2
 	\begin{axis} % change width to 8.22cm for portrait
-		[width=8.22cm, xlabel={\ch{log_{10}}($p_{O_{2}}$) (atm)}, yticklabels={}, ymin=-10, ymax=0, xmin=-35, xmax=0]
+		[width=12.35cm, xlabel={\ch{log_{10}}($p_{O_{2}}$) (atm)}, yticklabels={}, ymin=-10, ymax=0, xmin=-35, xmax=0]
         \addplot[no marks, draw=blue!70!black] table [x=pO2, y=electrons,]{dat/xe_tet_10-3.dat}; \node at (-27,-1.7) {\ch{e^{'}}};
         \addplot[no marks, draw=red!85!black] table [x=pO2, y=holes,]{dat/xe_tet_10-3.dat}; %\node at (-2.5,-2.1) {\ch{h^{\textperiodcentered}}};
         \addplot[no marks, draw=black!70!green] table [x=pO2, y=VO{2},]{dat/xe_tet_10-3.dat}; 
@@ -363,12 +354,22 @@ As fission products proceed down the decay chain from Te to Xe, the defects they
 		\label{figure:xenonbrouwer}
 	\end{center}
 \end{figure}
+\end{landscape}
+
+\subsubsection{Caesium}
+
+Brouwer diagrams for caesium defects are shown in Figure \ref{figure:caesiumbrouwer}. Caesium defects were mostly unaffected by a change in oxygen pressure, with dominant defects only changing from \ch{Cs_{O}^{**}} to \ch{Cs_{Zr}^{'''}} at an oxygen pressure of $10^{-30.5}$ atm, regardless of the caesium concentration. However, because additional charge compensation for caesium defects is necessary at higher caesium concentrations, we see an increase in the concentration of \ch{V_{O}^{**}} to compensate for the negative \ch{Cs_{Zr}^{'''}} defects. 
+
+The defect volumes of \ch{Cs_{O}^{**}} and \ch{Cs_{Zr}^{'''}} were 4.38 and 90.37 \r{A}$^{3}$ respectively, less than the Xe defects on the same site. This is consistent with the fact that Cs has a much smaller first ionisation energy than Xe, therefore presenting a smaller energy barrier to reducing it's size on either site to improve lattice fit. Because of this, we do not expect further stresses being imposed on the lattice after Xe decays to Cs. We therefore consider that only Te, I and Xe will be significant in this mechanism, as the only contribution to lattice stresses due to Cs would have occurred through direct implantation after fission. 
+
 %------------------------------------------------
+
+\begin{landscape}
 \begin{figure}[htp] % CAESIUM
 \begin{center}
 \begin{tikzpicture}
 	\begin{axis}
-		[width=8.22cm, xlabel={\ch{log_{10}}($p_{O_{2}}$) (atm)}, ylabel={\ch{log_{10}}([D]) (per f.u.)}, ymin=-10, ymax=0, xmin=-35, xmax=0, legend style={{draw=}, at={(0.30,1.47)}, anchor=north west, legend columns=3, nodes={scale=0.75, transform shape}}]
+		[width=12.35cm, xlabel={\ch{log_{10}}($p_{O_{2}}$) (atm)}, ylabel={\ch{log_{10}}([D]) (per f.u.)}, ymin=-10, ymax=0, xmin=-35, xmax=0, legend style={{draw=}, at={(0.30,1.47)}, anchor=north west, legend columns=3, nodes={scale=0.75, transform shape}}]
         \addplot[no marks, draw=blue!70!black] table [x=pO2, y=electrons,]{dat/cs_tet_10-5.dat}; \addlegendentry{\ch{e^{'}}}; \node at (-26.0,-1.9) {\ch{e^{'}}};
         \addplot[no marks, draw=red!85!black] table [x=pO2, y=holes,]{dat/cs_tet_10-5.dat}; \addlegendentry{\ch{h^{\textperiodcentered}}}; \node at (-7,-3.6) {\ch{h^{\textperiodcentered}}};
         \addplot[no marks, draw=black!70!green] table [x=pO2, y=VO{2},]{dat/cs_tet_10-5.dat}; \addlegendentry{\ch{V_{O}^{\textperiodcentered\textperiodcentered}}}; \node at (-26.7,-3.3) {\ch{V_{O}^{\textperiodcentered\textperiodcentered}}};
@@ -402,7 +403,7 @@ As fission products proceed down the decay chain from Te to Xe, the defects they
 \end{tikzpicture}
 \begin{tikzpicture} % CAESIUM 2
 	\begin{axis}
-		[width=8.22cm, xlabel={\ch{log_{10}}($p_{O_{2}}$) (atm)}, yticklabels={}, ymin=-10, ymax=0, xmin=-35, xmax=0]
+		[width=12.35cm, xlabel={\ch{log_{10}}($p_{O_{2}}$) (atm)}, yticklabels={}, ymin=-10, ymax=0, xmin=-35, xmax=0]
         \addplot[no marks, draw=blue!70!black] table [x=pO2, y=electrons,]{dat/cs_tet_10-3.dat}; %\node at (-27,-1.7) {\ch{e^{'}}};
         \addplot[no marks, draw=red!85!black] table [x=pO2, y=holes,]{dat/cs_tet_10-3.dat}; \node at (-2.5,-2.1) {\ch{h^{\textperiodcentered}}};
         \addplot[no marks, draw=black!70!green] table [x=pO2, y=VO{2},]{dat/cs_tet_10-3.dat}; \node at (-17,-2.2) {\ch{V_{O}^{\textperiodcentered\textperiodcentered}}};
@@ -438,6 +439,25 @@ As fission products proceed down the decay chain from Te to Xe, the defects they
 		\label{figure:caesiumbrouwer}
 	\end{center}
 \end{figure}
+\end{landscape}
+
+%We can therefore not consider Cs in this process, narrowing it down to Te, I, and Xe. 
+
+% healing radiation damage occurs much faster than the decay of isotopes. 
+
+\section{Conclusions}
+
+As fission products proceed down the decay chain from Te to Xe, the defects they produce in \zirconia\ have progressively larger volumes. The change in defect volume when \ch{Te_{Zr}^{'''}} decays and produces \ch{I_{Zr}^{'''}} is +27.14 \r{A}$^{3}$. This then decays and produces the defect \ch{Xe_{Zr}^{''''}}, which leads to an even larger change in defect volume of +28.43 \r{A}$^{3}$. Similarly, at the oxygen site, \ch{Te_{O}^{**}} decays to produce \ch{I_{O}^{*}}, with a resulting defect volume change of +27.16 \r{A}$^{3}$. The lattice mismatch of these defects in \zirconia\ will generate stresses and promote crack formation, exposing Zr metal. If enough fission products are implanted simultaneously, the rate of crack formation may become faster than new passivating oxide can be produced, and typical I-SCC mechanisms will take over to failure. This process may be a contributing factor to fuel cladding failures observed after a power ramp, with reported time delays between ramp and failure aligning with the decay rate of Te and I isotopes. 
+
+
+
+
+
+
+
+
+
+
 
 
 \begin{table}[htp]

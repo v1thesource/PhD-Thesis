@@ -10,14 +10,14 @@ Combustion is a chemical process where energy differences between reactants and 
 
 Consider methane, with an enthalpy of combustion of −887.2 kJ/mol \cite{thornton1917xv}. This is the equivalent of 9.14 eV per particle. By comparison, the total energy release from fission of one uranium-235 nucleus is at least $1.65 \times 10^{8}$ eV, as shown in Figure \ref{figure:fissionenergy}.
 
+Combustion-based power as a technology has matured over hundreds of years, with modern optimisations only looking to offer fractional percent gains in efficiency. By comparison, nuclear power technology is far from mature, with large improvements yet to be realised. One such feature is load-following, an enormously useful feature for a power plant which is currently unavailable in nuclear reactors. The biggest hurdle to achieving load-following in nuclear reactors is the issue of pellet-cladding interaction (PCI), which is the basis of the work in this thesis.
+
 \begin{figure}[htp]
 \centering
-\includegraphics[height=12cm]{images/fission_energy_total.png}
+\includegraphics[height=13cm]{images/fission_energy_total.png}
 \caption[Energy from thermal fission of U-235 as a function of mass ratios of child nuclei. Total energy release includes contributions from gamma rays and subsequent radioactive decays.]{Energy from thermal fission of U-235 as a function of mass ratios of child nuclei. Total energy release includes contributions from gamma rays and subsequent radioactive decays. Taken from \cite{aras1965ranges}.}
 \label{figure:fissionenergy}
 \end{figure}
-
-Combustion-based power as a technology has matured over hundreds of years, with modern optimisations only looking to offer fractional percent gains in efficiency. By comparison, nuclear power technology is far from mature, with large improvements yet to be realised. One such feature is load-following, an enormously useful feature for a power plant which is currently unavailable in nuclear reactors. The biggest hurdle to achieving load-following in nuclear reactors is the issue of pellet-cladding interaction (PCI), which is the basis of the work in this thesis.
 
 \subsection{Fission} % Complete
 
@@ -31,31 +31,25 @@ Commercial nuclear power plants extract energy through the process of fission, w
 where $E$ is the energy of the system, $m$ is the mass and $c$ is the speed of light. Using this equation we can analyse a typical fission reaction:
 
 \begin{equation}
-\label{fission}
-    U^{235}_{92} + n^{1}_{0} \longrightarrow I^{132}_{53} + Y^{101}_{39} + 3n^{1}_{0} 
+    U^{235}_{92} + n^{1}_{0} \longrightarrow I^{132}_{53} + Y^{101}_{39} + 3n^{1}_{0}
+\label{eqn:fission} 
 \end{equation}
 
 While the number of protons and neutrons are conserved throughout the reaction, a quick calculation will show that there is actually less mass in the products than the reactants by approximately 0.188 amu (3.127$\times 10^{-28}$ kg). This missing mass, known as the \emph{mass defect}, is converted to energy ($\sim$175 MeV). In this way, the total mass-energy of the system is conserved. 
 
 This change in mass arises due to the phenomenon of \emph{binding energy}. In order for two or more nucleons to be thermodynamically stable when bound together, the total free energy of the bound configuration must be less than the sum of constituent nucleon free energies. Much like with energy stored in a chemical bond, the binding energy represents the energy required to separate the nucleus into individual protons and neutrons. 
 
-Larger nuclei will generally have a greater total binding energy value compared to smaller nuclei, but the mass defect per nucleon will not necessarily be greater in a larger nucleus. It is therefore useful to normalise the binding energy by the mass number. Different isotopes have different binding energies, and any nuclear reaction which increases the binding energy per nucleon will be exothermic, whether by fission or fusion. Figure \ref{figure:bindingenergy} shows a plot of binding energy per nucleon against mass number with the relevant isotopes from Equation \ref{fission}. 
+Larger nuclei will generally have a greater total binding energy value compared to smaller nuclei, but the mass defect per nucleon will not necessarily be greater in a larger nucleus. It is therefore useful to normalise the binding energy by the mass number. Different isotopes have different binding energies, and any nuclear reaction which increases the binding energy per nucleon will be exothermic, whether by fission or fusion. Figure \ref{figure:bindingenergy} shows a plot of binding energy per nucleon against mass number with the relevant isotopes from Equation \ref{eqn:fission}. 
 
 %235.0439299 + 1.008664 (236.0525939) -> 131.907997 + 100.93031 + 3.025992 (235.864299)
 
 
 
-\begin{figure}[htp]
-\centering
-\includegraphics[height=12cm]{images/Isotopes_and_half-life.png}
-\caption[Plot of neutron number against proton number for nuclei with half-lives greater than 10${^{-4}}$s. Half-life of the dominant decay mode is shown.]{Plot of neutron number against proton number for nuclei with half-lives greater than 10${^{-4}}$s. Half-life of the dominant decay mode is shown. Taken from \cite{BenRG}.}
-\label{figure:NZcurve}
-\end{figure}
 
 \begin{figure}[htp]
 \centering
 \includegraphics[width=14cm]{images/Binding_energy_curve.png}
-\caption[Plot binding energy per nucleon against mass number. Arrows indicate the reaction shown in equation \ref{fission}.]{Plot binding energy per nucleon against mass number. Arrows indicate the reaction shown in equation \ref{fission}. Adapted from \cite{Fastfission}.}
+\caption[Plot binding energy per nucleon against mass number. Arrows indicate the reaction shown in equation \ref{eqn:fission}.]{Plot binding energy per nucleon against mass number. Arrows indicate the reaction shown in equation \ref{eqn:fission}. Adapted from \cite{Fastfission}.}
 \label{figure:bindingenergy}
 \end{figure}
 
@@ -77,17 +71,21 @@ The fission of uranium takes place inside a steel reactor pressure vessel (RPV) 
 
 The operating temperature of the coolant in a typical PWR is approximately 600 K. This is a low temperature relative to the melting points of zirconium (2128 K) and zirconia (2988 K). This temperature together with the high pressure is chosen in order to keep the coolant in the liquid phase for safety reasons, though this limits the thermodynamic efficiency of the plant. The highest temperature in a reactor will occur in the nuclear fuel, with PWR fuel pellets reaching centreline temperatures of up to 1673 K \cite{beyer1998review}.
 
-For both PWRs and BWRs, the coolant is typically light water (as opposed to heavy water, D$_{2}$O). Water is used because it has many useful properties. It is cheap, plentiful, has a high heat capacity (compared to the gaseous coolant in gas cooled reactors), has low activation in a free neutron environment and also serves as a good radiation shield. In additional to its function as a coolant, water also acts as a neutron moderator, slowing down high-energy neutrons from fission events and nuclear decay processes. Moderation of neutrons is an important step in the nuclear reactor because slow thermal neutrons (i.e. neutrons at thermal equilibrium with the coolant) are significantly more likely to fission uranium nuclei than fast neutrons. Fast neutrons will typically escape from the fuel after they are generated, dispense most of their energy in the coolant via scattering with H and O nuclei, and then some will end up re-entering the fuel, where they will most likely fission a U$_{235}$ nucleus near the outer edge of the fuel pellet.
+For both PWRs and BWRs, the coolant is typically light water (as opposed to heavy water, D$_{2}$O). Water is used because it has many useful properties. It is cheap, plentiful, has a high heat capacity (compared to the gaseous coolant in gas cooled reactors), has low activation in a free neutron environment and also serves as a good radiation shield. 
+
+In additional to its function as a coolant, water also acts as a neutron moderator, slowing down high-energy neutrons from fission events and nuclear decay processes. Moderation of neutrons is an important step in the nuclear reactor because slow thermal neutrons (i.e. neutrons at thermal equilibrium with the coolant) are significantly more likely to fission uranium nuclei than fast neutrons. Fast neutrons will typically escape from the fuel pin after they are generated, dispense most of their energy in the coolant via scattering with H and O nuclei, and then some will end up re-entering the fuel, where they will most likely fission a U$_{235}$ nucleus near the outer edge of the fuel pellet. Neutrons which don't end up fissioning fuel will either be absorbed parasitically by other nuclei (likely in the control rods), escape from the reactor entirely (neutron leakage), or decay into protons (free neutrons have a half-life of 15 minutes).
 
 
 \subsection{Fuel pins and cladding}
 
-Fuel assemblies in nuclear reactors are bundles of fuel pins. In most commercial reactors, these fuel pins are comprised of a zirconium-based cladding which is filled with UO$_{2}$ fuel pellets, each of which are approximately 1 cm$^{3}$ in volume. Once loaded with fuel pellets, the fuel pins are capped and filled with inert helium gas, pressurised to between 2 and 25 atm to improve heat transfer from the fuel pellets to the coolant as well as delaying inward creep deformation of the cladding due to the high coolant pressure \cite{King1980}. In the early stages of a fuel pin's life, there is a small gap between the fuel pellet and the cladding, known as the pellet-cladding gas gap. This gas gap slowly closes with increasing burn-up due to swelling of the fuel pellets.
+Fuel assemblies in nuclear reactors are bundles of fuel pins. In most commercial reactors, these fuel pins are comprised of a zirconium-based cladding which is filled with UO$_{2}$ fuel pellets, each of which are approximately 1 cm$^{3}$ in volume. Once loaded with fuel pellets, the fuel pins are capped and filled with inert helium gas, pressurised to between 2 and 25 atm to improve heat transfer from the fuel pellets to the coolant as well as delaying inward creep deformation of the cladding due to the high coolant pressure \cite{King1980}. 
+
+In the early stages of a fuel pin's life, there is a small gap between the fuel pellet and the cladding, known as the pellet-cladding gas gap. This gas gap slowly closes with increasing burn-up due to swelling of the fuel pellets and inward creep deformation of the cladding. The pellet-cladding system is shown using a view of the cross section of a PWR fuel pin in Figure \ref{figure:gas_gap}. The cladding internal oxide layer covers the entire internal circumference of the cladding and is the first barrier to corrosive species. 
 
 \begin{figure}[htp]
 \centering
-\includegraphics[width=14cm]{images/gas_gap.png}
-\caption[Plot binding energy per nucleon against mass number. Arrows indicate the reaction shown in equation \ref{fission}.]{Plot binding energy per nucleon against mass number. Arrows indicate the reaction shown in equation \ref{fission}.}
+\includegraphics[width=10cm]{images/gas_gap.png}
+\caption{Schematic view of a single PWR fuel pin cross section with an expanded view of the pellet-gap-cladding system.}
 \label{figure:gas_gap}
 \end{figure}
 
@@ -102,19 +100,72 @@ Amorphisation is another effect of radiation damage. This is characterised by a 
 
 One material phenomenon exclusive to nuclear reactor environments is neutron activation. The high free neutron environment leads to neutron capture in various nuclei within the reactor, including those of the fuel assemblies, coolant and RPV. There are many possible (n, x) reactions that may occur in materials experiencing a neutron flux, but of particular concern is transmutation of nuclei following a nuclear capture event. When a stable nucleus captures a neutron and becomes unstable, the nucleus may then emit particles to reduce it's free energy, altering it's atomic number in the process. This new element will have different chemical properties compared to the parent nucleus by virtue of a different electronic structure. This will change the elemental composition of a material, typically in an unfavourable way with dopants that negatively affect some desired material property. The extremely large number of nuclei relative to neutron flux means that this effect is small, though over time this becomes more significant due to accumulation of these dopant elements.
 
-\begin{itemize}
-\item Radiolysis
-\end{itemize}
+In high-radiation environments, it is also possible for some molecules to be split by gamma photons above certain energies through the process of radiolysis. Corrosive fission products such as iodine will be present inside the fuel pin, but present in the form of CsI which is not highly corrosive. Radiolysis however, decomposes CsI into Cs and I$_{2}$ vapour which can diffuse towards the cladding and promote cracking \cite{Konashi1983}.
 
 \subsection{Fission products, their distribution and decay chains}
 
-\begin{itemize}
-\item Bi-modal distribution of fission products due to binding energy gains (get a good binding energy per nucleon plot)
-\item Fission products are almost always neutron-rich and will decay by beta-
-\item Iodine is always paired with yttrium (53+39 protons). Yttrium happens to be a very good cubic phase stabiliser in \zirconia\ and decays into Zr.
-\item Iodine appears both from direct fission, and from decay of tellurium which is also a common fission product.
-\item The decay chain we are interested in is Te -> I -> Xe -> Cs
-\end{itemize}
+Nuclei which can undergo fission will produce child nuclei (fission products) with specific characteristics. Firstly, these nuclei will almost always be neutron-rich, as compared to their stable isotopes. This is the result of the higher neutron to proton (N/Z) ratios of larger nuclei. Figure \ref{figure:NZcurve} shows how the nuclei of abundant isotopes start with N/Z ratios of around 1 for small elements (e.g. \ch{He_{2}^{4}}, \ch{C_{6}^{12}}, \ch{O_{8}^{16}}), whereas larger elements will have isotopes with N/Z ratios approaching 1.6 (e.g. \ch{Pb_{82}^{208}}, \ch{Th_{90}^{232}}, \ch{U_{92}^{238}}). Fissionable nuclei are typically very large and when fission occurs, the child nuclei will inevitably inherit a high N/Z ratio. These neutron-rich nuclei will generally decay by $\beta-$ particle emission to reduce their N/Z ratio and increase stability. One decay event is usually not enough to achieve a stable nucleus, so several decays as part of a decay chain are expected (Equations \ref{eqn:te_decay} and \ref{eqn:i_decay}).
+
+\begin{equation}
+Te_{134}^{52} \xrightarrow[]{\beta-} I_{134}^{53}+ e^{-}
+\label{eqn:te_decay}
+\end{equation}
+
+\begin{equation}
+I_{134}^{53} \xrightarrow[]{\beta-} Xe_{134}^{54} + e^{-}
+\label{eqn:i_decay}
+\end{equation}
+
+\begin{figure}[htp]
+\centering
+\includegraphics[height=12cm]{images/Isotopes_and_half-life.png}
+\caption[Plot of neutron number against proton number for nuclei with half-lives greater than 10${^{-8}}$ s.]{Plot of neutron number against proton number for nuclei with half-lives greater than 10${^{-8}}$ s. Taken from \cite{BenRG}.}
+\label{figure:NZcurve}
+\end{figure}
+
+Another characteristic feature of fission products is that their masses are bi-modally distributed. Figure \ref{figure:fissionyield} shows calculated fission yields as a function of mass number, indicating a 40:60 rather than 50:50 mass distribution among child nuclei when heavy nuclei are fissioned. This is attributed to smaller nuclei (which have high binding energies per nucleon) separating from the nucleus first at the moment when fission occurs. This results in the majority of fission products centering around atomic masses of 95 and 135, producing a disproportionate number of nuclei such as Sr, Y and Zr on the low side and Te, I and Cs on the high side of the distribution. 
+
+
+% Iodine 0.1142684237, Tellurium 0.180582
+
+\begin{figure}[htp]
+\centering
+\includegraphics[height=13cm]{images/fissionyield.jpg}
+\caption[Plot of the percentage yield of nuclei with a given mass following a fission event. Range of masses corresponding to isotopes of iodine shown in purple and isotopes of yttrium shown in green, based on Equation \ref{eqn:fission}.]{Plot of the percentage yield of nuclei with a given mass following a fission event. Range of masses corresponding to isotopes of iodine shown in purple and isotopes of yttrium shown in green, based on Equation \ref{eqn:fission}. Adapted from \cite{England1992}.}
+% M. F. James, R. W. Mills and D. R. Weaver (1991) UKAEA Reports, AEA-TRS-1015, AEA-TRS-1018 
+         %  and AEA-TRS-1019.
+\label{figure:fissionyield}
+\end{figure}
+
+Iodine is an important fission product because it is known to corrode Zr metal cladding. It is part of the Te $\rightarrow$ Cs decay chain, with most isotopes exhibiting half-lives ranging from a few seconds to several days. Select data on Te and I fission yields are presented in Table \ref{table:decaydata_chap1}. In total, the independent yield of I isotopes from fission is 11.4\%, while the independent yield of Te isotopes (I precursors) is 18.1\%, with \ch{Te_{52}^{134}} having the highest independent yield of all possible fission products (6.3\%). These particular elements will also be paired with Zr and Y fission products, the latter of which is a common phase stabiliser dopant in \zirconia .
+
+\begin{table}
+\onehalfspacing
+\caption{Independent fission product yields and half-lives for the major iodine isotopes and precursors in a thermal neutron reactor. Yields from the Joint Evaluated Fission and Fusion File (JEFF 3.3). All isotopes undergo single $\beta$- decay. Metastable states are included.}  \label{table:decaydata_chap1}
+\begin{center}
+\begin{tabular}{c c c}
+\hline
+Isotope & Independent Yield (\%) & Half-life \\
+\hline
+\texorpdfstring{I\textsubscript{131}}{I131} & 0.0029604
+ & 8.023 d \cite{I131halflife} \\
+\texorpdfstring{Te\textsubscript{132}}{Te132} & 1.5042 & 3.180 d \cite{Te132} \\
+\texorpdfstring{I\textsubscript{132}}{I132} & 0.028399  & 2.295 h \cite{Te132} \\
+\texorpdfstring{Te\textsubscript{133}}{Te133} & 3.9386 & 12.5 m \cite{khazov2011nuclear} \\
+\texorpdfstring{I\textsubscript{133}}{I133} & 0.198194  & 20.87 h \cite{I133} \\
+\texorpdfstring{Te\textsubscript{134}}{Te134} & 6.3001 & 41.8 m \cite{Sonzogni2004} \\
+\texorpdfstring{I\textsubscript{134}}{I134} & 0.7673 & 52.5 m \cite{Sonzogni2004} \\
+\texorpdfstring{Te\textsubscript{135}}{Te135} & 3.4777 & 19.0 s \cite{tellurium135halflife} \\
+\texorpdfstring{I\textsubscript{135}}{I135} & 2.4635 & 6.58 h \cite{tellurium135halflife} \\ 
+\texorpdfstring{Te\textsubscript{136}}{Te136} & 1.6652 & 17.63  s \cite{Mccutchan2018} \\
+\texorpdfstring{I\textsubscript{136}}{I136} & 3.03823 & 83.4 s \cite{Mccutchan2018} \\
+\texorpdfstring{Te\textsubscript{137}}{Te137} & 0.48440 & 2.49 s \cite{browne2007nuclear} \\
+\texorpdfstring{I\textsubscript{137}}{I137} & 2.7026 & 24.5 s \cite{browne2007nuclear} \\ 
+\texorpdfstring{Te\textsubscript{138}}{Te138} & 0.11280 & 1.4 s \cite{chen2017nuclear} \\ 
+\texorpdfstring{I\textsubscript{138}}{I138} & 1.2419 & 6.26 s \cite{chen2017nuclear} \\  \hline
+\end{tabular}
+\end{center}
+\end{table}
 
 \section{Pellet-cladding interaction (PCI)}
 
@@ -164,17 +215,34 @@ The fuel cladding of an LWR develops an oxide on both the inner and outer surfac
 
 \begin{figure}[htp]
 \centering
-\includegraphics[height=12cm]{images/outer_oxide.png}
+\includegraphics[height=10.5cm]{images/outer_oxide.png}
 \caption[STEM image of the outer oxide layer showing the prevalence of different \zirconia\ phases.]{STEM image of the outer oxide layer showing the prevalence of different \zirconia\ phases.. Taken from \cite{Hu2016}.}
 \label{figure:outer_oxide}
 \end{figure}
+
+\begin{figure}[htp]
+\centering
+\includegraphics[height=10.5cm]{images/pci_bondinglayer.png}
+\caption[High resolution SEM image of the bonding layer between a PWR UO$_{2}$ fuel pellet and Zr cladding in a fuel pin at an approximate burnup of 60 GWd/tU.]{High resolution SEM image of the bonding layer between a PWR UO$_{2}$ fuel pellet and Zr cladding in a fuel pin at an approximate burnup of 60 GWd/tU. Taken from \cite{Lozano1998}.}
+\label{figure:inner_oxide}
+\end{figure}
+
+Figure \ref{figure:bonding_layer_composition} shows the composition of the inner oxide of a high burnup fuel pin. The fission product (Ba, Mo, Nd) content is highest at the beginning of the \zirconia\ layer and decreases almost linearly with distance towards the Zr metal. This is due to fission product implantation rather than diffusion as these are highly immobile atoms. % can you use the weight composition and fission yields to estimate what percentage of iodine implantation will be?
+
+\begin{figure}[htp]
+\centering
+\includegraphics[width=14cm]{images/bonding_layer_composition.png}
+\caption[Elemental composition of the bonded UO$_{2}$/ZrO$_{2}$ layer.]{Elemental composition of the bonded UO$_{2}$/ZrO$_{2}$ layer. Taken from \cite{Lozano1998}.}
+\label{figure:bonding_layer_composition}
+\end{figure}
+
 
 
 \subsection{Sources of oxygen}
 
 The internal oxide layer is present before fuel claddings are pressurised with helium gas and sealed. This is from the normal oxidation of Zr in air, where the oxygen pressure is 0.21 atm. After capping of the fuel rods, the only other available oxygen is from the UO$_{2}$ fuel pellets.
 
-Uranium oxides have a wide range of non-stoichiometric compositions, with U/O ratios ranging from 1.67 to 2.24 in solid UO$_{2 \pm x}$, as shown in Figure \ref{figure:U_O_phase_diagram}. The oxide form U$_{3}$O$_{8-y}$ also exists and is more kinetically and thermodynamically stable than UO$_{2}$, but has lower density, making it less suitable for use as a fuel form. The different stoichiometries have different equilibrium O$_{2}$ pressures at constant temperature (REF TABLE), allowing some level of tweaking the internal cladding environment depending on whether more or less oxygen is desired. 
+Uranium oxides have a wide range of non-stoichiometric compositions, with U/O ratios ranging from 1.67 to 2.24 in solid UO$_{2 \pm x}$, as shown in Figure \ref{figure:U_O_phase_diagram}. The oxide form U$_{3}$O$_{8-y}$ also exists and is more kinetically and thermodynamically stable than UO$_{2}$, but has lower density, making it less suitable for use as a fuel form. The different stoichiometries have different equilibrium O$_{2}$ pressures at constant temperature, allowing some level of tweaking the internal cladding environment depending on whether more or less oxygen is desired. 
 
 Oxygen and oxygen precursors may also be produced directly from fission of U
 $_{235}$, but this contribution is insignificant compared to changing the stoichiometry of the fuel pellet. Indeed, liberation of oxygen from UO
@@ -188,14 +256,7 @@ $_{2 \pm x}$ due to fission (which is also a function of the fuel's stoichiometr
 \end{figure}
 
 
-\begin{figure}[htp]
-\centering
-\includegraphics[height=11cm]{images/fissionyield.jpg}
-\caption{Plot of the percentage yield of nuclei with a given mass following a fission event. Range of masses corresponding to isotopes of iodine shown in purple and isotopes of yttrium shown in green.}
-% M. F. James, R. W. Mills and D. R. Weaver (1991) UKAEA Reports, AEA-TRS-1015, AEA-TRS-1018 
-         %  and AEA-TRS-1019.
-\label{figure:fissionyield}
-\end{figure}
+
 
 \section{Atomistic Simulation}
 
@@ -225,7 +286,7 @@ It is known that for ions, electron energy levels are quantised, restricting the
 
 Two energy bands, called the valence band and conduction band, help determine a material's metallic or non-metallic character. The valence band contains energy levels occupied by the valence electrons (at absolute zero), while the conduction band contains energy levels which are high enough that electrons may freely move throughout the crystal. In metals, the valence and conduction bands have some amount of overlap, meaning that once the valence band is full, the highest occupied electron energy states are within the conduction band and so the material acts as a conductor. Materials like \zirconia , however, have large energy gaps between the valence and conduction bands, known as the band gap. These materials are called "band insulators" (as opposed to Mott insulators), because the band gap is an energy barrier preventing the valence electrons from moving freely around the crystal.
 
-In addition to the valence and conduction bands, we also need a value for the electron chemical potential or Fermi level of the material to determine how the energy bands are filled. 
+In addition to the valence and conduction bands, we also need a value for the electron chemical potential or Fermi level of the material to determine how the energy bands are filled. If the Fermi level is exactly halfway between the valence band maximum (VBM) and the conduction band minimum (CBM), then the additional energy input required to promote an electron to the conduction band is half of the band gap. The Fermi level is strongly dependent on extrinsic defects and temperature. Extrinsic defects (called dopants) can be introduced to materials such as semiconductors in order to change the concentration of electronic defects (electrons and holes), while an increase in temperature will result in an increase in the Fermi level because of the larger amount of thermal energy available.
 
 \begin{figure}[htp]
 \centering
