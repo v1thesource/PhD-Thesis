@@ -72,6 +72,38 @@ Using our generalised formula for $\mu_{O_2}$, we fix the temperature within the
 \item Further investigation indicated that the structure of a supercell of c-\zirconia\ broke down even with constrained symmetry, a result corroborated by Burr et al. \cite{burr2017importance}. 
 \end{itemize}
 
+\subsection{Electronic density of states}
+
+\begin{figure}
+\begin{center}
+\begin{tikzpicture}
+	\begin{axis}
+		[width=\linewidth*0.7, xlabel={Energy (eV)}, ylabel={Electronic density of states}, ymin=0, ymax=12, xmin=0, xmax=16, legend style={{draw=}, at={(0.05,0.95)}, anchor=north west, legend columns=1}]
+       \addplot[no marks] table [x=mono_x, y=mono_y,]{dat/eDOS.dat}; \addlegendentry{Monoclinic};
+       \addplot[no marks, dashed] table [x=tet_x, y=tet_y,]{dat/eDOS.dat}; \addlegendentry{Tetragonal};
+       \addplot[no marks, densely dotted] table [x=cubic_x, y=cubic_y,]{dat/eDOS.dat}; \addlegendentry{Cubic};
+
+			\end{axis}
+		\end{tikzpicture}
+		\caption{Electronic density of states for the different crystal structures of \zirconia\ showing the band gap predicted by DFT.}
+		\label{figure:densityofstates}
+	\end{center}
+\end{figure}
+
+\begin{table}[htp] % Band Gap
+\onehalfspacing
+\centering
+\caption[Experimentally determined band gaps alongside values calculated from DFT simulations for each crystal structure of zirconia.]{Experimentally determined band gaps alongside values calculated from DFT simulations for each crystal structure of zirconia. Experimental values taken from \cite{French1994}.}
+\begin{tabular}{ccc}
+{\bf }                                       & \multicolumn{2}{c}{{\bf Band gap (eV)}}      \\ \hline
+\multicolumn{1}{c}{{\bf Crystal Structure}} & \multicolumn{1}{c}{{\bf Expt.}} & {\bf DFT} \\ \hline
+\multicolumn{1}{c}{Monoclinic}              & \multicolumn{1}{c}{5.83}        & 3.45      \\
+\multicolumn{1}{c}{Tetragonal}              & \multicolumn{1}{c}{5.78}        & 4.00      \\
+\multicolumn{1}{c}{Cubic}                   & \multicolumn{1}{c}{6.10}         &   3.55 \\ \hline
+\label{table:bandgap}
+\end{tabular}
+\end{table}
+
 \section{Defect formation energies}
 
 \begin{figure}[htp]
