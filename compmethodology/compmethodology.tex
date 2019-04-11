@@ -46,11 +46,11 @@ where $\rho(r)$ is the electron density at location $r$, and $e_{uniform}$ is th
 
 \subsubsection{Born-Oppenheimer approximation}
 
-The Born-Oppenheimer approximation is a two-step process for evaluating atomic forces, which greatly reduces the computational costs of any atomistic simulation. It exploits the large difference in mass between nuclei and electrons in order to separate their interactions. This allows us to decompose the total wave function into a product of an electronic wave function and a nuclear wave function via a separation of variables approach. The first step involves ignoring the kinetic energy contribution of nuclei by assuming they are stationary, thus we can remove the nuclear kinetic energy term in Equation \ref{equation:kineticcontribution}. The stationary nuclei assumption also simplifies the nuclear-nuclear Coulombic repulsion term in Equation \ref{equation:potentialcontribution} because $|R_i - R_j|$ becomes a constant throughout the calculation. An electronic Schr\"{o}dinger equation is then solved where electronic positions are variables and nuclear positions are fixed parameters. This solution contains information of the shape of the electronic orbitals. The next step is to take the electronic distribution and calculate the resultant forces on the nuclei. The nuclear positions are then modified to try to minimise these forces, followed by feeding these nuclear positions back into the electronic Schr\"{o}dinger equation to obtain the new electronic distribution. This process is repeated until the required convergence criterion (energy change per iteration, forces on nuclei) are satisfied.
+The Born-Oppenheimer approximation is a two-step process for evaluating atomic forces, which greatly reduces the computational costs of any atomistic simulation. It exploits the large difference in mass between nuclei and electrons in order to separate their interactions. This allows us to decompose the total wave function into a product of an electronic wave function and a nuclear wave function via a separation of variables approach. The first step involves ignoring the kinetic energy contribution of nuclei by assuming they are stationary, thus the nuclear kinetic energy term in Equation \ref{equation:kineticcontribution} can be removed. The stationary nuclei assumption also simplifies the nuclear-nuclear Coulombic repulsion term in Equation \ref{equation:potentialcontribution} because $|R_i - R_j|$ becomes a constant throughout the calculation. An electronic Schr\"{o}dinger equation is then solved where electronic positions are variables and nuclear positions are fixed parameters. This solution contains information of the shape of the electronic orbitals. The next step is to take the electronic distribution and calculate the resultant forces on the nuclei. The nuclear positions are then modified to try to minimise these forces, followed by feeding these nuclear positions back into the electronic Schr\"{o}dinger equation to obtain the new electronic distribution. This process is repeated until the required convergence criterion (energy change per iteration, forces on nuclei) are satisfied.
 
 \subsection{Pseudopotentials}
 
-The electron-electron interaction component of the potential energy presents a problem when it comes to scaling experimental models. The number of terms in this interaction grows quadratically with the number of electrons in the system, and quickly becomes computationally intractable for even small systems. However, we know that in chemical reactions, the majority of chemical behaviour is determined by relatively few valence electrons, while the more numerous core electrons have a far smaller effect. Consider the zirconium atom with 40 electrons, of which 4 (4$d^2$5$s^2$) are typically involved in bonding and chemical reactions. By only considering only these valence electrons for Coulombic-term calculations, we reduce the system size by 90\% which provides much more than a tenfold reduction in computational requirements. Although the core electrons do not participate in chemical reactions, they still influence the properties of the atom, such as the atomic radius. Instead of modelling the core electrons explicitly, we can approximate their aggregate effect with a potential energy function. This is what we aim to achieve by using the pseudopotential method. An example pseudopotential is shown in figure \ref{figure:pseudopotential}.
+The electron-electron interaction component of the potential energy presents a problem when it comes to scaling experimental models. The number of terms in this interaction grows quadratically with the number of electrons in the system, and quickly becomes computationally intractable for even small systems. However, it is known that in chemical reactions, the majority of chemical behaviour is determined by relatively few valence electrons, while the more numerous core electrons have a far smaller effect. Consider the zirconium atom with 40 electrons, of which 4 (4$d^2$5$s^2$) are typically involved in bonding and chemical reactions. By only considering only these valence electrons for Coulombic-term calculations, we reduce the system size by 90\% which provides much more than a tenfold reduction in computational requirements. Although the core electrons do not participate in chemical reactions, they still influence the properties of the atom, such as the atomic radius. Instead of modelling the core electrons explicitly, we can approximate their aggregate effect with a potential energy function. This is what we aim to achieve by using the pseudopotential method. An example pseudopotential is shown in figure \ref{figure:pseudopotential}.
 
 \begin{figure} % Pseudopotential Image
 \label{figure:pseudopotential}
@@ -172,6 +172,8 @@ When calculating the energy of a system with an overall non-zero charge, this ch
 
 \subsection{Stiffness tensor generation}
 
+The stiffness tensors for the pure monoclinic, tetragonal and cubic phases of \zirconia\ were calculated using CASTEP's Elastic Constants task. This requires starting with a unit cell that has already been completely relaxed via the geometry optimisation task.
+
 \begin{itemize}
 \item Calculate DFT energies of unit cell with small strains in various directions
 \item Use relative change in stress to calculate elastic constants in the form of a 6x6 tensor
@@ -179,7 +181,7 @@ When calculating the energy of a system with an overall non-zero charge, this ch
 
 \subsection{Strain method for defect volumes}
 
-The volumes of the defective supercells were kept constant because constant pressure calculations have been shown to break the symmetry of the supercell \cite{samanta2010thermodynamic}, leading to unreliable energy values. The approach to calculating defect volumes relies on calculating the elastic constants of the non-defective supercell, followed by extracting the resultant stress tensor from a defect simulation. The strain tensor of the defective cell can then be calculated using Hooke's law, giving the relaxation volume. 
+The volumes of the defective supercells were kept constant because constant pressure calculations have been shown to sometimes break the symmetry of the supercell \cite{samanta2010thermodynamic}, leading to unreliable energy values. This is partly due to the assumed arrangement of the defects that may not be commensurate with the cell symmetry. The approach to calculating defect volumes then relies on calculating the elastic constants of the non-defective supercell, followed by extracting the resultant stress tensor from a defect simulation. The strain tensor of the defective cell can then be calculated using Hooke's law, giving the relaxation volume. 
 
 \subsection{Isobaric method for defect volumes}
 
@@ -191,7 +193,7 @@ It is important to consider that if there is a non-zero charge on the system, th
 
 \section{Defect equilibria}
 
-Brouwer diagrams, also known as Kr{\"o}ger-Vink diagrams, were produced using a method outlined by Murphy et al. \cite{Murphy2014} to determine defect concentrations as a function of oxygen partial pressure. We start from the statement that the chemical potential of \zirconia\ is equivalent to the sum of the chemical potentials $\mu$ of its constituent species, Zr and O:
+Brouwer diagrams, also known as Kr{\"o}ger-Vink diagrams, were produced using a method outlined by Murphy et al. \cite{Murphy2014} through which it is possible to determine defect concentrations as a function of oxygen partial pressure. We start from the statement that the chemical potential of \zirconia\ is equivalent to the sum of the chemical potentials $\mu$ of its constituent species, Zr and O:
 
 \begin{equation}
 {\mu}_{ZrO_2(s)} = {\mu}_{Zr}(p_{O_2}, T) + {\mu}_{O_2}(p_{O_2}, T)
@@ -214,7 +216,7 @@ Using our generalised formula for $\mu_{O_2}$, we fix the temperature within the
 
 \subsection{Effect of space charge}
 
-The difference in the diffusion rate of oxygen vacancies compared to electrons lead to a build-up (and therefore a resultant) charge in the lattice. In the case of \zirconia , we know that this effect will be pronounced due to the small thickness of the layer. We can take this effect into account when generating Brouwer diagrams by assuming an overall charge in the crystal structure instead of charge-neutrality. 
+The difference in the diffusion rate of oxygen vacancies compared to electrons leads to a build-up (and therefore a resultant) charge in the lattice. In the case of \zirconia , we know that this effect will be pronounced because the layer is thin. We can take this effect into account when generating Brouwer diagrams by assuming an overall charge in the crystal structure instead of charge-neutrality. 
 
 Figure \ref{figure:spacechargeexample} shows an example of the defect equilibria in tetragonal \zirconia\ with an overall positive space charge. In order for such a condition to be satisfied, higher concentrations of positively charged oxygen vacancy and hole defects are predicted to be present. When extrinsic defects are also present in the lattice in significant concentrations, the space charge condition may influence which defect types are dominant at different oxygen pressures, as different oxidation states may be necessary to satisfy the charge condition.
 
@@ -288,7 +290,7 @@ Figure \ref{figure:spacechargeexample} shows an example of the defect equilibria
 %\node at (-33.7,-0.5) {\textbf{b)}};
 			\end{axis}            
 \end{tikzpicture}
-		\caption{Tetragonal phase Brouwer diagrams of point defects at iodine concentrations of a) $10^{-5}$ and b) $10^{-3}$, at a temperature of 1500 K. Space charge = $10^{-1}$}
+		\caption{Tetragonal phase Brouwer diagrams of point defects at iodine concentrations of a) $10^{-5}$ and b) $10^{-3}$, at a temperature of 1500 K. Space charge = $10^{-1}$ e$^{-1}$ per f.u.}
 		\label{figure:spacechargeexample}
 	\end{center}
 \end{figure}
@@ -299,7 +301,7 @@ Figure \ref{figure:spacechargeexample} shows an example of the defect equilibria
 
 In order to determine an appropriate value for the plane-wave cut-off energy, a convergence test was performed to determine the relative error in predicted energy compared to a highly converged value. This convergence test was conducted by running multiple geometry optimisation procedures under fully relaxed conditions on a unit cell of \zirconia\ for each phase. A very small k-point spacing of 0.01 \r{A}$^{-1}$ was used for each task (highly converged), while increasing the plane-wave cut-off energy from 300 eV to 750 eV in 50 eV increments. The energy of each run was recorded and compared to the energy of a highly converged value taken when a cut-off energy of 900 eV was used. This provides a value for the truncation error at different cut-off energies. Figure \ref{Figure:cutoffconvergence} shows a log plot of the energy error for each phase of \zirconia\ as the cut-off energy is increased. 
 
-The error is shown to be independent of phase, with all lines lying on a single path. This is expected because the atoms in each phase are the same, and therefore the electrons involved in the calculations remain unchanged. A cut-off energy of 600 eV was found to produce an error below 0.01 eV, and was subsequently used for future calculations as it provides a good compromise between computational cost and accuracy.
+The error is shown to be independent of phase, with all lines lying on a single path. This might be expected because the atoms in each phase are the same, and therefore the electrons involved in the calculations remain unchanged, however, interatomic distances are different in the different phases and thus so are the electron densities, so this equivalence in convergence does not necessarily have to follow. A cut-off energy of 600 eV was found to produce an error below 0.01 eV, and was subsequently used for future calculations as it provides a good compromise between computational cost and accuracy.
 
 \begin{figure}[ht] % Plane-wave cut-off convergence
 	\begin{center}
@@ -318,7 +320,7 @@ The error is shown to be independent of phase, with all lines lying on a single 
 coordinates { (600,-1.95) };
 			\end{axis}
 		\end{tikzpicture}
-		\caption{Plot of the log error of DFT energy against plane-wave cut-off energy for a perfect cell of each crystal structure. The error is calculated with respect to a highly converged value, calculated at a plane-wave cut-off energy of 900 eV. The red arrow indicates the cut-off energy beyond which the error is below 2 decimal places.}
+		\caption{Plot of the log error of DFT energy against plane-wave cut-off energy for a perfect cell of each crystal structure. The error is calculated with respect to a highly converged value, calculated at a plane-wave cut-off energy of 900 eV. The red arrow indicates the cut-off energy beyond which the error is below 0.01 eV.}
 		\label{Figure:cutoffconvergence}
 	\end{center}
 \end{figure}
@@ -327,7 +329,7 @@ coordinates { (600,-1.95) };
 
 Too fine a grid in reciprocal space (i.e. a large number of k-points) results in prohibitively computationally expensive simulations, whereas too coarse a grid may have a large truncation error when energies are calculated. To find the optimum spacing of k-points, a convergence study was performed across a range of k-point spacings, with the output energies compared to a highly converged simulation to obtain a value for the error. 
 
-Figure \ref{Figure:kpoint_convergence} shows the energy error for each phase of \zirconia\ as a function of the k-point spacing (given in reciprocal space as \r{A}$^{-1}$). The highly converged energy value was calculated with a k-point spacing of 0.01 \r{A}$^{-1}$ for error calculations. The plot shows a stepwise change in the error value as grid spacing is reduced because there must be an integer number of k-points, but larger spacings do not provide sufficient resolution to effectively fit an integer number of k-points into the reciprocal grid, snapping to the nearest appropriate grid instead. An optimum k-point spacing was chosen at 0.09 \r{A}$^{-1}$, which was the largest spacing that kept the error below 0.01 eV for all phases, highlighted in the plot by the red arrow.
+Figure \ref{Figure:kpoint_convergence} shows the energy error for each phase of \zirconia\ as a function of the k-point spacing (given in reciprocal space as \r{A}$^{-1}$). The highly converged energy value was calculated with a k-point spacing of 0.01 \r{A}$^{-1}$ for error calculations. The plot shows a stepwise change in the error value as the grid spacing is reduced. This is because calculations demand an integer number of k-points, and larger spacings do not provide sufficient resolution to effectively fit an integer number of k-points into the reciprocal grid, so that the programs snaps to the nearest appropriate grid number. An optimum k-point spacing was chosen at 0.09 \r{A}$^{-1}$, which was the largest spacing that kept the error below 0.01 eV for all phases, highlighted in the plot by the red arrow.
 
 \begin{figure}[ht]
 \begin{center}
@@ -347,22 +349,22 @@ style={/pgf/number format/.cd,fixed,precision=5}]
 coordinates { (0.09,-2.35) };
 			\end{axis}
 		\end{tikzpicture}
-		\caption{Log of the error in the total energy of the system as a function of k-point spacing. The error is calculated relative to a highly converged energy value at a k-point spacing of 0.01 \r{A}\textsuperscript{-1}. The red arrow indicates the k-point spacing, which ensures an error below 2 decimal points for all structures.}
+		\caption{Log of the error in the total energy of the system as a function of k-point spacing. The error is calculated relative to a highly converged energy value at a k-point spacing of 0.01 \r{A}\textsuperscript{-1}. The red arrow indicates the k-point spacing, which ensures an error below 0.01 eV for all structures.}
 		\label{Figure:kpoint_convergence}
 	\end{center}
 \end{figure}
 
 \subsection{Exchange-correlation functionals}
 
-There are a range of possible exchange-correlation functionals available in CASTEP, spanning both empirical and non-empirical types. Empirical exchange-correlation functionals are typically used to capture specific properties or systems particularly well, but perform poorly for generalised systems. Non-empirical exchange-correlation functionals, while still not perfect, are preferred for modelling the widest range of properties. In a sense, non-empirical functions benefit from not being `over-fit' to experimental data. They are also used far more often in the literature, thus providing a rich corpus of work for comparison studies.
+There are a range of possible exchange-correlation functionals available in CASTEP, spanning both empirical and non-empirical types. Empirical exchange-correlation functionals are typically optimised to capture specific properties or systems particularly well, but perform less well for generalised systems. Non-empirical exchange-correlation functionals, while still not perfect, are preferred for modelling the widest range of properties. In a sense, non-empirical functions benefit from not being `over-fit' to experimental data. They are also used far more often in the literature, thereby providing a rich corpus of work for comparison studies.
 
-While we had already selected the PBE-GGA exchange-correlation functional in this work, it was helpful to conduct a convergence study of our system across all the functionals available in CASTEP in order to see how other functionals compared.
+While the PBE-GGA exchange-correlation functional in this work had already been selected, it was helpful to conduct a convergence study of the systems across all the functionals available in CASTEP in order to determine how other functionals compared.
 
 \subsection{On-the-fly pseudopotentials}
 
-Ultra soft pseudopotentials are generated in CASTEP automatically (known as on-the-fly or OTF pseudopotentials) when none are specified for a particular element. Energies must be calculated and compared with the same set of pseudopotentials in order to keep simulations self-consistent. A quick single point calculation was performed on a unit cell of \zirconia\ and the resulting OTF pseudopotentials (one for oxygen and one for zirconium) were saved and used for all subsequent calculations. 
+Ultra soft pseudopotentials are generated in CASTEP automatically (known as on-the-fly or OTF pseudopotentials) when none are specified for a particular element. Energies must be calculated and compared with the same set of pseudopotentials in order to keep simulations self-consistent. A single point calculation was performed on a unit cell of \zirconia\ and the resulting OTF pseudopotentials (one for oxygen and one for zirconium) were saved and used for all subsequent calculations. 
 
-It is important to determine the variance in energy values of different pseudopotentials generated in this way in order to avoid systematic error. To assess this error, 9 different pairs of OTF pseudopotentials were generated and used to calculate the total energy of a monoclinic \zirconia\ supercell. The difference in energy was then calculated with respect to the pseudopotential pair that resulted in the lowest energy. These deviations in total energy are shown in Figure \ref{Figure:otf_pp_test}. Across all calculations, the largest difference in total energy calculated was 0.0012 eV, while the average difference was 0.0006 eV. Since we are only concerned with choosing other parameters to achieve a precision of 0.01 eV, and the largest deviation calculated is an order of magnitude below that, we do not need to take any special measures to correct any systematic error from randomly generated OTF pseudopotentials.
+It is important to determine the variance in energy values of different pseudopotentials generated OTF in order to avoid systematic error. To assess error, 9 different pairs of OTF pseudopotentials were generated and used to calculate the total energy of a monoclinic \zirconia\ supercell. The difference in energy was then calculated with respect to the pseudopotential pair that resulted in the lowest energy. These deviations in total energy are shown in Figure \ref{Figure:otf_pp_test}. Across all calculations, the largest difference in total energy was 0.0012 eV, while the average difference was 0.0006 eV. Since here the only concern is with choosing other parameters to achieve a precision of 0.01 eV, and the largest deviation calculated is an order of magnitude below that, it is not needed to take any special measures to correct any systematic error from randomly generated OTF pseudopotentials.
 
 %\begin{figure}[h] % +U cubic
 %\begin{center}
@@ -383,7 +385,7 @@ It is important to determine the variance in energy values of different pseudopo
   \begin{center}
     \begin{tikzpicture}
       \begin{axis}
-        [ybar, width=\linewidth*0.7, xlabel={OTF pseudopotential pair}, ylabel={$\Delta$e with respect to lowest energy (meV)}, ] %axis x line=middle, ymin=5.1, ymax=5.35, xmin=0, xmax=12, legend style={{draw=}, at={(0.18,0.95)}, anchor=north east, legend columns=1}
+        [ybar, width=\linewidth*0.7, xlabel={OTF pseudopotential pair}, ylabel={$\Delta$E with respect to lowest energy (meV)}, ] %axis x line=middle, ymin=5.1, ymax=5.35, xmin=0, xmax=12, legend style={{draw=}, at={(0.18,0.95)}, anchor=north east, legend columns=1}
         \addplot table [x=pp_pair, y=energy_diff_wrt_first,]{dat/otf_pp_test.dat};
       \end{axis}
     \end{tikzpicture}
@@ -402,7 +404,7 @@ The first thing to note is that the correct order of \zirconia\ phases is predic
 \begin{table}[ht] % Unit cell parameters
 \onehalfspacing
 \centering
-\caption[Calculated unit cell parameters for the different crystal structures of \zirconia . Experimental data for pure monoclinic and stabilised tetragonal and cubic phases at 295 K are shown in parentheses. Energy difference between structures is shown with respect to the cubic phase.]{Calculated unit cell parameters for the different crystal structures of \zirconia . Experimental data for pure monoclinic and stabilised tetragonal and cubic phases at 295 K are shown in parentheses \cite{Howard1988}. Energy difference between structures is shown with respect to the cubic phase.}
+\caption[Calculated unit cell parameters for the different crystal structures of \zirconia . Experimental data for pure monoclinic, yttria-stabilised tetragonal and magnesia-stabilised cubic phases at 295 K are shown in parentheses. Energy difference between structures is shown with respect to the cubic phase.]{Calculated unit cell parameters for the different crystal structures of \zirconia . Experimental data for pure monoclinic and stabilised tetragonal and cubic phases at 295 K are shown in parentheses \cite{Howard1988}. Energy difference between structures is shown with respect to the cubic phase.}
 \label{lattice_params}
 \resizebox{\textwidth}{!}{%
 \begin{tabular}{ccccccc}
@@ -418,7 +420,7 @@ c-\zirconia        &   5.11 (5.09)           &              &              & 90 
 
 To determine the chemical potential of iodine, an energy minimisation of the iodine dimer was performed. Unlike oxygen, iodine dimers do not exhibit a resultant magnetic moment, thus avoiding a source of error in energy calculations with the PBE exchange-correlation functional. Similar to the \zirconia\ unit cell calculations, the lattice parameter after relaxation (bond length in this case) is compared to experimental data to assess the quality of the simulation parameters.
 
-Figure \ref{figure:iodine_dimer} illustrates the energy minimisation of two iodine atoms in a large cell, initially separated by 3.0 \r{A}. The geometry optimisation task finds an energy minima when the iodine atoms are bonded, at a separation of 2.69 \r{A}. This agrees well with the experimental value of 2.6745 \r{A} \cite{ukaji1966effect}.
+Figure \ref{figure:iodine_dimer} illustrates the energy minimisation of two iodine atoms in a cell of size 15 \r{A} x 15 \r{A} x 15 \r{A}, initially separated by 3.0 \r{A}. The geometry optimisation task finds an energy minima when the iodine atoms are bonded, at a separation of 2.69 \r{A}. This agrees well with the experimental value of 2.6745 \r{A} \cite{ukaji1966effect}.
 
 \begin{figure}[ht] % Iodine dimer geometry optimisation
 \centering
@@ -430,7 +432,7 @@ Figure \ref{figure:iodine_dimer} illustrates the energy minimisation of two iodi
 \subsection{+U study}
 \label{subsection:plus_U}
 
-In some DFT studies, an additional potential energy term is sometimes included to better capture the Coulomb interaction of localised electrons. An LDA or GGA functional alone will typically not describe this interaction correctly, especially for localised $d$ and $f$ electrons. Of particular concern is the calculated value of the band gap from DFT simulations, as this value may deviate by up to 30\% from experimental values. Remedying this shortcoming with an appropriate +U parameter could therefore be valuable in obtaining accurate energies. A +U study of the zirconium atom, with an electronic configuration of [Kr]$4d^{2}5s^{2}$, was performed to determine the response to and therefore the viability of an additional potential term for the $d$ electrons.
+In some DFT studies, an additional potential energy term is sometimes included to better capture the Coulomb interaction of localised electrons. An LDA or GGA functional alone will typically not describe this interaction correctly, especially for localised $d$ and $f$ electrons. Of particular concern is the calculated value of the band gap from DFT simulations, as this value may deviate by up to 30\% from experimental values. Remedying this shortcoming with an appropriate +U parameter could therefore be valuable in obtaining accurate energies. A +U study of the zirconium atom, with an electronic configuration of [Kr]$4d^{2}5s^{2}$, was performed to determine the response to and therefore the viability of this additional potential term for the $d$ electrons.
 
 Figure \ref{Figure:plusubandgap} shows the effect on the calculated band gap when introducing a +U term. While the +U term does increase the band gap, the effect is insignificant. Even with +U terms of 10 eV, the calculated band gap falls short of the experimental band gap by at least 1.5 eV. Moreover, with +U terms greater than 4 eV, we begin to see erratic behaviour in the development of both the band gap, and also in the predicted crystal structure.
 

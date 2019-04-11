@@ -22,7 +22,7 @@ Below 1205 K at atmospheric pressure, \zirconia\ adopts a monoclinic Baddeleyite
 
 Monoclinic phase \zirconia\ also has two distinct oxygen ions in its primitive cell. To maintain the stoichiometry of 1:2 Zr to O, half of the O ions exhibit threefold coordination with Zr (in a planar configuration), while the other half have a fourfold Zr coordination (tetrahedral configuration). Figure \ref{figure:monoschottky} shows the positions of these O ions around a Zr ion centre. The distortion of the oxygen rock salt sub-lattice can be seen, especially with the three coordinated oxygens. This is due to the Zr ion being too small to hold 8 O ions in an octahedral configuration, as in the fluorite crystal structure. As temperature is increased, so too is the mean radius of the ions. At the tetragonal temperature range, bonding between all 8 nearest neighbour O ions and Zr becomes stable and the eightfold coordination can be restored. 
 
-The monoclinic-tetragonal phase transition occurs by a diffusionless martensitic transformation \cite{Subbarao1974}. This is a fast transformation and has a large volume change associated with it. Tetragonal phase \zirconia\ (density 6.10 g/cm$^{3}$) is around 4.6\% more dense than monoclinic \zirconia\ (density 5.83 g/cm$^{3}$) \cite{McCullough2002}, though the volume increase when cooling from tetragonal has been reported to be as high as 9\% \cite{Gupta1977}. The phase transition exhibits a hysteresis loop approximately 200 K wide when undergoing thermal cycling, as shown in Figure \ref{figure:hysteresis_monotet}.
+The monoclinic-tetragonal phase transition occurs by a diffusionless martensitic transformation with a 9\textdegree\ shear \cite{Subbarao1974}. This is a fast transformation and has a large volume change associated with it. Tetragonal phase \zirconia\ (density 6.10 g/cm$^{3}$) is around 4.6\% more dense than monoclinic \zirconia\ (density 5.83 g/cm$^{3}$) \cite{McCullough2002}, though the volume increase when cooling from tetragonal has been reported to be as high as 9\% \cite{Gupta1977}. The phase transition exhibits a hysteresis loop approximately 200 K wide when undergoing thermal cycling, as shown in Figure \ref{figure:hysteresis_monotet}.
 
 \begin{figure}[htp] % Hysteresis
 \centering
@@ -90,6 +90,15 @@ The monoclinic-tetragonal phase transition occurs by a diffusionless martensitic
 
 \subsection{Tetragonal}
 
+The tetragonal phase (space group P$4_{2}/nmc$) can be easily derived from the cubic phase by shifting alternating columns of oxygen ions slightly up or down the [001] direction. This change is so subtle that the two phases are almost identical when viewed in certain orientations. Figure \ref{figure:tetvscubic} shows a view of a  tetragonal phase unit cell down the [110] direction alongside a [100] view of a cubic phase unit cell. Going from the cubic to the tetragonal phase, the oxygen ions can clearly be seen to deviate from their equilibrium sites in the rock salt sublattice. This is consistent with the interpretation that the ionic radius of Zr is slightly too small to maintain the cubic fluorite structure, and therefore is only seen at high temperatures (where the effective ionic radii are larger) or when under high compressive stress (where interatomic spacings are smaller).
+
+\begin{figure}[htp]
+\centering
+\includegraphics[width=14cm]{images/tet_vs_cubic.png}
+\caption{\textbf{A}) Tetragonal \zirconia\ viewed along the [110] direction. \textbf{B}) Cubic \zirconia\ viewed along the [100] direction. Zirconium atoms are shown in green and oxygen atoms in red.}
+\label{figure:tetvscubic}
+\end{figure}
+
 \subsection{Cubic}
 
 \subsubsection{Cubic phase stability}
@@ -99,18 +108,15 @@ The monoclinic-tetragonal phase transition occurs by a diffusionless martensitic
 \item Also due to the high temperature, the stability of the cubic phase in DFT calculations may be inaccurate. This is discussed further in Chapter 3.
 \end{itemize}
 
-\begin{figure}[htp]
-\centering
-\includegraphics[width=14cm]{images/tet_vs_cubic.png}
-\caption{\textbf{A}) Tetragonal \zirconia\ viewed along the [110] direction. \textbf{B}) Cubic \zirconia\ viewed along the [100] direction. Zirconium atoms are shown in green and oxygen atoms in red.}
-\label{figure:tetvscubic}
-\end{figure}
+
 
 \subsection{Other phases}
 
-\subsubsection{Orthorhombic}
-
 Two orthorhombic phases have also been observed at high pressures in pure \zirconia\ \cite{howard1991crystal}. These structures are referred to as OI and OII, the latter of which is isostructural with cotunnite (PbCl$_{2}$). A third orthorhombic phase ($bc2_{1}$) has also been reported in partially stabilised zirconia, but has not been found in pure zirconia \cite{kisi1998crystal}.
+
+\subsubsection{Orthorhombic OI}
+
+The OI phase, illustrated in Figure \ref{fig:orthorhombic_I}, maintains a 7 oxygen coordinated Zr atom, as is the case in the monoclinic phase. This phase also exhibits two distinct oxygen atom sites like in the monoclinic phase, but being an orthorhombic phase, it does not exhibit a 9\textdegree\ shear in its unit cell like the monoclinic phase. While this phase is briefly stable at high compressive stresses (3.5 - 15 GPa), it appears to be an intermediate phase before collapse into the more familiar cotunnite structure at pressures greater than 15 GPa.
 
 
 \begin{figure}[htp]
@@ -120,6 +126,9 @@ Two orthorhombic phases have also been observed at high pressures in pure \zirco
   \label{fig:orthorhombic_I}
 \end{figure}
 
+\subsubsection{Orthorhombic OII (cotunnite)}
+
+The OII phase, illustrated in Figure \ref{fig:cotunnite_structure} maintains a 9 oxygen coordinated Zr atom. This is due to the high stabilising pressure ($>$ 15 GPa) causing a reduction in the mean interatomic distance, so much so that the Zr atom, which is typically too small to bond strongly to more than 7 oxygen atoms at standard conditions, can maintain the ninefold oxygen coordination. Such high hydrostatic pressures will not be present in a reactor environment however, so we do not expect to find any OII phase present at any point during the cladding's operational lifetime.
 
 \begin{figure}[htp]
   \centering
