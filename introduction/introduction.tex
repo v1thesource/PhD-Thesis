@@ -76,7 +76,7 @@ For both PWRs and BWRs, the coolant is typically light water (as opposed to heav
 In additional to its function as a coolant, water also acts as a neutron moderator, slowing down high-energy neutrons from fission events and nuclear decay processes. Moderation of neutrons is an important step in the nuclear reactor because slow thermal neutrons (i.e. neutrons at thermal equilibrium with the coolant) are significantly more likely to fission uranium nuclei than fast neutrons. Fast neutrons will typically escape from the fuel pin after they are generated, dispense most of their energy in the coolant via scattering with H and O nuclei, and then some will end up re-entering the fuel, where they will most likely fission a U$_{235}$ nucleus near the outer edge of the fuel pellet. Neutrons which don't end up fissioning fuel will either be absorbed parasitically by other nuclei (likely in the control rods), escape from the reactor entirely (neutron leakage), or decay into protons (free neutrons have a half-life of 15 minutes).
 
 
-\subsection{Fuel pins and cladding}
+\subsection{Fuel pins and cladding} \label{ss_fuelpin}
 
 Fuel assemblies in nuclear reactors are bundles of fuel pins. In most commercial reactors, these fuel pins are comprised of a zirconium-based cladding which is filled with UO$_{2}$ fuel pellets, each of which are approximately 1 cm$^{3}$ in volume. Once loaded with fuel pellets, the fuel pins are capped and filled with inert helium gas, pressurised to between 2 and 25 atm to improve heat transfer from the fuel pellets to the coolant as well as delaying inward creep deformation of the cladding due to the high coolant pressure \cite{King1980}. 
 
@@ -90,7 +90,7 @@ In the early stages of a fuel pin's life, there is a small gap between the fuel 
 \end{figure}
 
 
-\subsection{Effects of radiation on materials}
+\subsection{Effects of radiation on materials} 
 
 While ionising radiation is always present in the environment as background radiation, the intensity of radiation in a nuclear reactor is so great that it presents significant engineering challenges because of how it affects different materials.
 
@@ -169,19 +169,37 @@ Isotope & Independent Yield (\%) & Half-life \\
 
 \section{Pellet-cladding interaction (PCI)}
 
-PCI has been known about since 1974. Many studies and reviews have been made \cite{alam2011review}
+At the beginning of a fuel pin's life, there is a gap between the fuel pellet and the cladding (see \ref{ss_fuelpin}). This gas gap slowly closes over time, mostly due to thermal expansion and swelling of the fuel pellet (illustrated in Figure \ref{figure:pcmi}) due to radiation damage. At a high enough burnup, the fuel pellet finally makes contact with the cladding. This phenomenon is called pellet-cladding interaction (PCI) and involves both mechanical and chemical interactions which contribute to observed fuel failures.
 
-\subsection{Effect of power ramps}
-B.Cox PCI failures of Zr alloy fuel cladding \cite{bcoxpelletclad1990} talks about how they found out that fission products were necessary for PCI failures on page 260 (citation 54)
+\begin{figure}[htp]
+\centering
+\includegraphics[height=9cm]{images/pcmi.png}
+\caption[Illustration of fuel swelling and clad deformation due to PCI.]{Illustration of fuel swelling and clad deformation due to PCI. Adapted from \cite{alam2011review}.}
+% M. F. James, R. W. Mills and D. R. Weaver (1991) UKAEA Reports, AEA-TRS-1015, AEA-TRS-1018 
+         %  and AEA-TRS-1019.
+\label{figure:pcmi}
+\end{figure}
+
+PCI-related failure of nuclear fuel pins has been known about since 1963, when the first reported failure occurred in a highly rated fuel pin during reactor start-up \cite{lyons1963high}. Many studies and reviews have since been made on the topic \cite{alam2011review, bcoxpelletclad1990}. The exact cause of PCI failures has not yet been discovered, however it is likely that both the mechanical and chemical effects of contact between the fuel pellet and the cladding are necessary. It is also known that PCI failures are typically preceded by power transients, such as during reactor startup where several power ramps are performed over many hours.
 
 \subsection{Pellet-clad gap and bonding}
+
+The gap between the fuel and the cladding allows fuel pellets to be inserted into the fuel pin easily during manufacture, but this clearance is also designed to accommodate some increase in fuel pellet volume. It is important to consider the thermal expansion of the fuel pellet, as the centreline temperature of a PWR fuel pellet during a power transient can vary between 1500 and 1800 $^{\circ}$C, depending on the burnup of the fuel and magnitude of the reactivity insertion \cite{Bagger1994}. In addition, fuel pellets will swell due to radiation damage throughout their operational lifetime. Once the pellet-clad gap has closed entirely, any pellet expansion during a power transient will translate to a force exerted on the cladding, generating hoop stresses which open cracks on the inner cladding surface. This is the mechanical component of PCI.
+
 
 \begin{itemize}
 \item At the beginning of life, there is a gas gap between the fuel pellet and the cladding, typically filled with an inert gas like helium during the manufacturing process.
 \item With increasing burnup, radiation damage in the fuel pellet causes it to swell and therefore reduce the pellet-cladding gap, eventually making contact (and exerting a force) with the cladding.
 \end{itemize}
 
+\subsection{Effect of power ramps}
+B.Cox PCI failures of Zr alloy fuel cladding \cite{bcoxpelletclad1990} talks about how they found out that fission products were necessary for PCI failures on page 260 (citation 54)
+
+
+
 \subsection{Iodine corrosion of zirconium}
+
+The most 
 
 \begin{figure}[htp]
 \centering

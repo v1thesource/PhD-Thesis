@@ -50,34 +50,34 @@ The Born-Oppenheimer approximation is a two-step process for evaluating atomic f
 
 \subsection{Pseudopotentials}
 
-The electron-electron interaction component of the potential energy presents a problem when it comes to scaling experimental models. The number of terms in this interaction grows quadratically with the number of electrons in the system, and quickly becomes computationally intractable for even small systems. However, it is known that in chemical reactions, the majority of chemical behaviour is determined by relatively few valence electrons, while the more numerous core electrons have a far smaller effect. Consider the zirconium atom with 40 electrons, of which 4 (4$d^2$5$s^2$) are typically involved in bonding and chemical reactions. By only considering only these valence electrons for Coulombic-term calculations, we reduce the system size by 90\% which provides much more than a tenfold reduction in computational requirements. Although the core electrons do not participate in chemical reactions, they still influence the properties of the atom, such as the atomic radius. Instead of modelling the core electrons explicitly, we can approximate their aggregate effect with a potential energy function. This is what we aim to achieve by using the pseudopotential method. An example pseudopotential is shown in figure \ref{figure:pseudopotential}.
+The electron-electron interaction component of the potential energy presents a problem when it comes to scaling experimental models. The number of terms in this interaction grows quadratically with the number of electrons in the system, and quickly becomes computationally intractable for even small systems. However, it is known that in chemical reactions, the majority of chemical behaviour is determined by relatively few valence electrons, while the more numerous core electrons have a far smaller effect. Consider the zirconium atom with 40 electrons, of which 4 (4$d^2$5$s^2$) are typically involved in bonding and chemical reactions. By only considering only these valence electrons for Coulombic-term calculations, we reduce the system size by 90\% which provides a more than tenfold reduction in computational requirements. Although the core electrons do not participate in chemical reactions, they still influence the properties of the atom, such as the atomic radius. Instead of modelling the core electrons explicitly, we can approximate their aggregate effect with a potential energy function. This is what we aim to achieve by using the pseudopotential method. An example pseudopotential is shown in figure \ref{figure:pseudopotential}.
 
 \begin{figure} % Pseudopotential Image
-\label{figure:pseudopotential}
 \begin{center}
 \includegraphics[height=10cm]{images/pseudopotential.png}
 \end{center}
-\caption[Illustration of an all-electron potential V$_{AE}$ and a pseudopotential V$_{PS}$ with their corresponding wave functions. r$_{cut}$ indicates the radius beyond which both the potentials and their wave functions are the same.]{Illustration of an all-electron potential V$_{AE}$ and a pseudopotential V$_{PS}$ with their corresponding wave functions. r$_{cut}$ indicates the radius beyond which both the potentials and their wave functions are the same. Taken from \cite{Payne1992}.  }
+\caption[Illustration of an all-electron potential V$_{AE}$ and a pseudopotential V$_{PS}$ with their corresponding wave functions. r$_{cut}$ indicates the radius beyond which both the potentials and their wave functions are the same.]{Illustration of an all-electron potential V$_{AE}$ and a pseudopotential V$_{PS}$ with their corresponding wave functions. r$_{cut}$ indicates the radius beyond which both the potentials and their wave functions are the same. Taken from \cite{Payne1992}. }
+\label{figure:pseudopotential}
 \end{figure}
 
 
 Figures \ref{figure:oxygen_pseudopotential} and \ref{figure:zirconium_pseudopotential} show the actual pseudopotentials used throughout this work for oxygen and zirconium respectively. The potentials are shown broken down by the electronic sub-shells occupied by the valence electrons.
 
 \begin{figure} % Oxygen pseudopotential
-\label{figure:oxygen_pseudopotential}
 \begin{center}
 \includegraphics[height=7.3cm]{images/oxygen_otf_pp.png}
 \end{center}
 \caption{Plots of the valence $s$ and $p$ orbital potentials for oxygen. Dashed lines indicate the all-electron potentials while solid lines indicate the corresponding pseudopotential. Dotted vertical line marks the radius beyond which the potentials match.}
+\label{figure:oxygen_pseudopotential}
 \end{figure}
 
 
 \begin{figure} % Zirconium pseudopotential
-\label{figure:zirconium_pseudopotential}
 \begin{center}
 \includegraphics[height=12cm]{images/zirconium_otf_pp.png}
 \end{center}
 \caption{Plots of the valence $s$, $p$ and $d$ orbital potentials for zirconium. Dashed lines show the all-electron potentials while solid lines indicate the corresponding pseudopotential. Dotted vertical line marks the radius beyond which the potentials match.}
+\label{figure:zirconium_pseudopotential}
 \end{figure}
 
 
@@ -172,7 +172,10 @@ When calculating the energy of a system with an overall non-zero charge, this ch
 
 \subsection{Stiffness tensor generation}
 
-The stiffness tensors for the pure monoclinic, tetragonal and cubic phases of \zirconia\ were calculated using CASTEP's Elastic Constants task. This requires starting with a unit cell that has already been completely relaxed via the geometry optimisation task.
+The stiffness tensors for the pure monoclinic, tetragonal and cubic phases of \zirconia\ were calculated using CASTEP's \emph{elastic constants task.} The calculation of elastic constants is a multi-step process involving up to 36 individual DFT calculations. Several scripts have been made available to simplify this processs (see Appendix \ref{castep_scripts}).
+
+The first step is to generate multiple different .cell files, each with either a small deviation in the lattice parameter or an additional shear on the cell. This requires starting with a unit cell that has already been completely relaxed via the \emph{geometry optimisation} task. 
+
 
 \begin{itemize}
 \item Calculate DFT energies of unit cell with small strains in various directions
