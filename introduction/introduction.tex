@@ -186,15 +186,19 @@ PCI-related failure of nuclear fuel pins has been known about since 1963, when t
 
 The gap between the fuel and the cladding allows fuel pellets to be inserted into the fuel pin easily during manufacture, but this clearance is also designed to accommodate some increase in fuel pellet volume. It is important to consider the thermal expansion of the fuel pellet, as the centreline temperature of a PWR fuel pellet during a power transient can vary between 1500 and 1800 $^{\circ}$C, depending on the burnup of the fuel and magnitude of the reactivity insertion \cite{Bagger1994}. In addition, fuel pellets will swell due to radiation damage throughout their operational lifetime. Once the pellet-clad gap has closed entirely, any pellet expansion during a power transient will translate to a force exerted on the cladding, generating hoop stresses which open cracks on the inner cladding surface. This is the mechanical component of PCI.
 
-
-\begin{itemize}
-\item At the beginning of life, there is a gas gap between the fuel pellet and the cladding, typically filled with an inert gas like helium during the manufacturing process.
-\item With increasing burnup, radiation damage in the fuel pellet causes it to swell and therefore reduce the pellet-cladding gap, eventually making contact (and exerting a force) with the cladding.
-\end{itemize}
+When the fuel pellet makes contact with the cladding, there is also a chemical interaction between the UO$_{2}$ (and fission products) and the internal surface oxide of the cladding. UO$_{2}$ is soluble in ZrO$_{2}$ up to x\% molar mass and we therefore see a bonded reaction layer which is of the form (U, Zr)O$_{2}$. This layer adopts the crystal structure of cubic fluorite, the high temperature phase of ZrO$_{2}$.
 
 \subsection{Effect of power ramps}
 B.Cox PCI failures of Zr alloy fuel cladding \cite{bcoxpelletclad1990} talks about how they found out that fission products were necessary for PCI failures on page 260 (citation 54)
 
+\begin{figure}[htp]
+\centering
+\includegraphics[height=10cm]{images/reactor_startup.png}
+\caption[Reactor startup procedure for a typical US PWR.]{Reactor startup procedure for a typical US PWR. Adapted from \cite{ramping}.}
+% M. F. James, R. W. Mills and D. R. Weaver (1991) UKAEA Reports, AEA-TRS-1015, AEA-TRS-1018 
+         %  and AEA-TRS-1019.
+\label{figure:reactor_startup}
+\end{figure}
 
 
 \subsection{Iodine corrosion of zirconium}
@@ -242,7 +246,7 @@ The presence of oxygen in the Zr metal will also have an effect on thermodynamic
 
 As mentioned previously, the cladding of an LWR fuel pin develops an oxide on both the inner and outer surfaces due to exposure to oxygen in air during manufacture. Both the outer and inner oxide layers provide protection against corrosion, though the corrosive environment is different. 
 
-The outer oxide layer is in contact with the coolant which is mostly light water with some additional dissolved species such as boron and hydrogen to control reactivity and pH. Figure \ref{figure:outer_oxide} shows a section of the cladding with the outer oxide visible. This layer is mostly monoclinic \zirconia\ with small grains of tetragonal \zirconia\ distributed uniformly throughout. These grains of tetragonal \zirconia\ are autostabilised during growth of the oxide because of the large volume expansion associated with oxidation (Zr has a Pilling-Bedworth ratio of 1.56). Of course, samples under examination are always stress-relieved, whereas cladding in reactor conditions will be under external hydrostatic pressure conditions (approximately 15 MPa), as well as internal pressure from fill gas and gaseous/volatile fission products.
+The outer oxide layer is in contact with the coolant which is mostly light water with some additional dissolved species such as boron and hydrogen to control reactivity and pH. Figure \ref{figure:outer_oxide} shows a section of the cladding with the outer oxide visible. This layer is mostly monoclinic \zirconia\ with small grains of tetragonal \zirconia\ distributed uniformly throughout. These grains of tetragonal \zirconia\ are autostabilised during growth of the oxide because of the large volume expansion associated with oxidation (Zr has a Pilling-Bedworth ratio of 1.57). Of course, samples under examination are always stress-relieved, whereas cladding in reactor conditions will be under external hydrostatic pressure conditions (approximately 15 MPa), as well as internal pressure from fill gas and gaseous/volatile fission products.
 
 \begin{figure}[htp]
 \centering
