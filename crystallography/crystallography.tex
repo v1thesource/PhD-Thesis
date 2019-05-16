@@ -2,14 +2,14 @@
 
 \label{ch:crystallography}
 
-\section{\zirconia\ phases and stabilisation}
+\section{\zirconia\ phases}
 
-\zirconia\ is unusual in exhibiting three commonly reported polytypes in its binary phase diagram (see Figure \ref{figure:binary_phase_diagram}). The details of these phases and some less common ones are collated in Table \ref{table:phases}. Each will now be described and contrasted.
+\zirconia\ is unusual in exhibiting three commonly reported polytypes in its binary phase diagram (see Figure \ref{figure:binary_phase_diagram}). The temperature-pressure phase diagram of \zirconia\ as is currently understood is shown in Figure \ref{figure:currentphasediagram}, with details of these phases collated in Table \ref{table:phases}. Each will now be described and contrasted.
 
 \begin{figure}[htp] % Current phase diagram
 \centering
-\includegraphics[height=7.5cm]{images/current_phase_diagram.png}
-\caption[A monoclinic zirconia unit cell indicating the two different oxygen bond coordinations. Small spheres represent oxygen ions while large spheres represent zirconium ions.]{A monoclinic zirconia unit cell indicating the two different oxygen bond coordinations. Small spheres represent oxygen ions while large spheres represent zirconium ions. Taken from \cite{Xia2010}.
+\includegraphics[height=8.5cm]{images/current_phase_diagram.png}
+\caption[Temperature-pressure phase diagram of \zirconia .]{Temperature-pressure phase diagram of \zirconia . Taken from \cite{kisi1998crystal}.
 \label{figure:currentphasediagram}}
 \end{figure}
 
@@ -112,7 +112,7 @@ The tetragonal phase (space group P$4_{2}/nmc$) can be easily derived from the c
 
 \subsubsection{Tetragonal phase stress stabilisation}
 
-The pressure-temperature phase diagram of \zirconia\ (Figure \ref{fig:phasediagram}) shows how the monoclinic-tetragonal phase transition temperature is strongly dependent on pressure, with an almost linear reduction in transition temperature of 300\textdegree C / GPa. The phase diagram also shows the extent of the hysteresis effect in the monoclinic-tetragonal transition.
+The pressure-temperature phase diagram of \zirconia\ (Figure \ref{fig:phasediagram}) shows how the monoclinic-tetragonal phase transition temperature is strongly dependent on pressure, with an almost linear reduction in transition temperature of 300\textdegree C GPa$^{-1}$. The phase diagram also shows the extent of the hysteresis effect in the monoclinic-tetragonal transition.
 
 \begin{figure}[htp]
   \centering
@@ -122,17 +122,38 @@ The pressure-temperature phase diagram of \zirconia\ (Figure \ref{fig:phasediagr
 
 There is some degree of tetragonal phase autostabilisation during the oxidation process of zirconium. This is possible because of the resulting increase in volume when zirconium is oxidised. Zirconium has a Pilling-Bedworth ratio of 1.57, meaning that the oxide would occupy a volume 57\% larger than the metal if unconstrained \cite{cramer2003corrosion, Pilling1923}. In the case of zirconia, the oxide grows into the metal by dissolution of oxygen, generating large compressive stresses of up to 2 GPa \cite{Petigny2000, garzarolli1991oxide}. This is an important contribution to the stabilisation of tetragonal phase because of the strong dependence on pressure, though this contribution alone may not be sufficient at PWR operating temperatures.
 
-Stabilisation of the tetragonal phase is also dependent on grain size, which can be controlled during the cladding manufacturing process since the oxide inherits the grain size of the zirconium metal grains. Pure \zirconia\ exhibits a strong relationship between grain size and phase stability, where the tetragonal phase is only stable when grown from metal grains below a critical size of approximately 30 nm \cite{barberis1995zirconia}. This can be explained by increased dislocation interaction in smaller grains due to limited room for dislocation glide, as per the Hall-Petch relationship \cite{hall1951deformation, petch1953cleavage}. Grains of tetragonal \zirconia\ larger than this critical size are therefore likely to have tetragonal-stabilising dopant ions incorporated in the lattice.
+Stabilisation of the tetragonal phase at low temperatures is also dependent on grain size, which can be controlled during the cladding manufacturing process since the oxide inherits the grain size of the zirconium metal grains. Pure \zirconia\ exhibits a strong relationship between grain size and phase stability, where the tetragonal phase is only stable when grown from metal grains below a critical size of approximately 30 nm \cite{barberis1995zirconia}. This can be explained by increased dislocation interaction in smaller grains due to limited room for dislocation glide, as per the Hall-Petch relationship \cite{hall1951deformation, petch1953cleavage}. Grains of tetragonal \zirconia\ larger than this critical size are therefore likely to have tetragonal-stabilising dopant ions incorporated in the lattice.
 
 \subsection{Cubic}
 
-\subsubsection{Cubic phase stability}
+Cubic \zirconia\ (unit cell shown in Figure \ref{fig:cubic_unitcell}) adopts the cubic fluorite (space group F$m\overline{3}m$) crystal structure, consisting of zirconium ions in a face-centred cubic configuration with a rock salt oxygen sub-lattice occupying the tetrahedral sites.
 
-\begin{itemize}
-\item The existence of a cubic phase in undoped \zirconia\ is debated. The high temperatures required for stabilisation of the cubic phase and the similarity to the tetragonal phase make it difficult to discern as a third phase.
-\item Also due to the high temperature, the stability of the cubic phase in DFT calculations may be inaccurate. This is discussed further in Chapter 3.
-\end{itemize}
+\begin{figure}[htp]
+  \centering
+      \includegraphics[height=7cm]{images/cubic_unitcell.png}
+  \caption{Unit cell of cubic \zirconia . Zirconium atoms are shown in green and oxygen atoms shown in red.}
+  \label{fig:cubic_unitcell}
+\end{figure}
 
+The lowest specific volume (i.e. highest density) is also exhibited by the cubic phase (11.13 \r{A}$^{3}$ion$^{-1}$) followed by the tetragonal phase (11.51 \r{A}$^{3}$ion$^{-1}$) and then the monoclinic phase (11.99 \r{A}$^{3}$ion$^{-1}$). This is due to it having the largest atomic packing factor, resulting in a mean Zr-O bond distance of 2.22 \r{A}, compared to 2.26 \r{A} in the tetragonal phase and 2.31 \r{A} in the monoclinic phase, as shown in Figure \ref{figure:zrobonddistance}. 
+
+\begin{figure}[h]
+\begin{center}
+\begin{tikzpicture}
+	\begin{axis}
+		[width=\linewidth*0.7, xlabel={Nearest neighbour Zr-O bond distance (\r{A})}, ylabel={Relative occurrence}, ymin=0, ymax=140, xmin=2.0, xmax=2.50, legend style={{draw=}, at={(0.95,0.95)}, anchor=north east, legend columns=1}]
+		\addplot[no marks] table [x=zr_o_dist, y=monoclinic,]{dat/zr_o_bond_distances.dat}; \addlegendentry{Monoclinic};
+        \addplot[no marks, dashed] table [x=zr_o_dist, y=tetragonal, ]{dat/zr_o_bond_distances.dat}; \addlegendentry{Tetragonal};
+        \addplot[no marks, densely dotted] table [x=zr_o_dist, y=cubic,]{dat/zr_o_bond_distances.dat}; \addlegendentry{Cubic};
+			\end{axis}
+		\end{tikzpicture}
+		\caption{Density plot of the nearest neighbour Zr-O bond distances in \zirconia\ for each crystal structure. Specific volumes are 11.99 \r{A}$^{3}$ion$^{-1}$, 11.51 \r{A}$^{3}$ion$^{-1}$, and 11.13 \r{A}$^{3}$ion$^{-1}$ for monoclinic, tetragonal, and cubic phases respectively.}
+		\label{figure:zrobonddistance}
+	\end{center}
+\end{figure}
+
+
+%\textbf{Also due to the high temperature, the stability of the cubic phase in DFT calculations may be inaccurate. This is discussed further in Chapter 3.}
 
 
 \subsection{Other phases}
@@ -163,6 +184,10 @@ The OII phase, illustrated in Figure \ref{fig:cotunnite_structure} maintains a 9
   \label{fig:cotunnite_structure}
 \end{figure}
 
+\subsubsection{Hexagonal}
+
+A hexagonal phase of \zirconia\ has also been reported in X-ray diffraction studies at high pressure (20 GPa) and above 1000 \textdegree C \cite{ohtaka1994new}. This phase retains its structure during isobaric quenching, but turns back to monoclinic once pressure is released. This phase is only observed under extreme conditions, and so is mentioned here for purposes of completion.
+
 %\subsubsection*{Volume expansion}
 
 %The phase transitions in \zirconia\ are accompanied by a change in volume, where the monoclinic phase is the least dense and the cubic phase is the most dense (see Figure \ref{figure:zrobonddistance}). This is especially significant in the case of the martensitic t-\zirconia\ to m-\zirconia\ transition, where the volume increases by around 9\% \cite{Gupta1977}. This has substantial implications for the creation and opening of cracks as \zirconia\ is a ceramic material with low toughness. This is especially relevant in a reactor scenario where temperature cycling (shutdown/startup or load-following behaviour) may lead to fatigue if the phase transition threshold is passed.
@@ -171,26 +196,7 @@ The OII phase, illustrated in Figure \ref{fig:cotunnite_structure} maintains a 9
 %as the resulting coherency strain is likely to result in reduced mobility of fission products that have been embedded in the bulk crystal. 
 
 
-
-\begin{figure}
-\begin{center}
-\begin{tikzpicture}
-	\begin{axis}
-		[width=\linewidth*0.7, xlabel={Nearest neighbour Zr-O bond distance (\r{A})}, ylabel={Relative occurrence}, ymin=0, ymax=140, xmin=2.0, xmax=2.50, legend style={{draw=}, at={(0.95,0.95)}, anchor=north east, legend columns=1}]
-		\addplot[no marks] table [x=zr_o_dist, y=monoclinic,]{dat/zr_o_bond_distances.dat}; \addlegendentry{Monoclinic};
-        \addplot[no marks, dashed] table [x=zr_o_dist, y=tetragonal, ]{dat/zr_o_bond_distances.dat}; \addlegendentry{Tetragonal};
-        \addplot[no marks, densely dotted] table [x=zr_o_dist, y=cubic,]{dat/zr_o_bond_distances.dat}; \addlegendentry{Cubic};
-			\end{axis}
-		\end{tikzpicture}
-		\caption{Density plot of the nearest neighbour Zr-O bond distances in \zirconia\ for each crystal structure. Specific volumes from DFT simulations are 11.99 \r{A}$^{3}$ion$^{-1}$, 11.51 \r{A}$^{3}$ion$^{-1}$, and 11.13 \r{A}$^{3}$ion$^{-1}$ for monoclinic, tetragonal, and cubic phases respectively.}
-		\label{figure:zrobonddistance}
-	\end{center}
-\end{figure}
-
-
-
-
-\subsection{Dopant stabilisation}
+\section{Dopant stabilisation}
 
 Particular types of dopants will also stabilise the tetragonal and cubic phases of \zirconia. The most technologically significant is yttrium, which at concentrations of 15\% (atomic), fully stabilises the cubic phase. Zirconia stabilised this way is known as yttria-stabilised zirconia (YSZ). This works by trivalent yttrium promoting the inclusion of charge compensating oxygen vacancy defects (see Equation \ref{equation:YSZ}). This works in a similar way with several other cation dopants such as trivalent scandium from Sc$_{2}$O$_{3}$, or divalent magnesium from MgO (Equation \ref{equation:mg_stabilised_zro2}).
 
@@ -231,7 +237,7 @@ Ion & Coordination & Ionic Radius (\r{A}) \\ \hline
 
 %\section{Point Defects}
 
-\subsection{Kr\"{o}ger-Vink notation}
+\section{Kr\"{o}ger-Vink notation}
 
 Kr\"{o}ger-Vink notation \cite{kroger1956relations} is used throughout this thesis to describe defects. It is widely used in physical chemistry and is a useful shorthand for describing chemical reactions where conservation of mass, charge and lattice sites is required. The notation syntax is of the form \ch{x^{y}_{z}}, where x is the substituted atom or missing atom (i.e. a vacancy V), y is the charge of the defect (relative to the lattice species that originally occupied the site) and z is the site the defect occupies. Positive and negative charges are indicated with dots (\ch{^{*}}) and dashes (\ch{^{'}}) respectively, otherwise a cross (\ch{^{x}}) is used to denote a neutral defect. The site may be either a lattice site (such as Zr or O in \zirconia ) or an interstitial site ($i$). Table \ref{table:krogervink} shows examples of several different types of defects and their respective Kr\"{o}ger-Vink notation.
 
