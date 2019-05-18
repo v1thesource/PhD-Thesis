@@ -155,7 +155,7 @@ Four convergence criteria are used for the geometry optimisation tasks throughou
 \item \emph{Change in energy per ion}: The largest change in the energy per ion between iterations must be below $10^{-5}$ eV. Below this value, the total energy improvement towards the ground state for a 100 atom supercell is less than 0.001 eV, and is therefore considered converged.
 \item \emph{Maximum force on an ion}: The maximum force requirement on any single ion in an iteration must be below $10^{-2}$ eV/\r{A}. This is required to make sure that the ion position will not change significantly in the following iteration, possibly bringing another convergence criterion above its threshold.
 \item \emph{Maximum change in ion position}: This must be below $5 \times 10^{-4}$ \r{A} between iterations to be considered converged. This criterion specifies the maximum `rattle' of the ion that is tolerated once the minimum energy is reached (i.e. displacements above this value may still be important for achieving a correct atomic configuration). 
-\item \emph{Maximum stress (constant-pressure only)}: During unconstrained relaxation, the maximum stress between iterations should be below $5 \times 10^{-2}$ GPA. 
+\item \emph{Maximum stress (constant-pressure only)}: During unconstrained relaxation, the maximum change in stress between iterations should be below $5 \times 10^{-2}$ GPa. This is necessary to avoid large deviations which may distort the symmetry of the supercell, resulting in anomalous energy values.
 \end{itemize}
 
 
@@ -361,7 +361,26 @@ coordinates { (0.09,-2.35) };
 
 There are a range of possible exchange-correlation functionals available in CASTEP, spanning both empirical and non-empirical types. Empirical exchange-correlation functionals are typically optimised to capture specific properties or systems particularly well, but perform less well for generalised systems. Non-empirical exchange-correlation functionals, while still not perfect, are preferred for modelling the widest range of properties. In a sense, non-empirical functions benefit from not being `over-fit' to experimental data. They are also used far more often in the literature, thereby providing a rich corpus of work for comparison studies.
 
-While the PBE-GGA exchange-correlation functional in this work had already been selected, it was helpful to conduct a convergence study of the systems across all the functionals available in CASTEP in order to determine how other functionals compared.
+While the PBE-GGA exchange-correlation functional in this work had already been selected, it was helpful to conduct an energy convergence study of the systems across the different functionals available in CASTEP in order to determine how other functionals compared. Only 6 of the 14 functionals available in CASTEP were able to yield a converged energy calculation, as shown in Figure \ref{Figure:xc_test}. This is because several hybrid functionals partially incorporate the exact exchange using the Hartree-Fock method \cite{hartree1928wave}, significantly increasing the computational cost of an energy calculation. 
+
+The calculated energies indicate that each functional correctly predicts the order of phase stability in \zirconia , though the magnitude of the energy difference between phases varied. These differences are small, approximately 0.1 eV/f.u., but their effects are compounded when defects are introduced into the cell. The total energies were even more varied, with several eV differences between functionals. Generally, lower energies indicate a better convergence towards the ground state electron density, and while PBE was one of the best performing functionals, RPBE and PW91 were better by that metric. Interestingly, the PW91 functional resulted in even lower energies than PBE, despite PW91 preceding PBE and both having been developed by Perdew et al. \cite{perdew1991unified, perdew1992atoms}. To better gauge the performance of each functional, further studies across a much larger range of parameters, and even materials, would need to be conducted, but this is beyond the scope of this thesis.
+
+\begin{figure}[ht]
+  \begin{center}
+    \begin{tikzpicture}
+      \begin{axis}
+        [ybar, ymin=2350, ymax=2362, width=\linewidth*0.7, xtick=data, xlabel={XC Functional}, ylabel={Unit cell energy (-eV/f.u.)}, xticklabels from table={dat/xc_test.dat}{functional}, area legend, legend style={at={(0.04,0.96)},
+anchor=north west, legend columns=1}] %axis x line=middle, ymin=5.1, ymax=5.35, xmin=0, xmax=12, legend style={{draw=}, at={(0.18,0.95)}, anchor=north east, legend columns=1}
+        \addplot[style={black, fill=red!30!white, mark=none}] table [x expr=\coordindex, y=mono_energy]{dat/xc_test.dat};
+        \addplot[style={black, fill=blue!30!white, mark=none}] table [x expr=\coordindex, y=tet_energy]{dat/xc_test.dat};
+        \addplot[style={black, fill=green!30!white, mark=none}] table [x expr=\coordindex, y=cubic_energy]{dat/xc_test.dat};
+        \legend{Monoclinic, Tetragonal, Cubic}
+      \end{axis}
+    \end{tikzpicture}
+    \caption{Calculated energy of a unit cell of monoclinic, tetragonal and cubic \zirconia\ when using different exchange-correlation functionals.}
+    \label{Figure:xc_test}
+  \end{center}
+\end{figure}
 
 \subsection{On-the-fly pseudopotentials}
 
@@ -407,7 +426,7 @@ The first thing to note is that the correct order of \zirconia\ phases is predic
 \begin{table}[ht] % Unit cell parameters
 \onehalfspacing
 \centering
-\caption[Calculated unit cell parameters for the different crystal structures of \zirconia . Experimental data for pure monoclinic, yttria-stabilised tetragonal and magnesia-stabilised cubic phases at 295 K are shown in parentheses. Energy difference between structures is shown with respect to the cubic phase.]{Calculated unit cell parameters for the different crystal structures of \zirconia . Experimental data for pure monoclinic and stabilised tetragonal and cubic phases at 295 K are shown in parentheses \cite{Howard1988}. Energy difference between structures is shown with respect to the cubic phase.}
+\caption[Calculated unit cell parameters for the different crystal structures of \zirconia . Experimental data for pure monoclinic, yttria-stabilised tetragonal and magnesia-stabilised cubic phases at 295 K are shown in parentheses. Energy difference between structures is shown with respect to the cubic phase.]{Calculated unit cell parameters for the different crystal structures of \zirconia . Experimental data for monoclinic, tetragonal and cubic phases at 295 K are shown in parentheses \cite{Howard1988}. Energy difference between structures is shown with respect to the cubic phase.}
 \label{lattice_params}
 \resizebox{\textwidth}{!}{%
 \begin{tabular}{ccccccc}
@@ -463,7 +482,7 @@ Figure \ref{Figure:plusubandgap} shows the effect on the calculated band gap whe
 	\end{center}
 \end{figure}
 
-In monoclinic \zirconia , the use of a +U term causes the lattice parameters to change disproportionately, as seen in Figure \ref{Figure:plusumono}. All lattice parameters increased with larger +U terms, however, expansion in the $a$ direction proceeded faster than in the $b$ direction, resulting in the $a$ lattice parameter becoming larger at a +U of 4 eV. +U terms larger than 10.5 eV caused the lattice parameters to snap suddenly onto new values. A  investigation of the atomic positions revealed that the monoclinic crystal structure had collapsed into an orthorhombic structure, with the co-ordination number of zirconium ions falling to 6 from 7.
+In monoclinic \zirconia , the use of a +U term causes the lattice parameters to change disproportionately, as seen in Figure \ref{Figure:plusumono}. All lattice parameters increased with larger +U terms, however, expansion in the $a$ direction proceeded faster than in the $b$ direction, resulting in the $a$ lattice parameter becoming larger at a +U of 4 eV. +U terms larger than 10.5 eV caused the lattice parameters to snap suddenly onto new values. A  investigation of the atomic positions revealed that the monoclinic crystal structure had collapsed into an orthorhombic structure (i.e. the cell experienced a shear strain which resulted in a $\beta$ of 90\textdegree), with the co-ordination number of zirconium ions falling to 6 from 7.
 
 \begin{figure} % +U mono
 \begin{center}

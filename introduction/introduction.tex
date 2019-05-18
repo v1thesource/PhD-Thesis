@@ -2,7 +2,7 @@
 
 \section{Nuclear Power} % Complete
 
-In the summer of 1956, the world's first commercial nuclear power plant was connected to the grid in the north of England. This marked a significant departure from previous forms of commercial energy production, which relied on less energetically lucrative sources such as combustion of coal, oil and gas. Indeed, the closest we had come to utilising nuclear energy commercially was through geothermal power, where the thermal energy input is partly due to radiogenic heat from unstable isotopes in the Earth's mantle \cite{gando2011partial} . 
+In the summer of 1956, the world's first commercial nuclear power plant was connected to the grid in the north of England. This marked a significant departure from previous forms of commercial energy production, which relied on less energetically lucrative sources such as combustion of coal, oil and gas. Indeed, the closest we had come to utilising nuclear energy commercially was through geothermal power, where the thermal energy input is partly due to radiogenic heat from unstable isotopes in the Earth's mantle \cite{gando2011partial}. 
 %which relied on the chemical reactions of coal oil and gas
 %Combustion is a chemical process, where energy differences between reactants and products are exploited via electron exchange. Nuclear energy however, exploits the energy difference between nuclei. Both rely on the conversion of mass into energy, however, the amount of energy that can be extracted varies by several orders of magnitude
 Combustion is a chemical process where energy differences between reactants and products are exploited via electron exchange. Nuclear energy however, exploits the energy difference between nuclei. Both rely on the conversion of mass into energy, however, the amount of energy that can be extracted from the nucleus is several orders of magnitude greater.
@@ -104,8 +104,11 @@ In high-radiation environments, it is also possible for some molecules to be spl
 
 \subsection{Fission products, their distribution and decay chains}
 
-Nuclei which can undergo fission will produce child nuclei (fission products) with specific characteristics. Firstly, these nuclei will almost always be neutron-rich, as compared to their stable isotopes. This is the result of the higher neutron to proton (N/Z) ratios of larger nuclei. Figure \ref{figure:NZcurve} shows how the nuclei of abundant isotopes start with N/Z ratios of around 1 for small elements (e.g. \ch{He_{2}^{4}}, \ch{C_{6}^{12}}, \ch{O_{8}^{16}}), whereas larger elements will have isotopes with N/Z ratios approaching 1.6 (e.g. \ch{Pb_{82}^{208}}, \ch{Th_{90}^{232}}, \ch{U_{92}^{238}}). Fissionable nuclei are typically very large and when fission occurs, the child nuclei will inevitably inherit a high N/Z ratio. These neutron-rich nuclei will generally decay by $\beta-$ particle emission to reduce their N/Z ratio and increase stability. One decay event is usually not enough to achieve a stable nucleus, so several decays as part of a decay chain are expected (Equations \ref{eqn:te_decay} and \ref{eqn:i_decay}).
+Nuclei which can undergo fission will produce child nuclei (fission products) with specific characteristics. Firstly, these nuclei will almost always be neutron-rich, as compared to their stable isotopes. This is the result of the higher neutron to proton (N/Z) ratios of larger nuclei. Figure \ref{figure:NZcurve} shows how the nuclei of abundant isotopes start with N/Z ratios of around 1 for small elements (e.g. \ch{He_{2}^{4}}, \ch{C_{6}^{12}}, \ch{O_{8}^{16}}), whereas larger elements will have isotopes with N/Z ratios approaching 1.6 (e.g. \ch{Pb_{82}^{208}}, \ch{Th_{90}^{232}}, \ch{U_{92}^{238}}). 
 
+Fissionable nuclei are typically very large and when fission occurs, the child nuclei will inevitably inherit a high N/Z ratio. These neutron-rich nuclei will generally decay by $\beta-$ particle emission to reduce their N/Z ratio and increase stability. One decay event is usually not enough to achieve a stable nucleus, so several decays as part of a decay chain are expected (Equations \ref{eqn:te_decay} and \ref{eqn:i_decay}).
+
+{\setstretch{1.3}
 \begin{equation}
 Te_{134}^{52} \xrightarrow[]{\beta-} I_{134}^{53}+ e^{-} + \overline{\nu}_{e}
 \label{eqn:te_decay}
@@ -115,6 +118,7 @@ Te_{134}^{52} \xrightarrow[]{\beta-} I_{134}^{53}+ e^{-} + \overline{\nu}_{e}
 I_{134}^{53} \xrightarrow[]{\beta-} Xe_{134}^{54} + e^{-} + \overline{\nu}_{e}
 \label{eqn:i_decay}
 \end{equation}
+}
 
 \begin{figure}[htp]
 \centering
@@ -130,14 +134,14 @@ Another characteristic feature of fission products is that their masses are bi-m
 
 \begin{figure}[htp]
 \centering
-\includegraphics[height=13cm]{images/fissionyield.jpg}
+\includegraphics[height=12cm]{images/fissionyield.jpg}
 \caption[Plot of the percentage yield of nuclei with a given mass following a fission event. Range of masses corresponding to isotopes of iodine shown in purple and isotopes of yttrium shown in green, based on Equation \ref{eqn:fission}.]{Plot of the percentage yield of nuclei with a given mass following a fission event. Range of masses corresponding to isotopes of iodine shown in purple and isotopes of yttrium shown in green, based on Equation \ref{eqn:fission}. Adapted from \cite{England1992}.}
 % M. F. James, R. W. Mills and D. R. Weaver (1991) UKAEA Reports, AEA-TRS-1015, AEA-TRS-1018 
          %  and AEA-TRS-1019.
 \label{figure:fissionyield}
 \end{figure}
 
-Iodine is an important fission product because it is known to corrode Zr metal cladding. It is part of the Te $\rightarrow$ Cs decay chain, with most isotopes exhibiting half-lives ranging from a few seconds to several days. Select data on Te and I fission yields are presented in Table \ref{table:decaydata_chap1}. In total, the independent yield of I isotopes from fission is 11.4\%, while the independent yield of Te isotopes (I precursors) is 18.1\%, with \ch{Te_{52}^{134}} having the highest independent yield of all possible fission products (6.3\%). These particular elements will also be paired with Zr and Y fission products, the latter of which is a common phase stabiliser dopant in \zirconia .
+Iodine is an important fission product because it is known to corrode Zr metal cladding. It is part of the Te $\rightarrow$ Cs decay chain, with most isotopes exhibiting half-lives ranging from a few seconds to several days. Select data on Te and I fission yields are presented in Table \ref{table:decaydata_chap1}. In total, the independent yield of I isotopes from U$^{235}$ fission is 11.4\%, while the independent yield of Te isotopes (I precursors) is 18.1\%, with \ch{Te_{52}^{134}} having the highest independent yield of all possible fission products (6.3\%). These particular elements will also usually be paired with Zr and Y fission products, the latter of which is a common phase stabiliser dopant in \zirconia .
 
 \begin{table}
 \onehalfspacing
@@ -295,6 +299,10 @@ $_{2 \pm x}$ due to fission (which is also a function of the fuel's stoichiometr
 
 
 \section{Atomistic Simulation}
+
+Conducting experiments on nuclear materials is a difficult undertaking. Nuclear grade materials are expensive (e.g. high purity zirconium), and materials such as uranium are highly controlled (though they are relatively benign compared to many typical chemical laboratory materials and solvents). Furthermore, experiments which require samples to be irradiated must be left to cool-down (due to material activation) for up to a year before they can be analysed in a specialised lab \cite{efthymiopoulos2011hiradmat}. This makes it difficult to study many material phenomena, especially if they are time-dependent. In-situ reactor experiments are also problematic, requiring sensor equipment to be ruggedised for high radiation environments as well as obtaining special permission from a reactor operator (and the paperwork that entails) to conduct  such a test. Any errors in the experimental procedure or problems with samples are not revealed until months later when material analysis is performed. The risks and costs make it such that experimental work is mostly restricted to the largest labs and the few researchers with enough funding to support it.
+
+
 
 \subsection{Classical approach - molecular dynamics}
 
