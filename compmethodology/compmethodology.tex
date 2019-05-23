@@ -124,7 +124,9 @@ Figure \ref{Figure:cutoffconvergence} shows the first convergence study where th
 \section{Computational details}
 \subsection{Cell dimensions and initialisation}
 
-A supercell method is used for the study of various defects. The first step is to create a unit cell of \zirconia\ in each of the three crystal structures. Each unit cell is then fully relaxed through a geometry optimisation process (Section \ref{geometry_optimisation_method}). The resulting cell is then used to construct supercells through tessellation in three dimensions, before being fully relaxed again. This way, we generate systems with up to ten times as many atoms as the unit cell (supercell details can be found in Table \ref{table:supercells}). This is necessary because introducing defects into a small unit cell will result in the defect interacting with itself across the periodic boundary. A supercell increases the distance between the defect and its periodic image, using the bulk material as an interaction buffer. When constructing a supercell, it is important to consider making the supercell equally large in all directions, such that any directional bias in defect-defect interaction is minimised. Larger supercells carry an increased computational cost when running calculations, limiting the sizes we can achieve. For example, a constant-volume defect calculation with 300 atom supercells will take upwards of 500 hours to complete, whereas the equivalent 100 atom supercell will take just 72 hours (fully relaxed calculations are even more computationally expensive).
+A supercell method is used for the study of various defects. The first step is to create a unit cell of \zirconia\ in each of the three crystal structures. Each unit cell is then fully relaxed through a geometry optimisation process (Section \ref{geometry_optimisation_method}). The resulting cell is then used to construct supercells through tessellation in three dimensions, before being fully relaxed again. This way, we generate systems with up to ten times as many atoms as the unit cell (supercell details can be found in Table \ref{table:supercells}). This is necessary because introducing defects into a small unit cell will result in the defect interacting with itself across the periodic boundary. A supercell increases the distance between the defect and its periodic image, using the bulk material as an interaction buffer. 
+
+When constructing a supercell, it is important to consider making the supercell equally large in all directions, such that any directional bias in defect-defect interaction is minimised. Larger supercells carry an increased computational cost when running calculations, limiting the sizes we can achieve. For example, a constant-volume defect calculation with 300 atom supercells will take upwards of 500 hours to complete, whereas the equivalent 100 atom supercell will take just 72 hours (fully relaxed calculations are even more computationally expensive).
 
 
 \begin{table}[ht] % Supercell details
@@ -161,26 +163,15 @@ Four convergence criteria are used for the geometry optimisation tasks throughou
 
 \subsection{Charged cell correction}
 
-When calculating the energy of a system with an overall non-zero charge, this charge introduces a systematic error in the energy value which is a function of the charge magnitude. 
+When calculating the energy of a defect with an overall non-zero charge, this charge introduces a systematic error in the energy value which is a function of the charge magnitude. This is typically the case in high band-gap materials such as \zirconia\ where electron mobility is far lower than in metals or semiconductors, allowing defects such as \ch{V_{O}^{**}} and \ch{V_{Zr}^{''''}} to be thermodynamically stable in the lattice. 
 
-\begin{itemize}
-\item Screened Madelung \cite{Murphy2013}
-\item Makov-Payne \cite{Makov1995, Makov1996}
-\item Dielectric constants taken from \cite{Zhao2002a}
-\item Brouwer diagram script uses screened Madelung constant for the calculation
-\end{itemize}
+The source of the error from charged defects is self-interaction across the periodic boundary, made necessary by the finite cell size. A common solution is to append a Makov-Payne correction term when calculating formation energies of defects \cite{Makov1995, Makov1996}. This works well in many cases, but does not take into consideration the anisotropy of the dielectric properties, as is the case in tetragonal \zirconia\ due to the non-unity lattice $c/a$ ratio. These effects are better captured when using a screened Madelung correction \cite{Murphy2013}. This method provides a more complete description of the dielectric properties by utilising a dielectric tensor rather than a single value of the dielectric constant (or relative permittivity). Dielectric tensors for the different phases of \zirconia\ were taken from \cite{Zhao2002a, Zhao2002}. The screened Madelung correction is therefore used in preference to a Makov-Payne correction throughout this thesis.
 
 \subsection{Stiffness tensor generation}
 
-The stiffness tensors for the pure monoclinic, tetragonal and cubic phases of \zirconia\ were calculated using CASTEP's \emph{elastic constants task.} The calculation of elastic constants is a multi-step process involving up to 36 individual DFT calculations. Several scripts have been made available to simplify this processs (see Appendix \ref{castep_scripts}).
+The stiffness tensors for the pure monoclinic, tetragonal and cubic phases of \zirconia\ were calculated using CASTEP's \emph{elastic constants} task. The calculation of elastic constants is a multi-step process involving up to 36 individual DFT calculations. Several scripts have been made available to simplify this process (see Appendix \ref{castep_scripts}).
 
-The first step is to generate multiple different .cell files, each with either a small deviation in the lattice parameter or an additional shear on the cell. This requires starting with a unit cell that has already been completely relaxed via the \emph{geometry optimisation} task. 
-
-
-\begin{itemize}
-\item Calculate DFT energies of unit cell with small strains in various directions
-\item Use relative change in stress to calculate elastic constants in the form of a 6x6 tensor
-\end{itemize}
+The first step is to generate multiple different .cell files, each with either a small deviation in the lattice parameter or an additional shear on the cell. This requires starting with a unit cell that has already been completely relaxed via the \emph{geometry optimisation} task. In total, 36 .cell files are generated, each corresponding to a single element of the eventual stiffness matrix. The next step is to run a single point DFT calculation on each .cell file with the \emph{calculate stress} parameter enabled to output the resulting stress matrix. The final step is to calculate the stiffnesses in the stiffness matrix by using the known stress state and strains using Hooke's Law. 
 
 \subsection{Strain method for defect volumes}
 
@@ -499,7 +490,14 @@ In monoclinic \zirconia , the use of a +U term causes the lattice parameters to 
 	\end{center}
 \end{figure}
 
+In tetragonal \zirconia , increasing the +U term (Figure \ref{Figure:plusutet}) has a strong anisotropic effect on the lattice parameters. Unusually, the $c$ parameter falls (up to an +U energy of 6 eV) while the $a$ parameter increases. Typically it would be expected that both parameters would increase, perhaps at different rates, because the +U term increases the total energy (by increasing the Coulombic contribution) in the system. This increase in energy leads to higher stresses and therefore larger interatomic spacings (cells are permitted to relax in these calculations).
+
+Systems will always tend towards the lowest energy configuration. Therefore the reduction of the $c$ parameter suggests that it is already in a high energy configuration in the $c$ direction (overextended) and can reduce its energy by being compressed in that direction (i.e. becoming more cubic). This is consistent with the interpretation that lower temperature phases of \zirconia\ are distortions of the cubic fluorite phase caused by a small cation radius. 
+
+Above a +U parameter of 6 eV however, the $c$ parameter begins suddenly begins to increase. Upon further inspection of the resulting cell, it was found that it had transitioned completely to cubic fluorite from tetragonal. This can also be confirmed by observing that the relationship between the parameters becomes $2a^2 = c^2$ (i.e. the $c$ parameter is the same length as the unit cell's [110] diagonal, see Figure \ref{figure:tetvscubic}).
+
 \begin{figure}[ht] % +U tet
+\label{Figure:plusutet}
 \begin{center}
 \begin{tikzpicture}
 	\begin{axis}
@@ -526,7 +524,6 @@ In monoclinic \zirconia , the use of a +U term causes the lattice parameters to 
    \end{axis}
 		\end{tikzpicture}
 		\caption{Individual lattice parameters as a function of +U term in tetragonal \zirconia .}
-		\label{Figure:plusutet}
 	\end{center}
 \end{figure}
 
