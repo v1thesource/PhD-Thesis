@@ -2,15 +2,15 @@
 
 \section{Nuclear Power} % Complete
 
-In the summer of 1956, the world's first commercial nuclear power plant was connected to the grid in the north of England. This marked a significant departure from previous forms of commercial energy production, which relied on less energetically lucrative sources such as combustion of coal, oil and gas. Indeed, the closest we had come to utilising nuclear energy commercially was through geothermal power, where the thermal energy input is partly due to radiogenic heat from unstable isotopes in the Earth's mantle \cite{gando2011partial}. 
+In the summer of 1956, the world's first commercial nuclear power plant was connected to the grid in the north of England. This marked a significant departure from previous forms of commercial energy production, which relied on relatively low energy density sources such as combustion of coal, oil and gas. Before this, the closest anyone had come to utilising nuclear energy commercially was through geothermal power, where the thermal energy input is partly due to radiogenic heat from unstable isotopes in the Earth's mantle \cite{gando2011partial}. 
 %which relied on the chemical reactions of coal oil and gas
 %Combustion is a chemical process, where energy differences between reactants and products are exploited via electron exchange. Nuclear energy however, exploits the energy difference between nuclei. Both rely on the conversion of mass into energy, however, the amount of energy that can be extracted varies by several orders of magnitude
-Combustion is a chemical process where energy differences between reactants and products are exploited via electron exchange. Nuclear energy however, exploits the energy difference between nuclei. Both rely on the conversion of mass into energy, however, the amount of energy that can be extracted from the nucleus is several orders of magnitude greater.
+Combustion is a chemical process whereby energy differences between reactants and products are exploited via electron exchange. Nuclear energy however, exploits the energy difference between nuclei. Both rely on the conversion of mass into energy, however, the amount of energy that can be extracted from the nucleus is several orders of magnitude greater.
 %Combustion is a chemical process, and its use in commercial energy production is fundamentally about exploiting the free energy difference when electrons are exchanged between some reactants to produce some products. Nuclear energy, however, is about the direct conversion of mass into energy. The difference between the two is staggering.
 
 Consider methane, with an enthalpy of combustion of −887.2 kJ/mol \cite{thornton1917xv}. This is the equivalent of 9.14 eV per particle. By comparison, the total energy release from fission of one uranium-235 nucleus is at least $1.65 \times 10^{8}$ eV, as shown in Figure \ref{figure:fissionenergy}.
 
-Combustion-based power as a technology has matured over hundreds of years, with modern optimisations only looking to offer fractional percent gains in efficiency. By comparison, nuclear power technology is far from mature, with large improvements yet to be realised. One such feature is load-following, an enormously useful feature for a power plant which is currently unavailable in nuclear reactors. The biggest hurdle to achieving load-following in nuclear reactors is the issue of pellet-cladding interaction (PCI), which is the basis of the work in this thesis.
+Combustion-based power as a technology has matured over hundreds of years, with modern optimisations only looking to offer fractional percent gains in efficiency. By comparison, nuclear power technology is far from mature, with large improvements yet to be realised. One such feature is load-following, an enormously useful feature for a power plant which is currently unavailable in nuclear reactors. The biggest obstacle to achieving load-following in nuclear reactors is the issue of pellet-cladding interaction (PCI), which is the basis of the work in this thesis.
 
 \begin{figure}[htp]
 \centering
@@ -120,7 +120,7 @@ I_{134}^{53} \xrightarrow[]{\beta-} Xe_{134}^{54} + e^{-} + \overline{\nu}_{e}
 \end{equation}
 }
 
-\begin{figure}[htp]
+\begin{figure}[ht]
 \centering
 \includegraphics[height=12cm]{images/Isotopes_and_half-life.png}
 \caption[Plot of neutron number against proton number for nuclei with half-lives greater than 10${^{-8}}$ s.]{Plot of neutron number against proton number for nuclei with half-lives greater than 10${^{-8}}$ s. Taken from \cite{BenRG}.}
@@ -132,7 +132,7 @@ Another characteristic feature of fission products is that their masses are bi-m
 
 % Iodine 0.1142684237, Tellurium 0.180582
 
-\begin{figure}[htp]
+\begin{figure}[ht]
 \centering
 \includegraphics[height=12cm]{images/fissionyield.jpg}
 \caption[Plot of the percentage yield of nuclei with a given mass following a fission event. Range of masses corresponding to isotopes of iodine shown in purple and isotopes of yttrium shown in green, based on Equation \ref{eqn:fission}.]{Plot of the percentage yield of nuclei with a given mass following a fission event. Range of masses corresponding to isotopes of iodine shown in purple and isotopes of yttrium shown in green, based on Equation \ref{eqn:fission}. Adapted from \cite{England1992}.}
@@ -143,7 +143,7 @@ Another characteristic feature of fission products is that their masses are bi-m
 
 Iodine is an important fission product because it is known to corrode Zr metal cladding. It is part of the Te $\rightarrow$ Cs decay chain, with most isotopes exhibiting half-lives ranging from a few seconds to several days. Select data on Te and I fission yields are presented in Table \ref{table:decaydata_chap1}. In total, the independent yield of I isotopes from U$^{235}$ fission is 11.4\%, while the independent yield of Te isotopes (I precursors) is 18.1\%, with \ch{Te_{52}^{134}} having the highest independent yield of all possible fission products (6.3\%). These particular elements will also usually be paired with Zr and Y fission products, the latter of which is a common phase stabiliser dopant in \zirconia .
 
-\begin{table}
+\begin{table}[ht]
 \onehalfspacing
 \caption{Independent fission product yields and half-lives for the major iodine isotopes and precursors in a thermal neutron reactor. Yields from the Joint Evaluated Fission and Fusion File (JEFF 3.3). All isotopes undergo single $\beta$- decay. Metastable states are included.}  \label{table:decaydata_chap1}
 \begin{center}
@@ -190,24 +190,33 @@ PCI-related failure of nuclear fuel pins has been known about since 1963, when t
 
 The gap between the fuel and the cladding allows fuel pellets to be inserted into the fuel pin easily during manufacture, but this clearance is also designed to accommodate some increase in fuel pellet volume. It is important to consider the thermal expansion of the fuel pellet, as the centreline temperature of a PWR fuel pellet during a power transient can vary between 1500 and 1800 $^{\circ}$C, depending on the burnup of the fuel and magnitude of the reactivity insertion \cite{Bagger1994}. In addition, fuel pellets will swell due to radiation damage throughout their operational lifetime. Once the pellet-clad gap has closed entirely, any pellet expansion during a power transient will translate to a force exerted on the cladding, generating hoop stresses which open cracks on the inner cladding surface. This is the mechanical component of PCI.
 
-When the fuel pellet makes contact with the cladding, there is also a chemical interaction between the UO$_{2}$ (and fission products) and the internal surface oxide of the cladding. UO$_{2}$ is soluble in ZrO$_{2}$ up to x\% molar mass and we therefore see a bonded reaction layer which is of the form (U, Zr)O$_{2}$. This layer adopts the crystal structure of cubic fluorite, the high temperature phase of ZrO$_{2}$.
+When the fuel pellet makes contact with the cladding, there is also a chemical interaction between the UO$_{2}$ (and fission products) and the internal surface oxide of the cladding. UO$_{2}$ has some solubility in ZrO$_{2}$, and we therefore see a bonded reaction layer which is of the form (U, Zr)O$_{2}$.  Due to the large U atom, cation substitution allows this layer to adopt the crystal structure of cubic fluorite, the high temperature phase of ZrO$_{2}$.
 
-\subsection{Effect of power ramps}
-B.Cox PCI failures of Zr alloy fuel cladding \cite{bcoxpelletclad1990} talks about how they found out that fission products were necessary for PCI failures on page 260 (citation 54)
+\subsection{Reactor power ramps}
+
+It has been firmly established that PCI failures are associated with power ramping of the reactor. This presents a problem for reactors when it comes events such as start-up, load-following and any other power transients experienced by the fuel pins. Figure \ref{figure:reactor_startup} shows how reactor power varies over time during a typical PWR start-up procedure. A combination of low ramping rates and long holds at low power (to remain below ramping limits, condition fuel, and conduct coolant chemistry checks) require the entire procedure to be completed in a period of 90 hours, with several operator switch-overs in between. This is a costly procedure for the reactor operator to perform, with up to millions of US\$ foregone in electricity sales for bigger reactors, of which there are typically two or more per power plant. 
 
 \begin{figure}[htp]
 \centering
 \includegraphics[height=10cm]{images/reactor_startup.png}
-\caption[Reactor startup procedure for a typical US PWR.]{Reactor startup procedure for a typical US PWR. Adapted from \cite{ramping}.}
+\caption[Reactor startup procedure for a typical US PWR. Dashed line indicates \% withdrawal of control rods.]{Reactor startup procedure for a typical US PWR. Dashed line indicates \% withdrawal of control rods. Adapted from \cite{ramping}.}
 % M. F. James, R. W. Mills and D. R. Weaver (1991) UKAEA Reports, AEA-TRS-1015, AEA-TRS-1018 
          %  and AEA-TRS-1019.
 \label{figure:reactor_startup}
 \end{figure}
 
+Scheduled reactor shutdowns or extended low power operation (ELPO) events occur whenever refuelling or maintenance of the reactor is required. Refuelling is typically performed every 1 to 2 years, while maintenance may be required at any time. Emergency shutdowns may also occur and have their own challenges to consider (e.g. xenon poisoning, decay heat removal), though they are more rare. In each case, going through the lengthy power ramping procedure is required, and since these shutdowns cannot be avoided, being able to ramp up power faster would be a significant improvement. Ramp rates in reactors are restricted to between 3-4\% of full power above a certain threshold level to avoid PCI failures \cite{ramping}. Additionally, fuel conditioning holds (operation at certain power levels for long periods) are performed to further reduce the incidence of PCI failures. 
+
+These limits present a challenge not just when restarting reactors, but also for the implementation of load-following in reactors. Nuclear reactors have thermal feedback loops which provide some level of intrinsic load-following behaviour. For example, an increase in steam demand leads to increased boiling in the steam generators. The subsequent decrease in temperature of coolant leaving the steam generator causes a reactivity increase and therefore a power increase in the reactor. The reactor returns to critical (reactivity = 0) after some fluctuation, and the average temperature of the coolant remains unchanged.
+
+
+
+
 
 \subsection{Iodine corrosion of zirconium}
 
-The most 
+B.Cox PCI failures of Zr alloy fuel cladding \cite{bcoxpelletclad1990} talks about how they found out that fission products were necessary for PCI failures on page 260 (citation 54)
+
 
 \begin{figure}[htp]
 \centering
@@ -306,27 +315,24 @@ Conducting experiments on nuclear materials is a difficult undertaking. Nuclear 
 
 \subsection{Classical approach - molecular dynamics}
 
-Molecular dynamics uses classical mechanics as the basis for calculations 
+Molecular dynamics (MD) uses classical mechanics as the basis for calculations. These types of simulations typically use pair potentials (though many-bodied potentials are also used). These are mathematical functions which effectively describe the electronic interaction between two particles. Pair potentials are created by fitting functions to several parameters from empirical data, such as equilibrium bond lengths, thermal properties or even values from quantum mechanical calculations. The simple form of pair potentials allows MD simulations to scale up to billions of atoms, corresponding to a length scale of approximately 0.1 $\mu$m. 
 
-Add a figure here showing lennard jones. Also show the basic equations.
+In the literature, many molecular dynamics studies of \zirconia\ exist. However, these studies typically focus on dopant-stabilised zirconias. The large system sizes possible in molecular dynamics simulations are often necessary for examining properties such as ion diffusion, thermal conductivity or melting points \cite{Davis2010}. Studying fission products in \zirconia\ however, requires potentials which can accurately model atoms such as Zr, O, and I in the solid phase. A good potential for such a system has not yet been published and so a quantum mechanical study of the \zirconia\ system is the focus of this thesis. The work herein may then be used in the future development of such potentials.
 
-In the literature, many molecular dynamics studies of \zirconia\ exist. These studies typically focus on stabilised zirconias. The large system sizes possible in molecular dynamics simulations are often necessary for examining properties such as ion diffusion, thermal conductivity or melting points \cite{Davis2010}.
+%These relatively large system sizes make MD a useful tool for studying a range of materials phenomena which are difficult to model at smaller scales, such as dislocations and long-range diffusion. 
 
-\begin{itemize}
-\item Molecular dynamics allows for large system sizes (millions of atoms) compared to DFT because of the low computational cost of classical potentials. 
-\item These are mainly pair potentials (although many-bodied potentials are also used) which are some combination of a short-range repulsion term (Pauli exclusion, nuclear repulsion if van der waals is taken into account) and a long range Coulombic attraction term
-\end{itemize}
+%Add a figure here showing lennard jones. Also show the basic equations
+%These are mainly pair potentials (although many-bodied potentials are also used) which are some combination of a short-range repulsion term (Pauli exclusion, nuclear repulsion if van der waals is taken into account) and a long range Coulombic attraction term
 
 \subsection{Quantum mechanical approach - DFT}
 
-\begin{itemize}
-\item Up to hundreds of atoms, but far more fundamental data such as electron density.
-\item Very computationally expensive, but with clever workarounds for bulk crystallographic systems.
-\end{itemize}
+Another method for modelling materials at the atomic scale is to use a quantum mechanical approach. In this thesis, the framework of density functional theory (DFT) is used throughout for quantum mechanical calculations (see § \ref{section:dft}). These techniques use a more fundamental approach than molecular dynamics, and are sometimes referred to as \emph{ab initio} methods (though several empirical approximations are often used in DFT).  
+
+System sizes are far more constrained when using DFT. The equations being solved scale combinatorially with the number of electrons and ions in the system, quickly becoming intractable even for simple molecules with a few atoms. However, there are several ways to significantly reduce the computational complexity without sacrificing too much accuracy (e.g. the pseudopotential method, periodic boundaries, cell constraints and symmetry). This allows system sizes on the order of hundreds of atoms to be studied, corresponding to a length scale of approximately 1 nm. While this length scale is much smaller than what can be achieved using MD, the use of a more fundamental parameter (electron density) in calculations provides a stronger scientific basis when material properties are derived from DFT models. Additionally, DFT allows electronic properties such as electron orbital occupancy and band gaps to be studied.
 
 \subsection{Band gap}
 
-Materials are sometimes considered to fall into one of two categories; conductors or insulators. While this binary characterisation may work as an approximation for many materials, in reality there is more of a continuum between these two states, and at the heart of this lies the band gap.
+Materials are generally considered to fall into one of two categories; conductors or insulators. While this binary characterisation may work as an approximation for many materials, in reality there is more of a continuum between these two states, and at the heart of this lies the band gap.
 
 It is known that for ions, electron energy levels are quantised, restricting the range of possible electron energies to discrete quantities. More specifically, electrons can only occupy unique quantum states, defined by parameters such as quantum spin and angular momentum. In a crystal, where there are large numbers of electrons and many possible configurations of them, we refer to energy "bands" which are comprised of many quantised energies. There are sometimes gaps between energy bands in crystals (illustrated in Figure \ref{figure:band_gap}) corresponding to energy levels that cannot be occupied, meaning that if electrons were to be added at the lowest energy levels one by one, there would occasionally be relatively large jumps in energy as an electron is forced to enter a higher energy band. 
 
@@ -341,7 +347,7 @@ Two energy bands, called the valence band and conduction band, help determine a 
 
 In addition to the valence and conduction bands, we also need a value for the electron chemical potential or Fermi level of the material to determine how the energy bands are filled. If the Fermi level is exactly halfway between the valence band maximum (VBM) and the conduction band minimum (CBM), then the additional energy input required to promote an electron to the conduction band is half of the band gap. The Fermi level is strongly dependent on extrinsic defects and temperature. Extrinsic defects (called dopants) can be introduced to materials such as semiconductors in order to change the concentration of electronic defects (electrons and holes), while an increase in temperature will result in an increase in the Fermi level because of the larger amount of thermal energy available.
 
-It is important to note that band gaps reported in DFT studies are significantly lower than those obtained experimentally. This is a known problem in DFT, and an exchange-correlation functional which reproduces correct band gap energies in semiconductors and insulators (without overfitting to experimental data) has not yet been discovered. In many cases, the band gap from DFT calculations may be increased by appending an additional potential term, known as a +U parameter, to certain valence electron orbitals. This is discussed further in Section \ref{subsection:plus_U}.
+It is important to note that band gaps reported in DFT studies are significantly lower than those obtained experimentally. This is a known problem in DFT, and an exchange-correlation functional which reproduces correct band gap energies in semiconductors and insulators (without overfitting to experimental data) has not yet been discovered. In many cases, the band gap from DFT calculations may be increased by appending an additional potential term, known as a +U parameter, to certain valence electron orbitals. This is discussed further in § \ref{subsection:plus_U}.
 
 
 
