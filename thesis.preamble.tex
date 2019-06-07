@@ -6,6 +6,7 @@
 \usepackage{acronym}
 \usepackage{xr-hyper}
 \usepackage[backref=page]{hyperref}
+\usepackage[perpage]{footmisc}
 
 \usepackage{etoolbox} % This is necessary for backref of citations
 \makeatletter
@@ -21,6 +22,8 @@
 \usepackage{tikz}
 \usetikzlibrary{lindenmayersystems}
 \usetikzlibrary{patterns}
+\usepgfplotslibrary{groupplots}
+\usetikzlibrary{arrows.meta}
 \pgfdeclarelindenmayersystem{A}{%
   \symbol{F}{\pgflsystemstep=0.6\pgflsystemstep\pgflsystemdrawforward}
   \rule{A->F[+A][-A]}
@@ -120,7 +123,7 @@
 %\newcommand{\Rightbrace}[1]{\left.\raisebox{0mm}[#1][#1]{}\right)}
 
 % Funky symbols for footnotes
-\newcommand{\symbolfootnote}{\renewcommand{\thefootnote}{\fnsymbol{footnote}}}
+%\newcommand{\symbolfootnote}{\renewcommand{\thefootnote}{\fnsymbol{footnote}}}
 % now add \symbolfootnote to the beginning of the document...
 
 \newcommand{\normallinespacing}{\renewcommand{\baselinestretch}{1.5} \normalsize}

@@ -30,7 +30,7 @@ If $\Psi(\textbf{r})$ is the wave function, the electron density at position \te
 \rho(\textbf{r}) = \Psi(\textbf{r})^2
 \end{equation}
 
-\subsection{Kohn-Sham Method}
+\subsection{Kohn-Sham Method} \label{section:kohnsham}
 
 Density Functional Theory (DFT) was developed by Kohn and Sham in 1964 \cite{Kohn1965} as an ab initio method for predicting $\rho(\textbf{r})$ associated with an ensemble of atoms. The Kohn-Sham Hamiltonian (Equation \ref{equation:kohnsham}) is used in the Schr\"odinger equation.
 
@@ -54,7 +54,9 @@ The Born-Oppenheimer approximation is a two-step process for evaluating atomic f
 
 \subsection{Pseudopotentials}
 
-The electron-electron interaction component of the potential energy presents a problem when it comes to scaling experimental models. The number of terms in this interaction grows quadratically with the number of electrons in the system, and quickly becomes computationally intractable for even small systems. However, it is known that in chemical reactions, the majority of chemical behaviour is determined by relatively few valence electrons, while the more numerous core electrons have a far smaller effect. Consider the zirconium atom with 40 electrons, of which 4 (4$d^2$5$s^2$) are typically involved in bonding and chemical reactions. By considering only these valence electrons for Coulombic-term calculations, we reduce the system size by 90\%, which provides a more than tenfold reduction in computational requirements.
+The electron-electron interaction component of the potential energy presents a problem when it comes to scaling experimental models. The number of terms in this interaction grows quadratically with the number of electrons in the system, and quickly becomes computationally intractable for even small systems. However, it is known that in chemical reactions, the majority of chemical behaviour is determined by relatively few valence electrons, while the more numerous core electrons have a far smaller effect. 
+
+Consider the zirconium atom with 40 electrons, of which 4 (4$d^2$5$s^2$) are typically involved in bonding and chemical reactions. By considering only these valence electrons for Coulombic-term calculations, we reduce the system size by 90\%, which provides a more than tenfold reduction in computational requirements.
 
 Although the core electrons do not participate in chemical reactions, they still influence the properties of the atom, such as the atomic radius. Instead of modelling the core electrons explicitly, we can approximate their aggregate effect with a potential energy function. This is what we aim to achieve by using the pseudopotential method. An example indicative pseudopotential is shown in figure \ref{figure:pseudopotential}.
 
@@ -66,24 +68,143 @@ Although the core electrons do not participate in chemical reactions, they still
 \label{figure:pseudopotential}
 \end{figure}
 
-Figures \ref{figure:oxygen_pseudopotential} and \ref{figure:zirconium_pseudopotential} show the actual pseudopotentials used throughout this work for oxygen and zirconium respectively. The potentials are shown broken down by the electronic sub-shells occupied by the valence electrons.
+Figures \ref{figure:o_pp} and \ref{figure:zr_pp} show the actual pseudopotentials used throughout this work for oxygen and zirconium respectively. The potentials are shown broken down by the electronic sub-shells occupied by the valence electrons. The pseudopotentials are shown in order of increasing sub-shell energies, thus the 5s electron orbitals are filled before the 4d orbitals in zirconium. Two lines for the all-electron wavefunction are shown, corresponding to the different electron angular momenta.
 
-\begin{figure}[ht] % Oxygen pseudopotential
+\begin{figure}[ht] % Oxygen pseudopotentials
 \begin{center}
-\includegraphics[height=7.3cm]{images/oxygen_otf_pp.png}
-\end{center}
-\caption{Plots of the valence $s$ and $p$ orbital potentials for oxygen with two projectors per angular momentum. Dashed lines indicate the all-electron potentials while solid lines indicate the corresponding pseudopotential. Dotted vertical line marks the radius beyond which the potentials match.}
-\label{figure:oxygen_pseudopotential}
+\begin{tikzpicture}
+	\begin{groupplot}[group style={group size=1 by 2}, width=14cm, height=7cm]
+	\nextgroupplot[
+    axis y line*=middle, axis x line*=bottom, y label style={at={(-0.03,-0.1)}}, ylabel=Wavefunction $\Psi$, axis y line shift=0.5cm,
+    xtick=\empty, ymin=-1.1, ymax=1.1, ytick={-1, -0.5, 0, 0.5, 1}, xmax=2.5, 
+    x axis line style={white}]
+         \addplot[no marks, dashed, draw=red!80!white] table [x=distance, y=O_AE_s1,]{dat/o_pp.dat}; 
+		\addplot[no marks, draw=red!80!white] table [x=distance, y=O_pp_s1,]{dat/o_pp.dat}; 
+		\addplot[no marks, dashed, draw=blue!80!white] table [x=distance, y=O_AE_s2,]{dat/o_pp.dat}; 
+		\addplot[no marks, draw=blue!80!white] table [x=distance, y=O_pp_s2,]{dat/o_pp.dat};
+		\node at (0.1, 0.99) {\textbf{O (2s)}};
+		\draw[black] % horizontal line
+				(-0.11, 0)
+				-- % = line-to
+				++ % = calculate a vector sum
+				(axis direction cs:2.61, 0);
+		\draw[black, dotted] % Vertical line
+				(1.299,1)
+				-- % = line-to
+				++ % = calculate a vector sum
+				(axis direction cs:0,-2);
+				
+    \nextgroupplot[
+    axis y line*=middle, axis x line*=bottom, axis x line shift=0, x axis line style={white}, axis y line shift=0.5cm,
+    ymin=-1.1, ymax=1.1, ytick={-1, -0.5, 0, 0.5, 1}, xtick={0, 0.5, 1, 1.5, 2, 2.5}, xmax=2.5, xlabel=Distance from nucleus (Bohr)]
+         \addplot[no marks, dashed, draw=red!80!white] table [x=distance, y=O_AE_p1,]{dat/o_pp.dat}; 
+		\addplot[no marks, draw=red!80!white] table [x=distance, y=O_pp_p1,]{dat/o_pp.dat}; 
+		\addplot[no marks, dashed, draw=blue!80!white] table [x=distance, y=O_AE_p2,]{dat/o_pp.dat}; 
+		\addplot[no marks, draw=blue!80!white] table [x=distance, y=O_pp_p2,]{dat/o_pp.dat}; 
+		\node at (0.1, 0.99) {\textbf{O (2p)}};
+		\draw[black] % horizontal line
+				(-0.11, 0)
+				-- % = line-to
+				++ % = calculate a vector sum
+				(axis direction cs:2.61, 0);
+		\draw[black, dotted] % vertical line
+				(1.299,1)
+				-- % = line-to
+				++ % = calculate a vector sum
+				(axis direction cs:0,-2);
+	\end{groupplot}
+		\end{tikzpicture}
+		\caption{Plots of the valence $s$ and $p$ orbital potentials for oxygen with two projectors per angular momentum. Dashed lines indicate the all-electron potentials while solid lines indicate the corresponding pseudopotential. Dotted vertical line marks the radius beyond which the potentials match.}
+		\label{figure:o_pp}
+	\end{center}
 \end{figure}
 
+\clearpage
 
-\begin{figure}[ht] % Zirconium pseudopotential
+\begin{figure}[h!] % Zirconium pseudopotentials
 \begin{center}
-\includegraphics[height=12cm]{images/zirconium_otf_pp.png}
-\end{center}
-\caption{Plots of the valence $s$, $p$ and $d$ orbital potentials for zirconium with two projectors per angular momentum. Dashed lines show the all-electron potentials while solid lines indicate the corresponding pseudopotential. Dotted vertical line marks the radius beyond which the potentials match.}
-\label{figure:zirconium_pseudopotential}
+\begin{tikzpicture}
+	\begin{groupplot}[group style={group size=1 by 3}, width=14cm, height=7cm]
+	\nextgroupplot[ % 4p
+    axis y line*=middle, axis x line*=bottom, axis y line shift=0.5cm,
+    xtick=\empty, ymin=-1.2, ymax=1.2, ytick={-1, -0.5, 0, 0.5, 1}, xmax=2.5, 
+    x axis line style={white}]
+         \addplot[no marks, dashed, draw=red!80!white] table [x=distance, y=Zr_AE_p1,]{dat/zr_pp.dat}; 
+		\addplot[no marks, draw=red!80!white] table [x=distance, y=Zr_pp_p1,]{dat/zr_pp.dat}; 
+		\addplot[no marks, dashed, draw=blue!80!white] table [x=distance, y=Zr_AE_p2,]{dat/zr_pp.dat}; 
+		\addplot[no marks, draw=blue!80!white] table [x=distance, y=Zr_pp_p2,]{dat/zr_pp.dat};
+		\node at (0.1, 0.99) {\textbf{Zr (4p)}};
+		\draw[black] % horizontal line
+				(-0.11, 0)
+				-- % = line-to
+				++ % = calculate a vector sum
+				(axis direction cs:2.61, 0);
+		\draw[black, dotted] % Vertical line
+				(2.105,1)
+				-- % = line-to
+				++ % = calculate a vector sum
+				(axis direction cs:0,-2);
+				
+	\nextgroupplot[ % 5s
+    axis y line*=middle, axis x line*=bottom, axis y line shift=0.5cm, ylabel=Wavefunction $\Psi$,
+    xtick=\empty, ymin=-1.2, ymax=1.2, ytick={-1, -0.5, 0, 0.5, 1}, xmax=2.5, 
+    x axis line style={white}]
+         \addplot[no marks, dashed, draw=red!80!white] table [x=distance, y=Zr_AE_s1,]{dat/zr_pp.dat}; 
+		\addplot[no marks, draw=red!80!white] table [x=distance, y=Zr_pp_s1,]{dat/zr_pp.dat}; 
+		\addplot[no marks, dashed, draw=blue!80!white] table [x=distance, y=Zr_AE_s2,]{dat/zr_pp.dat}; 
+		\addplot[no marks, draw=blue!80!white] table [x=distance, y=Zr_pp_s2,]{dat/zr_pp.dat};
+		\node at (0.1, 0.99) {\textbf{Zr (5s)}};
+		\draw[black] % horizontal line
+				(-0.11, 0)
+				-- % = line-to
+				++ % = calculate a vector sum
+				(axis direction cs:2.61, 0);
+		\draw[black, dotted] % Vertical line
+				(2.105,1)
+				-- % = line-to
+				++ % = calculate a vector sum
+				(axis direction cs:0,-2);
+				
+    \nextgroupplot[ % 4d
+    axis y line*=middle, axis x line*=bottom, axis x line shift=0, x axis line style={white}, axis y line shift=0.5cm,
+    ymin=-1.2, ymax=1.2, ytick={-1, -0.5, 0, 0.5, 1}, xtick={0, 0.5, 1, 1.5, 2, 2.5}, xmax=2.5, xlabel=Distance from nucleus (Bohr)]
+         \addplot[no marks, dashed, draw=red!80!white] table [x=distance, y=Zr_AE_d1,]{dat/zr_pp.dat}; 
+		\addplot[no marks, draw=red!80!white] table [x=distance, y=Zr_pp_d1,]{dat/zr_pp.dat}; 
+		\addplot[no marks, dashed, draw=blue!80!white] table [x=distance, y=Zr_AE_d2,]{dat/zr_pp.dat}; 
+		\addplot[no marks, draw=blue!80!white] table [x=distance, y=Zr_pp_d2,]{dat/zr_pp.dat}; 
+		\node at (0.1, 0.99) {\textbf{Zr (4d)}};
+		\draw[black] % horizontal line
+				(-0.11, 0)
+				-- % = line-to
+				++ % = calculate a vector sum
+				(axis direction cs:2.61, 0);
+		\draw[black, dotted] % vertical line
+				(2.105,1)
+				-- % = line-to
+				++ % = calculate a vector sum
+				(axis direction cs:0,-2);
+	\end{groupplot}
+		\end{tikzpicture}
+		\caption{Plots of the valence $s$, $p$ and $d$ orbital potentials for zirconium with two projectors per angular momentum. Dashed lines indicate the all-electron potentials while solid lines indicate the corresponding pseudopotential. Dotted vertical line marks the radius beyond which the potentials match.}
+		\label{figure:zr_pp}
+	\end{center}
 \end{figure}
+
+%\begin{figure}[ht] % Oxygen pseudopotential
+%\begin{center}
+%\includegraphics[height=7.3cm]{images/oxygen_otf_pp.png}
+%\end{center}
+%\caption{Plots of the valence $s$ and $p$ orbital potentials for oxygen with two projectors per angular momentum. Dashed lines indicate the all-electron potentials while solid lines indicate the corresponding pseudopotential. Dotted vertical line marks the radius beyond which the potentials match.}
+%\label{figure:oxygen_pseudopotential}
+%\end{figure}
+
+%\begin{figure}[ht] % Zirconium pseudopotential
+%\begin{center}
+%\includegraphics[height=12cm]{images/zirconium_otf_pp.png}
+%\end{center}
+%\caption{Plots of the valence $s$, $p$ and $d$ orbital potentials for zirconium with two projectors per angular momentum. Dashed lines show the all-electron potentials while solid lines indicate the corresponding pseudopotential. Dotted vertical line marks the radius beyond which the potentials match.}
+%\label{figure:zirconium_pseudopotential}
+%\end{figure}
 
 
 \section{Periodic boundaries}
@@ -117,7 +238,9 @@ Where $\psi_k(\textbf{r})$ is the wave function evaluated at position \textbf{r}
 
 \subsection{Plane-waves}
 
-The electron density of a system is described in the context of a basis set. A basis set is a collection of functions (known as basis functions) which can be combined to produce some relevant output, typically the mathematical description for the shape of an electron orbital. For example, any sound wave can be generated from a combination of sine functions (basis functions). The purpose of a basis set is to describe the varying amplitude of the electron density in space. Any complete basis set (e.g. plane-wave, correlation-consistent, split-valence) may be used to represent the behaviour of electron orbitals, but a plane-wave method was chosen due to its greater suitability for periodic systems (plane-waves are intrinsically periodic). 
+The electron density of a system is described in the context of a basis set. A basis set is a collection of functions (known as basis functions) which can be combined to produce some relevant output, typically the mathematical description for the shape of an electron orbital. For example, any sound wave can be generated from a combination of sine functions (basis functions). 
+
+The purpose of a basis set in DFT calculations is to describe the varying amplitude of the electron density in space. Any complete basis set (e.g. plane-wave, correlation-consistent, split-valence) may be used to represent the behaviour of electron orbitals, but a plane-wave method was chosen due to its greater suitability for periodic systems (plane-waves are intrinsically periodic). Since the electron densities are represented by a finite sum of plane-waves with different energies, a truncation error will be incurred. Plane-waves of higher energies provide a smaller contribution to the overall density, so only plane-wave up to a chosen cut-off energy value are considered in order to reduce computational requirements. An appropriate plane-wave cut-off energy must therefore be determined through a convergence test. 
 
 %Figure \ref{Figure:cutoffconvergence} shows the first convergence study where the total energy of simulations with various values of $E_{cutoff}$ were compared to a highly converged value, and then plotted on a log scale to see how precision is improved at larger values.
 
@@ -207,7 +330,7 @@ where $\Delta{G^{\plimsoll}_{f, ZrO_2}}$ is the experimental Gibbs energy at sta
 \mu_{O_2}(p_{O_2},T) = \mu^{\plimsoll}_{O_2} + \Delta{\mu(T)} + \frac{1}{2}{k_B}log(\frac{p_{O_2}}{p^{\plimsoll}_{O_2}})
 \end{equation}
 
-Using our generalised formula for $\mu_{O_2}$, we fix the temperature within the range of thermal phase-stabilisation (1500 K for tetragonal \zirconia) and calculate $\mu_{O_2}$ for many different values of $p_{O_2}$ between $10^{-35}$ and 10$^{0}$ atm, corresponding to oxygen deficient and oxygen rich environments, respectively ($p_{O_2}$ in air is approximately 0.2 atm). While the tetragonal phase will be stress-stabilised in practice, thermal-stabilisation in such models has been shown to qualitatively approximate the effect of stress-stabilisation, while allowing a wider range of dopant behaviours to be predicted \cite{Bell2016}. Equilibrium defect concentrations are then calculated at each $\mu_{O_2}$ and plotted against $p_{O_2}$ to produce a Brouwer diagram. 
+Using our generalised formula for $\mu_{O_2}$, we fix the temperature within the range of thermal phase-stabilisation (1500 K for tetragonal \zirconia) and calculate $\mu_{O_2}$ for many different values of $p_{O_2}$ between $10^{-35}$ and 10$^{0}$ atm, corresponding to oxygen deficient and oxygen rich environments, respectively ($p_{O_2}$ in air is approximately 0.2 atm). Equilibrium defect concentrations are then calculated at each $\mu_{O_2}$ and plotted against $p_{O_2}$ to produce a Brouwer diagram. While the tetragonal phase will be stress-stabilised in practice, thermal-stabilisation in such models has been shown to qualitatively approximate the effect of stress-stabilisation, while allowing a wider range of dopant behaviours to be predicted \cite{Bell2016}. 
 
 \subsection{Effect of space charge}
 
@@ -215,77 +338,61 @@ The difference in the diffusion rate of oxygen vacancies compared to electrons l
 
 Figure \ref{figure:spacechargeexample} shows an example of the defect equilibria in tetragonal \zirconia\ with an overall positive space charge. In order for such a condition to be satisfied, higher concentrations of positively charged oxygen vacancy and hole defects are predicted to be present. When extrinsic defects are also present in the lattice in significant concentrations, the space charge condition may influence which defect types are dominant at different oxygen pressures, as different oxidation states may be necessary to satisfy the charge condition.
 
-\begin{figure}[ht] % Tet conc sweep with space charge 1e-1
+\begin{figure}[ht] % Tet intrinsic no space charge
 \begin{center}
 \begin{tikzpicture}
-	\begin{axis}
-		[width=8.22cm, xlabel={\ch{log_{10}}($p_{O_{2}}$) (atm)}, ylabel={\ch{log_{10}}([D]) (per f.u.)}, ymin=-10, ymax=0, xmin=-35, xmax=0, legend style={{draw=}, at={(0.40,0.97)}, anchor=north west, legend columns=3, nodes={scale=0.75, transform shape}}]
-        \addplot[no marks, draw=blue!70!black] table [x=pO2, y=electrons,]{dat/1e5iconctet1500_sc_e-1.dat}; \addlegendentry{\ch{e^{'}}}; %\node at (-26.0,-1.9) {\ch{e^{'}}};
-        \addplot[no marks, draw=red!85!black] table [x=pO2, y=holes,]{dat/1e5iconctet1500_sc_e-1.dat}; \addlegendentry{\ch{h^{\textperiodcentered}}}; %\node at (-7,-3.6) {\ch{h^{\textperiodcentered}}};
-        \addplot[no marks, draw=black!70!green] table [x=pO2, y=VO{2},]{dat/1e5iconctet1500_sc_e-1.dat}; \addlegendentry{\ch{V_{O}^{\textperiodcentered\textperiodcentered}}}; %\node at (-26.7,-3.3) {\ch{V_{O}^{\textperiodcentered\textperiodcentered}}};
-%         \addplot[no marks, draw=black!55!green] table [x=pO2, y=VO{1},]{dat/1e5iconctet1500_sc_e-1.dat}; \addlegendentry{\ch{V_{O}^{\textperiodcentered}}};
-%         \addplot[no marks, draw=black!30!green] table [x=pO2, y=VO{0},]{dat/1e5iconctet1500_sc_e-1.dat}; \addlegendentry{\ch{V_{O}^{x}}};
-        \addplot[no marks, draw=yellow!85!blue] table [x=pO2, y=VM{-4},]{dat/1e5iconctet1500_sc_e-1.dat}; \addlegendentry{\ch{V_{Zr}^{''''}}};
-%         \addplot[no marks, draw=yellow!75!blue] table [x=pO2, y=VM{-3},]{dat/1e5iconctet1500_sc_e-1.dat}; \addlegendentry{\ch{V_{Zr}^{'''}}};
-%         \addplot[no marks, draw=yellow!65!blue] table [x=pO2, y=VM{-2},]{dat/1e5iconctet1500_sc_e-1.dat}; \addlegendentry{\ch{V_{Zr}^{''}}};
-%         \addplot[no marks, draw=yellow!55!blue] table [x=pO2, y=VM{-1},]{dat/1e5iconctet1500_sc_e-1.dat}; \addlegendentry{\ch{V_{Zr}^{'}}};
-%         \addplot[no marks, draw=yellow!45!blue] table [x=pO2, y=VM{0},]{dat/1e5iconctet1500_sc_e-1.dat}; \addlegendentry{\ch{V_{Zr}^{x}}};
-%         \addplot[no marks, draw=red!60!yellow] table [x=pO2, y=Oi{-2},]{dat/1e5iconctet1500_sc_e-1.dat}; \addlegendentry{\ch{O_{i}^{''}}};
-%         \addplot[no marks, draw=red!50!yellow] table [x=pO2, y=Oi{-1},]{dat/1e5iconctet1500_sc_e-1.dat}; \addlegendentry{\ch{O_{i}^{'}}};
-%         \addplot[no marks, draw=red!40!yellow] table [x=pO2, y=Oi{0},]{dat/1e5iconctet1500_sc_e-1.dat}; \addlegendentry{\ch{O_{i}^{x}}};
-%         \addplot[no marks, draw=green!80!pink] table [x=pO2, y=Mi{4},]{dat/1e5iconctet1500_sc_e-1.dat}; \addlegendentry{\ch{Zr_{i}^{\textperiodcentered\textperiodcentered\textperiodcentered\textperiodcentered}}};
-%         \addplot[no marks, draw=green!70!pink] table [x=pO2, y=Mi{3},]{dat/1e5iconctet1500_sc_e-1.dat}; \addlegendentry{\ch{Zr_{i}^{\textperiodcentered\textperiodcentered\textperiodcentered}}};
-%         \addplot[no marks, draw=green!60!pink] table [x=pO2, y=Mi{2},]{dat/1e5iconctet1500_sc_e-1.dat}; \addlegendentry{\ch{Zr_{i}^{\textbf{\textperiodcentered\textperiodcentered}}}};
-%         \addplot[no marks, draw=green!50!pink] table [x=pO2, y=Mi{1},]{dat/1e5iconctet1500_sc_e-1.dat}; \addlegendentry{\ch{Zr_{i}^{\textperiodcentered}}};
-%         \addplot[no marks, draw=green!40!pink] table [x=pO2, y=Mi{0},]{dat/1e5iconctet1500_sc_e-1.dat}; \addlegendentry{\ch{Zr_{i}^{x}}};
-%         \addplot[no marks, dashed, draw=red!70!black] table [x=pO2, y=Ii{0},]{dat/1e5iconctet1500_sc_e-1.dat}; \addlegendentry{\ch{I_{i}^{x}}};
-%         \addplot[no marks, dashed, draw=red!50!black] table [x=pO2, y=Ii{-1},]{dat/1e5iconctet1500_sc_e-1.dat}; \addlegendentry{\ch{I_{i}^{'}}};
-        \addplot[no marks, dashed, draw=purple] table [x=pO2, y=Ii{1},]{dat/1e5iconctet1500_sc_e-1.dat}; \addlegendentry{\ch{I_{i}^{\textperiodcentered}}};
-        \addplot[no marks, dashed, draw=blue!50!white] table [x=pO2, y=IsubO{1},]{dat/1e5iconctet1500_sc_e-1.dat}; \addlegendentry{\ch{I_{O}^{\textperiodcentered}}};
-        \addplot[no marks, dashed, draw=green!60!black] table [x=pO2, y=IsubO{2},]{dat/1e5iconctet1500_sc_e-1.dat}; \addlegendentry{\ch{I_{O}^{\textperiodcentered\textperiodcentered}}};
-        \addplot[no marks, dashed, draw=black] table [x=pO2, y=IsubO{3},]{dat/1e5iconctet1500_sc_e-1.dat}; \addlegendentry{\ch{I_{O}^{\textperiodcentered\textperiodcentered\textperiodcentered}}};
-        \addplot[no marks, dashed, draw=orange!80!black] table [x=pO2, y=IsubZr{-3},]{dat/1e5iconctet1500_sc_e-1.dat}; \addlegendentry{\ch{I_{Zr}^{'''}}};
-%         \addplot[no marks, dashed, draw=pink] table [x=pO2, y=IsubZr{-4},]{dat/1e5iconctet1500_sc_e-1.dat}; \addlegendentry{\ch{I_{Zr}^{''''}}};
-%         \addplot[no marks, dashed, draw=purple] table [x=pO2, y=IsubZr{-5},]{dat/1e5iconctet1500_sc_e-1.dat}; \addlegendentry{\ch{I_{Zr}^{'''''}}};
-%         \addplot[no marks] table [x=pO2, y=Stoich,]{dat/1e5iconctet1500_sc_e-1.dat}; \addlegendentry{Stoich};
-%\node at (-33.7,-0.5) {\textbf{a)}};
-			\end{axis}            
+	\begin{groupplot}[group style={group size=1 by 2}, width=12cm, height=8.95cm]
+	\nextgroupplot[
+		 ylabel={\ch{log_{10}}([D]) (per f.u.)}, ymin=-10, ymax=0, xmin=-35, xmax=0, legend style={{draw=}, at={(0.40,0.97)}, anchor=north west, legend columns=2, nodes={scale=1, transform shape}}]
+        \addplot[no marks, draw=blue!70!black] table [x=pO2, y=electrons,]{dat/intrinsic_tet.dat}; \addlegendentry{\ch{e^{'}}}; \node at (-26.0,-2) {\ch{e^{'}}};
+        \addplot[no marks, draw=red!85!black] table [x=pO2, y=holes,]{dat/intrinsic_tet.dat}; \addlegendentry{\ch{h^{\textperiodcentered}}}; \node at (-6.8,-3.6) {\ch{h^{\textperiodcentered}}};
+        \addplot[no marks, draw=black!70!green] table [x=pO2, y=VO{2},]{dat/intrinsic_tet.dat}; \addlegendentry{\ch{V_{O}^{\textperiodcentered\textperiodcentered}}}; \node at (-28,-3) {\ch{V_{O}^{\textperiodcentered\textperiodcentered}}};
+%         \addplot[no marks, draw=black!55!green] table [x=pO2, y=VO{1},]{dat/intrinsic_tet.dat}; \addlegendentry{\ch{V_{O}^{*}}};
+%         \addplot[no marks, draw=black!30!green] table [x=pO2, y=VO{0},]{dat/intrinsic_tet.dat}; \addlegendentry{\ch{V_{O}^{x}}};
+        \addplot[no marks, draw=yellow!85!blue] table [x=pO2, y=VM{-4},]{dat/intrinsic_tet.dat}; \addlegendentry{\ch{V_{Zr}^{''''}}}; \node at (-2.9,-4.6) {\ch{V_{Zr}^{''''}}};
+%         \addplot[no marks, draw=yellow!75!blue] table [x=pO2, y=VM{-3},]{dat/intrinsic_tet.dat}; \addlegendentry{\ch{V_{Zr}^{'''}}};
+%         \addplot[no marks, draw=yellow!65!blue] table [x=pO2, y=VM{-2},]{dat/intrinsic_tet.dat}; \addlegendentry{\ch{V_{Zr}^{''}}};
+%         \addplot[no marks, draw=yellow!55!blue] table [x=pO2, y=VM{-1},]{dat/intrinsic_tet.dat}; \addlegendentry{\ch{V_{Zr}^{'}}};
+%         \addplot[no marks, draw=yellow!45!blue] table [x=pO2, y=VM{0},]{dat/intrinsic_tet.dat}; \addlegendentry{\ch{V_{Zr}^{x}}};
+%         \addplot[no marks, draw=red!60!yellow] table [x=pO2, y=Oi{-2},]{dat/intrinsic_tet.dat}; \addlegendentry{\ch{O_{i}^{''}}};
+%         \addplot[no marks, draw=red!50!yellow] table [x=pO2, y=Oi{-1},]{dat/intrinsic_tet.dat}; \addlegendentry{\ch{O_{i}^{'}}};
+%         \addplot[no marks, draw=red!40!yellow] table [x=pO2, y=Oi{0},]{dat/intrinsic_tet.dat}; \addlegendentry{\ch{O_{i}^{x}}};
+%         \addplot[no marks, draw=green!80!pink] table [x=pO2, y=Mi{4},]{dat/intrinsic_tet.dat}; \addlegendentry{\ch{Zr_{i}^{****}}};
+%         \addplot[no marks, draw=green!70!pink] table [x=pO2, y=Mi{3},]{dat/intrinsic_tet.dat}; \addlegendentry{\ch{Zr_{i}^{***}}};
+%         \addplot[no marks, draw=green!60!pink] table [x=pO2, y=Mi{2},]{dat/intrinsic_tet.dat}; \addlegendentry{\ch{Zr_{i}^{\textbf{**}}}};
+%         \addplot[no marks, draw=green!50!pink] table [x=pO2, y=Mi{1},]{dat/intrinsic_tet.dat}; \addlegendentry{\ch{Zr_{i}^{*}}};
+%         \addplot[no marks, draw=green!40!pink] table [x=pO2, y=Mi{0},]{dat/intrinsic_tet.dat}; \addlegendentry{\ch{Zr_{i}^{x}}};
+%         \addplot[no marks] table [x=pO2, y=Stoich,]{dat/intrinsic_tet.dat}; \addlegendentry{Stoich};
+\node at (-33.7,-0.5) {\textbf{a)}}; 
+			%\end{axis}     
+%\end{tikzpicture}
+%\begin{tikzpicture} % 1e-1
+	\nextgroupplot[
+		 xlabel={\ch{log_{10}}($p_{O_{2}}$) (atm)}, ylabel={\ch{log_{10}}([D]) (per f.u.)}, ymin=-10, ymax=0, xmin=-35, xmax=0, legend style={{draw=}, at={(0.40,0.97)}, anchor=north west, legend columns=4, nodes={scale=1, transform shape}}]
+        \addplot[no marks, draw=blue!70!black] table [x=pO2, y=electrons,]{dat/intrinsic_spacecharge01.dat}; \node at (-26.5,-2.5) {\ch{e^{'}}};
+        \addplot[no marks, draw=red!85!black] table [x=pO2, y=holes,]{dat/intrinsic_spacecharge01.dat}; \node at (-13,-3) {\ch{h^{\textperiodcentered}}};
+        \addplot[no marks, draw=black!70!green] table [x=pO2, y=VO{2},]{dat/intrinsic_spacecharge01.dat}; \node at (-28,-0.8) {\ch{V_{O}^{\textperiodcentered\textperiodcentered}}};
+%         \addplot[no marks, draw=black!55!green] table [x=pO2, y=VO{1},]{dat/intrinsic_spacecharge01.dat}; \addlegendentry{\ch{V_{O}^{*}}};
+%         \addplot[no marks, draw=black!30!green] table [x=pO2, y=VO{0},]{dat/intrinsic_spacecharge01.dat}; \addlegendentry{\ch{V_{O}^{x}}};
+        %\addplot[no marks, draw=yellow!85!blue] table [x=pO2, y=VM{-4},]{dat/intrinsic_spacecharge01.dat}; \node at (-3,-3) {\ch{V_{Zr}^{''''}}};
+%         \addplot[no marks, draw=yellow!75!blue] table [x=pO2, y=VM{-3},]{dat/intrinsic_spacecharge01.dat}; \addlegendentry{\ch{V_{Zr}^{'''}}};
+%         \addplot[no marks, draw=yellow!65!blue] table [x=pO2, y=VM{-2},]{dat/intrinsic_spacecharge01.dat}; \addlegendentry{\ch{V_{Zr}^{''}}};
+%         \addplot[no marks, draw=yellow!55!blue] table [x=pO2, y=VM{-1},]{dat/intrinsic_spacecharge01.dat}; \addlegendentry{\ch{V_{Zr}^{'}}};
+%         \addplot[no marks, draw=yellow!45!blue] table [x=pO2, y=VM{0},]{dat/intrinsic_spacecharge01.dat}; \addlegendentry{\ch{V_{Zr}^{x}}};
+%         \addplot[no marks, draw=red!60!yellow] table [x=pO2, y=Oi{-2},]{dat/intrinsic_spacecharge01.dat}; \addlegendentry{\ch{O_{i}^{''}}};
+%         \addplot[no marks, draw=red!50!yellow] table [x=pO2, y=Oi{-1},]{dat/intrinsic_spacecharge01.dat}; \addlegendentry{\ch{O_{i}^{'}}};
+%         \addplot[no marks, draw=red!40!yellow] table [x=pO2, y=Oi{0},]{dat/intrinsic_spacecharge01.dat}; \addlegendentry{\ch{O_{i}^{x}}};
+%         \addplot[no marks, draw=green!80!pink] table [x=pO2, y=Mi{4},]{dat/intrinsic_spacecharge01.dat}; \addlegendentry{\ch{Zr_{i}^{****}}};
+%         \addplot[no marks, draw=green!70!pink] table [x=pO2, y=Mi{3},]{dat/intrinsic_spacecharge01.dat}; \addlegendentry{\ch{Zr_{i}^{***}}};
+%         \addplot[no marks, draw=green!60!pink] table [x=pO2, y=Mi{2},]{dat/intrinsic_spacecharge01.dat}; \addlegendentry{\ch{Zr_{i}^{\textbf{**}}}};
+%         \addplot[no marks, draw=green!50!pink] table [x=pO2, y=Mi{1},]{dat/intrinsic_spacecharge01.dat}; \addlegendentry{\ch{Zr_{i}^{*}}};
+%         \addplot[no marks, draw=green!40!pink] table [x=pO2, y=Mi{0},]{dat/intrinsic_spacecharge01.dat}; \addlegendentry{\ch{Zr_{i}^{x}}};
+%         \addplot[no marks] table [x=pO2, y=Stoich,]{dat/intrinsic_spacecharge01.dat}; \addlegendentry{Stoich};
+\node at (-33.7,-0.5) {\textbf{b)}};
+	\end{groupplot}
+			%\end{axis}              
 \end{tikzpicture}
-\begin{tikzpicture} % 1e-1
-	\begin{axis}
-		[width=8.22cm, xlabel={\ch{log_{10}}($p_{O_{2}}$) (atm)}, yticklabels={}, ymin=-10, ymax=0, xmin=-35, xmax=0]
-        \addplot[no marks, draw=blue!70!black] table [x=pO2, y=electrons,]{dat/1e3iconctet1500_sc_e-1.dat}; %\node at (-27,-1.7) {\ch{e^{'}}};
-        \addplot[no marks, draw=red!85!black] table [x=pO2, y=holes,]{dat/1e3iconctet1500_sc_e-1.dat}; %\node at (-2.5,-2.1) {\ch{h^{\textperiodcentered}}};
-        \addplot[no marks, draw=black!70!green] table [x=pO2, y=VO{2},]{dat/1e3iconctet1500_sc_e-1.dat}; 
-%         \addplot[no marks, draw=black!55!green] table [x=pO2, y=VO{1},]{dat/1e3iconctet1500_sc_e-1.dat}; 
-%         \addplot[no marks, draw=black!30!green] table [x=pO2, y=VO{0},]{dat/1e3iconctet1500_sc_e-1.dat}; 
-        \addplot[no marks, draw=yellow!85!blue] table [x=pO2, y=VM{-4},]{dat/1e3iconctet1500_sc_e-1.dat}; 
-%         \addplot[no marks, draw=yellow!75!blue] table [x=pO2, y=VM{-3},]{dat/1e3iconctet1500_sc_e-1.dat}; 
-%         \addplot[no marks, draw=yellow!65!blue] table [x=pO2, y=VM{-2},]{dat/1e3iconctet1500_sc_e-1.dat}; 
-%         \addplot[no marks, draw=yellow!55!blue] table [x=pO2, y=VM{-1},]{dat/1e3iconctet1500_sc_e-1.dat}; 
-%         \addplot[no marks, draw=yellow!45!blue] table [x=pO2, y=VM{0},]{dat/1e3iconctet1500_sc_e-1.dat}; 
-%         \addplot[no marks, draw=red!60!yellow] table [x=pO2, y=Oi{-2},]{dat/1e3iconctet1500_sc_e-1.dat}; 
-%         \addplot[no marks, draw=red!50!yellow] table [x=pO2, y=Oi{-1},]{dat/1e3iconctet1500_sc_e-1.dat}; 
-%         \addplot[no marks, draw=red!40!yellow] table [x=pO2, y=Oi{0},]{dat/1e3iconctet1500_sc_e-1.dat}; 
-%         \addplot[no marks, draw=green!80!pink] table [x=pO2, y=Mi{4},]{dat/1e3iconctet1500_sc_e-1.dat}; 
-%         \addplot[no marks, draw=green!70!pink] table [x=pO2, y=Mi{3},]{dat/1e3iconctet1500_sc_e-1.dat}; 
-%         \addplot[no marks, draw=green!60!pink] table [x=pO2, y=Mi{2},]{dat/1e3iconctet1500_sc_e-1.dat}; 
-%         \addplot[no marks, draw=green!50!pink] table [x=pO2, y=Mi{1},]{dat/1e3iconctet1500_sc_e-1.dat}; 
-%         \addplot[no marks, draw=green!40!pink] table [x=pO2, y=Mi{0},]{dat/1e3iconctet1500_sc_e-1.dat}; 
-%         \addplot[no marks, dashed, draw=red!70!black] table [x=pO2, y=Ii{0},]{dat/1e3iconctet1500_sc_e-1.dat}; 
-%         \addplot[no marks, dashed, draw=red!50!black] table [x=pO2, y=Ii{-1},]{dat/1e3iconctet1500_sc_e-1.dat}; 
-        \addplot[no marks, dashed, draw=purple] table [x=pO2, y=Ii{1},]{dat/1e3iconctet1500_sc_e-1.dat}; 
-        \addplot[no marks, dashed, draw=blue!50!white] table [x=pO2, y=IsubO{1},]{dat/1e3iconctet1500_sc_e-1.dat}; %\node at (-11,-2.6) {\ch{I_{O}^{\textperiodcentered}}};
-        \addplot[no marks, dashed, draw=green!60!black] table [x=pO2, y=IsubO{2},]{dat/1e3iconctet1500_sc_e-1.dat}; 
-        \addplot[no marks, dashed, draw=black] table [x=pO2, y=IsubO{3},]{dat/1e3iconctet1500_sc_e-1.dat}; 
-        \addplot[no marks, dashed, draw=orange!80!black] table [x=pO2, y=IsubZr{-3},]{dat/1e3iconctet1500_sc_e-1.dat}; 
-%         \addplot[no marks, dashed, draw=pink] table [x=pO2, y=IsubZr{-4},]{dat/1e3iconctet1500_sc_e-1.dat}; 
-%         \addplot[no marks, dashed, draw=purple] table [x=pO2, y=IsubZr{-5},]{dat/1e3iconctet1500_sc_e-1.dat}; 
-%         \addplot[no marks] table [x=pO2, y=Stoich,]{dat/1e3iconctet1500_sc_e-1.dat}; 
-%\node at (-33.7,-0.5) {\textbf{b)}};
-			\end{axis}            
-\end{tikzpicture}
-		\caption{Tetragonal phase Brouwer diagrams of point defects at iodine concentrations of a) $10^{-5}$ and b) $10^{-3}$, at a temperature of 1500 K. Space charge = $10^{-1}$ e$^{-1}$ per f.u.}
+		\caption{Tetragonal phase Brouwer diagrams of intrinsic point defects at a temperature of 1500 K \textbf{a)} without a space charge and \textbf{b)} with a space charge of $10^{-1}$ e$^{-1}$ per f.u.}
 		\label{figure:spacechargeexample}
 	\end{center}
 \end{figure}
@@ -533,8 +640,6 @@ Above a +U parameter of 6 eV however, the $c$ parameter suddenly begins to incre
 
 The effect of a +U term on a lattice parameter of cubic \zirconia\ is shown in Figure \ref{Figure:plusucubic}. Notably, the symmetry of the cell remains intact even up to a +U term of 12 eV, unlike in the monoclinic and tetragonal phases. The lattice parameter also increases superlinearly as the +U term is increased. This is the typical response that is expected when a +U term is introduced. 
 
-There was however one instance of unexpected behaviour. Knowing that the tetragonal phase collapses to cubic at +U terms greater than 6 eV, we would expect both to exhibit the same band gap in this region. Looking at the band gap results from Figure \ref{Figure:plusubandgap}, we see that the band gaps of tetragonal and cubic \zirconia\ continue to be different above 6 eV, despite the crystal structures being the same in this region. One difference between the cells is that the cubic unit cell has 12 atoms while the tetragonal unit cell has 6 atoms. While this suggests a size effect, the band gap difference did not appear when comparing the band gaps of unit cells and supercells in the absence of a +U term. 
-
 \begin{figure}[ht] % +U cubic
 \begin{center}
 \begin{tikzpicture}
@@ -545,7 +650,10 @@ There was however one instance of unexpected behaviour. Knowing that the tetrago
         %\addplot[no marks, densely dotted, black] table [x=plusU, y=c,]{dat/plus_u_cubic.dat}; \addlegendentry{c};
 			\end{axis}
 		\end{tikzpicture}
-		\caption{Individual lattice parameters as a function of +U term in cubic \zirconia .}
+		\caption{Lattice parameter as a function of +U term in cubic \zirconia .}
 		\label{Figure:plusucubic}
 	\end{center}
 \end{figure}
+
+There was however one instance of unexpected behaviour. Knowing that the tetragonal phase collapses to cubic at +U terms greater than 6 eV, we would expect both to exhibit the same band gap in this region. Looking at the band gap results from Figure \ref{Figure:plusubandgap}, we see that the band gaps of tetragonal and cubic \zirconia\ continue to be different above 6 eV, despite the crystal structures being the same in this region. One difference between the cells is that the cubic unit cell has 12 atoms while the tetragonal unit cell has 6 atoms. While this suggests a size effect, the band gap difference did not appear when comparing the band gaps of unit cells and supercells in the absence of a +U term. 
+
