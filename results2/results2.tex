@@ -6,9 +6,9 @@
 
 \section{Introduction}
 
-Stress-corrosion cracking (SCC) in nuclear fuel pins is an issue related to early integrity of fuel assemblies in light water reactors (LWRs). SCC studies of the internal surface of zirconium-based fuel claddings have been conducted, which indicate that iodine is likely to be one of the main corrosive species involved in promoting crack growth \cite{rosenbaum1966interaction, bcoxpelletclad1990,fregonese2000failure,Sidky1998}. The exact mechanism for iodine SCC has not yet been determined due to difficulties observing the internal cladding surface in-situ, while experimental studies are not yet capable of reproducing the conditions under which such failures occur. We have therefore adopted a quantum-mechanical simulation approach to model the behaviour of iodine within the oxide layer of the cladding, the layer preceding the zirconium metal. 
+As mentioned in Chapter I, stress-corrosion cracking (SCC) in nuclear fuel pins is an issue related to early integrity of fuel assemblies in light water reactors (LWRs). SCC studies of the internal surface of zirconium-based fuel claddings have been conducted, which indicate that iodine is likely to be one of the main corrosive species involved in promoting crack growth \cite{rosenbaum1966interaction, bcoxpelletclad1990,fregonese2000failure,Sidky1998}. The exact mechanism for iodine SCC has not yet been determined due to difficulties observing the internal cladding surface in-situ, while experimental studies are not yet capable of reproducing the conditions under which such failures occur. The quantum-mechanical simulation approach is therefore particularly useful to model the behaviour of iodine within the oxide layer of the cladding, the layer preceding the zirconium metal. 
 
-Iodine is produced in the fuel pellet directly from fission and also from the decay of tellurium precursors. Both iodine and tellurium are relatively common fission products, with combined independent yields from thermal fission of U$_{235}$ above 5\% \cite{kennett1956mass, iodine129fissionyield, imanishi1976independent, iodinefissionyields, iodine132, amiel1975odd}. The majority of thermal fission events occur in the outer rim of the fuel pellet, and a fission product penetration depth of up to 8 $\mu$m in \zirconia\ \cite{degueldre2001behaviour} suggests a large degree of implantation within the oxide and the Zr metal into which the oxide grows, raising the concentration of I well above the equilibrium value. Iodine and many of its compounds (ZrI$_{4}$, CsI) are volatile and fuel pellets contain many cracks and spaces through which iodine may be rapidly transported to the cladding. When reactor power is increased during start-up, iodine is released in substantial quantities from the UO$_{2}$ pellet \cite{peehs1982experimental}. This is believed to cause crack propagation in the cladding when combined with stresses imposed on the cladding by the fuel pellet, a phenomenon known as pellet-cladding interaction (PCI). Upper limits on power ramping and holding times have therefore been established by fuel suppliers to mitigate potential PCI failures \cite{yagnik2005effect}. While these restrictions have reduced or prevented the incidence of PCI failures, they also impose costs on the operator due to longer ramping periods. This also restricts the ability of the nuclear reactor to load-follow grid demand. Cladding/fuel materials resistant to PCI failure are therefore of great interest in the nuclear power industry, promoting research into solutions such as cladding liners and doped fuel pellets \cite{nonon2005pci,yang2012effect}. 
+Iodine is produced in the fuel pellet directly from fission (see Chapter I for details) and also from the decay of tellurium precursors. Both iodine and tellurium are relatively common fission products, with combined independent yields from thermal fission of U$_{235}$ above 5\% \cite{kennett1956mass, iodine129fissionyield, imanishi1976independent, iodinefissionyields, iodine132, amiel1975odd}. The majority of thermal fission events occur in the outer rim of the fuel pellet, and a fission product penetration depth of up to 8 $\mu$m in \zirconia\ \cite{degueldre2001behaviour} suggests a large degree of implantation within the oxide and the Zr metal into which the oxide grows, raising the concentration of I well above the equilibrium value. Iodine and many of its relevant compounds (as ZrI$_{4}$, CsI) are volatile and fuel pellets contain many cracks and spaces through which iodine may be rapidly transported to the cladding. When reactor power is increased during start-up, iodine is released in substantial quantities from the UO$_{2}$ pellet \cite{peehs1982experimental}. This is believed to cause crack propagation in the cladding when combined with stresses imposed on the cladding by the fuel pellet, and this contributes to pellet-cladding interaction (PCI), a phenomenon discussed in Chapter I. Upper limits on power ramping and holding times have therefore been established by fuel suppliers to mitigate potential PCI failures \cite{yagnik2005effect}. While these restrictions have reduced or prevented the incidence of PCI failures, they also impose costs on the operator due to longer ramping periods. This also restricts the ability of the nuclear reactor to load-follow grid demand. Cladding/fuel materials resistant to PCI failure are therefore of great interest in the nuclear power industry, promoting research into solutions such as cladding liners and doped fuel pellets \cite{nonon2005pci,yang2012effect}. 
 
 %\item Power ramping: Increasing power, such as during reactor start-up, can lead to cladding failure.   %power must be ramped up gradually in order to avoid excessive temperature gradients in the fuel pins, but also to manage fission product concentrations. Due to the different half-lives of various fission products, a power ramp will cause a transient increase in the iodine concentration within a fuel pin
 
@@ -17,20 +17,20 @@ Iodine is an oxidising agent, which, under standard conditions, will oxidise Zr 
 
 Unlike oxygen and hydrogen, which readily diffuse into Zr metal to occupy interstitial sites, iodine atoms have been predicted in atomistic studies to have very high energy barriers to bulk interstitial diffusion \cite{rossi2015first,legris2005ab,carlot2002energetically}. This is due to the relatively large radius of the iodine atom, which imposes large local strains when penetrating the Zr lattice. This suggests that iodine will instead be transported towards crack tips via grain boundaries. Indeed, intergranular cracking has been observed in PCI failures, but only for a few hundred nm before a more rapid transgranular crack propagation \cite{fregonese2000failure}. Conversely, no atomic scale studies of iodine in \zirconia\ were found in the literature.  
 
-\zirconia\ grown thermally on Zr metal exists mainly in either the monoclinic or tetragonal phase \cite{Howard1988,teufer1962crystal}. We can expect the internal \zirconia\ layer of the cladding to be mostly monoclinic in early life, with the stress-stabilised tetragonal phase appearing near the oxide/metal interface due to cohesive strains resulting from the lattice mismatch. With increasing burnup however, it is expected that more tetragonal and possibly even the cubic phase of \zirconia\ forms due to vacancy formation and residual stresses in the lattice from radiation damage \cite{sickafus1999radiation}. Amorphisation due to radiation damage has also been observed in the cubic phase from Cs$^{+}$ implantation \cite{amorphization2000wang}. In this study however, while defect energies for the cubic phase are reported, we focus our analysis on monoclinic and tetragonal \zirconia\ phases, partly due to difficulties predicting the behaviour of the pure high-temperature cubic phase using energies calculated from a static energy technique. 
+\zirconia\ grown thermally on Zr metal exists mainly in either the monoclinic or tetragonal phase \cite{Howard1988,teufer1962crystal}. We can expect the internal \zirconia\ layer of the cladding to be mostly monoclinic in early life, with the stress-stabilised tetragonal phase appearing near the oxide/metal interface due to cohesive strains resulting from the lattice mismatch. With increasing burnup however, it is expected that more tetragonal and possibly even the cubic phase of \zirconia\ forms due to vacancy formation and residual stresses in the lattice from radiation damage \cite{sickafus1999radiation}. Amorphisation due to radiation damage has also been observed in the cubic phase from Cs$^{+}$ implantation \cite{amorphization2000wang}. In this thesis however, while defect energies for the cubic phase are reported, we focus our analysis on monoclinic and tetragonal \zirconia\ phases, partly due to difficulties predicting the behaviour of the pure high-temperature cubic phase using energies calculated from a static energy technique. 
 
-The effectiveness of the oxide layer as a barrier to iodine is debated, with one study presuming that the oxide is bypassed entirely by iodine due to fracturing, leaving the Zr metal underneath exposed \cite{rossi2015first}. The outermost part of the oxide, which is porous, exhibits networks of interconnected grain boundary diffusion pathways towards the oxide/metal interface which are certainly wide enough (1-3 nm) to allow iodine transport \cite{ni2010porosity}. The oxygen-saturated Zr at the oxide/metal interface is not, however, taken into account, and it is expected that this will influence the corrosion mechanism due to iodine-oxygen competition: even the much smaller hydrogen atom has its rate of diffusion into the metal reduced by the presence of oxygen, as shown in both computational \cite{glazoff2014oxidation} and experimental hydrogen pick-up studies \cite{couet2014hydrogen}. This means that some barrier to iodine ingress must already exist near the oxide/metal interface. The varying levels of oxygen across the oxide layer itself also have an effect on defect behaviour, and will therefore influence the initiation mechanisms behind PCI failures. Thus here, we predict iodine incorporation energies and defect equilibria in \zirconia\ as a function of oxygen pressure through Brouwer diagrams, in order to predict the resulting iodine defect response.
+As discussed in § \ref{section:outervsinner}, there is an oxide layer on the internal surface of the cladding consisting of monoclinic and tetragonal oxide grains. The effectiveness of the oxide layer as a barrier to iodine is debated, with one study presuming that the oxide is bypassed entirely by iodine due to fracturing, leaving the Zr metal underneath exposed \cite{rossi2015first}. The outermost part of the oxide, which is porous, exhibits networks of interconnected grain boundary diffusion pathways towards the oxide/metal interface which are certainly wide enough (1-3 nm) to allow iodine transport \cite{ni2010porosity}. The oxygen-saturated Zr at the oxide/metal interface is not, however, taken into account, and it is expected that this will influence the corrosion mechanism due to iodine-oxygen competition: even the much smaller hydrogen atom has its rate of diffusion into the metal reduced by the presence of oxygen, as shown in both computational \cite{glazoff2014oxidation} and experimental hydrogen pick-up studies \cite{couet2014hydrogen}. This means that some barrier to iodine ingress must already exist near the oxide/metal interface. The varying levels of oxygen across the oxide layer itself also have an effect on defect behaviour, and will therefore influence the initiation mechanisms behind PCI failures. Thus here, we predict iodine incorporation energies and defect equilibria in \zirconia\ as a function of oxygen pressure through Brouwer diagrams, in order to predict the resulting iodine defect response.
 
 
-\subsection{Pellet-cladding interaction}
-
-Pellet-cladding interaction refers to the interaction between the fuel and the cladding at higher burnups where the gas gap has been closed by the swelling of the fuel pellets. PCI has both a mechanical and a chemical component, sometimes referred to specifically as pellet cladding mechanical interaction (PCMI) and pellet cladding chemical interaction (PCCI) respectively.
-
+%\subsection{Pellet-cladding interaction}
+%
+%Pellet-cladding interaction refers to the interaction between the fuel and the cladding at higher burnups where the gas gap has been closed by the swelling of the fuel pellets. PCI has both a mechanical and a chemical component, sometimes referred to specifically as pellet cladding mechanical interaction (PCMI) and pellet cladding chemical interaction (PCCI) respectively.
+%
 
 \section{Methodology}
 \subsection{Computational details}
 
-Calculations were performed using the CASTEP 8.0 density functional theory (DFT) based code \cite{Clark2005}. Ultra-soft pseudo-potentials with a cut-off energy of 600 eV were employed. The Perdew, Burke and Ernzerhof (PBE) \cite{Perdew1996} parameterisation of the generalised gradient approximation (GGA) was used to describe the exchange correlation functional. A Monkhorst-Pack sampling scheme \cite{Monkhorst1976} was used for Brillouin zone integration, with a minimum \emph{k}-point separation of 0.09 \r{A}\textsuperscript{-1}. The Pulay method for density mixing \cite{Pulay1980} was used to improve simulation convergence. 
+As discussed in Chapter III, calculations were performed using CASTEP 8.0 \cite{Clark2005}. Ultra-soft pseudo-potentials with a cut-off energy of 600 eV were employed. The Perdew, Burke and Ernzerhof (PBE) \cite{Perdew1996} parameterisation of the generalised gradient approximation (GGA) was used to describe the exchange correlation functional. A Monkhorst-Pack sampling scheme \cite{Monkhorst1976} was used for Brillouin zone integration, with a minimum \emph{k}-point separation of 0.09 \r{A}\textsuperscript{-1}. The Pulay method for density mixing \cite{Pulay1980} was used to improve simulation convergence. 
 
 The electronic energy convergence criterion was set to $1\times10^{-6}$ eV and the maximum force between atoms limited to $1\times10^{-2}$ eV \r{A}\textsuperscript{-1}. A gradient-descent geometry optimisation task was run on the cell until consecutive iterations differed in energy and atomic displacement by less than $1\times10^{-5}$ eV and $5\times10^{-4}$ \r{A} respectively. 
 
@@ -76,14 +76,16 @@ where $\Delta{G^{\plimsoll}_{f, ZrO_2}}$ is the experimental Gibbs energy at sta
 \mu_{O_2}(p_{O_2},T) = \mu^{\plimsoll}_{O_2} + \Delta{\mu(T)} + \frac{1}{2}{k_B}log(\frac{p_{O_2}}{p^{\plimsoll}_{O_2}})
 \end{equation}
 
-Using our generalised formula for $\mu_{O_2}$, we fix the temperature within the range of thermal phase-stabilisation (1500 K for tetragonal \zirconia) and calculate $\mu_{O_2}$ for many different values of $p_{O_2}$ between $10^{-35}$ and 10$^{0}$ atm, corresponding to oxygen deficient and oxygen rich environments, respectively ($p_{O_2}$ in air is approximately 0.2 atm). While the tetragonal phase will be stress-stabilised in practice, thermal-stabilisation in such models has been shown to qualitatively approximate the effect of stress-stabilisation, while allowing a wider range of dopant behaviours to be predicted \cite{Bell2016}. Equilibrium defect concentrations are then calculated at each $\mu_{O_2}$ and plotted against $p_{O_2}$ to produce a Brouwer diagram. Brouwer diagrams at extrinsic defect concentrations of $10^{-5}$ and $10^{-3}$ parts/fu (i.e. parts per \zirconia\ formula unit) were generated to examine low and high dopant concentrations, respectively. These two concentrations were examined because the amount of fission products present at a particular point in a fuel pellet depends on macroscopic parameters, including its position in the core and the time since the last shutdown, but also microscopic parameters such as the radial position in the pellet. These two concentrations were selected because $10^{-3}$ parts/fu is high enough to model an aggregation of iodine (such as at a crack tip), and $10^{-5}$ parts/fu was found to be the concentration below which iodine did not have a significant effect on defect equilibria. 
+Using our generalised formula for $\mu_{O_2}$, we fix the temperature within the range of thermal phase-stabilisation (1500 K for tetragonal \zirconia) and calculate $\mu_{O_2}$ for many different values of $p_{O_2}$ between $10^{-35}$ and 10$^{0}$ atm, corresponding to oxygen deficient and oxygen rich environments, respectively ($p_{O_2}$ in air is approximately 0.2 atm). While the tetragonal phase will be stress-stabilised in practice, thermal-stabilisation in such models has been shown to qualitatively approximate the effect of stress-stabilisation, while allowing a wider range of dopant behaviours to be predicted \cite{Bell2016}. 
+
+Equilibrium defect concentrations are calculated at each $\mu_{O_2}$ and plotted against $p_{O_2}$ to produce a Brouwer diagram. Brouwer diagrams at extrinsic defect concentrations of $10^{-5}$ and $10^{-3}$ parts/fu (i.e. parts per \zirconia\ formula unit) were generated to examine low and high dopant concentrations, respectively. These two concentrations were examined because the amount of fission products present at a particular point in a fuel pellet depends on macroscopic parameters, including its position in the core and the time since the last shutdown, but also microscopic parameters such as the radial position in the pellet. These two concentrations were selected because $10^{-3}$ parts/fu is high enough to model an aggregation of iodine (such as at a crack tip), and $10^{-5}$ parts/fu was found to be the concentration below which iodine did not have a significant effect on defect equilibria. 
 
 \section{Results}
 
 \subsection{Incorporation energies}
 
 \subsubsection*{Interstitial Sites}
-Neutral iodine incorporation energies in interstitial sites for each phase are reported in Table \ref{i_incorp_interstitial}. The $2a$ and $2c$ sites in monoclinic \zirconia\ provide the least unfavourable iodine incorporation energy, followed by the $2b$ and $8e$ sites in tetragonal \zirconia , although in all cases energies are positive and large, indicating a large energy penalty against interstitial incorporation. The difference in incorporation energies between monoclinic and tetragonal \zirconia\ is approximately 1 eV, whereas the difference between tetragonal and cubic is 3.5 eV, indicating especially unfavourable conditions in cubic \zirconia . These differences are likely due to the larger interstitial sites in the lower-temperature phases, as monoclinic \zirconia\ exhibits the least and cubic \zirconia\ the most dense cell. 
+Neutral iodine incorporation energies at interstitial sites for each phase are reported in Table \ref{i_incorp_interstitial}. The $2a$ and $2c$ sites in monoclinic \zirconia\ provide the least unfavourable iodine incorporation energy, followed by the $2b$ and $8e$ sites in tetragonal \zirconia , although in all cases energies are positive and large, indicating a large energy penalty against interstitial incorporation. The difference in incorporation energies between monoclinic and tetragonal \zirconia\ is approximately 1 eV, whereas the difference between tetragonal and cubic is 3.5 eV, indicating especially unfavourable conditions in cubic \zirconia . These differences are likely due to the larger interstitial sites in the lower-temperature phases, as monoclinic \zirconia\ exhibits the least and cubic \zirconia\ the most dense cell. 
 %It is expected that these densities will be representative because the decreased density due to thermal expansion at 650 K will be countered by attractive dispersion forces. 
 
 While the incorporation energies of iodine in the interstitial sites of \zirconia\ are large, for a fixed iodine concentration, they become relevant as the intrinsic defect populations become small, such as at low temperatures relative to the melting point. This is because interstitial sites are always available, whereas at low intrinsic defect concentrations, substitutional sites become saturated and accommodation at a lattice site first requires the creation of a vacancy defect, which has a formation energy penalty associated with it. 
@@ -92,34 +94,37 @@ When Brouwer diagrams are generated, iodine will also be considered as a charged
 
 \subsubsection*{Oxygen Sites}
 
-Table \ref{i_incorp_oxygen} reports incorporation energies of iodine at various oxygen sites. In each phase, the lowest incorporation energy was that for accommodation at a vacant oxygen site such that iodine is in the 1- oxidation state, resulting in the overall defect \ch{I_{O}^{*}}. This anionic behaviour is expected from a halogen atom in a highly reducing site as it promotes the filling of the \emph{p} shell. % and these atoms have large electron affinities since they require only one electron to achieve the relatively stable noble gas electron configuration. 
+Table \ref{i_incorp_oxygen} reports incorporation energies of iodine at various oxygen sites. In each phase, the lowest incorporation energy was that for accommodation at a vacant oxygen site such that iodine is in the 1- oxidation state, resulting in the overall defect \ch{I_{O}^{*}}. This anionic behaviour is expected from a halogen atom in a highly reducing site as it promotes the filling of the \emph{p} shell. I is most readily accommodated in the monoclinic phase for all I charge states.
+
+ % and these atoms have large electron affinities since they require only one electron to achieve the relatively stable noble gas electron configuration. 
 
 \subsubsection*{Zirconium Sites}
 
-Incorporation energies of iodine on zirconium sites are reported in Table \ref{i_incorp_zirconium}. The  incorporation energy decreases as the charge of the defect decreases from -4 to 0 (i.e. nominally from I$^{0}$ to I$^{4+}$. This is due to the decrease in the size of the iodine species with increasing positive charge, fitting better into the small Zr$^{4+}$ cation site. This alone does not guarantee the emergence of uncharged iodine defects (I$^{4+}$) on zirconium sites when all energy terms are considered. In particular, there is also an energy penalty incurred in the change in charge of iodine. A Mulliken population analysis revealed a charge localised on the iodine of +2.31 at the \ch{I_{Zr}^{x}} defect, and a +0.86 charge on the \ch{I_{Zr}^{''''}} defect, with the remaining charge accommodated by other ions in the lattice. 
+Incorporation energies of iodine on zirconium sites are reported in Table \ref{i_incorp_zirconium}. The  incorporation energy decreases as the charge of the defect decreases from -4 to 0 (i.e. nominally from I$^{0}$ to I$^{4+}$. This is due to the decrease in the size of the iodine species with increasing positive charge, fitting better into the small vacant Zr$^{4+}$ cation site. This alone does not guarantee the emergence of uncharged iodine defects (I$^{4+}$) on zirconium sites when all energy terms are considered. In particular, there is also an energy penalty incurred in the change in charge of iodine. A Mulliken population analysis revealed a charge localised on the iodine of +2.31 at the \ch{I_{Zr}^{x}} defect, and a +0.86 charge on the \ch{I_{Zr}^{''''}} defect, with the remaining charge accommodated by other ions in the lattice. Again, I is most readily accommodated in the monoclinic phase for all charge states.
 
-\begin{table}[htp]
+\begin{table}[ht]
 \onehalfspacing
 \centering
-\caption{Incorporation energies of neutral iodine interstitials in non-defective supercells.}
+\caption{Incorporation energies of iodine interstitials in non-defective supercells.}
 \label{i_incorp_interstitial}
-\begin{tabular}{ccc} % \ch{V_{O}^{x}}
+\begin{tabular}{ccccc}
 \hline
-\hspace{0.7 cm} \multirow{2}{*}{\textbf{Structure}} \hspace{0.7 cm} & \multirow{2}{*}{\textbf{Site}} & \multirow{2}{*}{\textbf{Incorporation of \ch{I_{i}^{x}} (eV)}} \\
-                                     &                                &                                                                \\ \hline
-\multirow{4}{*}{\textbf{Monoclinic}} & $2a$               & 8.55                                                       \\
-                                     & $2b$               & 10.81                                                      \\
-                                     & $2c$               & 8.79                                                       \\
-                                     & $2d$               & 10.94                                                      \\ \hline
-\multirow{2}{*}{\textbf{Tetragonal}} & $2b$             & 9.49                                                       \\
-                                     & $8e$               & 9.53                                                       \\ \hline
-\multirow{2}{*}{\textbf{Cubic}}      & $24d$                      & 13.02                                                      \\
-                                     & $4b$             & 13.08                                                     
-\end{tabular}
+\multirow{2}{*}{\textbf{Structure}} & \multirow{2}{*}{\textbf{Site}} & \multicolumn{3}{c}{\textbf{Incorporation Energy (eV)}} \\ \cline{3-5} 
+ &  & \textbf{\ch{I^{x}_{i}}} \hspace{0.7 cm} & \textbf{\ch{I^{'}_{i}}} & \textbf{\ch{I^{*}_{i}}} \\ \hline
+\multirow{4}{*}{\textbf{Monoclinic}} & 2a & 8.55 & 12.10 & 6.55 \\
+ & 2b & 10.81 & 16.40 & 5.63 \\
+ & 2c & 8.79 & 12.20 & 4.62 \\
+ & 2d & 10.94 & 13.66 & 6.92 \\ \hline
+\multirow{2}{*}{\textbf{Tetragonal}} & 2b & 9.49 & 13.96 & 5.99 \\
+ & 8e & 9.53 & 12.73 & 5.10 \\ \hline
+\multirow{2}{*}{\textbf{Cubic}} & 24d & 13.02 & 18.24 & 7.62 \\
+ & 4b & 13.08 & 16.46 & 9.82 \\ \hline
+\end{tabular}%
+
 \end{table}
 
 
-\begin{table}[htp] % Iodine O site incorporation
+\begin{table}[ht] % Iodine O site incorporation
 \onehalfspacing
 \centering
 \caption{Incorporation energies of iodine in oxygen sites of the monoclinic, tetragonal, and cubic \zirconia\ phases.}
@@ -131,11 +136,11 @@ Incorporation energies of iodine on zirconium sites are reported in Table \ref{i
 \textbf{Monoclinic (3 co-ord)}      & 4.54             & 2.90             & 3.67             \\
 \textbf{Monoclinic (4 co-ord)}      & 5.63             & 3.77             & 4.87             \\
 \textbf{Tetragonal}                 & 6.19             & 4.02             & 4.44             \\
-\textbf{Cubic}                      & 8.37             & 5.74             & 6.66            
+\textbf{Cubic}                      & 8.37             & 5.74             & 6.66      \\     \hline  
 \end{tabular}
 \end{table}
 
-\begin{table}[htp] % Iodine Zr site incorporation
+\begin{table}[ht] % Iodine Zr site incorporation
 \onehalfspacing
 \centering
 \caption{Incorporation energies of iodine in zirconium sites of \zirconia.}
@@ -146,7 +151,7 @@ Incorporation energies of iodine on zirconium sites are reported in Table \ref{i
                                     & \multicolumn{1}{l}  {\textbf{\hspace{0.45 cm} \ch{I_{Zr}^{''''}}}} \hspace{0.45 cm} & \textbf{\ch{I_{Zr}^{'''}}} \hspace{0.45 cm} & \textbf{\ch{I_{Zr}^{''}}} \hspace{0.45 cm} & \textbf{\ch{I_{Zr}^{'}}} \hspace{0.45 cm} & \textbf{\ch{I_{Zr}^{x}}} \\ \hline
 \textbf{Monoclinic}                 & 6.78                             &       3.65            &        0.89          &         -2.84         &     -5.08             \\
 \textbf{Tetragonal}                 & 7.58                            &         3.64         &        1.69          &      -2.13            &     -4.57             \\
-\textbf{Cubic}                      & 9.70                            &         6.81         &        3.01          &        0.38          &      -3.14           
+\textbf{Cubic}                      & 9.70                            &         6.81         &        3.01          &        0.38          &      -3.14     \\      \hline
 \end{tabular}
 \end{table}
 
@@ -164,7 +169,7 @@ To examine the dependence of the defect equilibria on iodine dopant concentratio
 \begin{center}
 \begin{tikzpicture} % 10e-3 iodine conc in mono
 	\begin{axis}
-		[width=8.22cm, xlabel={\ch{log_{10}}($p_{O_{2}}$) (atm)}, ylabel={\ch{log_{10}}([D]) (per f.u.)}, ymin=-10, ymax=0, xmin=-35, xmax=0, legend style={draw={}, at={(0.40,0.97)}, anchor=north west, legend columns=3, nodes={scale=0.75, transform shape}}]
+		[width=10.22cm, xlabel={\ch{log_{10}}($p_{O_{2}}$) (atm)}, ylabel={\ch{log_{10}}([D]) (per f.u.)}, ymin=-10, ymax=0, xmin=-35, xmax=0, legend style={draw={}, at={(0.40,0.97)}, anchor=north west, legend columns=3, nodes={scale=0.75, transform shape}}]
         \addplot[no marks, draw=blue!70!black] table [x=pO2, y=electrons,]{dat/1e5iconcmono650.dat};  \node at (-28.1,-7.5) {\ch{e^{'}}};  \addlegendentry{\ch{e^{'}}};
         \addplot[no marks, draw=red!85!black] table [x=pO2, y=holes,]{dat/1e5iconcmono650.dat}; \addlegendentry{\ch{h^{\textperiodcentered}}}; % \node at (-1,-4.5) {\ch{h^{\textperiodcentered}}};
 %         \addplot[no marks, draw=black!70!green] table [x=pO2, y=VO{2},]{dat/1e5iconcmono650.dat}; \addlegendentry{\ch{V_{O}^{\textperiodcentered\textperiodcentered}}};
@@ -198,7 +203,7 @@ To examine the dependence of the defect equilibria on iodine dopant concentratio
 \end{tikzpicture} % 10e-5 iodine conc in mono
 \begin{tikzpicture} % 10e-3 iodine conc in mono
 	\begin{axis}
-		[width=8.22cm, xlabel={\ch{log_{10}}($p_{O_{2}}$) (atm)}, yticklabels={}, ymin=-10, ymax=0, xmin=-35, xmax=0]
+		[width=10.22cm, xlabel={\ch{log_{10}}($p_{O_{2}}$) (atm)}, yticklabels={}, ymin=-10, ymax=0, xmin=-35, xmax=0]
         \addplot[no marks, draw=blue!70!black] table [x=pO2, y=electrons,]{dat/1e3iconcmono650.dat}; \node at (-29,-7) {\ch{e^{'}}};
         \addplot[no marks, draw=red!85!black] table [x=pO2, y=holes,]{dat/1e3iconcmono650.dat}; 
 %         \addplot[no marks, draw=black!70!green] table [x=pO2, y=VO{2},]{dat/1e3iconcmono650.dat}; 
@@ -242,7 +247,7 @@ To examine the dependence of the defect equilibria on iodine dopant concentratio
 \begin{center}
 \begin{tikzpicture}
 	\begin{axis}
-		[width=8.22cm, xlabel={\ch{log_{10}}($p_{O_{2}}$) (atm)}, ylabel={\ch{log_{10}}([D]) (per f.u.)}, ymin=-10, ymax=0, xmin=-35, xmax=0, legend style={{draw=}, at={(0.40,0.97)}, anchor=north west, legend columns=3, nodes={scale=0.75, transform shape}}]
+		[width=10.22cm, xlabel={\ch{log_{10}}($p_{O_{2}}$) (atm)}, ylabel={\ch{log_{10}}([D]) (per f.u.)}, ymin=-10, ymax=0, xmin=-35, xmax=0, legend style={{draw=}, at={(0.40,0.97)}, anchor=north west, legend columns=3, nodes={scale=0.75, transform shape}}]
         \addplot[no marks, draw=blue!70!black] table [x=pO2, y=electrons,]{dat/1e5iconctet1500.dat}; \addlegendentry{\ch{e^{'}}}; \node at (-26.0,-1.9) {\ch{e^{'}}};
         \addplot[no marks, draw=red!85!black] table [x=pO2, y=holes,]{dat/1e5iconctet1500.dat}; \addlegendentry{\ch{h^{\textperiodcentered}}}; \node at (-7,-3.6) {\ch{h^{\textperiodcentered}}};
         \addplot[no marks, draw=black!70!green] table [x=pO2, y=VO{2},]{dat/1e5iconctet1500.dat}; \addlegendentry{\ch{V_{O}^{\textperiodcentered\textperiodcentered}}}; \node at (-26.7,-3.3) {\ch{V_{O}^{\textperiodcentered\textperiodcentered}}};
@@ -276,7 +281,7 @@ To examine the dependence of the defect equilibria on iodine dopant concentratio
 \end{tikzpicture} % 10e-5 iodine conc in tet
 \begin{tikzpicture} % 10e-3 iodine conc in tet
 	\begin{axis}
-		[width=8.22cm, xlabel={\ch{log_{10}}($p_{O_{2}}$) (atm)}, yticklabels={}, ymin=-10, ymax=0, xmin=-35, xmax=0]
+		[width=10.22cm, xlabel={\ch{log_{10}}($p_{O_{2}}$) (atm)}, yticklabels={}, ymin=-10, ymax=0, xmin=-35, xmax=0]
         \addplot[no marks, draw=blue!70!black] table [x=pO2, y=electrons,]{dat/1e3iconctet1500.dat}; \node at (-27,-1.7) {\ch{e^{'}}};
         \addplot[no marks, draw=red!85!black] table [x=pO2, y=holes,]{dat/1e3iconctet1500.dat}; \node at (-2.5,-2.1) {\ch{h^{\textperiodcentered}}};
         \addplot[no marks, draw=black!70!green] table [x=pO2, y=VO{2},]{dat/1e3iconctet1500.dat}; 

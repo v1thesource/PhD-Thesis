@@ -234,7 +234,7 @@ Knowing that the magnitude of the wave function is periodic greatly simplifies t
 \psi_k(\textbf{r}) = e^{i\textbf{k}.\textbf{r}}u_k(\textbf{r})
 \end{equation}
 
-Where $\psi_k(\textbf{r})$ is the wave function evaluated at position \textbf{r}, $e^{i\textbf{k}.\textbf{r}}$ is an arbitrary phase factor, and $u_k(\textbf{r})$ is a periodic function with the same periodicity as the wave function. Solutions to this equation exist for any value of \textbf{k} and so the general solution can be expressed as an integral over the first Brillouin zone, the primitive lattice cell in reciprocal space. Instead of evaluating the integral over the range of \textbf{k} (a computationally costly task as it is done for many wave functions), a sum of values at discrete points, known as \textbf{k}-points, is used. This approximation is valid because the wave function varies slowly over \textbf{k}, thus allowing the integral to be approximated with several appropriately spaced \textbf{k}-points. In general, a finer \textbf{k}-point grid results in increased accuracy, but at an increased computational cost \cite{Hasnip2010}.
+Where $\psi_k(\textbf{r})$ is the wave function evaluated at position \textbf{r}, $e^{i\textbf{k}.\textbf{r}}$ is an arbitrary phase factor, and $u_k(\textbf{r})$ is a periodic function with the same periodicity as the wave function. Solutions to this equation exist for any value of \textbf{k} and so the general solution can be expressed as an integral over the first Brillouin zone, the primitive lattice cell in reciprocal space. Instead of evaluating the integral over the range of \textbf{k} (a computationally costly task as it is done for many wave functions), a sum of values at discrete points, known as \textbf{k}-points, is used. This approximation is valid because the wave function varies slowly over \textbf{k}, thus allowing the integral to be approximated with several appropriately spaced \textbf{k}-points. In general, a finer \textbf{k}-point grid results in increased accuracy, but at an increased computational cost \cite{Hasnip2010}. For all DFT calculations in this thesis, a Monkhorst-Pack sampling scheme \cite{Monkhorst1976} was used for Brillouin zone integration, with a minimum \textbf{k}-point separation of 0.09 \r{A}$^{-1}$.
 
 \subsection{Plane-waves}
 
@@ -284,6 +284,7 @@ Four convergence criteria are used for the geometry optimisation tasks throughou
 \item \emph{Maximum stress (constant-pressure only)}: During unconstrained relaxation, the maximum change in stress between iterations should be below $5 \times 10^{-2}$ GPa. This is necessary to avoid large deviations which may distort the symmetry of the supercell, resulting in anomalous energy values.
 \end{itemize}
 
+Using these convergence criteria, non-defective supercells of \zirconia\ were relaxed under constant pressure. The resulting structure was used as the starting point to which defects were introduced, and subsequently relaxed again, this time under constant volume conditions to simulate low defect concentrations \cite{Murphy2014, Bell2015}. Finally, all DFT calculations on doped and defective structures in this thesis employed the Pulay method for density mixing \cite{Pulay1980} to take into consideration changes in electronic behaviour of the system caused by the defect.
 
 \subsection{Charged cell correction}
 
@@ -341,7 +342,7 @@ Figure \ref{figure:spacechargeexample} shows an example of the defect equilibria
 \begin{figure}[ht] % Tet intrinsic no space charge
 \begin{center}
 \begin{tikzpicture}
-	\begin{groupplot}[group style={group size=1 by 2}, width=12cm, height=8.95cm]
+	\begin{groupplot}[group style={group size=1 by 2}, width=12cm, height=8.2cm]
 	\nextgroupplot[
 		 ylabel={\ch{log_{10}}([D]) (per f.u.)}, ymin=-10, ymax=0, xmin=-35, xmax=0, legend style={{draw=}, at={(0.40,0.97)}, anchor=north west, legend columns=2, nodes={scale=1, transform shape}}]
         \addplot[no marks, draw=blue!70!black] table [x=pO2, y=electrons,]{dat/intrinsic_tet.dat}; \addlegendentry{\ch{e^{'}}}; \node at (-26.0,-2) {\ch{e^{'}}};

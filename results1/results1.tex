@@ -90,7 +90,7 @@ Using our generalised formula for $\mu_{O_2}$, the temperature is fixed within t
 	\end{center}
 \end{figure}
 
-\begin{table}[htp] % Band Gap
+\begin{table}[ht] % Band Gap
 \onehalfspacing
 \centering
 \caption[Experimentally determined band gaps alongside values calculated from DFT simulations for each crystal structure of zirconia.]{Experimentally determined band gaps alongside values calculated from DFT simulations for each crystal structure of zirconia. Experimental values taken from \cite{French1994}.}
@@ -106,7 +106,7 @@ Using our generalised formula for $\mu_{O_2}$, the temperature is fixed within t
 
 \section{Defect formation energies}
 
-\begin{figure}[htp]
+\begin{figure}[ht]
 \begin{center}
 \begin{tikzpicture}
 	\begin{axis}
@@ -122,7 +122,7 @@ Using our generalised formula for $\mu_{O_2}$, the temperature is fixed within t
 \end{figure}
 
 
-\begin{figure}[htp]
+\begin{figure}[ht]
 \begin{center}
 \begin{tikzpicture}
 	\begin{axis}
@@ -136,7 +136,7 @@ Using our generalised formula for $\mu_{O_2}$, the temperature is fixed within t
 	\end{center}
 \end{figure}
 
-\begin{figure}[htp]
+\begin{figure}[ht]
 \begin{center}
 \begin{tikzpicture}
 	\begin{axis}
@@ -150,7 +150,7 @@ Using our generalised formula for $\mu_{O_2}$, the temperature is fixed within t
 	\end{center}
 \end{figure}
 
-\begin{figure}[htp]
+\begin{figure}[ht]
 \begin{center}
 \begin{tikzpicture}
 	\begin{axis}
@@ -167,7 +167,7 @@ Using our generalised formula for $\mu_{O_2}$, the temperature is fixed within t
 \end{figure}
 
 
-\begin{figure}[htp]
+\begin{figure}[ht]
 \begin{center}
 \begin{tikzpicture}
 	\begin{axis}
@@ -181,7 +181,7 @@ Using our generalised formula for $\mu_{O_2}$, the temperature is fixed within t
 	\end{center}
 \end{figure}
 
-\begin{figure}[htp]
+\begin{figure}[ht]
 \begin{center}
 \begin{tikzpicture}
 	\begin{axis}
@@ -206,7 +206,7 @@ The oxygen Frenkel defect has the smallest defect volume in the monoclinic phase
 
 The zirconium Frenkel defect is significantly larger than the oxygen Frenkel, mostly due to the large positive strain contribution from the zirconium vacancy. This can explain the larger defect formation energy of zirconium Frenkels.
 
-\begin{table}[htp] % Isolated Frenkel volumes
+\begin{table}[ht] % Isolated Frenkel volumes
 \onehalfspacing
 \centering
 \caption{Isolated cluster defect volumes in the three \zirconia\ structures.}
@@ -233,7 +233,7 @@ The zirconium Frenkel defect is significantly larger than the oxygen Frenkel, mo
 
 The isolated defect formation energies reported in Table \ref{isolated_defects} indicate that fully-charged Schottky defects have the lowest formation energy per atom (most energetically favourable) in all phases, followed by oxygen Frenkel defects. A trend is seen where the high-temperature phases result in lower formation energies for both Schottky and oxygen Frenkel defects, whereas zirconium Frenkel defects have similar formation energies in all three phases. It has been suggested that the relatively small cation size leads to defect structures where oxygen vacancies are favoured over interstitial defects \cite{dwivedi1990computer}. As the zirconium ion is too small to maintain a strong 8-fold bond coordination with its neighbouring oxygen ions, the introduction of oxygen vacancies (which have the added effect of reducing cell volume) will have a stabilising effect.
 
-\begin{table}[htp] % Isolated formation energies
+\begin{table}[ht] % Isolated formation energies
 \onehalfspacing
 \centering
 \caption{Formation energies in eV of isolated \zirconia\ defects.}
@@ -259,7 +259,7 @@ The isolated defect formation energies reported in Table \ref{isolated_defects} 
 \subsubsection*{Bound Defects}
 The bound defect formation energies shown in Table \ref{table:bound_defects} show that NTV defects, on a per defect atom basis, are the most energetically favourable defects, followed by oxygen and zirconium Frenkel defects respectively. The NTV3 exhibited the smallest formation energy in all three crystal structure, with a single exception of the NTV2 in the cubic phase where a much smaller formation energy was observed due to collapse of the supercell during geometry optimisation.
 
-\begin{table}[htp] % Bound formation energies
+\begin{table}[ht] % Bound formation energies
 \onehalfspacing
 \centering
 \caption{Formation energies of bound defects in \zirconia.}
@@ -283,7 +283,7 @@ Table \ref{stiffness_tensor} shows the calculated elastic constants for the mono
 The monoclinic and tetragonal phases have similar stiffness along the principal axes, but vary significantly under shearing conditions. In particular, the tetragonal phase exhibits much smaller $C_{44}$ and $C_{55}$ components. This may be attributed to the strong directional anisotropy of the tetragonal phase due to the larger $c$ parameter. 
 
 
-\begin{table}[htp] % Elastic constants
+\begin{table}[ht] % Elastic constants
 \onehalfspacing
 \centering
 \caption{Elastic constants for different phases of \zirconia\ from DFT calculations.}
@@ -304,34 +304,34 @@ $C_{66}$                                         & 114.19        & 152.60       
 \end{tabular}
 \end{table}
 
-\begin{table}[htp] % Isolated defect volumes
+\begin{table}[ht] % Isolated defect volumes
 \onehalfspacing
 \centering
 \caption{Isolated defect volumes in the three \zirconia\ structures.}
 \label{defect_volumes_raw}
 \begin{tabular}{cccc}
 \hline
-                      & \multicolumn{3}{c}{\textbf{Volume (\r{A}\textsuperscript{3})}}  \\ \cline{2-4} 
+                      & \multicolumn{3}{c}{\textbf{Defect volume relative to non-defective cell (\r{A}\textsuperscript{3})}}  \\ \cline{2-4} 
 \textbf{Defect}       & \textbf{Monoclinic} & \textbf{Tetragonal} & \textbf{Cubic} \\ \hline
-\ch{V_{Zr}^{''''}}             & 55.9495             & 67.4062             & 48.468         \\
-\ch{V_{Zr}^{'''}}             & 42.4752             &         51.0824     &     36.944      \\
-\ch{V_{Zr}^{''}}            & 29.9013             &  34.2764            &     25.9264           \\
-\ch{V_{Zr}^{'}}             & 17.1031             &  18.4276            &     15.0761           \\
-\ch{V_{Zr}^{x}}              & 4.05915             &  4.70160            &    4.31893       \\
-\ch{Zr_{i}^{****}}             & -34.6185            & -41.936             & -27.3371       \\
-\ch{Zr_{i}^{***}}             &  -22.7597           &	-27.7361 		  &	-16.9486         \\
-\ch{Zr_{i}^{**}}             &  -11.7864 	        &	-12.0239 		  &	-6.24022          \\
-\ch{Zr_{i}^{*}}            &  2.68029			& -0.0179087 		  & 	4.68786             \\
-\ch{Zr_{i}^{x}}              &  15.9357		 	& 13.4045	 		  & 15.9733         \\
-\ch{V_{O}^{**}} {[}4coord{]} & -22.5154            & -37.5266            & -22.7616       \\
-\ch{V_{O}^{*}} {[}4coord{]} &  -12.4114           &    -19.5315         &     -12.1850           \\
-\ch{V_{O}^{x}} {[}4coord{]}  &  -0.686074          &  -2.80005           &      -1.1146          \\
-\ch{V_{O}^{**}} {[}3coord{]} & -26.1258            &                     &                \\
-\ch{V_{O}^{*}} {[}3coord{]} &  -14.4153           &                     &                \\
-\ch{V_{O}^{x}} {[}3coord{]}  &   -1.70699          &                     &                \\
-\ch{O_{i}^{''}}              & 27.0097             & 39.997              & 28.5833        \\
-\ch{O_{i}^{'}}              &  15.3639            &    24.5635          &  16.2996              \\
-\ch{O_{i}^{x}}               & 2.66459             &    11.0607          &   8.95147        \\ \hline
+\ch{V_{Zr}^{''''}}             & 55.95             & 67.41             & 48.47         \\
+\ch{V_{Zr}^{'''}}             & 42.48             &         51.08     &     36.94      \\
+\ch{V_{Zr}^{''}}            & 29.90             &  34.28            &     25.93           \\
+\ch{V_{Zr}^{'}}             & 17.10             &  18.43            &     15.08           \\
+\ch{V_{Zr}^{x}}              & 4.06             &  4.70            &    4.32       \\
+\ch{Zr_{i}^{****}}             & -34.62            & -41.94            & -27.34       \\
+\ch{Zr_{i}^{***}}             &  -22.76           &	-27.74 		  &	-16.95         \\
+\ch{Zr_{i}^{**}}             &  -11.79 	        &	-12.02 		  &	-6.24          \\
+\ch{Zr_{i}^{*}}            &  2.68			& -0.02 		  & 	4.69             \\
+\ch{Zr_{i}^{x}}              &  15.94		 	& 13.40	 		  & 15.97         \\
+\ch{V_{O}^{**}} {[}4coord{]} & -22.52            & -37.53            & -22.76       \\
+\ch{V_{O}^{*}} {[}4coord{]} &  -12.41           &    -19.53         &     -12.19           \\
+\ch{V_{O}^{x}} {[}4coord{]}  &  -0.69          &  -2.80           &      -1.11          \\
+\ch{V_{O}^{**}} {[}3coord{]} & -26.13            &                     &                \\
+\ch{V_{O}^{*}} {[}3coord{]} &  -14.42           &                     &                \\
+\ch{V_{O}^{x}} {[}3coord{]}  &   -1.71          &                     &                \\
+\ch{O_{i}^{''}}              & 27.01             & 40.00              & 28.58        \\
+\ch{O_{i}^{'}}              &  15.36            &    24.56         &  16.30              \\
+\ch{O_{i}^{x}}               & 2.66             &    11.06          &   8.95        \\ \hline
 \end{tabular}
 \end{table}
 
