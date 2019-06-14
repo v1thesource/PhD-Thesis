@@ -6,7 +6,7 @@
 
 \section{Introduction}
 
-As mentioned in Chapter I, stress-corrosion cracking (SCC) in nuclear fuel pins is an issue related to early integrity of fuel assemblies in light water reactors (LWRs). SCC studies of the internal surface of zirconium-based fuel claddings have been conducted, which indicate that iodine is likely to be one of the main corrosive species involved in promoting crack growth \cite{rosenbaum1966interaction, bcoxpelletclad1990,fregonese2000failure,Sidky1998}. The exact mechanism for iodine SCC has not yet been determined due to difficulties observing the internal cladding surface in-situ, while experimental studies are not yet capable of reproducing the conditions under which such failures occur. The quantum-mechanical simulation approach is therefore particularly useful to model the behaviour of iodine within the oxide layer of the cladding, the layer preceding the zirconium metal. 
+As discussed in Chapter I, stress-corrosion cracking (SCC) in nuclear fuel pins is an issue related to early integrity of fuel assemblies in light water reactors (LWRs). SCC studies of the internal surface of zirconium-based fuel claddings have been conducted, which indicate that iodine is likely to be one of the main corrosive species involved in promoting crack growth \cite{rosenbaum1966interaction, bcoxpelletclad1990,fregonese2000failure,Sidky1998}. The exact mechanism for iodine SCC has not yet been determined due to difficulties observing the internal cladding surface in-situ, while experimental studies are not yet capable of reproducing the conditions under which such failures occur. The quantum-mechanical simulation approach is therefore particularly useful to model the behaviour of iodine within the oxide layer of the cladding, the layer preceding the zirconium metal. 
 
 Iodine is produced in the fuel pellet directly from fission (see Chapter I for details) and also from the decay of tellurium precursors. Both iodine and tellurium are relatively common fission products, with combined independent yields from thermal fission of U$_{235}$ above 5\% \cite{kennett1956mass, iodine129fissionyield, imanishi1976independent, iodinefissionyields, iodine132, amiel1975odd}. The majority of thermal fission events occur in the outer rim of the fuel pellet, and a fission product penetration depth of up to 8 $\mu$m in \zirconia\ \cite{degueldre2001behaviour} suggests a large degree of implantation within the oxide and the Zr metal into which the oxide grows, raising the concentration of I well above the equilibrium value. Iodine and many of its relevant compounds (as ZrI$_{4}$, CsI) are volatile and fuel pellets contain many cracks and spaces through which iodine may be rapidly transported to the cladding. When reactor power is increased during start-up, iodine is released in substantial quantities from the UO$_{2}$ pellet \cite{peehs1982experimental}. This is believed to cause crack propagation in the cladding when combined with stresses imposed on the cladding by the fuel pellet, and this contributes to pellet-cladding interaction (PCI), a phenomenon discussed in Chapter I. Upper limits on power ramping and holding times have therefore been established by fuel suppliers to mitigate potential PCI failures \cite{yagnik2005effect}. While these restrictions have reduced or prevented the incidence of PCI failures, they also impose costs on the operator due to longer ramping periods. This also restricts the ability of the nuclear reactor to load-follow grid demand. Cladding/fuel materials resistant to PCI failure are therefore of great interest in the nuclear power industry, promoting research into solutions such as cladding liners and doped fuel pellets \cite{nonon2005pci,yang2012effect}. 
 
@@ -110,7 +110,7 @@ Incorporation energies of iodine on zirconium sites are reported in Table \ref{i
 \begin{tabular}{ccccc}
 \hline
 \multirow{2}{*}{\textbf{Structure}} & \multirow{2}{*}{\textbf{Site}} & \multicolumn{3}{c}{\textbf{Incorporation Energy (eV)}} \\ \cline{3-5} 
- &  & \textbf{\ch{I^{x}_{i}}} \hspace{0.7 cm} & \textbf{\ch{I^{'}_{i}}} & \textbf{\ch{I^{*}_{i}}} \\ \hline
+ &  & \textbf{\ch{I^{x}_{i}}} & \textbf{\ch{I^{'}_{i}}} & \textbf{\ch{I^{*}_{i}}} \\ \hline % \hspace{0.7 cm}
 \multirow{4}{*}{\textbf{Monoclinic}} & 2a & 8.55 & 12.10 & 6.55 \\
  & 2b & 10.81 & 16.40 & 5.63 \\
  & 2c & 8.79 & 12.20 & 4.62 \\
@@ -164,12 +164,30 @@ Incorporation energies of iodine on zirconium sites are reported in Table \ref{i
 
 To examine the dependence of the defect equilibria on iodine dopant concentration, the temperature was held constant while iodine concentration was changed.
 
-\begin{landscape}
+%\begin{figure}[ht] % Tet intrinsic no space charge
+%\begin{center}
+%\begin{tikzpicture}
+%	\begin{groupplot}[group style={group size=1 by 2}, width=13cm, height=10.2cm]
+%	\nextgroupplot[
+%		 ylabel={\ch{log_{10}}([D]) (per f.u.)}, ymin=-10, ymax=0, xmin=-35, xmax=0, legend style={{draw=}, at={(0.40,0.97)}, anchor=north west, legend columns=2, nodes={scale=1, transform shape}}]
+%
+%	\nextgroupplot[
+%		 xlabel={\ch{log_{10}}($p_{O_{2}}$) (atm)}, ylabel={\ch{log_{10}}([D]) (per f.u.)}, ymin=-10, ymax=0, xmin=-35, xmax=0, legend style={{draw=}, at={(0.40,0.97)}, anchor=north west, legend columns=4, nodes={scale=1, transform shape}}]
+%      
+%	\end{groupplot}           
+%\end{tikzpicture}
+%		\caption{Tetragonal phase Brouwer diagrams of intrinsic point defects at a temperature of 1500 K \textbf{a)} without a space charge and \textbf{b)} with a space charge of $10^{-1}$ e$^{-1}$ per f.u.}
+%		\label{figure:spacechargeexample}
+%	\end{center}
+%\end{figure}
+
+
 \begin{figure}[ht] % Mono conc sweep
 \begin{center}
 \begin{tikzpicture} % 10e-3 iodine conc in mono
-	\begin{axis}
-		[width=10.22cm, xlabel={\ch{log_{10}}($p_{O_{2}}$) (atm)}, ylabel={\ch{log_{10}}([D]) (per f.u.)}, ymin=-10, ymax=0, xmin=-35, xmax=0, legend style={draw={}, at={(0.40,0.97)}, anchor=north west, legend columns=3, nodes={scale=0.75, transform shape}}]
+	\begin{groupplot}[group style={group size=1 by 2}, width=13cm, height=10.2cm]
+	\nextgroupplot[
+		 ylabel={\ch{log_{10}}([D]) (per f.u.)}, ymin=-10, ymax=0, xmin=-35, xmax=0, legend style={{draw=}, at={(0.40,0.97)}, anchor=north west, legend columns=2, nodes={scale=1, transform shape}}]
         \addplot[no marks, draw=blue!70!black] table [x=pO2, y=electrons,]{dat/1e5iconcmono650.dat};  \node at (-28.1,-7.5) {\ch{e^{'}}};  \addlegendentry{\ch{e^{'}}};
         \addplot[no marks, draw=red!85!black] table [x=pO2, y=holes,]{dat/1e5iconcmono650.dat}; \addlegendentry{\ch{h^{\textperiodcentered}}}; % \node at (-1,-4.5) {\ch{h^{\textperiodcentered}}};
 %         \addplot[no marks, draw=black!70!green] table [x=pO2, y=VO{2},]{dat/1e5iconcmono650.dat}; \addlegendentry{\ch{V_{O}^{\textperiodcentered\textperiodcentered}}};
@@ -199,11 +217,8 @@ To examine the dependence of the defect equilibria on iodine dopant concentratio
 %         \addplot[no marks, dashed, draw=green!30!black] table [x=pO2, y=IsubZr{-5},]{dat/1e5iconcmono650.dat}; \addlegendentry{\ch{I_{Zr}^{'''''}}};
 %         \addplot[no marks] table [x=pO2, y=Stoich,]{dat/1e5iconcmono650.dat}; \addlegendentry{Stoich};
 \node at (-33.7,-0.5) {\textbf{a)}};
-			\end{axis}            
-\end{tikzpicture} % 10e-5 iodine conc in mono
-\begin{tikzpicture} % 10e-3 iodine conc in mono
-	\begin{axis}
-		[width=10.22cm, xlabel={\ch{log_{10}}($p_{O_{2}}$) (atm)}, yticklabels={}, ymin=-10, ymax=0, xmin=-35, xmax=0]
+			\nextgroupplot[
+		 xlabel={\ch{log_{10}}($p_{O_{2}}$) (atm)}, ylabel={\ch{log_{10}}([D]) (per f.u.)}, ymin=-10, ymax=0, xmin=-35, xmax=0, legend style={{draw=}, at={(0.40,0.97)}, anchor=north west, legend columns=4, nodes={scale=1, transform shape}}]
         \addplot[no marks, draw=blue!70!black] table [x=pO2, y=electrons,]{dat/1e3iconcmono650.dat}; \node at (-29,-7) {\ch{e^{'}}};
         \addplot[no marks, draw=red!85!black] table [x=pO2, y=holes,]{dat/1e3iconcmono650.dat}; 
 %         \addplot[no marks, draw=black!70!green] table [x=pO2, y=VO{2},]{dat/1e3iconcmono650.dat}; 
@@ -233,21 +248,21 @@ To examine the dependence of the defect equilibria on iodine dopant concentratio
 %         \addplot[no marks, dashed, draw=green!30!black] table [x=pO2, y=IsubZr{-5},]{dat/1e3iconcmono650.dat}; 
 %         \addplot[no marks] table [x=pO2, y=Stoich,]{dat/1e3iconcmono650.dat}; 
 \node at (-33.7,-0.5) {\textbf{b)}};
-			\end{axis}            
+			\end{groupplot}          
 \end{tikzpicture}
 		\caption{Monoclinic phase Brouwer diagrams of point defects at iodine concentrations of a) $10^{-5}$ and b) $10^{-3}$, at a temperature of 650 K.}
 		\label{figure:tikzbrouwerconcmono}
 	\end{center}
 \end{figure} % 10e-3 iodine conc in mono
-\end{landscape}
 
 
-\begin{landscape}
+
 \begin{figure}[ht] % 10e-5 iodine conc in tet
 \begin{center}
 \begin{tikzpicture}
-	\begin{axis}
-		[width=10.22cm, xlabel={\ch{log_{10}}($p_{O_{2}}$) (atm)}, ylabel={\ch{log_{10}}([D]) (per f.u.)}, ymin=-10, ymax=0, xmin=-35, xmax=0, legend style={{draw=}, at={(0.40,0.97)}, anchor=north west, legend columns=3, nodes={scale=0.75, transform shape}}]
+	\begin{groupplot}[group style={group size=1 by 2}, width=13cm, height=10.2cm]
+	\nextgroupplot[
+		 ylabel={\ch{log_{10}}([D]) (per f.u.)}, ymin=-10, ymax=0, xmin=-35, xmax=0, legend style={{draw=}, at={(0.40,0.97)}, anchor=north west, legend columns=2, nodes={scale=1, transform shape}}]
         \addplot[no marks, draw=blue!70!black] table [x=pO2, y=electrons,]{dat/1e5iconctet1500.dat}; \addlegendentry{\ch{e^{'}}}; \node at (-26.0,-1.9) {\ch{e^{'}}};
         \addplot[no marks, draw=red!85!black] table [x=pO2, y=holes,]{dat/1e5iconctet1500.dat}; \addlegendentry{\ch{h^{\textperiodcentered}}}; \node at (-7,-3.6) {\ch{h^{\textperiodcentered}}};
         \addplot[no marks, draw=black!70!green] table [x=pO2, y=VO{2},]{dat/1e5iconctet1500.dat}; \addlegendentry{\ch{V_{O}^{\textperiodcentered\textperiodcentered}}}; \node at (-26.7,-3.3) {\ch{V_{O}^{\textperiodcentered\textperiodcentered}}};
@@ -277,11 +292,8 @@ To examine the dependence of the defect equilibria on iodine dopant concentratio
 %         \addplot[no marks, dashed, draw=purple] table [x=pO2, y=IsubZr{-5},]{dat/1e5iconctet1500.dat}; \addlegendentry{\ch{I_{Zr}^{'''''}}};
 %         \addplot[no marks] table [x=pO2, y=Stoich,]{dat/1e5iconctet1500.dat}; \addlegendentry{Stoich};
 \node at (-33.7,-0.5) {\textbf{a)}};
-			\end{axis}            
-\end{tikzpicture} % 10e-5 iodine conc in tet
-\begin{tikzpicture} % 10e-3 iodine conc in tet
-	\begin{axis}
-		[width=10.22cm, xlabel={\ch{log_{10}}($p_{O_{2}}$) (atm)}, yticklabels={}, ymin=-10, ymax=0, xmin=-35, xmax=0]
+			\nextgroupplot[
+		 xlabel={\ch{log_{10}}($p_{O_{2}}$) (atm)}, ylabel={\ch{log_{10}}([D]) (per f.u.)}, ymin=-10, ymax=0, xmin=-35, xmax=0, legend style={{draw=}, at={(0.40,0.97)}, anchor=north west, legend columns=4, nodes={scale=1, transform shape}}]
         \addplot[no marks, draw=blue!70!black] table [x=pO2, y=electrons,]{dat/1e3iconctet1500.dat}; \node at (-27,-1.7) {\ch{e^{'}}};
         \addplot[no marks, draw=red!85!black] table [x=pO2, y=holes,]{dat/1e3iconctet1500.dat}; \node at (-2.5,-2.1) {\ch{h^{\textperiodcentered}}};
         \addplot[no marks, draw=black!70!green] table [x=pO2, y=VO{2},]{dat/1e3iconctet1500.dat}; 
@@ -311,13 +323,12 @@ To examine the dependence of the defect equilibria on iodine dopant concentratio
 %         \addplot[no marks, dashed, draw=purple] table [x=pO2, y=IsubZr{-5},]{dat/1e3iconctet1500.dat}; 
 %         \addplot[no marks] table [x=pO2, y=Stoich,]{dat/1e3iconctet1500.dat}; 
 \node at (-33.7,-0.5) {\textbf{b)}};
-			\end{axis}            
+			\end{groupplot}        
 \end{tikzpicture} % 10e-3 iodine conc in tet
 		\caption{Tetragonal phase Brouwer diagrams of point defects at iodine concentrations of a) $10^{-5}$ and b) $10^{-3}$, at a temperature of 1500 K.}
 		\label{figure:tikzbrouwerconctet}
 	\end{center}
 \end{figure}
-\end{landscape}
 
 \subsection{Brouwer Diagrams} \label{Formation}
 

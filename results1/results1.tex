@@ -43,14 +43,14 @@ where $E_{f}$ is the formation energy, $E_{def}$ is the energy of the defective 
 
 \subsection{Brouwer diagrams}
 
-Brouwer diagrams, also known as Kr{\"o}ger-Vink diagrams, were produced using a method outlined by Murphy et al. \cite{Murphy2014} to determine defect concentrations as a function of oxygen partial pressure. We start from the statement that the chemical potential of \zirconia\ is equivalent to the sum of the chemical potentials $\mu$ of its constituent species, Zr and O:
+Brouwer diagrams, also known as Kr{\"o}ger-Vink diagrams, were produced using a method outlined by Murphy \emph{et al}. \cite{Murphy2014} to determine defect concentrations as a function of oxygen partial pressure. We start from the statement that the chemical potential of \zirconia\ is equivalent to the sum of the chemical potentials $\mu$ of its constituent species, Zr and O:
 
 \begin{equation}
 {\mu}_{ZrO_2(s)} = {\mu}_{Zr}(p_{O_2}, T) + {\mu}_{O_2}(p_{O_2}, T)
 \label{mewZrO2results1}
 \end{equation}
 
-where $T$ denotes temperature and $p_{O_2}$ denotes oxygen partial pressure. The chemical potential of \zirconia\ in the solid state is assumed to have negligible dependence on $T$ and $p_{O_2}$ relative to ${\mu}_{Zr}$ and ${\mu}_{O_2}$. Energies can be obtained for bulk \zirconia\ and Zr, but the ground state of oxygen is not correctly reproduced in DFT \cite{Batyrev2000,Lozovoi2001}. Instead, the approach of Finnis et al. \cite{Finnis2005} is used to infer the oxygen chemical potential from standard state values. Thee experimental Gibbs free energy can be used to produce an equation where $\mu_{O_2}$ is the only unknown:
+where $T$ denotes temperature and $p_{O_2}$ denotes oxygen partial pressure. The chemical potential of \zirconia\ in the solid state is assumed to have negligible dependence on $T$ and $p_{O_2}$ relative to ${\mu}_{Zr}$ and ${\mu}_{O_2}$. Energies can be obtained for bulk \zirconia\ and Zr, but the ground state of oxygen is not correctly reproduced in DFT \cite{Batyrev2000,Lozovoi2001}. Instead, the approach of Finnis \emph{et al}. \cite{Finnis2005} is used to infer the oxygen chemical potential from standard state values. Thee experimental Gibbs free energy can be used to produce an equation where $\mu_{O_2}$ is the only unknown:
 
 \begin{equation}
 \Delta{G^{\plimsoll}_{f, ZrO_2}} = \mu_{ZrO_2(s)} - (\mu_{Zr(s)} + \mu^{\plimsoll}_{O_2})
@@ -69,7 +69,7 @@ Using our generalised formula for $\mu_{O_2}$, the temperature is fixed within t
 \begin{itemize}
 \item When some oxygen Frenkel defects were introduced to the cubic phase supercell, relaxation under constant volume conditions caused a collapse into a pseudo-tetragonal structure.
 \item This indicated that the cubic phase as modelled in DFT may not be fully stable.
-\item Further investigation indicated that the structure of a supercell of c-\zirconia\ broke down even with constrained symmetry, a result corroborated by Burr et al. \cite{burr2017importance}. 
+\item Further investigation indicated that the structure of a supercell of c-\zirconia\ broke down even with constrained symmetry, a result corroborated by Burr {et al}. \cite{burr2017importance}. 
 \end{itemize}
 
 \subsection{Electronic density of states}
@@ -155,10 +155,10 @@ Using our generalised formula for $\mu_{O_2}$, the temperature is fixed within t
 \begin{tikzpicture}
 	\begin{axis}
 		[width=11.5cm, xlabel={Fermi level (eV)}, ylabel={Formation energy (eV) per \zirconia\ }, ymin=4, ymax=11, xmin=0, xmax=6, legend style={{draw=}, at={(0.5,0.05)}, anchor=south, legend columns=2}]
-		\addplot[no marks, red] table [x=2a1, y=2a2,]{dat/monointer.dat}; \addlegendentry{$2a\overline{1}$};
-        \addplot[no marks, red, dashed] table [x=2b1, y=2b2, ]{dat/monointer.dat}; \addlegendentry{$2b\overline{1}$};
-        \addplot[no marks, blue] table [x=2c1, y=2c2,]{dat/monointer.dat}; \addlegendentry{$2c\overline{1}$};
-        \addplot[no marks, blue, dashed] table [x=2d1, y=2d2,]{dat/monointer.dat}; \addlegendentry{$2d\overline{1}$};
+		\addplot[no marks, red] table [x=2a1, y=2a2,]{dat/monointer.dat}; \addlegendentry{$2a$};
+        \addplot[no marks, red, dashed] table [x=2b1, y=2b2, ]{dat/monointer.dat}; \addlegendentry{$2b$};
+        \addplot[no marks, blue] table [x=2c1, y=2c2,]{dat/monointer.dat}; \addlegendentry{$2c$};
+        \addplot[no marks, blue, dashed] table [x=2d1, y=2d2,]{dat/monointer.dat}; \addlegendentry{$2d$};
 			\end{axis}
 		\end{tikzpicture}
 		\caption{Monoclinic phase formation energies of iodine interstitial defects as a function of Fermi level. Gradient indicates defect charge.}
@@ -229,32 +229,10 @@ The zirconium Frenkel defect is significantly larger than the oxygen Frenkel, mo
 \end{tabular}
 \end{table}
 
-\subsubsection*{Isolated Defects}
+%\subsubsection*{Isolated Defects}
+%
+%The isolated defect formation energies reported in Table \ref{isolated_defects} indicate that fully-charged Schottky defects have the lowest formation energy per atom (most energetically favourable) in all phases, followed by oxygen Frenkel defects. A trend is seen where the high-temperature phases result in lower formation energies for both Schottky and oxygen Frenkel defects, whereas zirconium Frenkel defects have similar formation energies in all three phases. It has been suggested that the relatively small cation size leads to defect structures where oxygen vacancies are favoured over interstitial defects \cite{dwivedi1990computer}. As the zirconium ion is too small to maintain a strong 8-fold bond coordination with its neighbouring oxygen ions, the introduction of oxygen vacancies (which have the added effect of reducing cell volume) will have a stabilising effect.
 
-The isolated defect formation energies reported in Table \ref{isolated_defects} indicate that fully-charged Schottky defects have the lowest formation energy per atom (most energetically favourable) in all phases, followed by oxygen Frenkel defects. A trend is seen where the high-temperature phases result in lower formation energies for both Schottky and oxygen Frenkel defects, whereas zirconium Frenkel defects have similar formation energies in all three phases. It has been suggested that the relatively small cation size leads to defect structures where oxygen vacancies are favoured over interstitial defects \cite{dwivedi1990computer}. As the zirconium ion is too small to maintain a strong 8-fold bond coordination with its neighbouring oxygen ions, the introduction of oxygen vacancies (which have the added effect of reducing cell volume) will have a stabilising effect.
-
-\begin{table}[ht] % Isolated formation energies
-\onehalfspacing
-\centering
-\caption{Formation energies in eV of isolated \zirconia\ defects.}
-\label{isolated_defects}
-\begin{tabular}{cccll}
-\hline
-\multirow{2}{*}{\textbf{Defect}}                      & \multirow{2}{*}{\textbf{Equation}}                                        & \multicolumn{3}{c}{\textbf{Formation Energy (eV)}} \\ \cline{3-5}
-	&	& \multicolumn{1}{l}{Monoclinic} & Tetragonal & Cubic \\ \hline
-\multirow{5}{*}{\textbf{Zr Frenkel}} & \ch{Zr_{Zr}^{x}} $\rightarrow$ \ch{V_{Zr}^{''''}} + \ch{Zr_{i}^{****}}              & 5.428 & 5.639 & 5.610                             \\
-                                     & \ch{Zr_{Zr}^{x}} $\rightarrow$ \ch{V_{Zr}^{'''}} + \ch{Zr_{i}^{***}}               & 8.695 & 8.939 & 8.476                            \\
-                                     & \ch{Zr_{Zr}^{x}} $\rightarrow$ \ch{V_{Zr}^{''}} + \ch{Zr_{i}^{**}}                & 12.118 & 12.058 & 11.628                             \\
-                                     & \ch{Zr_{Zr}^{x}} $\rightarrow$ \ch{V_{Zr}^{'}} + \ch{Zr_{i}^{*}}                & 16.021 &	15.696 &	13.319                             \\
-                                     & \ch{Zr_{Zr}^{x}} $\rightarrow$ \ch{V_{Zr}^{x}} + \ch{Zr_{i}^{x}}                  & 20.563	& 20.094 &	18.170                            \\ \hline
-\multirow{3}{*}{\textbf{O Frenkel}}  & \ch{O_{O}^{x}} $\rightarrow$ \ch{V_{O}^{**}} + \ch{O_{i}^{''}}                   & 4.457 &	4.000 & 	3.728                             \\
-                                     & \ch{O_{O}^{x}} $\rightarrow$ \ch{V_{O}^{*}} + \ch{O_{i}^{'}}                   & 6.432	& 6.588 &	7.055                             \\
-                                     & \ch{O_{O}^{x}} $\rightarrow$ \ch{V_{O}^{x}} + \ch{O_{i}^{x}}                     & 7.518 &	7.452 &	8.477                             \\ \hline
-\multirow{3}{*}{\textbf{Schottky}}   & $\varnothing$ $\rightarrow$ \ch{V_{Zr}^{''''}} + 2\ch{V_{O}^{**}} & 5.120 &	3.778	& 1.752                             \\
-                                     & $\varnothing$ $\rightarrow$ \ch{V_{Zr}^{''}} + 2\ch{V_{O}^{*}} & 11.353 &	10.832 &	9.624                             \\
-                                     & $\varnothing$ $\rightarrow$ \ch{V_{Zr}^{x}} + 2\ch{V_{O}^{x}}   & 18.554 &	18.232 &	17.073  \\ \hline                          
-\end{tabular}
-\end{table}
 
 \subsubsection*{Bound Defects}
 The bound defect formation energies shown in Table \ref{table:bound_defects} show that NTV defects, on a per defect atom basis, are the most energetically favourable defects, followed by oxygen and zirconium Frenkel defects respectively. The NTV3 exhibited the smallest formation energy in all three crystal structure, with a single exception of the NTV2 in the cubic phase where a much smaller formation energy was observed due to collapse of the supercell during geometry optimisation.
@@ -474,4 +452,4 @@ Figure \ref{figure:tet_intrinsic_brouwer} shows a much greater concentration of 
 
 The main defects in \zirconia\ are oxygen vacancies and zirconium vacancies at low and high oxygen pressures respectively. 
 
-The cubic phase cannot be modelled accurately due to instabilities outlined by Burr et al. in [REF] For this reason, it was decided that the cubic phase would not be considered when conducting extrinsic dopant simulation studies in \zirconia .
+The cubic phase cannot be modelled accurately due to instabilities outlined by Burr \emph{et al}. \cite{burr2017importance}. For this reason, it was decided that the cubic phase would not be considered when conducting extrinsic dopant simulation studies in \zirconia .

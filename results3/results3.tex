@@ -100,46 +100,43 @@ Brouwer diagrams for tellurium defects are shown in Figure \ref{figure:tellurium
 Tellurium on an oxygen site adopts a 0 charge state, which while not obvious (it may be expected to act like oxygen, also a group 6 element), can be understood when considering chemical behaviour. Oxygen on its native site will readily adopt a charge state of -2. Tellurium on the other hand, exhibits more metallic behaviour, preferring to be oxidised itself (the electronegativities of oxygen and tellurium are 3.5 and 2.1 respectively). However, the \ch{V_{O}^{**}} site is highly reducing, and will counter the tellurium ion's proclivity to oxidise. The overall effect on tellurium in this case is to maintain its original electronic structure. Finally, when the tellurium concentration is increased to $10^{-3}$ parts/fu, greater occupancy on the zirconium site is predicted above oxygen pressures of $10^{-17}$ atm, forming the defect \ch{Te_{Zr}^{'''}}. This corresponds to a tellurium charge state of +1. While we would expect an even more positive charge state for tellurium, in this case it is the dominant negative defect by an order of magnitude and is necessary to charge compensate positive hole and \ch{Te_{O}^{**}} defects. 
 
 
-\begin{landscape}
-\begin{figure}[htp] % Tellurium 1
+\begin{figure}[ht] % Tellurium 1
 \begin{center}
 \begin{tikzpicture}
-	\begin{axis}
-		[width=12.35cm, xlabel={\ch{log_{10}}($p_{O_{2}}$) (atm)}, ylabel={\ch{log_{10}}([D]) (per f.u.)}, ymin=-10, ymax=0, xmin=-35, xmax=0, legend style={{draw=}, at={(0.30,1.47)}, anchor=north west, legend columns=3, nodes={scale=0.75, transform shape}}]
+	\begin{groupplot}[group style={group size=1 by 2}, width=13cm, height=10.2cm]
+	\nextgroupplot[
+		 ylabel={\ch{log_{10}}([D]) (per f.u.)}, ymin=-10, ymax=0, xmin=-35, xmax=0, legend style={{draw=}, at={(0.40,0.97)}, anchor=north west, legend columns=2, nodes={scale=1, transform shape}}]
         \addplot[no marks, draw=blue!70!black] table [x=pO2, y=electrons,]{dat/te_tet_10-5.dat}; \addlegendentry{\ch{e^{'}}}; \node at (-26.0,-1.9) {\ch{e^{'}}};
         \addplot[no marks, draw=red!85!black] table [x=pO2, y=holes,]{dat/te_tet_10-5.dat}; \addlegendentry{\ch{h^{\textperiodcentered}}}; \node at (-7,-3.6) {\ch{h^{\textperiodcentered}}};
         \addplot[no marks, draw=black!70!green] table [x=pO2, y=VO{2},]{dat/te_tet_10-5.dat}; \addlegendentry{\ch{V_{O}^{\textperiodcentered\textperiodcentered}}}; \node at (-26.7,-3.3) {\ch{V_{O}^{\textperiodcentered\textperiodcentered}}};
          %\addplot[no marks, draw=black!55!green] table [x=pO2, y=VO{1},]{dat/te_tet_10-5.dat}; \addlegendentry{\ch{V_{O}^{\textperiodcentered}}};
          %\addplot[no marks, draw=black!30!green] table [x=pO2, y=VO{0},]{dat/te_tet_10-5.dat}; \addlegendentry{\ch{V_{O}^{x}}};
         \addplot[no marks, draw=yellow!85!blue] table [x=pO2, y=VM{-4},]{dat/te_tet_10-5.dat}; \addlegendentry{\ch{V_{Zr}^{''''}}};
-         \addplot[no marks, draw=yellow!75!blue] table [x=pO2, y=VM{-3},]{dat/te_tet_10-5.dat}; \addlegendentry{\ch{V_{Zr}^{'''}}};
+         %\addplot[no marks, draw=yellow!75!blue] table [x=pO2, y=VM{-3},]{dat/te_tet_10-5.dat}; \addlegendentry{\ch{V_{Zr}^{'''}}};
          %\addplot[no marks, draw=yellow!65!blue] table [x=pO2, y=VM{-2},]{dat/te_tet_10-5.dat}; \addlegendentry{\ch{V_{Zr}^{''}}};
          %\addplot[no marks, draw=yellow!55!blue] table [x=pO2, y=VM{-1},]{dat/te_tet_10-5.dat}; \addlegendentry{\ch{V_{Zr}^{'}}};
          %\addplot[no marks, draw=yellow!45!blue] table [x=pO2, y=VM{0},]{dat/te_tet_10-5.dat}; \addlegendentry{\ch{V_{Zr}^{x}}};
-         \addplot[no marks, draw=red!60!yellow] table [x=pO2, y=Oi{-2},]{dat/te_tet_10-5.dat}; \addlegendentry{\ch{O_{i}^{''}}};
-         \addplot[no marks, draw=red!50!yellow] table [x=pO2, y=Oi{-1},]{dat/te_tet_10-5.dat}; \addlegendentry{\ch{O_{i}^{'}}};
-         \addplot[no marks, draw=red!40!yellow] table [x=pO2, y=Oi{0},]{dat/te_tet_10-5.dat}; \addlegendentry{\ch{O_{i}^{x}}};
+         %\addplot[no marks, draw=red!60!yellow] table [x=pO2, y=Oi{-2},]{dat/te_tet_10-5.dat}; \addlegendentry{\ch{O_{i}^{''}}};
+         %\addplot[no marks, draw=red!50!yellow] table [x=pO2, y=Oi{-1},]{dat/te_tet_10-5.dat}; \addlegendentry{\ch{O_{i}^{'}}};
+         %\addplot[no marks, draw=red!40!yellow] table [x=pO2, y=Oi{0},]{dat/te_tet_10-5.dat}; \addlegendentry{\ch{O_{i}^{x}}};
          %\addplot[no marks, draw=green!80!pink] table [x=pO2, y=Mi{4},]{dat/te_tet_10-5.dat}; \addlegendentry{\ch{Zr_{i}^{\textperiodcentered\textperiodcentered\textperiodcentered\textperiodcentered}}};
          %\addplot[no marks, draw=green!70!pink] table [x=pO2, y=Mi{3},]{dat/te_tet_10-5.dat}; \addlegendentry{\ch{Zr_{i}^{\textperiodcentered\textperiodcentered\textperiodcentered}}};
          %\addplot[no marks, draw=green!60!pink] table [x=pO2, y=Mi{2},]{dat/te_tet_10-5.dat}; \addlegendentry{\ch{Zr_{i}^{\textbf{\textperiodcentered\textperiodcentered}}}};
         %\addplot[no marks, draw=green!50!pink] table [x=pO2, y=Mi{1},]{dat/te_tet_10-5.dat}; \addlegendentry{\ch{Zr_{i}^{\textperiodcentered}}};
          %\addplot[no marks, draw=green!40!pink] table [x=pO2, y=Mi{0},]{dat/te_tet_10-5.dat}; \addlegendentry{\ch{Zr_{i}^{x}}};
-         \addplot[no marks, dashed, draw=red!70!black] table [x=pO2, y=Tei{0},]{dat/te_tet_10-5.dat}; \addlegendentry{\ch{Te_{i}^{x}}};
-         \addplot[no marks, dashed, draw=red!50!black] table [x=pO2, y=Tei{-1},]{dat/te_tet_10-5.dat}; \addlegendentry{\ch{Te_{i}^{'}}};
-        \addplot[no marks, dashed, draw=purple] table [x=pO2, y=Tei{1},]{dat/te_tet_10-5.dat}; \addlegendentry{\ch{Te_{i}^{\textperiodcentered}}};
+         %\addplot[no marks, dashed, draw=red!70!black] table [x=pO2, y=Tei{0},]{dat/te_tet_10-5.dat}; \addlegendentry{\ch{Te_{i}^{x}}};
+         %\addplot[no marks, dashed, draw=red!50!black] table [x=pO2, y=Tei{-1},]{dat/te_tet_10-5.dat}; \addlegendentry{\ch{Te_{i}^{'}}};
+        %\addplot[no marks, dashed, draw=purple] table [x=pO2, y=Tei{1},]{dat/te_tet_10-5.dat}; \addlegendentry{\ch{Te_{i}^{\textperiodcentered}}};
         \addplot[no marks, dashed, draw=blue!50!white] table [x=pO2, y=TesubO{1},]{dat/te_tet_10-5.dat}; \addlegendentry{\ch{Te_{O}^{\textperiodcentered}}};
         \addplot[no marks, dashed, draw=green!60!black] table [x=pO2, y=TesubO{2},]{dat/te_tet_10-5.dat}; \addlegendentry{\ch{Te_{O}^{\textperiodcentered\textperiodcentered}}};
-        \addplot[no marks, dashed, draw=black] table [x=pO2, y=TesubO{3},]{dat/te_tet_10-5.dat}; \addlegendentry{\ch{Te_{O}^{\textperiodcentered\textperiodcentered\textperiodcentered}}};
+        %\addplot[no marks, dashed, draw=black] table [x=pO2, y=TesubO{3},]{dat/te_tet_10-5.dat}; \addlegendentry{\ch{Te_{O}^{\textperiodcentered\textperiodcentered\textperiodcentered}}};
         \addplot[no marks, dashed, draw=orange!80!black] table [x=pO2, y=TesubZr{-3},]{dat/te_tet_10-5.dat}; \addlegendentry{\ch{Te_{Zr}^{'''}}};
-         \addplot[no marks, dashed, draw=pink] table [x=pO2, y=TesubZr{-4},]{dat/te_tet_10-5.dat}; \addlegendentry{\ch{Te_{Zr}^{''''}}};
-         \addplot[no marks, dashed, draw=purple] table [x=pO2, y=TesubZr{-5},]{dat/te_tet_10-5.dat}; \addlegendentry{\ch{Te_{Zr}^{'''''}}};
+         %\addplot[no marks, dashed, draw=pink] table [x=pO2, y=TesubZr{-4},]{dat/te_tet_10-5.dat}; \addlegendentry{\ch{Te_{Zr}^{''''}}};
+         %\addplot[no marks, dashed, draw=purple] table [x=pO2, y=TesubZr{-5},]{dat/te_tet_10-5.dat}; \addlegendentry{\ch{Te_{Zr}^{'''''}}};
 %         \addplot[no marks] table [x=pO2, y=Stoich,]{cs_tet.dat}; \addlegendentry{Stoich};
 \node at (-33.7,-0.5) {\textbf{a)}};
-			\end{axis}            
-\end{tikzpicture}
-\begin{tikzpicture} % Tellurium 2
-	\begin{axis}
-		[width=12.35cm, xlabel={\ch{log_{10}}($p_{O_{2}}$) (atm)}, yticklabels={}, ymin=-10, ymax=0, xmin=-35, xmax=0]
+			\nextgroupplot[
+		 xlabel={\ch{log_{10}}($p_{O_{2}}$) (atm)}, ylabel={\ch{log_{10}}([D]) (per f.u.)}, ymin=-10, ymax=0, xmin=-35, xmax=0, legend style={{draw=}, at={(0.40,0.97)}, anchor=north west, legend columns=4, nodes={scale=1, transform shape}}]
         \addplot[no marks, draw=blue!70!black] table [x=pO2, y=electrons,]{dat/te_tet_10-3.dat}; \node at (-27,-1.7) {\ch{e^{'}}};
         \addplot[no marks, draw=red!85!black] table [x=pO2, y=holes,]{dat/te_tet_10-3.dat}; %\node at (-2.5,-2.1) {\ch{h^{\textperiodcentered}}};
         \addplot[no marks, draw=black!70!green] table [x=pO2, y=VO{2},]{dat/te_tet_10-3.dat}; 
@@ -158,110 +155,109 @@ Tellurium on an oxygen site adopts a 0 charge state, which while not obvious (it
 %         \addplot[no marks, draw=green!60!pink] table [x=pO2, y=Mi{2},]{dat/te_tet_10-3.dat}; 
 %         \addplot[no marks, draw=green!50!pink] table [x=pO2, y=Mi{1},]{dat/te_tet_10-3.dat}; 
 %         \addplot[no marks, draw=green!40!pink] table [x=pO2, y=Mi{0},]{dat/te_tet_10-3.dat}; 
-        \addplot[no marks, dashed, draw=red!70!black] table [x=pO2, y=Tei{0},]{dat/te_tet_10-3.dat}; 
-        \addplot[no marks, dashed, draw=red!50!black] table [x=pO2, y=Tei{-1},]{dat/te_tet_10-3.dat}; 
-        \addplot[no marks, dashed, draw=purple] table [x=pO2, y=Tei{1},]{dat/te_tet_10-3.dat}; 
+        %\addplot[no marks, dashed, draw=red!70!black] table [x=pO2, y=Tei{0},]{dat/te_tet_10-3.dat}; 
+        %\addplot[no marks, dashed, draw=red!50!black] table [x=pO2, y=Tei{-1},]{dat/te_tet_10-3.dat}; 
+        %\addplot[no marks, dashed, draw=purple] table [x=pO2, y=Tei{1},]{dat/te_tet_10-3.dat}; 
         \addplot[no marks, dashed, draw=blue!50!white] table [x=pO2, y=TesubO{1},]{dat/te_tet_10-3.dat}; 
         \addplot[no marks, dashed, draw=green!60!black] table [x=pO2, y=TesubO{2},]{dat/te_tet_10-3.dat}; \node at (-11,-2.6) {\ch{Te_{O}^{\textperiodcentered\textperiodcentered}}};
-        \addplot[no marks, dashed, draw=black] table [x=pO2, y=TesubO{3},]{dat/te_tet_10-3.dat}; 
+        %\addplot[no marks, dashed, draw=black] table [x=pO2, y=TesubO{3},]{dat/te_tet_10-3.dat}; 
         \addplot[no marks, dashed, draw=orange!80!black] table [x=pO2, y=TesubZr{-3},]{dat/te_tet_10-3.dat}; 
-        \addplot[no marks, dashed, draw=pink] table [x=pO2, y=TesubZr{-4},]{dat/te_tet_10-3.dat}; 
-        \addplot[no marks, dashed, draw=purple] table [x=pO2, y=TesubZr{-5},]{dat/te_tet_10-3.dat}; 
+        %\addplot[no marks, dashed, draw=pink] table [x=pO2, y=TesubZr{-4},]{dat/te_tet_10-3.dat}; 
+        %\addplot[no marks, dashed, draw=purple] table [x=pO2, y=TesubZr{-5},]{dat/te_tet_10-3.dat}; 
 %        \addplot[no marks] table [x=pO2, y=Stoich,]{dat/te_tet_10-3.dat}; 
 \node at (-33.7,-0.5) {\textbf{b)}};
-			\end{axis}            
+			\end{groupplot}           
 \end{tikzpicture}
-		\caption{Tetragonal phase Brouwer diagrams of point defects at tellurium concentrations of a) $10^{-5}$ and b) $10^{-3}$, at a temperature of 1500 K. Space charge = 0}
+		\caption{Brouwer diagrams for tetragonal phase \zirconia\ point defects at tellurium concentrations of a) $10^{-5}$ and b) $10^{-3}$, at a temperature of 1500 K.} % Space charge = 0
 		\label{figure:telluriumbrouwer}
 	\end{center}
 \end{figure}
-\end{landscape}
 
 The presence of these defects and their sizes will have an effect on the lattice, particularly if there is a lattice mismatch which results in a significant local strain. In terms of defect volume, \ch{Te_{O}^{**}} has a slightly positive volume of 2.74 \r{A}$^{3}$ relative to the non-defective crystal. This is quite large for a positively charged defect (\ch{V_{O}^{**}} has a defect volume of -40.45 \r{A}$^{3}$), very likely due to the large size of the tellurium atom itself. When tellurium occupies the zirconium site, the resulting \ch{Te_{Zr}^{'''}} has a defect volume of 59.93 \r{A}$^{3}$. While this is lower than the defect volume of \ch{V_{Zr}^{''''}} (88.93 \r{A}$^{3}$), it is still an increase in volume relative to the non-defective crystal and will impart a strain on the lattice which, at a high enough defect concentration, could contribute to crack formation.
 
 \subsubsection{Iodine}
 
-Iodine was previously predicted in Brouwer diagrams (Figure \ref{figure:tikzbrouwerconctet_chap7} to produce the defects \ch{I_{O}^{*}} and \ch{I_{Zr}^{'''}} at low and high oxygen pressures respectively. Since the extrinsic defect site is similar for tellurium defects over most oxygen pressures, $\beta$- decay of tellurium could have directly produced these iodine defects without requiring a change of site. Thus, \ch{Te_{O}^{**}} would decay and produce \ch{I_{O}^{*}} with a defect volume of 29.90 \r{A}$^{3}$, and \ch{Te_{Zr}^{'''}} would decay and produce \ch{I_{Zr}^{'''}} with a defect volume of 87.07 \r{A}$^{3}$. At the oxygen site, this means a defect volume change from 2.74 to 29.90 \r{A}$^{3}$. This increase is in large part due to the change in charge state from 0 to -1, as the ions are of similar size otherwise. 
+Iodine was previously predicted in Brouwer diagrams (Figure \ref{figure:tikzbrouwerconctet} to produce the defects \ch{I_{O}^{*}} and \ch{I_{Zr}^{'''}} at low and high oxygen pressures respectively. Since the extrinsic defect site is similar for tellurium defects over most oxygen pressures, $\beta$- decay of tellurium could have directly produced these iodine defects without requiring a change of site. Thus, \ch{Te_{O}^{**}} would decay and produce \ch{I_{O}^{*}} with a defect volume of 29.90 \r{A}$^{3}$, and \ch{Te_{Zr}^{'''}} would decay and produce \ch{I_{Zr}^{'''}} with a defect volume of 87.07 \r{A}$^{3}$. At the oxygen site, this means a defect volume change from 2.74 to 29.90 \r{A}$^{3}$. This increase is in large part due to the change in charge state from 0 to -1, as the ions are of similar size otherwise. 
 
 Similarly at the zirconium site, the defect volume changes from 59.93 to 87.07 \r{A}$^{3}$. Both of these are relatively large increases in defect volume and will come with an increase in lattice stress in the immediate vicinity of the defect, especially if highly constrained. Of course, this  process will take place continuously over time as tellurium atoms decay, with half-lives ranging from seconds to hours depending on the isotope. It is of note however, that PCI failures tend to occur after power ramps with a time delay, even up to an hour after the transient. While not conclusive, this may hint at a mechanism involving decay processes. 
 
-%-----Brouwer Diagram Iodine-----%
-\begin{landscape}
-\begin{figure}[htp] % Iodine
-\begin{center}
-\begin{tikzpicture}
-	\begin{axis}
-		[width=12.35cm, xlabel={\ch{log_{10}}($p_{O_{2}}$) (atm)}, ylabel={\ch{log_{10}}([D]) (per f.u.)}, ymin=-10, ymax=0, xmin=-35, xmax=0, legend style={{draw=}, at={(0.40,0.97)}, anchor=north west, legend columns=3, nodes={scale=0.75, transform shape}}]
-        \addplot[no marks, draw=blue!70!black] table [x=pO2, y=electrons,]{dat/1e5iconctet1500.dat}; \addlegendentry{\ch{e^{'}}}; \node at (-26.0,-1.9) {\ch{e^{'}}};
-        \addplot[no marks, draw=red!85!black] table [x=pO2, y=holes,]{dat/1e5iconctet1500.dat}; \addlegendentry{\ch{h^{\textperiodcentered}}}; \node at (-7,-3.6) {\ch{h^{\textperiodcentered}}};
-        \addplot[no marks, draw=black!70!green] table [x=pO2, y=VO{2},]{dat/1e5iconctet1500.dat}; \addlegendentry{\ch{V_{O}^{\textperiodcentered\textperiodcentered}}}; \node at (-26.7,-3.3) {\ch{V_{O}^{\textperiodcentered\textperiodcentered}}};
-%         \addplot[no marks, draw=black!55!green] table [x=pO2, y=VO{1},]{dat/1e5iconctet1500.dat}; \addlegendentry{\ch{V_{O}^{\textperiodcentered}}};
-%         \addplot[no marks, draw=black!30!green] table [x=pO2, y=VO{0},]{dat/1e5iconctet1500.dat}; \addlegendentry{\ch{V_{O}^{x}}};
-        \addplot[no marks, draw=yellow!85!blue] table [x=pO2, y=VM{-4},]{dat/1e5iconctet1500.dat}; \addlegendentry{\ch{V_{Zr}^{''''}}};
-%         \addplot[no marks, draw=yellow!75!blue] table [x=pO2, y=VM{-3},]{dat/1e5iconctet1500.dat}; \addlegendentry{\ch{V_{Zr}^{'''}}};
-%         \addplot[no marks, draw=yellow!65!blue] table [x=pO2, y=VM{-2},]{dat/1e5iconctet1500.dat}; \addlegendentry{\ch{V_{Zr}^{''}}};
-%         \addplot[no marks, draw=yellow!55!blue] table [x=pO2, y=VM{-1},]{dat/1e5iconctet1500.dat}; \addlegendentry{\ch{V_{Zr}^{'}}};
-%         \addplot[no marks, draw=yellow!45!blue] table [x=pO2, y=VM{0},]{dat/1e5iconctet1500.dat}; \addlegendentry{\ch{V_{Zr}^{x}}};
-%         \addplot[no marks, draw=red!60!yellow] table [x=pO2, y=Oi{-2},]{dat/1e5iconctet1500.dat}; \addlegendentry{\ch{O_{i}^{''}}};
-%         \addplot[no marks, draw=red!50!yellow] table [x=pO2, y=Oi{-1},]{dat/1e5iconctet1500.dat}; \addlegendentry{\ch{O_{i}^{'}}};
-%         \addplot[no marks, draw=red!40!yellow] table [x=pO2, y=Oi{0},]{dat/1e5iconctet1500.dat}; \addlegendentry{\ch{O_{i}^{x}}};
-%         \addplot[no marks, draw=green!80!pink] table [x=pO2, y=Mi{4},]{dat/1e5iconctet1500.dat}; \addlegendentry{\ch{Zr_{i}^{\textperiodcentered\textperiodcentered\textperiodcentered\textperiodcentered}}};
-%         \addplot[no marks, draw=green!70!pink] table [x=pO2, y=Mi{3},]{dat/1e5iconctet1500.dat}; \addlegendentry{\ch{Zr_{i}^{\textperiodcentered\textperiodcentered\textperiodcentered}}};
-%         \addplot[no marks, draw=green!60!pink] table [x=pO2, y=Mi{2},]{dat/1e5iconctet1500.dat}; \addlegendentry{\ch{Zr_{i}^{\textbf{\textperiodcentered\textperiodcentered}}}};
-%         \addplot[no marks, draw=green!50!pink] table [x=pO2, y=Mi{1},]{dat/1e5iconctet1500.dat}; \addlegendentry{\ch{Zr_{i}^{\textperiodcentered}}};
-%         \addplot[no marks, draw=green!40!pink] table [x=pO2, y=Mi{0},]{dat/1e5iconctet1500.dat}; \addlegendentry{\ch{Zr_{i}^{x}}};
-%         \addplot[no marks, dashed, draw=red!70!black] table [x=pO2, y=Ii{0},]{dat/1e5iconctet1500.dat}; \addlegendentry{\ch{I_{i}^{x}}};
-%         \addplot[no marks, dashed, draw=red!50!black] table [x=pO2, y=Ii{-1},]{dat/1e5iconctet1500.dat}; \addlegendentry{\ch{I_{i}^{'}}};
-        \addplot[no marks, dashed, draw=purple!60!white] table [x=pO2, y=Ii{1},]{dat/1e5iconctet1500.dat}; \addlegendentry{\ch{I_{i}^{\textperiodcentered}}};
-        \addplot[no marks, dashed, draw=blue!50!white] table [x=pO2, y=IsubO{1},]{dat/1e5iconctet1500.dat}; \addlegendentry{\ch{I_{O}^{\textperiodcentered}}};
-        \addplot[no marks, dashed, draw=green!60!black] table [x=pO2, y=IsubO{2},]{dat/1e5iconctet1500.dat}; \addlegendentry{\ch{I_{O}^{\textperiodcentered\textperiodcentered}}};
-        \addplot[no marks, dashed, draw=black] table [x=pO2, y=IsubO{3},]{dat/1e5iconctet1500.dat}; \addlegendentry{\ch{I_{O}^{\textperiodcentered\textperiodcentered\textperiodcentered}}};
-        \addplot[no marks, dashed, draw=orange!80!black] table [x=pO2, y=IsubZr{-3},]{dat/1e5iconctet1500.dat}; \addlegendentry{\ch{I_{Zr}^{'''}}};
-%         \addplot[no marks, dashed, draw=pink] table [x=pO2, y=IsubZr{-4},]{dat/1e5iconctet1500.dat}; \addlegendentry{\ch{I_{Zr}^{''''}}};
-%         \addplot[no marks, dashed, draw=purple] table [x=pO2, y=IsubZr{-5},]{dat/1e5iconctet1500.dat}; \addlegendentry{\ch{I_{Zr}^{'''''}}};
-%         \addplot[no marks] table [x=pO2, y=Stoich,]{dat/1e5iconctet1500.dat}; \addlegendentry{Stoich};
-\node at (-33.7,-0.5) {\textbf{a)}};
-			\end{axis}            
-\end{tikzpicture}
-\begin{tikzpicture} % Iodine 2
-	\begin{axis}
-		[width=12.35cm, xlabel={\ch{log_{10}}($p_{O_{2}}$) (atm)}, yticklabels={}, ymin=-10, ymax=0, xmin=-35, xmax=0]
-        \addplot[no marks, draw=blue!70!black] table [x=pO2, y=electrons,]{dat/1e3iconctet1500.dat}; \node at (-27,-1.7) {\ch{e^{'}}};
-        \addplot[no marks, draw=red!85!black] table [x=pO2, y=holes,]{dat/1e3iconctet1500.dat}; \node at (-2.5,-2.1) {\ch{h^{\textperiodcentered}}};
-        \addplot[no marks, draw=black!70!green] table [x=pO2, y=VO{2},]{dat/1e3iconctet1500.dat}; 
-%         \addplot[no marks, draw=black!55!green] table [x=pO2, y=VO{1},]{dat/1e3iconctet1500.dat}; 
-%         \addplot[no marks, draw=black!30!green] table [x=pO2, y=VO{0},]{dat/1e3iconctet1500.dat}; 
-        \addplot[no marks, draw=yellow!85!blue] table [x=pO2, y=VM{-4},]{dat/1e3iconctet1500.dat}; 
-%         \addplot[no marks, draw=yellow!75!blue] table [x=pO2, y=VM{-3},]{dat/1e3iconctet1500.dat}; 
-%         \addplot[no marks, draw=yellow!65!blue] table [x=pO2, y=VM{-2},]{dat/1e3iconctet1500.dat}; 
-%         \addplot[no marks, draw=yellow!55!blue] table [x=pO2, y=VM{-1},]{dat/1e3iconctet1500.dat}; 
-%         \addplot[no marks, draw=yellow!45!blue] table [x=pO2, y=VM{0},]{dat/1e3iconctet1500.dat}; 
-%         \addplot[no marks, draw=red!60!yellow] table [x=pO2, y=Oi{-2},]{dat/1e3iconctet1500.dat}; 
-%         \addplot[no marks, draw=red!50!yellow] table [x=pO2, y=Oi{-1},]{dat/1e3iconctet1500.dat}; 
-%         \addplot[no marks, draw=red!40!yellow] table [x=pO2, y=Oi{0},]{dat/1e3iconctet1500.dat}; 
-%         \addplot[no marks, draw=green!80!pink] table [x=pO2, y=Mi{4},]{dat/1e3iconctet1500.dat}; 
-%         \addplot[no marks, draw=green!70!pink] table [x=pO2, y=Mi{3},]{dat/1e3iconctet1500.dat}; 
-%         \addplot[no marks, draw=green!60!pink] table [x=pO2, y=Mi{2},]{dat/1e3iconctet1500.dat}; 
-%         \addplot[no marks, draw=green!50!pink] table [x=pO2, y=Mi{1},]{dat/1e3iconctet1500.dat}; 
-%         \addplot[no marks, draw=green!40!pink] table [x=pO2, y=Mi{0},]{dat/1e3iconctet1500.dat}; 
-%         \addplot[no marks, dashed, draw=red!70!black] table [x=pO2, y=Ii{0},]{dat/1e3iconctet1500.dat}; 
-%         \addplot[no marks, dashed, draw=red!50!black] table [x=pO2, y=Ii{-1},]{dat/1e3iconctet1500.dat}; 
-        \addplot[no marks, dashed, draw=purple!60!white] table [x=pO2, y=Ii{1},]{dat/1e3iconctet1500.dat}; 
-        \addplot[no marks, dashed, draw=blue!50!white] table [x=pO2, y=IsubO{1},]{dat/1e3iconctet1500.dat}; \node at (-11,-2.6) {\ch{I_{O}^{\textperiodcentered}}};
-        \addplot[no marks, dashed, draw=green!60!black] table [x=pO2, y=IsubO{2},]{dat/1e3iconctet1500.dat}; 
-        \addplot[no marks, dashed, draw=black] table [x=pO2, y=IsubO{3},]{dat/1e3iconctet1500.dat}; 
-        \addplot[no marks, dashed, draw=orange!80!black] table [x=pO2, y=IsubZr{-3},]{dat/1e3iconctet1500.dat}; 
-%         \addplot[no marks, dashed, draw=pink] table [x=pO2, y=IsubZr{-4},]{dat/1e3iconctet1500.dat}; 
-%         \addplot[no marks, dashed, draw=purple] table [x=pO2, y=IsubZr{-5},]{dat/1e3iconctet1500.dat}; 
-%         \addplot[no marks] table [x=pO2, y=Stoich,]{dat/1e3iconctet1500.dat}; 
-\node at (-33.7,-0.5) {\textbf{b)}};
-			\end{axis}            
-\end{tikzpicture}
-		\caption{Tetragonal phase Brouwer diagrams of point defects at iodine concentrations of a) $10^{-5}$ and b) $10^{-3}$, at a temperature of 1500 K.}
-		\label{figure:tikzbrouwerconctet_chap7}
-	\end{center}
-\end{figure}
-\end{landscape}
+%%-----Brouwer Diagram Iodine-----%
+%\begin{landscape}
+%\begin{figure}[ht] % Iodine
+%\begin{center}
+%\begin{tikzpicture}
+%	\begin{axis}
+%		[width=12.35cm, xlabel={\ch{log_{10}}($p_{O_{2}}$) (atm)}, ylabel={\ch{log_{10}}([D]) (per f.u.)}, ymin=-10, ymax=0, xmin=-35, xmax=0, legend style={{draw=}, at={(0.40,0.97)}, anchor=north west, legend columns=3, nodes={scale=0.75, transform shape}}]
+%        \addplot[no marks, draw=blue!70!black] table [x=pO2, y=electrons,]{dat/1e5iconctet1500.dat}; \addlegendentry{\ch{e^{'}}}; \node at (-26.0,-1.9) {\ch{e^{'}}};
+%        \addplot[no marks, draw=red!85!black] table [x=pO2, y=holes,]{dat/1e5iconctet1500.dat}; \addlegendentry{\ch{h^{\textperiodcentered}}}; \node at (-7,-3.6) {\ch{h^{\textperiodcentered}}};
+%        \addplot[no marks, draw=black!70!green] table [x=pO2, y=VO{2},]{dat/1e5iconctet1500.dat}; \addlegendentry{\ch{V_{O}^{\textperiodcentered\textperiodcentered}}}; \node at (-26.7,-3.3) {\ch{V_{O}^{\textperiodcentered\textperiodcentered}}};
+%%         \addplot[no marks, draw=black!55!green] table [x=pO2, y=VO{1},]{dat/1e5iconctet1500.dat}; \addlegendentry{\ch{V_{O}^{\textperiodcentered}}};
+%%         \addplot[no marks, draw=black!30!green] table [x=pO2, y=VO{0},]{dat/1e5iconctet1500.dat}; \addlegendentry{\ch{V_{O}^{x}}};
+%        \addplot[no marks, draw=yellow!85!blue] table [x=pO2, y=VM{-4},]{dat/1e5iconctet1500.dat}; \addlegendentry{\ch{V_{Zr}^{''''}}};
+%%         \addplot[no marks, draw=yellow!75!blue] table [x=pO2, y=VM{-3},]{dat/1e5iconctet1500.dat}; \addlegendentry{\ch{V_{Zr}^{'''}}};
+%%         \addplot[no marks, draw=yellow!65!blue] table [x=pO2, y=VM{-2},]{dat/1e5iconctet1500.dat}; \addlegendentry{\ch{V_{Zr}^{''}}};
+%%         \addplot[no marks, draw=yellow!55!blue] table [x=pO2, y=VM{-1},]{dat/1e5iconctet1500.dat}; \addlegendentry{\ch{V_{Zr}^{'}}};
+%%         \addplot[no marks, draw=yellow!45!blue] table [x=pO2, y=VM{0},]{dat/1e5iconctet1500.dat}; \addlegendentry{\ch{V_{Zr}^{x}}};
+%%         \addplot[no marks, draw=red!60!yellow] table [x=pO2, y=Oi{-2},]{dat/1e5iconctet1500.dat}; \addlegendentry{\ch{O_{i}^{''}}};
+%%         \addplot[no marks, draw=red!50!yellow] table [x=pO2, y=Oi{-1},]{dat/1e5iconctet1500.dat}; \addlegendentry{\ch{O_{i}^{'}}};
+%%         \addplot[no marks, draw=red!40!yellow] table [x=pO2, y=Oi{0},]{dat/1e5iconctet1500.dat}; \addlegendentry{\ch{O_{i}^{x}}};
+%%         \addplot[no marks, draw=green!80!pink] table [x=pO2, y=Mi{4},]{dat/1e5iconctet1500.dat}; \addlegendentry{\ch{Zr_{i}^{\textperiodcentered\textperiodcentered\textperiodcentered\textperiodcentered}}};
+%%         \addplot[no marks, draw=green!70!pink] table [x=pO2, y=Mi{3},]{dat/1e5iconctet1500.dat}; \addlegendentry{\ch{Zr_{i}^{\textperiodcentered\textperiodcentered\textperiodcentered}}};
+%%         \addplot[no marks, draw=green!60!pink] table [x=pO2, y=Mi{2},]{dat/1e5iconctet1500.dat}; \addlegendentry{\ch{Zr_{i}^{\textbf{\textperiodcentered\textperiodcentered}}}};
+%%         \addplot[no marks, draw=green!50!pink] table [x=pO2, y=Mi{1},]{dat/1e5iconctet1500.dat}; \addlegendentry{\ch{Zr_{i}^{\textperiodcentered}}};
+%%         \addplot[no marks, draw=green!40!pink] table [x=pO2, y=Mi{0},]{dat/1e5iconctet1500.dat}; \addlegendentry{\ch{Zr_{i}^{x}}};
+%%         \addplot[no marks, dashed, draw=red!70!black] table [x=pO2, y=Ii{0},]{dat/1e5iconctet1500.dat}; \addlegendentry{\ch{I_{i}^{x}}};
+%%         \addplot[no marks, dashed, draw=red!50!black] table [x=pO2, y=Ii{-1},]{dat/1e5iconctet1500.dat}; \addlegendentry{\ch{I_{i}^{'}}};
+%        \addplot[no marks, dashed, draw=purple!60!white] table [x=pO2, y=Ii{1},]{dat/1e5iconctet1500.dat}; \addlegendentry{\ch{I_{i}^{\textperiodcentered}}};
+%        \addplot[no marks, dashed, draw=blue!50!white] table [x=pO2, y=IsubO{1},]{dat/1e5iconctet1500.dat}; \addlegendentry{\ch{I_{O}^{\textperiodcentered}}};
+%        \addplot[no marks, dashed, draw=green!60!black] table [x=pO2, y=IsubO{2},]{dat/1e5iconctet1500.dat}; \addlegendentry{\ch{I_{O}^{\textperiodcentered\textperiodcentered}}};
+%        \addplot[no marks, dashed, draw=black] table [x=pO2, y=IsubO{3},]{dat/1e5iconctet1500.dat}; \addlegendentry{\ch{I_{O}^{\textperiodcentered\textperiodcentered\textperiodcentered}}};
+%        \addplot[no marks, dashed, draw=orange!80!black] table [x=pO2, y=IsubZr{-3},]{dat/1e5iconctet1500.dat}; \addlegendentry{\ch{I_{Zr}^{'''}}};
+%%         \addplot[no marks, dashed, draw=pink] table [x=pO2, y=IsubZr{-4},]{dat/1e5iconctet1500.dat}; \addlegendentry{\ch{I_{Zr}^{''''}}};
+%%         \addplot[no marks, dashed, draw=purple] table [x=pO2, y=IsubZr{-5},]{dat/1e5iconctet1500.dat}; \addlegendentry{\ch{I_{Zr}^{'''''}}};
+%%         \addplot[no marks] table [x=pO2, y=Stoich,]{dat/1e5iconctet1500.dat}; \addlegendentry{Stoich};
+%\node at (-33.7,-0.5) {\textbf{a)}};
+%			\end{axis}            
+%\end{tikzpicture}
+%\begin{tikzpicture} % Iodine 2
+%	\begin{axis}
+%		[width=12.35cm, xlabel={\ch{log_{10}}($p_{O_{2}}$) (atm)}, yticklabels={}, ymin=-10, ymax=0, xmin=-35, xmax=0]
+%        \addplot[no marks, draw=blue!70!black] table [x=pO2, y=electrons,]{dat/1e3iconctet1500.dat}; \node at (-27,-1.7) {\ch{e^{'}}};
+%        \addplot[no marks, draw=red!85!black] table [x=pO2, y=holes,]{dat/1e3iconctet1500.dat}; \node at (-2.5,-2.1) {\ch{h^{\textperiodcentered}}};
+%        \addplot[no marks, draw=black!70!green] table [x=pO2, y=VO{2},]{dat/1e3iconctet1500.dat}; 
+%%         \addplot[no marks, draw=black!55!green] table [x=pO2, y=VO{1},]{dat/1e3iconctet1500.dat}; 
+%%         \addplot[no marks, draw=black!30!green] table [x=pO2, y=VO{0},]{dat/1e3iconctet1500.dat}; 
+%        \addplot[no marks, draw=yellow!85!blue] table [x=pO2, y=VM{-4},]{dat/1e3iconctet1500.dat}; 
+%%         \addplot[no marks, draw=yellow!75!blue] table [x=pO2, y=VM{-3},]{dat/1e3iconctet1500.dat}; 
+%%         \addplot[no marks, draw=yellow!65!blue] table [x=pO2, y=VM{-2},]{dat/1e3iconctet1500.dat}; 
+%%         \addplot[no marks, draw=yellow!55!blue] table [x=pO2, y=VM{-1},]{dat/1e3iconctet1500.dat}; 
+%%         \addplot[no marks, draw=yellow!45!blue] table [x=pO2, y=VM{0},]{dat/1e3iconctet1500.dat}; 
+%%         \addplot[no marks, draw=red!60!yellow] table [x=pO2, y=Oi{-2},]{dat/1e3iconctet1500.dat}; 
+%%         \addplot[no marks, draw=red!50!yellow] table [x=pO2, y=Oi{-1},]{dat/1e3iconctet1500.dat}; 
+%%         \addplot[no marks, draw=red!40!yellow] table [x=pO2, y=Oi{0},]{dat/1e3iconctet1500.dat}; 
+%%         \addplot[no marks, draw=green!80!pink] table [x=pO2, y=Mi{4},]{dat/1e3iconctet1500.dat}; 
+%%         \addplot[no marks, draw=green!70!pink] table [x=pO2, y=Mi{3},]{dat/1e3iconctet1500.dat}; 
+%%         \addplot[no marks, draw=green!60!pink] table [x=pO2, y=Mi{2},]{dat/1e3iconctet1500.dat}; 
+%%         \addplot[no marks, draw=green!50!pink] table [x=pO2, y=Mi{1},]{dat/1e3iconctet1500.dat}; 
+%%         \addplot[no marks, draw=green!40!pink] table [x=pO2, y=Mi{0},]{dat/1e3iconctet1500.dat}; 
+%%         \addplot[no marks, dashed, draw=red!70!black] table [x=pO2, y=Ii{0},]{dat/1e3iconctet1500.dat}; 
+%%         \addplot[no marks, dashed, draw=red!50!black] table [x=pO2, y=Ii{-1},]{dat/1e3iconctet1500.dat}; 
+%        \addplot[no marks, dashed, draw=purple!60!white] table [x=pO2, y=Ii{1},]{dat/1e3iconctet1500.dat}; 
+%        \addplot[no marks, dashed, draw=blue!50!white] table [x=pO2, y=IsubO{1},]{dat/1e3iconctet1500.dat}; \node at (-11,-2.6) {\ch{I_{O}^{\textperiodcentered}}};
+%        \addplot[no marks, dashed, draw=green!60!black] table [x=pO2, y=IsubO{2},]{dat/1e3iconctet1500.dat}; 
+%        \addplot[no marks, dashed, draw=black] table [x=pO2, y=IsubO{3},]{dat/1e3iconctet1500.dat}; 
+%        \addplot[no marks, dashed, draw=orange!80!black] table [x=pO2, y=IsubZr{-3},]{dat/1e3iconctet1500.dat}; 
+%%         \addplot[no marks, dashed, draw=pink] table [x=pO2, y=IsubZr{-4},]{dat/1e3iconctet1500.dat}; 
+%%         \addplot[no marks, dashed, draw=purple] table [x=pO2, y=IsubZr{-5},]{dat/1e3iconctet1500.dat}; 
+%%         \addplot[no marks] table [x=pO2, y=Stoich,]{dat/1e3iconctet1500.dat}; 
+%\node at (-33.7,-0.5) {\textbf{b)}};
+%			\end{axis}            
+%\end{tikzpicture}
+%		\caption{Tetragonal phase Brouwer diagrams of point defects at iodine concentrations of a) $10^{-5}$ and b) $10^{-3}$, at a temperature of 1500 K.}
+%		\label{figure:tikzbrouwerconctet_chap7}
+%	\end{center}
+%\end{figure}
+%\end{landscape}
 
 %Brouwer diagrams for the tetragonal phase are shown in Figure \ref{figure:tikzbrouwerconctet}. As these diagrams were generated at a temperature of 1500 K (at which the tetragonal phase becomes stable), intrinsic defect concentrations were significantly higher than in the monoclinic diagrams for all oxygen pressures (though trends remained the same). Intrinsic defects \ch{e^{'}}, \ch{h^{*}}, \ch{V_{O}^{**}} and \ch{V_{Zr}^{''''}} were dominant across most oxygen pressures at an iodine concentration of $10^{-5}$ parts/fu. Only around stoichiometry do extrinsic defect concentrations approach intrinsic values (which as mentioned earlier is why this concentration of iodine was chosen). Across all oxygen pressures, \ch{I_{O}^{*}} and \ch{I_{Zr}^{'''}} are the major iodine defects. Between $10^{-15}$ and $10^{-5}$ atm, Figure \ref{figure:tikzbrouwerconctet} illustrates that the major iodine defect swaps from \ch{I_{O}^{*}} to \ch{I_{Zr}^{'''}}. \\ 
 
@@ -279,23 +275,23 @@ Brouwer diagrams for xenon defects are shown in Figure \ref{figure:xenonbrouwer}
 
 %---------------------------
 
-\begin{landscape}
-\begin{figure}[htp] % XENON
+\begin{figure}[ht] % XENON
 \begin{center}
 \begin{tikzpicture}
-	\begin{axis}
-		[width=12.35cm, xlabel={\ch{log_{10}}($p_{O_{2}}$) (atm)}, ylabel={\ch{log_{10}}([D]) (per f.u.)}, ymin=-10, ymax=0, xmin=-35, xmax=0, legend style={{draw=}, at={(0.30,1.47)}, anchor=north west, legend columns=3, nodes={scale=0.75, transform shape}}]
+	\begin{groupplot}[group style={group size=1 by 2}, width=13cm, height=10.2cm]
+	\nextgroupplot[
+		 ylabel={\ch{log_{10}}([D]) (per f.u.)}, ymin=-10, ymax=0, xmin=-35, xmax=0, legend style={{draw=}, at={(0.40,0.97)}, anchor=north west, legend columns=2, nodes={scale=1, transform shape}}]
         \addplot[no marks, draw=blue!70!black] table [x=pO2, y=electrons,]{dat/xe_tet_10-5.dat}; \addlegendentry{\ch{e^{'}}}; \node at (-26.0,-1.9) {\ch{e^{'}}};
         \addplot[no marks, draw=red!85!black] table [x=pO2, y=holes,]{dat/xe_tet_10-5.dat}; \addlegendentry{\ch{h^{\textperiodcentered}}}; \node at (-7,-3.6) {\ch{h^{\textperiodcentered}}};
         \addplot[no marks, draw=black!70!green] table [x=pO2, y=VO{2},]{dat/xe_tet_10-5.dat}; \addlegendentry{\ch{V_{O}^{\textperiodcentered\textperiodcentered}}}; \node at (-26.7,-3.3) {\ch{V_{O}^{\textperiodcentered\textperiodcentered}}};
          %\addplot[no marks, draw=black!55!green] table [x=pO2, y=VO{1},]{dat/xe_tet_10-5.dat}; \addlegendentry{\ch{V_{O}^{\textperiodcentered}}};
          %\addplot[no marks, draw=black!30!green] table [x=pO2, y=VO{0},]{dat/xe_tet_10-5.dat}; \addlegendentry{\ch{V_{O}^{x}}};
         \addplot[no marks, draw=yellow!85!blue] table [x=pO2, y=VM{-4},]{dat/xe_tet_10-5.dat}; \addlegendentry{\ch{V_{Zr}^{''''}}};
-         \addplot[no marks, draw=yellow!75!blue] table [x=pO2, y=VM{-3},]{dat/xe_tet_10-5.dat}; \addlegendentry{\ch{V_{Zr}^{'''}}};
+         %\addplot[no marks, draw=yellow!75!blue] table [x=pO2, y=VM{-3},]{dat/xe_tet_10-5.dat}; \addlegendentry{\ch{V_{Zr}^{'''}}};
          %\addplot[no marks, draw=yellow!65!blue] table [x=pO2, y=VM{-2},]{dat/xe_tet_10-5.dat}; \addlegendentry{\ch{V_{Zr}^{''}}};
          %\addplot[no marks, draw=yellow!55!blue] table [x=pO2, y=VM{-1},]{dat/xe_tet_10-5.dat}; \addlegendentry{\ch{V_{Zr}^{'}}};
          %\addplot[no marks, draw=yellow!45!blue] table [x=pO2, y=VM{0},]{dat/xe_tet_10-5.dat}; \addlegendentry{\ch{V_{Zr}^{x}}};
-         \addplot[no marks, draw=red!60!yellow] table [x=pO2, y=Oi{-2},]{dat/xe_tet_10-5.dat}; \addlegendentry{\ch{O_{i}^{''}}};
+         %\addplot[no marks, draw=red!60!yellow] table [x=pO2, y=Oi{-2},]{dat/xe_tet_10-5.dat}; \addlegendentry{\ch{O_{i}^{''}}};
          %\addplot[no marks, draw=red!50!yellow] table [x=pO2, y=Oi{-1},]{dat/xe_tet_10-5.dat}; \addlegendentry{\ch{O_{i}^{'}}};
          %\addplot[no marks, draw=red!40!yellow] table [x=pO2, y=Oi{0},]{dat/xe_tet_10-5.dat}; \addlegendentry{\ch{O_{i}^{x}}};
          %\addplot[no marks, draw=green!80!pink] table [x=pO2, y=Mi{4},]{dat/xe_tet_10-5.dat}; \addlegendentry{\ch{Zr_{i}^{\textperiodcentered\textperiodcentered\textperiodcentered\textperiodcentered}}};
@@ -303,10 +299,10 @@ Brouwer diagrams for xenon defects are shown in Figure \ref{figure:xenonbrouwer}
          %\addplot[no marks, draw=green!60!pink] table [x=pO2, y=Mi{2},]{dat/xe_tet_10-5.dat}; \addlegendentry{\ch{Zr_{i}^{\textbf{\textperiodcentered\textperiodcentered}}}};
         %\addplot[no marks, draw=green!50!pink] table [x=pO2, y=Mi{1},]{dat/xe_tet_10-5.dat}; \addlegendentry{\ch{Zr_{i}^{\textperiodcentered}}};
          %\addplot[no marks, draw=green!40!pink] table [x=pO2, y=Mi{0},]{dat/xe_tet_10-5.dat}; \addlegendentry{\ch{Zr_{i}^{x}}};
-         \addplot[no marks, dashed, draw=red!70!black] table [x=pO2, y=Xei{0},]{dat/xe_tet_10-5.dat}; \addlegendentry{\ch{Xe_{i}^{x}}};
-         \addplot[no marks, dashed, draw=red!50!black] table [x=pO2, y=Xei{-1},]{dat/xe_tet_10-5.dat}; \addlegendentry{\ch{Xe_{i}^{'}}};
-        \addplot[no marks, dashed, draw=purple] table [x=pO2, y=Xei{1},]{dat/xe_tet_10-5.dat}; \addlegendentry{\ch{Xe_{i}^{\textperiodcentered}}};
-        \addplot[no marks, dashed, draw=blue!50!white] table [x=pO2, y=XesubO{1},]{dat/xe_tet_10-5.dat}; \addlegendentry{\ch{Xe_{O}^{\textperiodcentered}}};
+        %\addplot[no marks, dashed, draw=red!70!black] table [x=pO2, y=Xei{0},]{dat/xe_tet_10-5.dat}; \addlegendentry{\ch{Xe_{i}^{x}}};
+        %\addplot[no marks, dashed, draw=red!50!black] table [x=pO2, y=Xei{-1},]{dat/xe_tet_10-5.dat}; \addlegendentry{\ch{Xe_{i}^{'}}};
+        %\addplot[no marks, dashed, draw=purple] table [x=pO2, y=Xei{1},]{dat/xe_tet_10-5.dat}; \addlegendentry{\ch{Xe_{i}^{\textperiodcentered}}};
+        %\addplot[no marks, dashed, draw=blue!50!white] table [x=pO2, y=XesubO{1},]{dat/xe_tet_10-5.dat}; \addlegendentry{\ch{Xe_{O}^{\textperiodcentered}}};
         \addplot[no marks, dashed, draw=orange] table [x=pO2, y=XesubO{2},]{dat/xe_tet_10-5.dat}; \addlegendentry{\ch{Xe_{O}^{\textperiodcentered\textperiodcentered}}};
         %\addplot[no marks, dashed, draw=black] table [x=pO2, y=XesubO{3},]{dat/xe_tet_10-5.dat}; \addlegendentry{\ch{Xe_{O}^{\textperiodcentered\textperiodcentered\textperiodcentered}}};
         \addplot[no marks, dashed, draw=green] table [x=pO2, y=XesubZr{-3},]{dat/xe_tet_10-5.dat}; \addlegendentry{\ch{Xe_{Zr}^{'''}}};
@@ -314,11 +310,8 @@ Brouwer diagrams for xenon defects are shown in Figure \ref{figure:xenonbrouwer}
          %\addplot[no marks, dashed, draw=red] table [x=pO2, y=XesubZr{-5},]{dat/xe_tet_10-5.dat}; \addlegendentry{\ch{Xe_{Zr}^{'''''}}};
 %         \addplot[no marks] table [x=pO2, y=Stoich,]{xe_tet.dat}; \addlegendentry{Stoich};
 \node at (-33.7,-0.5) {\textbf{a)}};
-			\end{axis}            
-\end{tikzpicture}
-\begin{tikzpicture} % XENON 2
-	\begin{axis} % change width to 8.22cm for portrait
-		[width=12.35cm, xlabel={\ch{log_{10}}($p_{O_{2}}$) (atm)}, yticklabels={}, ymin=-10, ymax=0, xmin=-35, xmax=0]
+			\nextgroupplot[
+		 xlabel={\ch{log_{10}}($p_{O_{2}}$) (atm)}, ylabel={\ch{log_{10}}([D]) (per f.u.)}, ymin=-10, ymax=0, xmin=-35, xmax=0, legend style={{draw=}, at={(0.40,0.97)}, anchor=north west, legend columns=4, nodes={scale=1, transform shape}}]
         \addplot[no marks, draw=blue!70!black] table [x=pO2, y=electrons,]{dat/xe_tet_10-3.dat}; \node at (-27,-1.7) {\ch{e^{'}}};
         \addplot[no marks, draw=red!85!black] table [x=pO2, y=holes,]{dat/xe_tet_10-3.dat}; %\node at (-2.5,-2.1) {\ch{h^{\textperiodcentered}}};
         \addplot[no marks, draw=black!70!green] table [x=pO2, y=VO{2},]{dat/xe_tet_10-3.dat}; 
@@ -337,10 +330,10 @@ Brouwer diagrams for xenon defects are shown in Figure \ref{figure:xenonbrouwer}
 %         \addplot[no marks, draw=green!60!pink] table [x=pO2, y=Mi{2},]{dat/xe_tet_10-3.dat}; 
 %         \addplot[no marks, draw=green!50!pink] table [x=pO2, y=Mi{1},]{dat/xe_tet_10-3.dat}; 
 %         \addplot[no marks, draw=green!40!pink] table [x=pO2, y=Mi{0},]{dat/xe_tet_10-3.dat}; 
-        \addplot[no marks, dashed, draw=red!70!black] table [x=pO2, y=Xei{0},]{dat/xe_tet_10-3.dat}; 
-        \addplot[no marks, dashed, draw=red!50!black] table [x=pO2, y=Xei{-1},]{dat/xe_tet_10-3.dat}; 
-        \addplot[no marks, dashed, draw=purple] table [x=pO2, y=Xei{1},]{dat/xe_tet_10-3.dat}; 
-        \addplot[no marks, dashed, draw=blue!50!white] table [x=pO2, y=XesubO{1},]{dat/xe_tet_10-3.dat}; %\node at (-11,-2.6) {\ch{I_{O}^{\textperiodcentered}}};
+        %\addplot[no marks, dashed, draw=red!70!black] table [x=pO2, y=Xei{0},]{dat/xe_tet_10-3.dat}; 
+        %\addplot[no marks, dashed, draw=red!50!black] table [x=pO2, y=Xei{-1},]{dat/xe_tet_10-3.dat}; 
+        %\addplot[no marks, dashed, draw=purple] table [x=pO2, y=Xei{1},]{dat/xe_tet_10-3.dat}; 
+        %\addplot[no marks, dashed, draw=blue!50!white] table [x=pO2, y=XesubO{1},]{dat/xe_tet_10-3.dat}; %\node at (-11,-2.6) {\ch{I_{O}^{\textperiodcentered}}};
         \addplot[no marks, dashed, draw=orange] table [x=pO2, y=XesubO{2},]{dat/xe_tet_10-3.dat}; \node at (-12,-2.7) {\ch{Xe_{O}^{\textperiodcentered\textperiodcentered}}};
         %\addplot[no marks, dashed, draw=black] table [x=pO2, y=XesubO{3},]{dat/xe_tet_10-3.dat}; 
         \addplot[no marks, dashed, draw=green] table [x=pO2, y=XesubZr{-3},]{dat/xe_tet_10-3.dat}; 
@@ -348,13 +341,12 @@ Brouwer diagrams for xenon defects are shown in Figure \ref{figure:xenonbrouwer}
         %\addplot[no marks, dashed, draw=red] table [x=pO2, y=XesubZr{-5},]{dat/xe_tet_10-3.dat}; 
 %        \addplot[no marks] table [x=pO2, y=Stoich,]{dat/xe_tet_10-3.dat}; 
 \node at (-33.7,-0.5) {\textbf{b)}};
-			\end{axis}            
+			\end{groupplot}       
 \end{tikzpicture}
-		\caption{Tetragonal phase Brouwer diagrams of point defects at Xenon concentrations of a) $10^{-5}$ and b) $10^{-3}$, at a temperature of 1500 K. Space charge = 0}
+		\caption{Brouwer diagrams for tetragonal phase \zirconia\ point defects at Xenon concentrations of a) $10^{-5}$ and b) $10^{-3}$, at a temperature of 1500 K.}% Space charge = 0}
 		\label{figure:xenonbrouwer}
 	\end{center}
 \end{figure}
-\end{landscape}
 
 \subsubsection{Caesium}
 
@@ -364,12 +356,12 @@ The defect volumes of \ch{Cs_{O}^{**}} and \ch{Cs_{Zr}^{'''}} were 4.38 and 90.3
 
 %------------------------------------------------
 
-\begin{landscape}
-\begin{figure}[htp] % CAESIUM
+\begin{figure}[ht] % CAESIUM
 \begin{center}
 \begin{tikzpicture}
-	\begin{axis}
-		[width=12.35cm, xlabel={\ch{log_{10}}($p_{O_{2}}$) (atm)}, ylabel={\ch{log_{10}}([D]) (per f.u.)}, ymin=-10, ymax=0, xmin=-35, xmax=0, legend style={{draw=}, at={(0.30,1.47)}, anchor=north west, legend columns=3, nodes={scale=0.75, transform shape}}]
+	\begin{groupplot}[group style={group size=1 by 2}, width=13cm, height=10.2cm]
+	\nextgroupplot[
+		 ylabel={\ch{log_{10}}([D]) (per f.u.)}, ymin=-10, ymax=0, xmin=-35, xmax=0, legend style={{draw=}, at={(0.40,0.97)}, anchor=north west, legend columns=2, nodes={scale=1, transform shape}}]
         \addplot[no marks, draw=blue!70!black] table [x=pO2, y=electrons,]{dat/cs_tet_10-5.dat}; \addlegendentry{\ch{e^{'}}}; \node at (-26.0,-1.9) {\ch{e^{'}}};
         \addplot[no marks, draw=red!85!black] table [x=pO2, y=holes,]{dat/cs_tet_10-5.dat}; \addlegendentry{\ch{h^{\textperiodcentered}}}; \node at (-7,-3.6) {\ch{h^{\textperiodcentered}}};
         \addplot[no marks, draw=black!70!green] table [x=pO2, y=VO{2},]{dat/cs_tet_10-5.dat}; \addlegendentry{\ch{V_{O}^{\textperiodcentered\textperiodcentered}}}; \node at (-26.7,-3.3) {\ch{V_{O}^{\textperiodcentered\textperiodcentered}}};
@@ -399,11 +391,8 @@ The defect volumes of \ch{Cs_{O}^{**}} and \ch{Cs_{Zr}^{'''}} were 4.38 and 90.3
          \addplot[no marks, dashed, draw=purple] table [x=pO2, y=CssubZr{-5},]{dat/cs_tet_10-5.dat}; \addlegendentry{\ch{Cs_{Zr}^{'''''}}};
 %         \addplot[no marks] table [x=pO2, y=Stoich,]{cs_tet.dat}; \addlegendentry{Stoich};
 \node at (-33.7,-0.5) {\textbf{a)}};
-			\end{axis}            
-\end{tikzpicture}
-\begin{tikzpicture} % CAESIUM 2
-	\begin{axis}
-		[width=12.35cm, xlabel={\ch{log_{10}}($p_{O_{2}}$) (atm)}, yticklabels={}, ymin=-10, ymax=0, xmin=-35, xmax=0]
+			\nextgroupplot[
+		 xlabel={\ch{log_{10}}($p_{O_{2}}$) (atm)}, ylabel={\ch{log_{10}}([D]) (per f.u.)}, ymin=-10, ymax=0, xmin=-35, xmax=0, legend style={{draw=}, at={(0.40,0.97)}, anchor=north west, legend columns=4, nodes={scale=1, transform shape}}]
         \addplot[no marks, draw=blue!70!black] table [x=pO2, y=electrons,]{dat/cs_tet_10-3.dat}; %\node at (-27,-1.7) {\ch{e^{'}}};
         \addplot[no marks, draw=red!85!black] table [x=pO2, y=holes,]{dat/cs_tet_10-3.dat}; \node at (-2.5,-2.1) {\ch{h^{\textperiodcentered}}};
         \addplot[no marks, draw=black!70!green] table [x=pO2, y=VO{2},]{dat/cs_tet_10-3.dat}; \node at (-17,-2.2) {\ch{V_{O}^{\textperiodcentered\textperiodcentered}}};
@@ -433,13 +422,12 @@ The defect volumes of \ch{Cs_{O}^{**}} and \ch{Cs_{Zr}^{'''}} were 4.38 and 90.3
         \addplot[no marks, dashed, draw=purple] table [x=pO2, y=CssubZr{-5},]{dat/cs_tet_10-3.dat}; 
 %        \addplot[no marks] table [x=pO2, y=Stoich,]{dat/cs_tet_10-3.dat}; 
 \node at (-33.7,-0.5) {\textbf{b)}};
-			\end{axis}            
+			\end{groupplot}            
 \end{tikzpicture}
 		\caption{Tetragonal phase Brouwer diagrams of point defects at caesium concentrations of a) $10^{-5}$ and b) $10^{-3}$, at a temperature of 1500 K. Space charge = 0}
 		\label{figure:caesiumbrouwer}
 	\end{center}
 \end{figure}
-\end{landscape}
 
 %We can therefore not consider Cs in this process, narrowing it down to Te, I, and Xe. 
 
@@ -460,7 +448,7 @@ As fission products proceed down the decay chain from Te to Xe, the defects they
 
 
 
-\begin{table}[htp]
+\begin{table}[ht]
 \onehalfspacing
 \centering
 \caption{Defect volumes and formation energies of the dominant defect types in tetragonal \zirconia .}
@@ -622,7 +610,7 @@ Isotope & Independent Yield (\%) & Half-life \\
 
 
 %\begin{landscape}
-%\begin{figure}[htp] % Tellurium
+%\begin{figure}[ht] % Tellurium
 %\begin{center}
 %\begin{tikzpicture}
 %	\begin{axis}
@@ -701,7 +689,7 @@ Isotope & Independent Yield (\%) & Half-life \\
 
 
 %\begin{landscape}
-%\begin{figure}[htp] % XENON
+%\begin{figure}[ht] % XENON
 %\begin{center}
 %\begin{tikzpicture}
 %	\begin{axis}
@@ -781,7 +769,7 @@ Isotope & Independent Yield (\%) & Half-life \\
 %
 %
 %\begin{landscape}
-%\begin{figure}[htp] % CAESIUM
+%\begin{figure}[ht] % CAESIUM
 %\begin{center}
 %\begin{tikzpicture}
 %	\begin{axis}

@@ -8,7 +8,7 @@
 
 \subsubsection*{Isolated Frenkel defects}
 
-Zr and O Frenkel defect formation energies were determined via point defect DFT calculations for the three structures. The formation energies of the isolated Frenkel defect pairs were defined as:
+Zr and O Frenkel pair defect formation energies were determined via point defect DFT calculations for the three structures. The formation energies of the isolated Frenkel defect pairs were defined as:
 % Interstitial iodine defects were simulated in the neutral charge state at different interstitial sites in each phase. The incorporation energy of these defects, assuming a perfect lattice, was calculated using Equation \ref{equation_incorporation}:
 
 \begin{equation}
@@ -18,7 +18,7 @@ E_{Frenkel} = E_{DFT}(V^{q}_{X}) + E_{DFT}(X^{-q}_{i}) - 2E_{DFT}(ZrO_2)% - \fra
 
 where $X$ is either Zr or O, $E_{DFT}(V^{q}_{X})$ is the energy of a supercell of \zirconia\ containing a single vacancy of charge $q$, $E_{DFT}(X^{-q}_{i})$ is the energy of a supercell of \zirconia\ containing a single interstitial with opposing charge $-q$, and $E_{DFT}(ZrO_2)$ is the energy of the non-defective supercell. Charges ranged from the fully charged case (+2 for oxygen vacancies, -4 for zirconium vacancies) to neutral. The interstitial sites, shown in Table \ref{table:interstitials}, were chosen based on standard vacant Wyckoff positions in each crystal structure \cite{theo1996international}.  In the case of oxygen vacancies in monoclinic \zirconia , a defect energy was obtained for both the (III) and (IV) co-ordinated oxygen sites, with the lowest energy value being used in the calculation of the Frenkel defect energy.
 
-\begin{table}[htp] % Wyckoff positions of interstitials
+\begin{table}[ht] % Wyckoff positions of interstitials
 \onehalfspacing
 \centering
 \caption{Wyckoff positions of interstitial sites used for each crystal structure.}
@@ -26,9 +26,36 @@ where $X$ is either Zr or O, $E_{DFT}(V^{q}_{X})$ is the energy of a supercell o
 \begin{tabular}{lcc}
 \hline
 \hspace{0.7 cm} {\bf Crystal Structure} \hspace{0.7 cm}                              & \hspace{0.7 cm} {\bf Interstitial Sites} \hspace{0.7 cm}                                               \\ \hline
-\multicolumn{1}{c}{Monoclinic}              & $2a$, $2b$, $2c$, $2d$ \\
-\multicolumn{1}{c}{Tetragonal}            & $2b$, $8e$                                   \\
-\multicolumn{1}{c}{Cubic}       & $24d$, $4b$                                          \\ \hline
+\multicolumn{1}{c}{\textbf{Monoclinic}}              & $2a$, $2b$, $2c$, $2d$ \\
+\multicolumn{1}{c}{\textbf{Tetragonal}}            & $2b$, $8e$                                   \\
+\multicolumn{1}{c}{\textbf{Cubic}}       & $24d$, $4b$                                          \\ \hline
+\end{tabular}
+\end{table}
+
+The isolated defect formation energies reported in Table \ref{isolated_defects} indicate that fully-charged Schottky defects have the lowest formation energy per atom (most energetically favourable) in all phases, followed by oxygen Frenkel defects and then zirconium Frenkel defects. A trend is seen where the high-temperature phases result in lower formation energies for both Schottky and oxygen Frenkel defects, whereas zirconium Frenkel defects have similar formation energies in all three phases. 
+
+It has been suggested that the relatively small cation size leads to defect structures where oxygen vacancies are favoured over interstitial defects \cite{dwivedi1990computer}. As the zirconium ion is too small to maintain a strong 8-fold bond coordination with its neighbouring oxygen ions, the introduction of oxygen vacancies (which have the added effect of reducing cell volume) will have a stabilising effect.
+
+\begin{table}[ht] % Isolated formation energies
+\onehalfspacing
+\centering
+\caption{Formation energies in eV of isolated \zirconia\ defects.}
+\label{isolated_defects}
+\begin{tabular}{cccll}
+\hline
+\multirow{2}{*}{\textbf{Defect}}                      & \multirow{2}{*}{\textbf{Equation}}                                        & \multicolumn{3}{c}{\textbf{Formation Energy (eV)}} \\ \cline{3-5}
+	&	& \multicolumn{1}{l}{Monoclinic} & Tetragonal & Cubic \\ \hline
+\multirow{5}{*}{\textbf{Zr Frenkel}} & \ch{Zr_{Zr}^{x}} $\rightarrow$ \ch{V_{Zr}^{''''}} + \ch{Zr_{i}^{****}}              & 5.428 & 5.639 & 5.610                             \\
+                                     & \ch{Zr_{Zr}^{x}} $\rightarrow$ \ch{V_{Zr}^{'''}} + \ch{Zr_{i}^{***}}               & 8.695 & 8.939 & 8.476                            \\
+                                     & \ch{Zr_{Zr}^{x}} $\rightarrow$ \ch{V_{Zr}^{''}} + \ch{Zr_{i}^{**}}                & 12.118 & 12.058 & 11.628                             \\
+                                     & \ch{Zr_{Zr}^{x}} $\rightarrow$ \ch{V_{Zr}^{'}} + \ch{Zr_{i}^{*}}                & 16.021 &	15.696 &	13.319                             \\
+                                     & \ch{Zr_{Zr}^{x}} $\rightarrow$ \ch{V_{Zr}^{x}} + \ch{Zr_{i}^{x}}                  & 20.563	& 20.094 &	18.170                            \\ \hline
+\multirow{3}{*}{\textbf{O Frenkel}}  & \ch{O_{O}^{x}} $\rightarrow$ \ch{V_{O}^{**}} + \ch{O_{i}^{''}}                   & 4.457 &	4.000 & 	3.728                             \\
+                                     & \ch{O_{O}^{x}} $\rightarrow$ \ch{V_{O}^{*}} + \ch{O_{i}^{'}}                   & 6.432	& 6.588 &	7.055                             \\
+                                     & \ch{O_{O}^{x}} $\rightarrow$ \ch{V_{O}^{x}} + \ch{O_{i}^{x}}                     & 7.518 &	7.452 &	8.477                             \\ \hline
+\multirow{3}{*}{\textbf{Schottky}}   & $\varnothing$ $\rightarrow$ \ch{V_{Zr}^{''''}} + 2\ch{V_{O}^{**}} & 5.120 &	3.778	& 1.752                             \\
+                                     & $\varnothing$ $\rightarrow$ \ch{V_{Zr}^{''}} + 2\ch{V_{O}^{*}} & 11.353 &	10.832 &	9.624                             \\
+                                     & $\varnothing$ $\rightarrow$ \ch{V_{Zr}^{x}} + 2\ch{V_{O}^{x}}   & 18.554 &	18.232 &	17.073  \\ \hline                          
 \end{tabular}
 \end{table}
 
@@ -54,7 +81,7 @@ Three Schottky energies were calculated for each structure, corresponding to ful
 E_{Schottky} = E_{DFT}(V^{-2q}_{Zr}) + 2E_{DFT}(V^{q}_{O}) -\frac{3(n-1)}{n}E_{DFT}(ZrO_2)% - \frac{E_{I_2}}{2}
 \end{equation}
 
-where $n$ denotes the number of atoms in the supercell, $V^{q}_{O}$ denotes an oxygen vacancy with charge $q$, and $q$ varies from 2 to 0. This form maintains both the mass and charge balance of the Schottky defect description for \zirconia :
+where $n$ denotes the number of atoms in the supercell, $V^{q}_{O}$ denotes an oxygen vacancy with charge $q$, where $q$ varies from 2 to 0. This form maintains both the mass and charge balance of the Schottky defect description for \zirconia :
 
 \begin{equation}
 \label{generic_schottky}
@@ -67,14 +94,14 @@ This implies a rearrangement rather than complete removal of ions from the syste
 \subsubsection*{Bound Schottky Defects}
 
 
-\begin{figure}[htp] % Tet Zr centre
+\begin{figure}[ht] % Tet Zr centre
 \centering
 \includegraphics[width=8cm]{images/zr_centre_tet.png}
 \caption{Zirconium centre unit cell showing nearest oxygen atoms in tetragonal \zirconia. Schottky trios indicated by oxygen enumeration with Zr, O and a second oxygen in either the 1\textsuperscript{st}, 2\textsuperscript{nd} or 3\textsuperscript{rd} nearest neighbour with respect to the initial oxygen. Zirconium atoms are shown in green and oxygen atoms in red.}
 \label{figure:tetschottky}
 \end{figure}
 
-\begin{figure}[htp] % Cubic Zr centre
+\begin{figure}[ht] % Cubic Zr centre
 \centering
 \includegraphics[width=8cm]{images/sd_cubic_zro2.png}
 \caption{Zirconium centre unit cell showing nearest oxygen atoms in cubic \zirconia. Schottky trios indicated by oxygen enumeration with Zr, O and a second oxygen in either the 1\textsuperscript{st}, 2\textsuperscript{nd} or 3\textsuperscript{rd} nearest neighbour with respect to the initial oxygen.. Zirconium atoms are shown in green and oxygen atoms in red.}
