@@ -1,13 +1,12 @@
-\chapter{Intrinsic defect study}
+\chapter{Intrinsic defect study} \label{ch:results1}  
 
-\label{ch:results1} % 
+\section{Introduction}  
 
-\section{Introduction} % 
-\subsection{Applications} % 
+It is important to fully understand the behaviour of intrinsic defects in \zirconia\ before performing studies with dopant ions. In this chapter, intrinsic defects in monoclinic, tetragonal and cubic \zirconia\ are compared and contrasted, including values for formation energy, defect volumes and defect equilibria. Elastic constants, electronic density of states, band gaps and free energies of the non-defective structures are also reported.
 
-It is important to fully understand the intrinsic defect structure of \zirconia\ because useful material properties may be exploited to improve performance, e.g. by doping with other ions to stabilise one crystal structure. For example, \zirconia\ doped with enough yttrium cations will stabilise the cubic phase and increase the concentration of oxygen vacancies. This would then affect the behaviour of dopant atoms also present in the lattice.
+%because useful material properties may be exploited to improve performance, e.g. by doping with other ions to stabilise one crystal structure. For example, \zirconia\ doped with enough yttrium cations will stabilise the cubic phase and increase the concentration of oxygen vacancies. This would then affect the behaviour of dopant atoms also present in the lattice.
 
-\subsection{Previous work} % 
+\subsection{Previous work} 
 
 Previous works studying intrinsic defects in the \zirconia\ system have utilised quantum mechanical methods to determine defect formation energies in the monoclinic phase \cite{zheng2007first,foster2002modelling,foster2001structure} and defect equilibria in the tetragonal phase \cite{youssef2012intrinsic}. The cubic phase is mainly studied as a dopant-stabilised system \cite{orera1990intrinsic,jiang2011first}, with few undoped defect studies in the literature \cite{mackrodt1986theoretical,aarhammar2009energetics}. Building upon previous quantum mechanical studies, a comprehensive account of intrinsic defect energies, defect volumes, and defect equilibria for all three common crystal structures of \zirconia\ is provided, using state-of-the-art, accessible methods.
 
@@ -26,16 +25,9 @@ To determine the temperature dependence of the ground states for the pure crysta
 F(T, V) = U(V) + H_{vib}(T, V) - TS_{vib}(T, V) - TS_{conf}
 \end{equation}
 
-\subsection{Defect formation energies}
-
-Defective formation energies are calculated using equation \ref{equation:formation_energy}:
-\begin{equation} \label{equation:formation_energy}
-    E_{f} = E_{def} - E_{perf} + \sum_{i} n_i\mu_i + q(\mu_{e} - E_{VBM}) + E_{corr}
-\end{equation}
-
-where $E_{f}$ is the formation energy, $E_{def}$ is the energy of the defective supercell, $E_{perf}$ is the energy of a non-defective supercell, $q$ is the defect charge, $E_{VBM}$ is the valence band maximum, $\mu_{e}$ is the Fermi energy and $E_{corr}$ is a charged-cell correction term.
-
 \subsection{Brouwer diagrams}
+
+Using the method outlined in § \ref{brouwer_method}, Brouwer diagrams of the intrinsic defect equilibria for monoclinic, tetragonal and cubic \zirconia\ were generated. The monoclinic and tetragonal Brouwer diagrams were generated at temperatures of 650 K and 1500 K respectively, corresponding to temperatures at which these phases are thermally stabilised. The cubic Brouwer diagram was generated at 2000K despite being thermally stabilised at temperatures greater than 2400 K. This was because such high temperatures resulted in very large intrinsic defect concentrations such that defect behaviour could not be meaningfully examined (the system was completely defective). As discussed in § \ref{dis_form_energy_intrinsic} and § \ref{brouwer_discussion_intrinsic}, issues with modelling cubic \zirconia\ in DFT mean that calculated energy values may become unreliable, but are presented in this thesis for the purpose of completeness.
 
 %Brouwer diagrams, also known as Kr{\"o}ger-Vink diagrams, were produced using a method outlined by Murphy \emph{et al}. \cite{Murphy2014} to determine defect concentrations as a function of oxygen partial pressure. We start from the statement that the chemical potential of \zirconia\ is equivalent to the sum of the chemical potentials $\mu$ of its constituent species, Zr and O:
 %
@@ -66,9 +58,13 @@ where $E_{f}$ is the formation energy, $E_{def}$ is the energy of the defective 
 %\item Further investigation indicated that the structure of a supercell of c-\zirconia\ broke down even with constrained symmetry, a result corroborated by Burr {et al}. \cite{burr2017importance}. 
 %\end{itemize}
 
-\subsection{Electronic density of states}
+\subsection{Electronic density of states} 
 
-\begin{figure}
+The electronic density of states for monoclinic, tetragonal and cubic \zirconia\ are generated in a two-step process. First, the non-defective structures are fully relaxed using the geometry optimisation task in CASTEP. This task will also calculate electronic eigenvalues for all k-points and save them to a \texttt{.bands} file. Second, the electronic band data is parsed from the \texttt{.bands} file using the OptaDOS code \cite{Nicholls2012, Morris2014} and the density of states is output to a text file. Further details on using OptaDOS to view the electronic density of states are given in Appendix \ref{castep_scripts}.
+
+The electronic density of states for the three \zirconia\ phase are given in Figure \ref{figure:densityofstates}. In this figure, the valence and conduction bands can clearly be seen at 2-8 eV and 10-15 eV respectively. Most importantly, the energy values of the valence band maximum (VBM) and the conduction band minimum (CBM) for each phase can be obtained from this figure. These values are used to calculate the band gap in the different phases, shown in Figure \ref{table:bandgap} alongside experimental values. The VBM value is also used in the calculation of defect formation energies when electrons are added or removed from a system.
+
+\begin{figure}[ht]
 \begin{center}
 \begin{tikzpicture}
 	\begin{axis}
@@ -76,13 +72,14 @@ where $E_{f}$ is the formation energy, $E_{def}$ is the energy of the defective 
        \addplot[no marks] table [x=mono_x, y=mono_y,]{dat/eDOS.dat}; \addlegendentry{Monoclinic};
        \addplot[no marks, dashed] table [x=tet_x, y=tet_y,]{dat/eDOS.dat}; \addlegendentry{Tetragonal};
        \addplot[no marks, densely dotted] table [x=cubic_x, y=cubic_y,]{dat/eDOS.dat}; \addlegendentry{Cubic};
-
 			\end{axis}
 		\end{tikzpicture}
 		\caption{Electronic density of states for the different crystal structures of \zirconia\ showing the band gap predicted by DFT.}
 		\label{figure:densityofstates}
 	\end{center}
 \end{figure}
+
+The electronic density of states show that the VBM and CBM energies increase from monoclinic to tetragonal to cubic \zirconia . This means that at the same Fermi level, the total electronic energy will be smallest in the monoclinic phase and largest in the cubic phase. This corresponds to the correct order of thermal stability that is seen in experiments. Other features that can be seen are the band gaps of the different phases between 7 and 12 eV. These band gaps are significantly underestimated for each phase (see Table \ref{table:bandgap}), as is typical when using a GGA exchange-correlation functional.
 
 \begin{table}[ht] % Band Gap
 \onehalfspacing
@@ -98,7 +95,7 @@ where $E_{f}$ is the formation energy, $E_{def}$ is the energy of the defective 
 \end{tabular}
 \end{table}
 
-\section{Defect formation energies}
+\section{Defect formation energies} \label{dis_form_energy_intrinsic}
 
 \begin{figure}[ht]
 \begin{center}
@@ -155,7 +152,7 @@ where $E_{f}$ is the formation energy, $E_{def}$ is the energy of the defective 
         \addplot[no marks, blue, dashed] table [x=2d1, y=2d2,]{dat/monointer.dat}; \addlegendentry{$2d$};
 			\end{axis}
 		\end{tikzpicture}
-		\caption{Monoclinic phase formation energies of iodine interstitial defects as a function of Fermi level. Gradient indicates defect charge.}
+		\caption{Iodine interstitial formation energies in monoclinic \zirconia\ as a function of Fermi level. Gradient indicates defect charge.}
 		\label{figure:monointer}
 	\end{center}
 \end{figure}
@@ -165,12 +162,12 @@ where $E_{f}$ is the formation energy, $E_{def}$ is the energy of the defective 
 \begin{center}
 \begin{tikzpicture}
 	\begin{axis}
-		[width=11cm, xlabel={Fermi level (eV)}, ylabel={Formation energy (eV) per \zirconia\ }, ymin=6, ymax=11, xmin=0, xmax=6, legend style={{draw=}, at={(0.5,0.05)}, anchor=south, legend columns=1}]
-		\addplot[no marks, red] table [x=2atet1, y=2atet2,]{dat/tetcubicinter.dat}; \addlegendentry{$2a\overline{4}m2$};
-        \addplot[no marks, blue] table [x=8etet1, y=8etet2, ]{dat/tetcubicinter.dat}; \addlegendentry{$8e\overline{1}$};
+		[width=11cm, xlabel={$Fermi level (eV)$}, ylabel={Formation energy (eV) per \zirconia\ }, ymin=6, ymax=11, xmin=0, xmax=6, legend style={{draw=}, at={(0.5,0.05)}, anchor=south, legend columns=1}]
+		\addplot[no marks, red] table [x=2atet1, y=2atet2,]{dat/tetcubicinter.dat}; \addlegendentry{$2a$};
+        \addplot[no marks, blue] table [x=8etet1, y=8etet2, ]{dat/tetcubicinter.dat}; \addlegendentry{$8e$};
 			\end{axis}
 		\end{tikzpicture}
-		\caption{Tetragonal phase formation energies of iodine interstitial defects as a function of Fermi level. Gradient indicates defect charge.}
+		\caption{Iodine interstitial formation energies in tetragonal \zirconia\ as a function of Fermi level. Gradient indicates defect charge.}
 		\label{figure:tetinter}
 	\end{center}
 \end{figure}
@@ -184,7 +181,7 @@ where $E_{f}$ is the formation energy, $E_{def}$ is the energy of the defective 
         \addplot[no marks, blue] table [x=4bmcubic1, y=4bmcubic2, ]{dat/tetcubicinter.dat}; \addlegendentry{$4b$};
 			\end{axis}
 		\end{tikzpicture}
-		\caption{Cubic phase formation energies of iodine interstitial defects as a function of Fermi level. Gradient indicates defect charge.}
+		\caption{Iodine interstitial formation energies in cubic \zirconia\ as a function of Fermi level. Gradient indicates defect charge.}
 		\label{figure:cubicinter}
 	\end{center}
 \end{figure}
@@ -263,22 +260,7 @@ The zirconium Frenkel defect is significantly larger than the oxygen Frenkel, mo
 \subsubsection*{Bound Defects}
 The bound defect formation energies shown in Table \ref{table:bound_defects} show that NTV defects, on a per defect atom basis, are the most energetically favourable defects, followed by oxygen and zirconium Frenkel defects respectively. The NTV3 exhibited the smallest formation energy in all three crystal structure, with a single exception of the NTV2 in the cubic phase where a much smaller formation energy was observed due to collapse of the supercell during geometry optimisation.
 
-\begin{table}[ht] % Bound formation energies
-\onehalfspacing
-\centering
-\caption{Formation energies of bound defects in \zirconia.}
-\label{table:bound_defects}
-\begin{tabular}{cccc}
-\hline
-\multirow{2}{*}{\textbf{Defect}} & \multicolumn{3}{c}{\textbf{Formation Energy (eV)}} \\ \cline{2-4} 
- & \textbf{Monoclinic} & \textbf{Tetragonal} & \textbf{Cubic} \\ \hline
-\textbf{O Frenkel} & 4.1212 & 4.0290 & 6.4397 \\
-\textbf{Zr Frenkel} & 8.4232 & 7.8633 & 6.3274 \\
-\textbf{NTV1} & 5.2272 & 3.5813 & 2.6961 \\
-\textbf{NTV2} & 5.1405 & 4.2312 & 0.1798 \\
-\textbf{NTV3} & 4.6620 & 3.3623 & 2.4089 \\ \hline
-\end{tabular}
-\end{table}
+
 
 \section{Elastic constants and defect relaxation volumes}
 
@@ -335,7 +317,7 @@ The Helmholtz free energy results (Figure \ref{Figure:helmholtz}) show the corre
 	\end{center}
 \end{figure}
 
-\section{Defect equilibria}
+\section{Defect equilibria} \label{brouwer_discussion_intrinsic}
 
 \subsubsection*{Monoclinic}
 

@@ -69,7 +69,25 @@ Bound Zr and O Frenkel defect formation energies were calculated from DFT energi
 E_{BoundFrenkel} = E_{DFT}(BoundFrenkel) - E_{DFT}(ZrO_2)% - \frac{E_{I_2}}{2}
 \end{equation}
 
-where $E_{DFT}(BoundFrenkel)$ is the energy of a supercell of \zirconia\ containing both a vacancy and interstitial defect of the same ion. The two defects were placed as far apart in the supercell as possible (7-8 \r{A}) to avoid recombination. The interstitial defect is assumed to fully compensate the charge of the vacancy defect, resulting in no overall charge on the supercell. The number and type of ions in the defective and non-defective supercell are the same, requiring no further steps to calculate the formation energy.
+where $E_{DFT}(BoundFrenkel)$ is the energy of a supercell of \zirconia\ containing both a vacancy and interstitial defect of the same ion. The two defects were placed as far apart in the supercell as possible (7-8 \r{A}) to avoid recombination. The interstitial defect is assumed to fully compensate the charge of the vacancy defect, resulting in no overall charge on the supercell. The number and type of ions in the defective and non-defective supercell are the same, requiring no further steps to calculate the formation energy. The formation energies calculated for these defects in each crystal structure are presented in Table \ref{table:bound_defects}.
+
+\begin{table}[ht] % Bound formation energies
+\onehalfspacing
+\centering
+\caption{Formation energies of bound defects in \zirconia.}
+\label{table:bound_defects}
+\begin{tabular}{cccc}
+\hline
+\multirow{2}{*}{\textbf{Defect}} & \multicolumn{3}{c}{\textbf{Formation Energy (eV)}} \\ \cline{2-4} 
+ & \textbf{Monoclinic} & \textbf{Tetragonal} & \textbf{Cubic} \\ \hline
+\textbf{O Frenkel} & 4.1212 & 4.0290 & 6.4397 \\
+\textbf{Zr Frenkel} & 8.4232 & 7.8633 & 6.3274 \\
+\textbf{NTV1} & 5.2272 & 3.5813 & 2.6961 \\
+\textbf{NTV2} & 5.1405 & 4.2312 & 0.1798 \\
+\textbf{NTV3} & 4.6620 & 3.3623 & 2.4089 \\ \hline
+\end{tabular}
+\end{table}
+
 %Charges ranged from the fully charged case (+2 for oxygen, -4 for zirconium) to neutral. The interstitial sites, shown in Table \ref{table:interstitials}, were chosen based on standard vacant Wyckoff positions in each crystal structure \cite{theo1996international}.  In the case of oxygen vacancies in monoclinic \zirconia , a defect energy was obtained for both the (III) and (IV) co-ordinated oxygen sites. The lowest energies were used in the calculation of the Frenkel defect energy.
 
 \subsubsection*{Isolated Schottky Defects}
@@ -117,14 +135,21 @@ E_{NTV} = E_{DFT}(NTV) - \frac{n-3}{n}E_{DFT}(ZrO_2)% - \frac{E_{I_2}}{2}
 
 Where $E_{DFT}(NTV)$ is the energy of a supercell containing the NTV defect. As the defective supercell contains three fewer ions than the non-defective cell, the energy of the non-defective cell was adjusted by a proportional factor in our calculation. This form maintains both mass and charge balance of the Schottky defect description for \zirconia\ described in Equation \ref{generic_schottky}.
 
-\section{Brouwer diagrams}
+\subsection{Defect formation energies}
 
-\subsection{Defect equilibria}
+Defect formation energies are calculated using equation \ref{equation:formation_energy}:
+\begin{equation} \label{equation:formation_energy}
+    E_{f} = E_{def} - E_{perf} \pm \sum_{i} n_i\mu_i + q(E_{VBM} + \mu_{e}) + E_{corr}
+\end{equation}
 
-Typically in materials, several types of defects will exist simultaneously. These defects will be present at an equilibrium concentration based on their thermodynamic stability. There are several considerations to be made. In particular, it is expected that a crystal lattice will be overall charge-neutral, otherwise we would see a rapid build-up of charge with a very large Coulomb energy penalty which would be thermodynamically unsustainable.
+where $E_{f}$ is the formation energy, $E_{def}$ is the energy of the defective supercell, $E_{perf}$ is the energy of a non-defective supercell, $q$ is the defect charge, $E_{VBM}$ is the valence band maximum, $\mu_{e}$ is the Fermi level and $E_{corr}$ is a charged-cell correction term.
 
-\subsection{Oxygen pressure dependence}
-
-The equilibrium concentration of defects will be a function of the oxygen partial pressure, in addition to temperature and dopant concentrations. For materials in an equilibrium state, they are necessarily in equilibrium with their surroundings. This is why even metals in evacuated vacuum flasks will produce a metal vapour pressure. In the case of \zirconia\ in nuclear fuel cladding, it is known that the ambient oxygen pressure will change over time. In particular, fission of UO$_{2}$ will result in the liberation of oxygen. This will result in an input of gaseous oxygen in the fuel cladding with increasing burn-up. The main oxygen sink is the Zr fuel cladding, into which the oxide grows. Other oxygen sinks include the oxidation of UO$_{2}$ to the oxide U$_{3}$O$_{8}$, and the oxidation of fission products. Oxidation of UO$_{2}$ is a slow process whose kinetics are largely independent of the oxygen partial pressure \cite{Desgranges2009}, and will be slowed as free space in the cladding is reduced because it results in swelling of the fuel pellet. 
-
-%\subsection{Brouwer diagram generation}
+%\section{Brouwer diagrams}
+%
+%\subsection{Defect equilibria}
+%
+%Typically in materials, several types of defects will exist simultaneously. These defects will be present at an equilibrium concentration based on their thermodynamic stability. There are several considerations to be made. In particular, it is expected that a crystal lattice will be overall charge-neutral, otherwise we would see a rapid build-up of charge with a very large Coulomb energy penalty which would be thermodynamically unsustainable.
+%
+%\subsection{Oxygen pressure dependence}
+%
+%The equilibrium concentration of defects will be a function of the oxygen partial pressure, in addition to temperature and dopant concentrations. For materials in an equilibrium state, they are necessarily in equilibrium with their surroundings. This is why even metals in evacuated vacuum flasks will produce a metal vapour pressure. In the case of \zirconia\ in nuclear fuel cladding, it is known that the ambient oxygen pressure will change over time. In particular, fission of UO$_{2}$ will result in the liberation of oxygen. This will result in an input of gaseous oxygen in the fuel cladding with increasing burn-up. The main oxygen sink is the Zr fuel cladding, into which the oxide grows. Other oxygen sinks include the oxidation of UO$_{2}$ to the oxide U$_{3}$O$_{8}$, and the oxidation of fission products. Oxidation of UO$_{2}$ is a slow process whose kinetics are largely independent of the oxygen partial pressure \cite{Desgranges2009}, and will be slowed as free space in the cladding is reduced because it results in swelling of the fuel pellet. 

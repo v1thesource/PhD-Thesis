@@ -106,14 +106,12 @@ In high-radiation environments, it is also possible for some molecules to be spl
 Nuclei which can undergo fission will produce child nuclei (fission products) with specific characteristics. Firstly, these nuclei will almost always be neutron-rich, as compared to their stable isotopes. This is the result of the higher neutron to proton (N/Z) ratios of larger nuclei. Figure \ref{figure:NZcurve} shows how the nuclei of abundant isotopes start with N/Z ratios of around 1 for small elements (e.g. \ch{He_{2}^{4}}, \ch{C_{6}^{12}}, \ch{O_{8}^{16}}), whereas larger elements will have isotopes with N/Z ratios approaching 1.6 (e.g. \ch{Pb_{82}^{208}}, \ch{Th_{90}^{232}}, \ch{U_{92}^{238}}). 
 
 Fissionable nuclei are typically very large and when fission occurs, the child nuclei will inevitably inherit a high N/Z ratio. These neutron-rich nuclei will generally decay by $\beta-$ particle emission to reduce their N/Z ratio and increase stability. One decay event is usually not enough to achieve a stable nucleus, so several decays as part of a decay chain are expected. An example is given for Te in Equations \ref{eqn:te_decay} and \ref{eqn:i_decay}.
-\begin{equation}
+\begin{gather}
 Te_{134}^{52} \xrightarrow[]{\beta-} I_{134}^{53}+ e^{-} + \overline{\nu}_{e}
-\label{eqn:te_decay}
-\end{equation}
-\begin{equation}
+\label{eqn:te_decay} \\
 I_{134}^{53} \xrightarrow[]{\beta-} Xe_{134}^{54} + e^{-} + \overline{\nu}_{e}
 \label{eqn:i_decay}
-\end{equation}
+\end{gather}
 
 \begin{figure}[ht]
 \centering
@@ -350,7 +348,7 @@ It is known that for ions, electron energy levels are quantised, restricting the
 
 Two energy bands, the \emph{valence band} and \emph{conduction band}, help determine a material's metallic or non-metallic character. The valence band contains energy levels occupied by the valence electrons (at absolute zero), while the conduction band contains energy levels which are high enough that electrons may freely move throughout the crystal. In metals, the valence and conduction bands have some amount of overlap, meaning that once the valence band is full, the highest occupied electron energy states are within the conduction band and so the material acts as a conductor. Materials like \zirconia , however, have large energy gaps between the valence and conduction bands, known as the band gap. These materials are called \emph{band insulators} (as opposed to \emph{Mott insulators} where there is no conventional band gap, but electron-electron interactions impede electron promotion to higher energies), because the band gap is an energy barrier preventing the valence electrons from moving freely around the crystal. 
 
-In addition to the valence and conduction bands, we also need a value for the electron chemical potential or Fermi level of the material to determine how the energy bands are filled. If the Fermi level is exactly halfway between the valence band maximum (VBM) and the conduction band minimum (CBM), then the additional energy input required to promote an electron to the conduction band is half of the band gap. The Fermi level is strongly dependent on extrinsic defects and temperature. Extrinsic defects (called dopants) can be introduced to materials such as semiconductors in order to change the concentration of electronic defects (electrons and holes), while an increase in temperature will result in an increase in the Fermi level because of the larger amount of thermal energy available.
+In addition to the valence and conduction bands, a value for the electron chemical potential or Fermi level of the material is needed to determine how the energy bands are filled. If the Fermi level is exactly halfway between the valence band maximum (VBM) and the conduction band minimum (CBM), then the additional energy input required to promote an electron to the conduction band is half of the band gap. The Fermi level is strongly dependent on extrinsic defects and temperature. Extrinsic defects (called dopants) can be introduced to materials such as semiconductors in order to change the concentration of electronic defects (electrons and holes), while an increase in temperature will result in an increase in the Fermi level because of the larger amount of thermal energy available.
 
 It is important to note that band gaps reported in DFT studies using classical LDA/GGA methods are significantly lower than those obtained experimentally. This is a known problem in DFT, and an exchange-correlation functional which reproduces correct band gap energies in semiconductors and insulators (without overfitting to experimental data) has not yet been discovered. The GW method, which uses a self-energy energy term in place of an exchange-correlation functional, allows more accurate\footnote{The GW approximation still has inaccuracies when modelling strongly correlated systems, but works well with $s$-$p$ systems.} estimates of the band gap than with DFT, but at a significantly higher computational expense. In many cases, the band gap from DFT calculations may be increased by appending an additional potential term, known as a +U parameter, to certain valence electron orbitals (discussed further in § \ref{subsection:plus_U}), or by using hybrid potentials which can incorporate the exact exchange energy.
 
