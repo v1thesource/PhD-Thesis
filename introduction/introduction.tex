@@ -1,4 +1,4 @@
-\chapter{Introduction}
+\chapter{Introduction} \label{introduction}
 
 \section{Nuclear Power} % Complete
 
@@ -23,14 +23,12 @@ Combustion-based power as a technology has matured over hundreds of years, with 
 \subsection{Fission} % Complete
 
 Commercial nuclear power plants extract energy through the process of fission, where a large nucleus is split into smaller nuclei. While it is also possible to extract energy from certain nuclei by the process of fusing them into larger ones, no fusion reactor currently exists which achieves a net positive energy output. At a fundamental level, both of these processes rely upon mass-energy equivalence. The relationship between mass and energy is shown using Einstein's famous equation:
-
 \begin{equation}
 \label{emc2}
     E = mc^{2}
 \end{equation}
 
 where $E$ is the energy of the system, $m$ is the mass and $c$ is the speed of light. Using this equation we can analyse a typical fission reaction:
-
 \begin{equation}
     U^{235}_{92} + n^{1}_{0} \xrightarrow[]{absorption} U^{236}_{92} \xrightarrow[]{fission} I^{132}_{53} + Y^{101}_{39} + 3n^{1}_{0}
 \label{eqn:fission} 
@@ -108,18 +106,14 @@ In high-radiation environments, it is also possible for some molecules to be spl
 Nuclei which can undergo fission will produce child nuclei (fission products) with specific characteristics. Firstly, these nuclei will almost always be neutron-rich, as compared to their stable isotopes. This is the result of the higher neutron to proton (N/Z) ratios of larger nuclei. Figure \ref{figure:NZcurve} shows how the nuclei of abundant isotopes start with N/Z ratios of around 1 for small elements (e.g. \ch{He_{2}^{4}}, \ch{C_{6}^{12}}, \ch{O_{8}^{16}}), whereas larger elements will have isotopes with N/Z ratios approaching 1.6 (e.g. \ch{Pb_{82}^{208}}, \ch{Th_{90}^{232}}, \ch{U_{92}^{238}}). 
 
 Fissionable nuclei are typically very large and when fission occurs, the child nuclei will inevitably inherit a high N/Z ratio. These neutron-rich nuclei will generally decay by $\beta-$ particle emission to reduce their N/Z ratio and increase stability. One decay event is usually not enough to achieve a stable nucleus, so several decays as part of a decay chain are expected. An example is given for Te in Equations \ref{eqn:te_decay} and \ref{eqn:i_decay}.
-
-{\setstretch{1.3}
 \begin{equation}
 Te_{134}^{52} \xrightarrow[]{\beta-} I_{134}^{53}+ e^{-} + \overline{\nu}_{e}
 \label{eqn:te_decay}
 \end{equation}
-
 \begin{equation}
 I_{134}^{53} \xrightarrow[]{\beta-} Xe_{134}^{54} + e^{-} + \overline{\nu}_{e}
 \label{eqn:i_decay}
 \end{equation}
-}
 
 \begin{figure}[ht]
 \centering
@@ -146,7 +140,7 @@ Iodine is an important fission product because it is known to corrode Zr metal c
 
 \begin{table}[ht]
 \onehalfspacing
-\caption{Independent fission product yields and half-lives for the major iodine isotopes and precursors in a thermal neutron reactor. Yields from the Joint Evaluated Fission and Fusion File (JEFF 3.3). All isotopes undergo single $\beta$- decay. Metastable states are included.}  \label{table:decaydata_chap1}
+\caption{Independent fission product yields and half-lives for the major iodine isotopes and precursors in a thermal neutron reactor. Yields taken from the Joint Evaluated Fission and Fusion File (JEFF 3.3). All isotopes undergo single $\beta$- decay. Metastable states are included.}  \label{table:decaydata_chap1}
 \begin{center}
 \begin{tabular}{c c c}
 \hline
@@ -290,7 +284,7 @@ The internal oxide layer is much more challenging to examine due to the need to 
 
 Figure \ref{figure:bonding_layer_composition} shows the composition of the inner oxide of a high burnup fuel pin. The fission product (Ba, Mo, Nd) content is highest at the beginning of the \zirconia\ layer and decreases almost linearly with distance towards the Zr metal. This is due to fission product implantation rather than diffusion as these are highly immobile atoms. % can you use the weight composition and fission yields to estimate what percentage of iodine implantation will be?
 
-\begin{figure}[htp]
+\begin{figure}[ht!]
 \centering
 \includegraphics[width=14cm]{images/bonding_layer_composition.png}
 \caption[Elemental composition of the bonded UO$_{2}$/ZrO$_{2}$ layer from a PWR UO$_{2}$ fuel pellet with a burnup of 61 GWd/tU.]{Elemental composition of the bonded UO$_{2}$/ZrO$_{2}$ layer from a PWR UO$_{2}$ fuel pellet with a burnup of 61 GWd/tU. Taken from \cite{Lozano1998}.}

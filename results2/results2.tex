@@ -6,9 +6,9 @@
 
 \section{Introduction}
 
-As discussed in Chapter I, stress-corrosion cracking (SCC) in nuclear fuel pins is an issue related to early integrity of fuel assemblies in light water reactors (LWRs). SCC studies of the internal surface of zirconium-based fuel claddings have been conducted, which indicate that iodine is likely to be one of the main corrosive species involved in promoting crack growth \cite{rosenbaum1966interaction, bcoxpelletclad1990,fregonese2000failure,Sidky1998}. The exact mechanism for iodine SCC has not yet been determined due to difficulties observing the internal cladding surface in-situ, while experimental studies are not yet capable of reproducing the conditions under which such failures occur. The quantum-mechanical simulation approach is therefore particularly useful to model the behaviour of iodine within the oxide layer of the cladding, the layer preceding the zirconium metal. 
+As discussed in Chapter \ref{introduction}, stress-corrosion cracking (SCC) in nuclear fuel pins is an issue related to early integrity of fuel assemblies in light water reactors (LWRs). SCC studies of the internal surface of zirconium-based fuel claddings have been conducted, which indicate that iodine is likely to be one of the main corrosive species involved in promoting crack growth \cite{rosenbaum1966interaction, bcoxpelletclad1990,fregonese2000failure,Sidky1998}. The exact mechanism for iodine SCC has not yet been determined due to difficulties observing the internal cladding surface in-situ, while experimental studies are not yet capable of reproducing the conditions under which such failures occur. The quantum-mechanical simulation approach is therefore particularly useful to model the behaviour of iodine within the oxide layer of the cladding, the layer preceding the zirconium metal. 
 
-Iodine is produced in the fuel pellet directly from fission (see Chapter I for details) and also from the decay of tellurium precursors. Both iodine and tellurium are relatively common fission products, with combined independent yields from thermal fission of U$_{235}$ above 5\% \cite{kennett1956mass, iodine129fissionyield, imanishi1976independent, iodinefissionyields, iodine132, amiel1975odd}. The majority of thermal fission events occur in the outer rim of the fuel pellet, and a fission product penetration depth of up to 8 $\mu$m in \zirconia\ \cite{degueldre2001behaviour} suggests a large degree of implantation within the oxide and the Zr metal into which the oxide grows, raising the concentration of I well above the equilibrium value. Iodine and many of its relevant compounds (as ZrI$_{4}$, CsI) are volatile and fuel pellets contain many cracks and spaces through which iodine may be rapidly transported to the cladding. When reactor power is increased during start-up, iodine is released in substantial quantities from the UO$_{2}$ pellet \cite{peehs1982experimental}. This is believed to cause crack propagation in the cladding when combined with stresses imposed on the cladding by the fuel pellet, and this contributes to pellet-cladding interaction (PCI), a phenomenon discussed in Chapter I. Upper limits on power ramping and holding times have therefore been established by fuel suppliers to mitigate potential PCI failures \cite{yagnik2005effect}. While these restrictions have reduced or prevented the incidence of PCI failures, they also impose costs on the operator due to longer ramping periods. This also restricts the ability of the nuclear reactor to load-follow grid demand. Cladding/fuel materials resistant to PCI failure are therefore of great interest in the nuclear power industry, promoting research into solutions such as cladding liners and doped fuel pellets \cite{nonon2005pci,yang2012effect}. 
+Iodine is produced in the fuel pellet directly from fission (see Chapter I for details) and also from the decay of tellurium precursors. As shown in Figure \ref{table:decaydata_chap1}, both iodine and tellurium are relatively common fission products, with combined independent yields from thermal fission of U$_{235}$ above 26\% \cite{kennett1956mass, iodine129fissionyield, imanishi1976independent, iodinefissionyields, iodine132, amiel1975odd, iaeafissionyield}. The majority of thermal fission events occur in the outer rim of the fuel pellet, and a fission product penetration depth of up to 8 $\mu$m in \zirconia\ \cite{degueldre2001behaviour} suggests a large degree of implantation within the oxide and the Zr metal into which the oxide grows, raising the concentration of I well above the equilibrium value. Iodine and many of its relevant compounds (as ZrI$_{4}$, CsI) are volatile and fuel pellets contain many cracks and spaces through which iodine may be rapidly transported to the cladding. When reactor power is increased during start-up, iodine is released in substantial quantities from the UO$_{2}$ pellet \cite{peehs1982experimental}. This is believed to cause crack propagation in the cladding when combined with stresses imposed on the cladding by the fuel pellet, and this contributes to pellet-cladding interaction (PCI), a phenomenon discussed in Chapter \ref{introduction}. Upper limits on power ramping and holding times have therefore been established by fuel suppliers to mitigate potential PCI failures \cite{yagnik2005effect}. While these restrictions have reduced or prevented the incidence of PCI failures, they also impose costs on the operator due to longer ramping periods. This also restricts the ability of the nuclear reactor to load-follow grid demand. Cladding/fuel materials resistant to PCI failure are therefore of great interest in the nuclear power industry, promoting research into solutions such as cladding liners and doped fuel pellets \cite{nonon2005pci,yang2012effect}. 
 
 %\item Power ramping: Increasing power, such as during reactor start-up, can lead to cladding failure.   %power must be ramped up gradually in order to avoid excessive temperature gradients in the fuel pins, but also to manage fission product concentrations. Due to the different half-lives of various fission products, a power ramp will cause a transient increase in the iodine concentration within a fuel pin
 
@@ -30,9 +30,9 @@ As discussed in § \ref{section:outervsinner}, there is an oxide layer on the in
 \section{Methodology}
 \subsection{Computational details}
 
-As discussed in Chapter III, calculations were performed using CASTEP 8.0 \cite{Clark2005}. Ultra-soft pseudo-potentials with a cut-off energy of 600 eV were employed. The Perdew, Burke and Ernzerhof (PBE) \cite{Perdew1996} parameterisation of the generalised gradient approximation (GGA) was used to describe the exchange correlation functional. A Monkhorst-Pack sampling scheme \cite{Monkhorst1976} was used for Brillouin zone integration, with a minimum \emph{k}-point separation of 0.09 \r{A}\textsuperscript{-1}. The Pulay method for density mixing \cite{Pulay1980} was used to improve simulation convergence. 
+As discussed in Chapter \ref{ch:compmethodology}, calculations were performed using CASTEP 8.0 \cite{Clark2005}. Ultra-soft pseudo-potentials with a cut-off energy of 600 eV were employed. The Perdew, Burke and Ernzerhof (PBE) \cite{Perdew1996} parameterisation of the generalised gradient approximation (GGA) was used to describe the exchange correlation functional. A Monkhorst-Pack sampling scheme \cite{Monkhorst1976} was used for Brillouin zone integration, with a minimum \emph{k}-point separation of 0.09 \r{A}\textsuperscript{-1}. The Pulay method for density mixing \cite{Pulay1980} was used to improve simulation convergence. 
 
-The electronic energy convergence criterion was set to $1\times10^{-6}$ eV and the maximum force between atoms limited to $1\times10^{-2}$ eV \r{A}\textsuperscript{-1}. A gradient-descent geometry optimisation task was run on the cell until consecutive iterations differed in energy and atomic displacement by less than $1\times10^{-5}$ eV and $5\times10^{-4}$ \r{A} respectively. 
+The electronic energy convergence criterion was set to $1\times10^{-6}$ eV and the maximum force between atoms limited to $1\times10^{-2}$ eV \r{A}\textsuperscript{-1}, which are values demonstrated as appropriate in § \ref{convergence_criteria}. A gradient-descent geometry optimisation task was run on the cell until consecutive iterations differed in energy and atomic displacement by less than $1\times10^{-5}$ eV and $5\times10^{-4}$ \r{A} respectively, again demonstrated in § \ref{convergence_criteria}. 
 
 \subsection{Incorporation energies}
 
@@ -57,28 +57,29 @@ where $\ch{I_{O}^{$n$}}$ is an iodine substitutional defect at an oxygen site of
 
 \subsection{Defect Equilibrium Response to Oxygen Partial Pressure}
 
-Brouwer diagrams, also known as Kr{\"o}ger-Vink diagrams, were produced using a method outlined by Murphy et al. \cite{Murphy2014} to determine defect concentrations as a function of oxygen partial pressure. We start from the statement that the chemical potential of \zirconia\ is equivalent to the sum of the chemical potentials $\mu$ of its constituent species, Zr and O:
+Brouwer diagrams were generated using the method previously outlined in § \ref{brouwer_method}. Defect concentrations for the monoclinic and tetragonal phases were calculated at 650 K and 1500 K respectively to reflect the temperatures at which these structures are stable. Brouwer diagrams at extrinsic defect concentrations of $10^{-5}$ and $10^{-3}$ parts/fu (i.e. parts per \zirconia\ formula unit) were generated to examine low and high dopant concentrations, respectively. These two concentrations were examined because the amount of fission products present at a particular point in a fuel pellet depends on macroscopic parameters, including its position in the core and the time since the last shutdown, but also microscopic parameters such as the radial position in the pellet. These two concentrations were selected because $10^{-3}$ parts/fu is high enough to model an aggregation of iodine (such as at a crack tip), and $10^{-5}$ parts/fu was found to be the concentration below which iodine did not have a significant effect on defect equilibria. 
 
-\begin{equation}
-{\mu}_{ZrO_2(s)} = {\mu}_{Zr}(p_{O_2}, T) + {\mu}_{O_2}(p_{O_2}, T)
-\label{mewZrO2results2}
-\end{equation}
 
-where $T$ denotes temperature and $p_{O_2}$ denotes oxygen partial pressure. The chemical potential of \zirconia\ in the solid state is assumed to have negligible dependence on $T$ and $p_{O_2}$ relative to ${\mu}_{Zr}$ and ${\mu}_{O_2}$. Energies can be obtained for bulk \zirconia\ and Zr, but the ground state of oxygen is not correctly reproduced in DFT \cite{Batyrev2000,Lozovoi2001}. Instead, we use the approach of Finnis et al. \cite{Finnis2005} to infer the oxygen chemical potential from standard state values. We can use the experimental Gibbs free energy to produce an equation where $\mu_{O_2}$ is the only unknown:
-
-\begin{equation}
-\Delta{G^{\plimsoll}_{f, ZrO_2}} = \mu_{ZrO_2(s)} - (\mu_{Zr(s)} + \mu^{\plimsoll}_{O_2})
-\end{equation}
-
-where $\Delta{G^{\plimsoll}_{f, ZrO_2}}$ is the experimental Gibbs energy at standard temperature and pressure and $\mu^{\plimsoll}_{O_2}$ is the oxygen chemical potential under the same conditions. The values of $\mu_{ZrO_2(s)}$ and $\mu_{Zr(s)}$ are calculated from the DFT energies. Once $\mu^{\plimsoll}_{O_2}$ is calculated, we can generalise the chemical potential of oxygen for any value of $T$ and $p_{O_2}$ by appending an ideal gas relationship $\Delta{\mu(T)}$ and a Boltzmann distribution:
-
-\begin{equation}
-\mu_{O_2}(p_{O_2},T) = \mu^{\plimsoll}_{O_2} + \Delta{\mu(T)} + \frac{1}{2}{k_B}log(\frac{p_{O_2}}{p^{\plimsoll}_{O_2}})
-\end{equation}
-
-Using our generalised formula for $\mu_{O_2}$, we fix the temperature within the range of thermal phase-stabilisation (1500 K for tetragonal \zirconia) and calculate $\mu_{O_2}$ for many different values of $p_{O_2}$ between $10^{-35}$ and 10$^{0}$ atm, corresponding to oxygen deficient and oxygen rich environments, respectively ($p_{O_2}$ in air is approximately 0.2 atm). While the tetragonal phase will be stress-stabilised in practice, thermal-stabilisation in such models has been shown to qualitatively approximate the effect of stress-stabilisation, while allowing a wider range of dopant behaviours to be predicted \cite{Bell2016}. 
-
-Equilibrium defect concentrations are calculated at each $\mu_{O_2}$ and plotted against $p_{O_2}$ to produce a Brouwer diagram. Brouwer diagrams at extrinsic defect concentrations of $10^{-5}$ and $10^{-3}$ parts/fu (i.e. parts per \zirconia\ formula unit) were generated to examine low and high dopant concentrations, respectively. These two concentrations were examined because the amount of fission products present at a particular point in a fuel pellet depends on macroscopic parameters, including its position in the core and the time since the last shutdown, but also microscopic parameters such as the radial position in the pellet. These two concentrations were selected because $10^{-3}$ parts/fu is high enough to model an aggregation of iodine (such as at a crack tip), and $10^{-5}$ parts/fu was found to be the concentration below which iodine did not have a significant effect on defect equilibria. 
+%Brouwer diagrams, also known as Kr{\"o}ger-Vink diagrams, were produced using a method outlined by Murphy et al. \cite{Murphy2014} to determine defect concentrations as a function of oxygen partial pressure. We start from the statement that the chemical potential of \zirconia\ is equivalent to the sum of the chemical potentials $\mu$ of its constituent species, Zr and O:
+%
+%\begin{equation}
+%{\mu}_{ZrO_2(s)} = {\mu}_{Zr}(p_{O_2}, T) + {\mu}_{O_2}(p_{O_2}, T)
+%\label{mewZrO2results2}
+%\end{equation}
+%
+%where $T$ denotes temperature and $p_{O_2}$ denotes oxygen partial pressure. The chemical potential of \zirconia\ in the solid state is assumed to have negligible dependence on $T$ and $p_{O_2}$ relative to ${\mu}_{Zr}$ and ${\mu}_{O_2}$. Energies can be obtained for bulk \zirconia\ and Zr, but the ground state of oxygen is not correctly reproduced in DFT \cite{Batyrev2000,Lozovoi2001}. Instead, we use the approach of Finnis et al. \cite{Finnis2005} to infer the oxygen chemical potential from standard state values. We can use the experimental Gibbs free energy to produce an equation where $\mu_{O_2}$ is the only unknown:
+%
+%\begin{equation}
+%\Delta{G^{\plimsoll}_{f, ZrO_2}} = \mu_{ZrO_2(s)} - (\mu_{Zr(s)} + \mu^{\plimsoll}_{O_2})
+%\end{equation}
+%
+%where $\Delta{G^{\plimsoll}_{f, ZrO_2}}$ is the experimental Gibbs energy at standard temperature and pressure and $\mu^{\plimsoll}_{O_2}$ is the oxygen chemical potential under the same conditions. The values of $\mu_{ZrO_2(s)}$ and $\mu_{Zr(s)}$ are calculated from the DFT energies. Once $\mu^{\plimsoll}_{O_2}$ is calculated, we can generalise the chemical potential of oxygen for any value of $T$ and $p_{O_2}$ by appending an ideal gas relationship $\Delta{\mu(T)}$ and a Boltzmann distribution:
+%
+%\begin{equation}
+%\mu_{O_2}(p_{O_2},T) = \mu^{\plimsoll}_{O_2} + \Delta{\mu(T)} + \frac{1}{2}{k_B}log(\frac{p_{O_2}}{p^{\plimsoll}_{O_2}})
+%\end{equation}
+%
+%Using our generalised formula for $\mu_{O_2}$, we fix the temperature within the range of thermal phase-stabilisation (1500 K for tetragonal \zirconia) and calculate $\mu_{O_2}$ for many different values of $p_{O_2}$ between $10^{-35}$ and 10$^{0}$ atm, corresponding to oxygen deficient and oxygen rich environments, respectively ($p_{O_2}$ in air is approximately 0.2 atm). While the tetragonal phase will be stress-stabilised in practice, thermal-stabilisation in such models has been shown to qualitatively approximate the effect of stress-stabilisation, while allowing a wider range of dopant behaviours to be predicted \cite{Bell2016}. 
 
 \section{Results}
 
@@ -100,7 +101,7 @@ Table \ref{i_incorp_oxygen} reports incorporation energies of iodine at various 
 
 \subsubsection*{Zirconium Sites}
 
-Incorporation energies of iodine on zirconium sites are reported in Table \ref{i_incorp_zirconium}. The  incorporation energy decreases as the charge of the defect decreases from -4 to 0 (i.e. nominally from I$^{0}$ to I$^{4+}$. This is due to the decrease in the size of the iodine species with increasing positive charge, fitting better into the small vacant Zr$^{4+}$ cation site. This alone does not guarantee the emergence of uncharged iodine defects (I$^{4+}$) on zirconium sites when all energy terms are considered. In particular, there is also an energy penalty incurred in the change in charge of iodine. A Mulliken population analysis revealed a charge localised on the iodine of +2.31 at the \ch{I_{Zr}^{x}} defect, and a +0.86 charge on the \ch{I_{Zr}^{''''}} defect, with the remaining charge accommodated by other ions in the lattice. Again, I is most readily accommodated in the monoclinic phase for all charge states.
+Incorporation energies of iodine on zirconium sites are reported in Table \ref{i_incorp_zirconium}. The  incorporation energy decreases as the charge of the defect decreases from -4 to 0 (i.e. nominally from I$^{0}$ to I$^{4+}$). This is due to the decrease in the size of the iodine species with increasing positive charge, fitting better into the small vacant Zr$^{4+}$ cation site. This alone does not guarantee the emergence of uncharged iodine defects (I$^{4+}$) on zirconium sites when all energy terms are considered. In particular, there is also an energy penalty incurred in the change in charge of iodine. A Mulliken population analysis revealed a charge localised on the iodine of +2.31 at the \ch{I_{Zr}^{x}} defect, and a +0.86 charge on the \ch{I_{Zr}^{''''}} defect, with the remaining charge accommodated by other ions in the lattice. Again, I is most readily accommodated in the monoclinic phase for all charge states.
 
 \begin{table}[ht]
 \onehalfspacing
@@ -110,7 +111,7 @@ Incorporation energies of iodine on zirconium sites are reported in Table \ref{i
 \begin{tabular}{ccccc}
 \hline
 \multirow{2}{*}{\textbf{Structure}} & \multirow{2}{*}{\textbf{Site}} & \multicolumn{3}{c}{\textbf{Incorporation Energy (eV)}} \\ \cline{3-5} 
- &  & \textbf{\ch{I^{x}_{i}}} & \textbf{\ch{I^{'}_{i}}} & \textbf{\ch{I^{*}_{i}}} \\ \hline % \hspace{0.7 cm}
+ &  & \hspace{0.5cm} \textbf{\ch{I^{x}_{i}}} & \textbf{\ch{I^{'}_{i}}} & \textbf{\ch{I^{*}_{i}}} \\ \hline % \hspace{0.7 cm}
 \multirow{4}{*}{\textbf{Monoclinic}} & 2a & 8.55 & 12.10 & 6.55 \\
  & 2b & 10.81 & 16.40 & 5.63 \\
  & 2c & 8.79 & 12.20 & 4.62 \\
@@ -160,9 +161,9 @@ Incorporation energies of iodine on zirconium sites are reported in Table \ref{i
 %To examine the temperature dependence of the defect equilibria, the concentration of dopant iodine was held constant while temperature was changed.
 
 
-\subsection{Dopant concentration dependence}
-
-To examine the dependence of the defect equilibria on iodine dopant concentration, the temperature was held constant while iodine concentration was changed.
+%\subsection{Dopant concentration dependence}
+%
+%To examine the dependence of the defect equilibria on iodine dopant concentration, the temperature was held constant while iodine concentration was changed.
 
 %\begin{figure}[ht] % Tet intrinsic no space charge
 %\begin{center}
@@ -181,6 +182,11 @@ To examine the dependence of the defect equilibria on iodine dopant concentratio
 %	\end{center}
 %\end{figure}
 
+\subsection{Brouwer Diagrams} 
+
+\subsubsection*{Monoclinic Phase}
+
+Brouwer diagrams associated with the monoclinic phase, at 650 K, at which temperature this \zirconia\ phase is stable, are shown in Figure \ref{figure:tikzbrouwerconcmono}. At 650 K, this phase exhibits a relatively low concentration of intrinsic defects; concentrations of \ch{V_{O}^{**}} and \ch{V_{Zr}^{''''}} remained below $10^{-10}$ parts/fu across the majority of oxygen pressures at both iodine concentrations and do not appear in the diagrams. At lower iodine concentrations, the intrinsic electronic defects, \ch{e^{'}} and \ch{h^{*}}, were more significant, with \ch{h^{*}} defects being a major fraction of the total defect population near stoichiometry (i.e. at an oxygen pressure of approximately $10^{-7.5}$ atm). 
 
 \begin{figure}[ht] % Mono conc sweep
 \begin{center}
@@ -255,7 +261,20 @@ To examine the dependence of the defect equilibria on iodine dopant concentratio
 	\end{center}
 \end{figure} % 10e-3 iodine conc in mono
 
+Between oxygen pressures of $10^{-35}$ and $10^{-10}$ atm, the dominant defects were \ch{I_{O}^{*}} charge-compensated by \ch{I_{Zr}^{'''}}. Above an oxygen pressure of $10^{-10}$ atm, a combination of \ch{I_{i}^{*}}, \ch{I_{Zr}^{'''}} and \ch{I_{O}^{***}} defects were dominant. This demonstrates that iodine will adopt a +1 oxidation state in order to facilitate iodine incorporation into the lattice. The effective ionic radius of I$^{-}$ is 2.20 \r{A} in VI-fold coordination, compared to 1.38 \r{A} for O$^{2-}$ in IV-fold coordination, as is the case in \zirconia\ \cite{Shannon1976}. Iodine with a higher positive charge state will have a smaller ionic radius, and thus impose less strain on the lattice (and therefore a smaller energy penalty) in each defect configuration, including substitution on a Zr site. At the highest oxygen pressures, the Brouwer diagrams show that oxidation of iodine, substituted at an oxygen site, to the +1 oxidation state (i.e. \ch{I_{O}^{***}}) becomes a necessary charge compensating defect. This is because the energy penalty to form hole defects in this broad band insulator is too great, as is the formation of other positive charge defects such as \ch{Zr_{i}^{****}}. This may translate to iodine out-competing oxygen for oxygen sites in monoclinic \zirconia , with higher oxygen pressures providing very little in terms of a barrier effect. 
 
+% \begin{itemize}
+% %\item Figure 1 shows monoclinic Brouwer diagrams generated at different assumed iodine concentrations.
+% %\item The monoclinic Brouwer diagrams were generated at a temperature of 650 K. This is because the structure is stable at this temperature, and it is representative of the temperature which the \zirconia\ layer on the internal surface of the cladding would experience.
+% %\item At an iodine concentration of 1e-5 and low oxygen pressures, the dominant defects were iodine -1 substitutional defects on the oxygen site, charged compensated by iodine +1 substitutional defects on the zirconium site. At higher oxygen pressures, the zirconium substitutional defects remained but were now charge compensated by iodine +1 substitutional defects on the oxygen site. At very high oxygen pressures, hole defects were preferred to oxygen substitutional defects.
+
+% \item At an iodine concentration of 1e-3, intrinsic defects were found to be negligible compared to the extrinsic iodine defects. The same pattern was seen as with an iodine concentration of 1e-5, except hole defects were no longer significant at high oxygen pressures. Very low concentrations of iodine +1 interstitial defects began to appear at oxygen pressures greater than 1e-20.
+% \end{itemize}
+% The monoclinic Brouwer diagram (Figure \ref{figure:monoBrouwer}) predicts that at 635 K, few types of defects will be present and at very low (\textless 10 ppb \zirconia ) concentrations. This is typical of defect behaviour in a ceramics at temperatures far below their melting points \cite{kingery1997physical,ball2006computer}. Fully-charged zirconium vacancies, charge-compensated by holes, are the major defect type we expect to observe at $p_{O_{2}}$ \textgreater $10^{-15}$. Below this, only electronic defects compensated by electron hole defects are expected. We briefly see increased concentrations of uncharged oxygen interstitial defects at very high levels of $p_{O_{2}}$.
+
+\subsubsection*{Tetragonal Phase}
+
+Brouwer diagrams for the tetragonal phase are shown in Figure \ref{figure:tikzbrouwerconctet}. As these diagrams were generated at a temperature of 1500 K (at which the tetragonal phase becomes stable), intrinsic defect concentrations were significantly higher than in the monoclinic diagrams for all oxygen pressures (though trends remained the same). Intrinsic defects \ch{e^{'}}, \ch{h^{*}}, \ch{V_{O}^{**}} and \ch{V_{Zr}^{''''}} were dominant across most oxygen pressures at an iodine concentration of $10^{-5}$ parts/fu. Only around stoichiometry do extrinsic defect concentrations approach intrinsic values (which as mentioned earlier is why this concentration of iodine was chosen). Across all oxygen pressures, \ch{I_{O}^{*}} and \ch{I_{Zr}^{'''}} are the major iodine defects. Between $10^{-15}$ and $10^{-5}$ atm, Figure \ref{figure:tikzbrouwerconctet} illustrates that the major iodine defect swaps from being \ch{I_{O}^{*}} to \ch{I_{Zr}^{'''}}. 
 
 \begin{figure}[ht] % 10e-5 iodine conc in tet
 \begin{center}
@@ -329,27 +348,6 @@ To examine the dependence of the defect equilibria on iodine dopant concentratio
 		\label{figure:tikzbrouwerconctet}
 	\end{center}
 \end{figure}
-
-\subsection{Brouwer Diagrams} \label{Formation}
-
-\subsubsection*{Monoclinic Phase}
-
-Brouwer diagrams associated with the monoclinic phase, at 650 K, at which temperature this \zirconia\ phase is stable, are shown in Figure \ref{figure:tikzbrouwerconcmono}. At 650 K, this phase exhibits a relatively low concentration of intrinsic defects; concentrations of \ch{V_{O}^{**}} and \ch{V_{Zr}^{''''}} remained below $10^{-10}$ parts/fu across the majority of oxygen pressures at both iodine concentrations and do not appear in the diagrams. At lower iodine concentrations, the intrinsic electronic defects, \ch{e^{'}} and \ch{h^{*}}, were more significant, with \ch{h^{*}} defects being a major fraction of the total defect population near stoichiometry (i.e. at an oxygen pressure of approximately $10^{-7.5}$ atm). 
-
-Between oxygen pressures of $10^{-35}$ and $10^{-10}$ atm, the dominant defects were \ch{I_{O}^{*}} charge-compensated by \ch{I_{Zr}^{'''}}. Above an oxygen pressure of $10^{-10}$ atm, a combination of \ch{I_{i}^{*}}, \ch{I_{Zr}^{'''}} and \ch{I_{O}^{***}} defects were dominant. This demonstrates that iodine will adopt a +1 oxidation state in order to facilitate iodine incorporation into the lattice. The effective ionic radius of I$^{-}$ is 2.20 \r{A} in VI-fold coordination, compared to 1.38 \r{A} for O$^{2-}$ in IV-fold coordination, as is the case in \zirconia\ \cite{Shannon1976}. Iodine with a higher positive charge state will have a smaller ionic radius, and thus impose less strain on the lattice (and therefore a smaller energy penalty) in each defect configuration, including substitution on a Zr site. At the highest oxygen pressures, the Brouwer diagrams show that oxidation of iodine, substituted at an oxygen site, to the +1 oxidation state (i.e. \ch{I_{O}^{***}}) becomes a necessary charge compensating defect. This is because the energy penalty to form hole defects in this broad band insulator is too great, as is the formation of other positive charge defects such as \ch{Zr_{i}^{****}}. This may translate to iodine out-competing oxygen for oxygen sites in monoclinic \zirconia , with higher oxygen pressures providing very little in terms of a barrier effect. 
-
-% \begin{itemize}
-% %\item Figure 1 shows monoclinic Brouwer diagrams generated at different assumed iodine concentrations.
-% %\item The monoclinic Brouwer diagrams were generated at a temperature of 650 K. This is because the structure is stable at this temperature, and it is representative of the temperature which the \zirconia\ layer on the internal surface of the cladding would experience.
-% %\item At an iodine concentration of 1e-5 and low oxygen pressures, the dominant defects were iodine -1 substitutional defects on the oxygen site, charged compensated by iodine +1 substitutional defects on the zirconium site. At higher oxygen pressures, the zirconium substitutional defects remained but were now charge compensated by iodine +1 substitutional defects on the oxygen site. At very high oxygen pressures, hole defects were preferred to oxygen substitutional defects.
-
-% \item At an iodine concentration of 1e-3, intrinsic defects were found to be negligible compared to the extrinsic iodine defects. The same pattern was seen as with an iodine concentration of 1e-5, except hole defects were no longer significant at high oxygen pressures. Very low concentrations of iodine +1 interstitial defects began to appear at oxygen pressures greater than 1e-20.
-% \end{itemize}
-% The monoclinic Brouwer diagram (Figure \ref{figure:monoBrouwer}) predicts that at 635 K, few types of defects will be present and at very low (\textless 10 ppb \zirconia ) concentrations. This is typical of defect behaviour in a ceramics at temperatures far below their melting points \cite{kingery1997physical,ball2006computer}. Fully-charged zirconium vacancies, charge-compensated by holes, are the major defect type we expect to observe at $p_{O_{2}}$ \textgreater $10^{-15}$. Below this, only electronic defects compensated by electron hole defects are expected. We briefly see increased concentrations of uncharged oxygen interstitial defects at very high levels of $p_{O_{2}}$.
-
-\subsubsection*{Tetragonal Phase}
-
-Brouwer diagrams for the tetragonal phase are shown in Figure \ref{figure:tikzbrouwerconctet}. As these diagrams were generated at a temperature of 1500 K (at which the tetragonal phase becomes stable), intrinsic defect concentrations were significantly higher than in the monoclinic diagrams for all oxygen pressures (though trends remained the same). Intrinsic defects \ch{e^{'}}, \ch{h^{*}}, \ch{V_{O}^{**}} and \ch{V_{Zr}^{''''}} were dominant across most oxygen pressures at an iodine concentration of $10^{-5}$ parts/fu. Only around stoichiometry do extrinsic defect concentrations approach intrinsic values (which as mentioned earlier is why this concentration of iodine was chosen). Across all oxygen pressures, \ch{I_{O}^{*}} and \ch{I_{Zr}^{'''}} are the major iodine defects. Between $10^{-15}$ and $10^{-5}$ atm, Figure \ref{figure:tikzbrouwerconctet} illustrates that the major iodine defect swaps from being \ch{I_{O}^{*}} to \ch{I_{Zr}^{'''}}. 
 
 When the iodine concentration was increased to $10^{-3}$ parts/fu, a significant change in defect equilibria was predicted. The oxygen pressure at stoichiometry increased from $10^{-10}$ to $10^{-6.5}$ atm (for monoclinic \zirconia, it remained at $10^{-7.5}$ atm regardless of iodine concentration). Nevertheless, \ch{I_{O}^{*}} and \ch{I_{Zr}^{'''}} remain the dominant defect pair between oxygen pressures of $10^{-15}$ and $10^{-5}$ atm (as they are at the lower iodine concentration). However, \ch{I_{O}^{*}} and \ch{I_{Zr}^{'''}} became higher concentration defects than both intrinsic \ch{V_{O}^{**}} and \ch{V_{Zr}^{''''}} defects. We also observe that Zr vacancies no longer serve as the main negative charge-compensation defect near stoichiometry, leaving \ch{I_{Zr}^{'''}} as the most energetically favourable negatively-charged defect.  
 
