@@ -270,7 +270,6 @@ The geometry optimisation task in CASTEP follows a simple steepest-descent algor
 
 The variational principle in quantum mechanics tells us that the lowest system energy calculated is always an upper bound for the ground state energy, thus providing a way to check if modifications to the system are actually optimising the geometry. The exception is when the system converges upon a local minima, which may or may not be an experimentally observed state. This can be avoided to some extent by having good initial ion placement from which to optimise.
 
-
 \subsection{Convergence criteria for geometry optimisation} \label{convergence_criteria}
 
 Four convergence criteria are used for the geometry optimisation tasks throughout this work, one of which is only used when performing constant-pressure calculations, such as when a supercell is being fully relaxed. These criteria are evaluated with respect to the previous iteration during the geometry optimisation task:
@@ -284,11 +283,32 @@ Four convergence criteria are used for the geometry optimisation tasks throughou
 
 Using these convergence criteria, non-defective supercells of \zirconia\ were relaxed under constant pressure. The resulting structure was used as the starting point to which defects were introduced, and subsequently relaxed again, this time under constant volume conditions to simulate low defect concentrations \cite{Murphy2014, Bell2015}. Finally, all DFT calculations on doped and defective structures in this thesis employed the Pulay method for density mixing \cite{Pulay1980} to take into consideration changes in electronic behaviour of the system caused by the defect.
 
-\subsection{Charged cell correction}
+\subsection{Charged cell correction} \label{charged_cell_correction}
 
 When calculating the energy of a defect with an overall non-zero charge, this charge introduces a systematic error in the energy value which is a function of the charge magnitude. This is typically the case in high band-gap materials such as \zirconia\ where electron mobility is far lower than in metals or semiconductors, allowing defects such as \ch{V_{O}^{**}} and \ch{V_{Zr}^{''''}} to be thermodynamically stable in the lattice. 
 
 The source of the error from charged defects is self-interaction across the periodic boundary, made necessary by the finite cell size. A common solution is to append a Makov-Payne correction term when calculating formation energies of defects \cite{Makov1995, Makov1996}. This works well in many cases, but does not take into consideration the anisotropy of the dielectric properties, as is the case in tetragonal \zirconia\ due to the non-unity lattice $c/a$ ratio. These effects are better captured when using a screened Madelung correction \cite{Murphy2013}. This method provides a more complete description of the dielectric properties by utilising a dielectric tensor rather than a single value of the dielectric constant (or relative permittivity). Dielectric tensors for the different phases of \zirconia\ were taken from \cite{Zhao2002a, Zhao2002}. The screened Madelung correction is therefore used in preference to a Makov-Payne correction throughout this thesis.
+
+\subsection{Incorporation energies}
+
+The inner oxide of the fuel cladding will be highly defective due to radiation damage, resulting in a high concentration of pre-existing intrinsic defect sites relative to the concentration of fission products. We therefore consider the energy of fission product incorporation on to these existing defect sites. The energies to incorporate atoms at interstitial and substitutional sites in \zirconia\ were calculated from the set of defective and perfect supercell DFT energies. For iodine, incorporation energies were established to place atoms into vacancy sites of different charge to generate defects from \ch{I_{O}^{x}} to \ch{I_{O}^{**}}, and \ch{I_{Zr}^{x}} to \ch{I_{Zr}^{''''}}. I was also incorporated onto the interstitial sites.
+
+The incorporation energy equation for iodine uses $\frac{1}{2}$I$_{2}$ as the reference state of iodine, while Te, Xe and Cs use the DFT energy calculated as a single atom in a large cell:
+\begin{equation}
+\label{interstitial_incorp_equation}
+E_{inc}(\ch{I_{$i$}^{x}}) = E_{DFT}(\ch{I_{$i$}^{x}}) - (E_{DFT}(ZrO_2) + \frac{1}{2}\mu_{I_{2}})  % - \frac{E_{I_2}}{2}
+\end{equation}
+where $E_{inc}(\ch{I_{$i$}^{x}})$ is the incorporation energy of a neutral iodine interstitial, $E_{DFT}(\ch{I_{$i$}^{x}})$ is the energy of a neutral iodine interstitial, $E_{DFT}(ZrO_2)$ is the energy of a non-defective \zirconia\ supercell and $\mu_{I_{2}}$ is the chemical potential of an I$_{2}$ molecule, taken from a single point DFT calculation of the I$_{2}$ dimer. For incorporation of a charged interstitial (e.g. $\ch{I_{i}^{*}}$), the energy required to add or remove an electron is included in the calculation:
+\begin{equation}
+\label{interstitial_incorp_equation_charged}
+E_{inc}(\ch{I_{$i$}^{q}}) = E_{DFT}(\ch{I_{$i$}^{q}}) - (E_{DFT}(ZrO_2) + \frac{1}{2}\mu_{I_{2}} + q(E_{VBM} + \mu_{e}))
+\end{equation}
+Similarly, for a substitutional defect:
+\begin{equation}
+\label{o_sub_incorp_equation}
+E_{inc}(\ch{I_{O}^{$n$}}) = E_{DFT}(\ch{I_{O}^{$n$}}) - (E_{DFT}(\ch{V_{O}^{$n$}}) + \frac{1}{2}\mu_{I_{2}})  % - \frac{E_{I_2}}{2}
+\end{equation}
+where $\ch{I_{O}^{$n$}}$ is an iodine substitutional defect at an oxygen site of charge $n$ and $\ch{V_{O}^{$n$}}$ is the corresponding oxygen vacancy.
 
 \subsection{Stiffness tensor generation}
 
@@ -308,7 +328,18 @@ After a calculation, CASTEP provides the volume of the resulting cell, defined a
 
 It is important to consider that if there is a non-zero charge on the system, this will affect the calculated volume. This is because two systems with the same type, amount and arrangement of atoms, but different overall charges, will have different energies (due to the number of electrons). Different electronic orbital occupancies will affect the inter-atomic forces and therefore the shape of the cell. 
 
-\section{Defect equilibria} \label{brouwer_method} % Todo: add entropy equation
+\section{Defect energies and equilibria} 
+
+\subsection{Defect formation energies}
+
+Defect formation energies are calculated using equation \ref{equation:formation_energy}:
+\begin{equation} \label{equation:formation_energy}
+    E_{f} = E_{def} - E_{perf} \pm \sum_{i} n_i\mu_i + q(E_{VBM} + \mu_{e}) + E_{corr}
+\end{equation}
+
+where $E_{f}$ is the formation energy, $E_{def}$ is the energy of the defective supercell, $E_{perf}$ is the energy of a non-defective supercell, $q$ is the defect charge, $E_{VBM}$ is the valence band maximum, $\mu_{e}$ is the Fermi level and $E_{corr}$ is a charged-cell correction term (see § \ref{charged_cell_correction}). Since $\mu_{e}$ is not a fixed value, plots of formation energy against $\mu_{e}$ are produced to examine the behaviour of these defects across the entire range of band gap (e.g. Figures \ref{figure:monovacancies}, \ref{figure:tetvacancies} and \ref{figure:cubicvacancies}).
+
+\subsection{Defect equilibria} \label{brouwer_method} % 
 
 Typically in materials, several types of defects will exist simultaneously. These defects will be present at an equilibrium concentration based on their thermodynamic stability. Predicting the defect equilibria is possible with statistical mechanics and some approximations. For example, it is expected that a crystal lattice will usually be overall charge-neutral (exceptions can be made under certain conditions, see § \ref{space_charge}), otherwise we would see a build-up of charge with a large Coulomb energy penalty which would be thermodynamically unsustainable.
 
@@ -322,13 +353,11 @@ where $T$ denotes temperature and $p_{O_2}$ denotes oxygen partial pressure. The
 \begin{equation}
 \Delta{G^{\plimsoll}_{f, ZrO_2}} = \mu_{ZrO_2(s)} - (\mu_{Zr(s)} + \mu^{\plimsoll}_{O_2})
 \end{equation}
-
-where $\Delta{G^{\plimsoll}_{f, ZrO_2}}$ is the experimental Gibbs energy at standard temperature and pressure and $\mu^{\plimsoll}_{O_2}$ is the oxygen chemical potential under the same conditions. Only monoclinic \zirconia\ is stable under standard conditions, with $\Delta{G^{\plimsoll}_{f, ZrO_2}}$ = -1042.746 kJ/mol (10.807 eV) \cite{brown2005chemical}. Values of the Gibbs free energy for the tetragonal (10.697 eV) and cubic (10.595 eV) phases were obtained by adding the energy difference between the phases from DFT calculations. The values of $\mu_{ZrO_2(s)}$ and $\mu_{Zr(s)}$ are calculated using DFT. Once $\mu^{\plimsoll}_{O_2}$ is calculated, we can generalise the chemical potential of oxygen for any value of $T$ and $p_{O_2}$ by appending an ideal gas relationship $\Delta{\mu(T)}$ and a Boltzmann distribution:
+where $\Delta{G^{\plimsoll}_{f, ZrO_2}}$ is the experimental Gibbs energy at standard temperature and pressure and $\mu^{\plimsoll}_{O_2}$ is the oxygen chemical potential under the same conditions. Only monoclinic \zirconia\ is stable under standard conditions, with $\Delta{G^{\plimsoll}_{f, ZrO_2}}$ = -1042.746 kJ/mol (10.807 eV) \cite{brown2005chemical}. Values of the Gibbs free energy of formation for the tetragonal (10.697 eV) and cubic (10.595 eV) phases were obtained by adding the energy difference between the phases from DFT calculations. The values of $\mu_{ZrO_2(s)}$ and $\mu_{Zr(s)}$ are calculated using DFT. Once $\mu^{\plimsoll}_{O_2}$ is calculated, we can generalise the chemical potential of oxygen for any value of $T$ and $p_{O_2}$ by appending an ideal gas relationship $\Delta{\mu(T)}$ and a Boltzmann distribution:
 \begin{gather}
 \mu_{O_2}(p_{O_2},T) = \mu^{\plimsoll}_{O_2} + \Delta{\mu(T)} + \frac{1}{2}{k_B}log(\frac{p_{O_2}}{p^{\plimsoll}_{O_2}}) \\
 \Delta \mu(T) = -\frac{1}{2}(S^{\plimsoll}_{O_{2}}- C^{\plimsoll}_{p})(T-T^{\plimsoll}) + C^{\plimsoll}_{p}T\textup{log}\left ( \frac{T}{T^{\plimsoll}} \right )
 \end{gather} 
-
 where $S^{\plimsoll}_{O_{2}}$ is the molecular entropy at standard temperature and pressure (T$^{\plimsoll}$ = 273.15 K, P$^{\plimsoll}$ = $10^{5}$ Pa), and $C^{\plimsoll}_{p}$ is the constant pressure heat capacity of oxygen. These quantities have values of $S^{\plimsoll}_{O_{2}}$ = 0.0021 eV/K and $C^{\plimsoll}_{p}$ = 0.000302 eV/K \cite{weast1984crc}. 
 
 Using our generalised formula for $\mu_{O_2}$, we fix the temperature within the range of thermal phase-stabilisation (e.g. 1500 K for tetragonal \zirconia) and calculate $\mu_{O_2}$ for many different values of $p_{O_2}$ between $10^{-35}$ and 10$^{0}$ atm, corresponding to oxygen deficient and oxygen rich environments, respectively ($p_{O_2}$ in air is approximately 0.2 atm). While the tetragonal phase will be stress-stabilised in practice, thermal-stabilisation in such models has been shown to qualitatively approximate the effect of stress-stabilisation, while allowing a wider range of dopant behaviours to be predicted \cite{Bell2016}. 
@@ -348,7 +377,6 @@ Electrons have a higher rate of diffusion than oxygen vacancies in ZrO2, leading
 \sum_{i}q_{i}c_{i} - N_{c}\textrm{exp}{(-\frac{E_{g}-\mu_{e}}{k_{B}T})} + N_{v}\textrm{exp}{(-\frac{\mu_{e}}{k_{B}T})} = q_{s}c_{s}
 \label{charge_non_neutrality}
 \end{equation}
-
 where $q_{s}$ is the charge of a unit of the artificial space charge defect and $c_{s}$ is the concentration.
 
 Figure \ref{figure:spacechargeexample} shows an example of the defect equilibria in tetragonal \zirconia\ with an overall positive space charge. In order for such a condition to be satisfied, higher concentrations of positively charged oxygen vacancy and hole defects are predicted to be present. When extrinsic defects are also present in the lattice in significant concentrations, the space charge condition may influence which defect types are dominant at different oxygen pressures, as different oxidation states may be necessary to satisfy the charge condition.
@@ -479,9 +507,9 @@ There are a range of possible exchange-correlation functionals available in CAST
 
 While the PBE-GGA exchange-correlation functional in this work had already been selected, it was helpful to conduct an energy convergence study of the systems across the different functionals available in CASTEP in order to determine how other functionals compared. Only 6 of the 14 functionals available in CASTEP were able to yield a converged energy calculation, as shown in Figure \ref{Figure:xc_test}. This is because several hybrid functionals partially incorporate the exact exchange using the Hartree-Fock method \cite{hartree1928wave}, significantly increasing the computational cost of an energy calculation. 
 
-The calculated energies indicate that each functional correctly predicts the order of phase stability in \zirconia , though the magnitude of the energy difference between phases varied. These differences are small, approximately 0.1 eV/f.u., but their effects are compounded when defects are introduced into the cell. The total energies were more varied, with several eV differences between functionals, however, lower total energies across different exchange-correlation functionals do not necessarily suggest that a better minima has been found. For example, the PW91 functional resulted in even lower energies than PBE, despite PW91 preceding PBE and both having been developed by Perdew et al. \cite{perdew1991unified, perdew1992atoms}. It is the energy differences between different systems calculated with the same exchange-correlation functional which is important. To better gauge the performance of each functional, further studies across a much larger range of parameters, and even materials, would need to be conducted, but this is beyond the scope of this thesis.
+The calculated energies indicate that each functional correctly predicts the order of phase stability in \zirconia , though the magnitude of the energy difference between phases varied. These differences are small, approximately 0.1 eV/f.u., but their effects are compounded when defects are introduced into the cell. The total energies were more varied, with several eV differences between functionals, however, lower total energies across different exchange-correlation functionals do not necessarily suggest that a better minima has been found. For example, the PW91 functional resulted in even lower energies than PBE, despite PW91 preceding PBE and both having been developed by Perdew et al. \cite{perdew1991unified, perdew1992atoms}. It is the energy difference between systems calculated with the same exchange-correlation functional which is important. To better gauge the performance of each functional, further studies across a much larger range of parameters, and even materials, would need to be conducted, but this is beyond the scope of this thesis.
 
-\begin{figure}[ht!]
+\begin{figure}[ht!] % XC functional study
   \begin{center}
     \begin{tikzpicture}
       \begin{axis}
@@ -519,7 +547,7 @@ It is important to determine the variance in energy values of different pseudopo
 %	\end{center}
 %\end{figure}
 
-\begin{figure}[ht]
+\begin{figure}[ht] % OTF PP study
   \begin{center}
     \begin{tikzpicture}
       \begin{axis}
@@ -532,30 +560,17 @@ It is important to determine the variance in energy values of different pseudopo
   \end{center}
 \end{figure}
 
-\subsection{Unit cells}
+\subsection{Chemical potential of oxygen}
 
-Having selected and optimised the parameters and functionals, unit cells of \zirconia\ in each phase were fully relaxed at constant pressure and the resulting structures were compared in detail to experimental data. Table \ref{lattice_params} shows the calculated lattice parameters and energy differences between the three \zirconia\ phases. 
+The chemical potential of oxygen is required when performing any defect formation energy calculation where an atom of oxygen is added or removed (see Equation \ref{equation:formation_energy}). Calculating the chemical potential of oxygen requires special consideration of the electronic structure of O$_{2}$. The ground state of the O$_{2}$ molecule is known as triplet oxygen ($^{3}\Sigma^{-}_{g}$), an allotrope which exhibits a resultant spin magnetic moment (oxygen is paramagnetic). This is in contrast to singlet oxygen ($^{1}\Delta_{g}$) with a spin magnetic moment of zero. 
 
-The first thing to note is that the correct order of \zirconia\ phases is predicted in the total energy calculations, with monoclinic being the lowest energy phase and cubic being the highest. In addition, the energy difference between phases is small ($<$ 0.1 eV/fu). This is a good indication that the choice of exchange correlation functional can reproduce the energy landscape of the system accurately. This is especially important for when defects are introduced because they may promote stabilisation of one phase over another, and an inaccurate model will not capture this behaviour. In all cases the predicted cell volumes are consistently within approximately 2\% of experimental values. 
+Two calculations, one for triplet and another for singlet oxygen, were performed using CASTEP. Large cells of 15 \r{A} x 15 \r{A} x 15 \r{A} were used to run geometry optimisation tasks on two oxygen atoms initially separated by 1.3 \r{A}. For the triplet oxygen calculation, a net electronic spin of +2 on the $p$ electrons was enforced, while the singlet oxygen calculation specified a net spin of 0.
 
-\begin{table}[ht] % Unit cell parameters
-\onehalfspacing
-\centering
-\caption[Calculated unit cell parameters for the different crystal structures of \zirconia . Experimental data for pure monoclinic, yttria-stabilised tetragonal and magnesia-stabilised cubic phases at 295 K are shown in parentheses. Energy difference between structures is shown with respect to the cubic phase.]{Calculated unit cell parameters for the different crystal structures of \zirconia . Experimental data for monoclinic, tetragonal and cubic phases at 295 K are shown in parentheses \cite{Howard1988}. Energy difference between structures is shown with respect to the cubic phase.}
-\label{lattice_params}
-\resizebox{\textwidth}{!}{%
-\begin{tabular}{ccccccc}
-\hline Phase    & a (\AA) & b (\AA) & c (\AA) & $\beta$ ($\degree$) & Volume (\AA\textsuperscript{3}/fu) & $\Delta$E (eV/fu) \\ \hline
-m-\zirconia   &    5.18 (5.15)          &    5.24 (5.21)         &    5.37 (5.32)         & 99.63 (99.23)             &       35.96 (35.22)                 &    -0.215              \\
-t-\zirconia &    3.62 (3.61)         &              &    5.28  (5.18)        & 90             &   34.60 (33.75)                      &     -0.105             \\
-c-\zirconia        &   5.11 (5.09)           &              &              & 90             &     33.36 (32.97)                   &      N/A     \\ \hline      
-\end{tabular}}
-\end{table}
-
+The calculated bond lengths of triplet and singlet oxygen were 1.225 \r{A} and 1.227 \r{A} respectively. These bond lengths are within 2\% of the experimental value of 1.207 \cite{Lide2016}, with the triplet state prediction being slightly closer to this value. The calculated energies from DFT for triplet and singlet oxygen were -871.92 eV and -870.70 eV respectively. This gave an energy difference of 1.22 eV between the two forms of diatomic oxygen. While triplet oxygen was correctly predicted as the lower energy allotrope, the energy difference reported in the literature from microwave spectroscopy measurements is 0.9773 eV \cite{Atkins2006}, an almost 25\% difference compared to the DFT value. This large difference is attributed to the exchange-correlation functional and the inability to correctly model electron correlation effects in some cases. In this thesis, the DFT calculated energy of triplet oxygen was used only for formation energy against Fermi level plots, while defect equilibria calculations utilised a different method to calculate this value (see § \ref{brouwer_method}).
 
 \subsection{Chemical potential of iodine}
 
-To determine the chemical potential of iodine, an energy minimisation of the iodine dimer was performed. Unlike oxygen, iodine dimers do not exhibit a resultant magnetic moment, thus avoiding a source of error in energy calculations with the PBE exchange-correlation functional. Similar to the \zirconia\ unit cell calculations, the lattice parameter after relaxation (bond length in this case) is compared to experimental data to assess the quality of the simulation parameters.
+To determine the chemical potential of iodine, an energy minimisation of the iodine dimer was performed. Unlike oxygen, iodine dimers do not exhibit a non-zero spin magnetic moment, thus avoiding a source of error in energy calculations with the PBE exchange-correlation functional. Similar to the \zirconia\ unit cell calculations, the lattice parameter after relaxation (bond length in this case) is compared to experimental data to assess the quality of the simulation parameters.
 
 Figure \ref{figure:iodine_dimer} illustrates the energy minimisation of two iodine atoms in a cell of size 15 \r{A} x 15 \r{A} x 15 \r{A}, initially separated by 3.0 \r{A}. The geometry optimisation task finds an energy minima when the iodine atoms are bonded, at a separation of 2.69 \r{A}. This agrees well with the experimental value of 2.6745 \r{A} \cite{ukaji1966effect}.
 

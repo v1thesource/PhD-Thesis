@@ -1,4 +1,4 @@
-\chapter{Iodine defect equilibria in \zirconia}
+\chapter{Iodine defect energies and equilibria in \zirconia}
 
 \emph{The work in this chapter has been published in:} \\ A. Kenich \emph{et al.} J. Nucl. Mater. \textbf{511} (2018) 390-395. Ref \cite{kenichiodine2018}.
 
@@ -17,8 +17,6 @@ Iodine is an oxidising agent, which, under standard conditions, will oxidise Zr 
 
 Unlike oxygen and hydrogen, which readily diffuse into Zr metal to occupy interstitial sites, iodine atoms have been predicted in atomistic studies to have very high energy barriers to bulk interstitial diffusion \cite{rossi2015first,legris2005ab,carlot2002energetically}. This is due to the relatively large radius of the iodine atom, which imposes large local strains when penetrating the Zr lattice. This suggests that iodine will instead be transported towards crack tips via grain boundaries. Indeed, intergranular cracking has been observed in PCI failures, but only for a few hundred nm before a more rapid transgranular crack propagation \cite{fregonese2000failure}. Conversely, no atomic scale studies of iodine in \zirconia\ were found in the literature.  
 
-\zirconia\ grown thermally on Zr metal exists mainly in either the monoclinic or tetragonal phase \cite{Howard1988,teufer1962crystal}. We can expect the internal \zirconia\ layer of the cladding to be mostly monoclinic in early life, with the stress-stabilised tetragonal phase appearing near the oxide/metal interface due to cohesive strains resulting from the lattice mismatch. With increasing burnup however, it is expected that more tetragonal and possibly even the cubic phase of \zirconia\ forms due to vacancy formation and residual stresses in the lattice from radiation damage \cite{sickafus1999radiation}. Amorphisation due to radiation damage has also been observed in the cubic phase from Cs$^{+}$ implantation \cite{amorphization2000wang}. In this thesis however, while defect energies for the cubic phase are reported, we focus our analysis on monoclinic and tetragonal \zirconia\ phases, partly due to difficulties predicting the behaviour of the pure high-temperature cubic phase using energies calculated from a static energy technique. 
-
 As discussed in § \ref{section:outervsinner}, there is an oxide layer on the internal surface of the cladding consisting of monoclinic and tetragonal oxide grains. The effectiveness of the oxide layer as a barrier to iodine is debated, with one study presuming that the oxide is bypassed entirely by iodine due to fracturing, leaving the Zr metal underneath exposed \cite{rossi2015first}. The outermost part of the oxide, which is porous, exhibits networks of interconnected grain boundary diffusion pathways towards the oxide/metal interface which are certainly wide enough (1-3 nm) to allow iodine transport \cite{ni2010porosity}. The oxygen-saturated Zr at the oxide/metal interface is not, however, taken into account, and it is expected that this will influence the corrosion mechanism due to iodine-oxygen competition: even the much smaller hydrogen atom has its rate of diffusion into the metal reduced by the presence of oxygen, as shown in both computational \cite{glazoff2014oxidation} and experimental hydrogen pick-up studies \cite{couet2014hydrogen}. This means that some barrier to iodine ingress must already exist near the oxide/metal interface. The varying levels of oxygen across the oxide layer itself also have an effect on defect behaviour, and will therefore influence the initiation mechanisms behind PCI failures. Thus here, we predict iodine incorporation energies and defect equilibria in \zirconia\ as a function of oxygen pressure through Brouwer diagrams, in order to predict the resulting iodine defect response.
 
 
@@ -33,26 +31,6 @@ As discussed in § \ref{section:outervsinner}, there is an oxide layer on the in
 As discussed in Chapter \ref{ch:compmethodology}, calculations were performed using CASTEP 8.0 \cite{Clark2005}. Ultra-soft pseudo-potentials with a cut-off energy of 600 eV were employed. The Perdew, Burke and Ernzerhof (PBE) \cite{Perdew1996} parameterisation of the generalised gradient approximation (GGA) was used to describe the exchange correlation functional. A Monkhorst-Pack sampling scheme \cite{Monkhorst1976} was used for Brillouin zone integration, with a minimum \emph{k}-point separation of 0.09 \r{A}\textsuperscript{-1}. The Pulay method for density mixing \cite{Pulay1980} was used to improve simulation convergence. 
 
 The electronic energy convergence criterion was set to $1\times10^{-6}$ eV and the maximum force between atoms limited to $1\times10^{-2}$ eV \r{A}\textsuperscript{-1}, which are values demonstrated as appropriate in § \ref{convergence_criteria}. A gradient-descent geometry optimisation task was run on the cell until consecutive iterations differed in energy and atomic displacement by less than $1\times10^{-5}$ eV and $5\times10^{-4}$ \r{A} respectively, again demonstrated in § \ref{convergence_criteria}. 
-
-\subsection{Incorporation energies}
-
-The inner oxide of the fuel cladding will be highly defective due to radiation damage, resulting in a high concentration of pre-existing intrinsic defect sites relative to the concentration of iodine. We therefore consider the energy of iodine incorporation on to these existing defect sites. The energies to incorporate iodine at interstitial and substitutional sites in \zirconia\ were calculated from the set of defective and perfect supercell DFT energies. Incorporation energies were established to place iodine into vacancy sites of different charge to generate defects from \ch{I_{O}^{x}} to \ch{I_{O}^{**}}, and \ch{I_{Zr}^{x}} to \ch{I_{Zr}^{''''}}. I was also incorporated onto the interstitial site. 
-
-The incorporation energy equation uses $\frac{1}{2}$I$_{2}$ as the reference state of iodine:
-
-\begin{equation}
-\label{interstitial_incorp_equation}
-E_{inc}(\ch{I_{$i$}^{x}}) = E_{DFT}(\ch{I_{$i$}^{x}}) - (E_{DFT}(ZrO_2) + \frac{1}{2}\mu_{I_{2}})  % - \frac{E_{I_2}}{2}
-\end{equation}
-
-where $E_{inc}(\ch{I_{$i$}^{x}})$ is the incorporation energy of a neutral iodine interstitial, $E_{DFT}(\ch{I_{$i$}^{x}})$ is the energy of a neutral iodine interstitial, $E_{DFT}(ZrO_2)$ is the energy of a non-defective \zirconia\ supercell and $\mu_{I_{2}}$ is the chemical potential of an I$_{2}$ molecule, taken from a single point DFT calculation of the I$_{2}$ dimer. Similarly, for a substitutional defect:
-
-\begin{equation}
-\label{o_sub_incorp_equation}
-E_{inc}(\ch{I_{O}^{$n$}}) = E_{DFT}(\ch{I_{O}^{$n$}}) - (E_{DFT}(\ch{V_{O}^{$n$}}) + \frac{1}{2}\mu_{I_{2}})  % - \frac{E_{I_2}}{2}
-\end{equation}
-
-where $\ch{I_{O}^{$n$}}$ is an iodine substitutional defect at an oxygen site of charge $n$ and $\ch{V_{O}^{$n$}}$ is the corresponding oxygen vacancy.
 
 
 \subsection{Defect Equilibrium Response to Oxygen Partial Pressure}
@@ -86,22 +64,8 @@ Brouwer diagrams were generated using the method previously outlined in § \ref{
 \subsection{Incorporation energies}
 
 \subsubsection*{Interstitial Sites}
-Neutral iodine incorporation energies at interstitial sites for each phase are reported in Table \ref{i_incorp_interstitial}. The $2a$ and $2c$ sites in monoclinic \zirconia\ provide the least unfavourable iodine incorporation energy, followed by the $2b$ and $8e$ sites in tetragonal \zirconia , although in all cases energies are positive and large, indicating a large energy penalty against interstitial incorporation. The difference in incorporation energies between monoclinic and tetragonal \zirconia\ is approximately 1 eV, whereas the difference between tetragonal and cubic is 3.5 eV, indicating especially unfavourable conditions in cubic \zirconia . These differences are likely due to the larger interstitial sites in the lower-temperature phases, as monoclinic \zirconia\ exhibits the least and cubic \zirconia\ the most dense cell. 
+Neutral iodine incorporation energies at interstitial sites for each phase are reported in Table \ref{i_incorp_interstitial}. The $2a$ and $2c$ sites in monoclinic \zirconia\ provide the least unfavourable iodine incorporation energy, followed by the $2b$ and $8e$ sites in tetragonal \zirconia , although in all cases energies are positive and large, indicating a large energy penalty against interstitial incorporation. The difference in incorporation energies between monoclinic and tetragonal \zirconia\ is approximately 1 eV, whereas the difference between tetragonal and cubic is 3.5 eV, indicating especially unfavourable conditions in cubic \zirconia . These differences are likely due to the larger interstitial sites in the lower-temperature phases, as monoclinic \zirconia\ exhibits the least and cubic \zirconia\ the most dense cell, (see Chapter \ref{ch:crystallography}). 
 %It is expected that these densities will be representative because the decreased density due to thermal expansion at 650 K will be countered by attractive dispersion forces. 
-
-While the incorporation energies of iodine in the interstitial sites of \zirconia\ are large, for a fixed iodine concentration, they become relevant as the intrinsic defect populations become small, such as at low temperatures relative to the melting point. This is because interstitial sites are always available, whereas at low intrinsic defect concentrations, substitutional sites become saturated and accommodation at a lattice site first requires the creation of a vacancy defect, which has a formation energy penalty associated with it. 
-
-When Brouwer diagrams are generated, iodine will also be considered as a charged species at an interstitial site. This includes I$^{+}$ and I$^{-}$, where I$^{+}$ is a smaller ion that is more easily accommodated at an interstitial site.
-
-\subsubsection*{Oxygen Sites}
-
-Table \ref{i_incorp_oxygen} reports incorporation energies of iodine at various oxygen sites. In each phase, the lowest incorporation energy was that for accommodation at a vacant oxygen site such that iodine is in the 1- oxidation state, resulting in the overall defect \ch{I_{O}^{*}}. This anionic behaviour is expected from a halogen atom in a highly reducing site as it promotes the filling of the \emph{p} shell. I is most readily accommodated in the monoclinic phase for all I charge states.
-
- % and these atoms have large electron affinities since they require only one electron to achieve the relatively stable noble gas electron configuration. 
-
-\subsubsection*{Zirconium Sites}
-
-Incorporation energies of iodine on zirconium sites are reported in Table \ref{i_incorp_zirconium}. The  incorporation energy decreases as the charge of the defect decreases from -4 to 0 (i.e. nominally from I$^{0}$ to I$^{4+}$). This is due to the decrease in the size of the iodine species with increasing positive charge, fitting better into the small vacant Zr$^{4+}$ cation site. This alone does not guarantee the emergence of uncharged iodine defects (I$^{4+}$) on zirconium sites when all energy terms are considered. In particular, there is also an energy penalty incurred in the change in charge of iodine. A Mulliken population analysis revealed a charge localised on the iodine of +2.31 at the \ch{I_{Zr}^{x}} defect, and a +0.86 charge on the \ch{I_{Zr}^{''''}} defect, with the remaining charge accommodated by other ions in the lattice. Again, I is most readily accommodated in the monoclinic phase for all charge states.
 
 \begin{table}[ht]
 \onehalfspacing
@@ -111,7 +75,7 @@ Incorporation energies of iodine on zirconium sites are reported in Table \ref{i
 \begin{tabular}{ccccc}
 \hline
 \multirow{2}{*}{\textbf{Structure}} & \multirow{2}{*}{\textbf{Site}} & \multicolumn{3}{c}{\textbf{Incorporation Energy (eV)}} \\ \cline{3-5} 
- &  & \hspace{0.5cm} \textbf{\ch{I^{x}_{i}}} & \textbf{\ch{I^{'}_{i}}} & \textbf{\ch{I^{*}_{i}}} \\ \hline % \hspace{0.7 cm}
+ &  &  \textbf{\ch{I^{x}_{i}}} & \textbf{\ch{I^{'}_{i}}} & \textbf{\ch{I^{*}_{i}}} \\ \hline % \hspace{0.7 cm}
 \multirow{4}{*}{\textbf{Monoclinic}} & 2a & 8.55 & 12.10 & 6.55 \\
  & 2b & 10.81 & 16.40 & 5.63 \\
  & 2c & 8.79 & 12.20 & 4.62 \\
@@ -121,9 +85,15 @@ Incorporation energies of iodine on zirconium sites are reported in Table \ref{i
 \multirow{2}{*}{\textbf{Cubic}} & 24d & 13.02 & 18.24 & 7.62 \\
  & 4b & 13.08 & 16.46 & 9.82 \\ \hline
 \end{tabular}%
-
 \end{table}
 
+While the incorporation energies of iodine in the interstitial sites of \zirconia\ are large, for a fixed iodine concentration, they become relevant as the intrinsic defect populations become small, such as at low temperatures relative to the melting point. This is because interstitial sites are always available, whereas at low intrinsic defect concentrations, substitutional sites become saturated and accommodation at a lattice site first requires the creation of a vacancy defect, which has a formation energy penalty associated with it. 
+
+When Brouwer diagrams are generated, iodine will also be considered as a charged species at an interstitial site (see § \ref{results2_brouwer}). This includes I$^{+}$ and I$^{-}$, where I$^{+}$ is a smaller ion that is more easily accommodated at an interstitial site. Energy values for I$^{+}$ and I$^{-}$ are also reported in Table \ref{i_incorp_interstitial}, however, values for different charge states cannot be compared because an electron has been added or removed from the I atom to form the specific charge state. An interstitial site will always be uncharged (resultant charge is distributed onto nearby ions instead), meaning that there is no pre-existing charged interstitial site to incorporate an atom onto. It is therefore only appropriate to consider the \emph{formation} energy (i.e. including the addition or removal of an electron) of a charged interstitial defect. 
+
+\subsubsection*{Oxygen Sites}
+
+Table \ref{i_incorp_oxygen} reports incorporation energies of iodine at various oxygen sites. In each phase, the lowest incorporation energy was that for accommodation at a vacant oxygen site such that iodine is in the 1- oxidation state, resulting in the overall defect \ch{I_{O}^{*}}. This anionic behaviour is expected from a halogen atom in a highly reducing site as it promotes the filling of the \emph{p} shell. I is most readily accommodated in the monoclinic phase for all I charge states.
 
 \begin{table}[ht] % Iodine O site incorporation
 \onehalfspacing
@@ -140,6 +110,13 @@ Incorporation energies of iodine on zirconium sites are reported in Table \ref{i
 \textbf{Cubic}                      & 8.37             & 5.74             & 6.66      \\     \hline  
 \end{tabular}
 \end{table}
+
+
+ % and these atoms have large electron affinities since they require only one electron to achieve the relatively stable noble gas electron configuration. 
+
+\subsubsection*{Zirconium Sites}
+
+Incorporation energies of iodine on zirconium sites are reported in Table \ref{i_incorp_zirconium}. The  incorporation energy decreases as the charge of the defect decreases from -4 to 0 (i.e. nominally from I$^{0}$ to I$^{4+}$). This is due to the decrease in the size of the iodine species with increasing positive charge, fitting better into the small vacant Zr$^{4+}$ cation site. This alone does not guarantee the emergence of uncharged iodine defects (I$^{4+}$) on zirconium sites when all energy terms are considered. In particular, there is also an energy penalty incurred in the change in charge of iodine. A Mulliken population analysis revealed a charge localised on the iodine of +2.31 at the \ch{I_{Zr}^{x}} defect, and a +0.86 charge on the \ch{I_{Zr}^{''''}} defect, with the remaining charge accommodated by other ions in the lattice. Again, I is most readily accommodated in the monoclinic phase for all charge states.
 
 \begin{table}[ht] % Iodine Zr site incorporation
 \onehalfspacing
@@ -182,7 +159,53 @@ Incorporation energies of iodine on zirconium sites are reported in Table \ref{i
 %	\end{center}
 %\end{figure}
 
-\subsection{Brouwer Diagrams} 
+\subsection{Formation energies}
+
+\begin{figure}[ht] % Mono iodine interstitials E vs Fermi
+\begin{center}
+\begin{tikzpicture}
+	\begin{axis}
+		[width=11.5cm, xlabel={Fermi level $\mu_{e}$ (eV)}, ylabel={Formation energy (eV) per \zirconia\ }, ymin=4, ymax=11, xmin=0, xmax=6, legend style={{draw=}, at={(0.5,0.05)}, anchor=south, legend columns=2}]
+		\addplot[no marks, red] table [x=2a1, y=2a2,]{dat/monointer.dat}; \addlegendentry{$2a$};
+        \addplot[no marks, red, dashed] table [x=2b1, y=2b2, ]{dat/monointer.dat}; \addlegendentry{$2b$};
+        \addplot[no marks, blue] table [x=2c1, y=2c2,]{dat/monointer.dat}; \addlegendentry{$2c$};
+        \addplot[no marks, blue, dashed] table [x=2d1, y=2d2,]{dat/monointer.dat}; \addlegendentry{$2d$};
+			\end{axis}
+		\end{tikzpicture}
+		\caption{Iodine interstitial formation energies in monoclinic \zirconia\ as a function of Fermi level. Gradient indicates defect charge.}
+		\label{figure:monointer}
+	\end{center}
+\end{figure}
+
+\begin{figure}[ht] % Tet iodine interstitials E vs Fermi
+\begin{center}
+\begin{tikzpicture}
+	\begin{axis}
+		[width=11cm, xlabel={Fermi level $\mu_{e}$ (eV)}, ylabel={Formation energy (eV) per \zirconia\ }, ymin=6, ymax=11, xmin=0, xmax=6, legend style={{draw=}, at={(0.5,0.05)}, anchor=south, legend columns=1}]
+		\addplot[no marks, red] table [x=2atet1, y=2atet2,]{dat/tetcubicinter.dat}; \addlegendentry{$2a$};
+        \addplot[no marks, blue] table [x=8etet1, y=8etet2, ]{dat/tetcubicinter.dat}; \addlegendentry{$8e$};
+			\end{axis}
+		\end{tikzpicture}
+		\caption{Iodine interstitial formation energies in tetragonal \zirconia\ as a function of Fermi level. Gradient indicates defect charge.}
+		\label{figure:tetinter}
+	\end{center}
+\end{figure}
+
+\begin{figure}[ht] % Cubic iodine interstitials E vs Fermi
+\begin{center}
+\begin{tikzpicture}
+	\begin{axis}
+		[width=11cm, xlabel={Fermi level $\mu_{e}$ (eV)}, ylabel={Formation energy (eV) per \zirconia\ }, ymin=8, ymax=13, xmin=0, xmax=6, legend style={{draw=}, at={(0.5,0.05)}, anchor=south, legend columns=1}]
+		\addplot[no marks, red] table [x=24cubic1, y=24cubic2,]{dat/tetcubicinter.dat}; \addlegendentry{$24d$};
+        \addplot[no marks, blue] table [x=4bmcubic1, y=4bmcubic2, ]{dat/tetcubicinter.dat}; \addlegendentry{$4b$};
+			\end{axis}
+		\end{tikzpicture}
+		\caption{Iodine interstitial formation energies in cubic \zirconia\ as a function of Fermi level. Gradient indicates defect charge.}
+		\label{figure:cubicinter}
+	\end{center}
+\end{figure}
+
+\subsection{Brouwer Diagrams}  \label{results2_brouwer}
 
 \subsubsection*{Monoclinic Phase}
 
