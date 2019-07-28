@@ -29,7 +29,7 @@ Commercial nuclear power plants extract energy through the process of fission, w
 \end{equation}
 where $E$ is the energy of the system, $m$ is the mass and $c$ is the speed of light. Using this equation we can analyse a typical fission reaction:
 \begin{equation}
-    U^{235}_{92} + n^{1}_{0} \xrightarrow[]{absorption} U^{236}_{92} \xrightarrow[]{fission} I^{132}_{53} + Y^{101}_{39} + 3n^{1}_{0}
+    \ch{U^{235}_{92}} + n^{1}_{0} \xrightarrow[]{absorption} \ch{U^{236}_{92}} \xrightarrow[]{fission} \ch{I^{132}_{53}} + \ch{Y^{101}_{39}} + 3n^{1}_{0}
 \label{eqn:fission} 
 \end{equation}
 While the number of protons and neutrons are conserved throughout the reaction, a mass difference calculation will show that there is actually less mass in the products than the reactants by approximately 0.188 amu (3.127$\times 10^{-28}$ kg). This missing mass, known as the \emph{mass defect}, is converted to energy ($\sim$175 MeV). In this way, the total mass-energy of the system is conserved. Some of this energy is carried away as kinetic energy of the fission products (in Equation \ref{eqn:fission}, I and Y) and also the kinetic energy of the neutrons. The neutrons at this stage have energies \goodtilde{1} MeV and are known as \emph{fast} neutrons.
@@ -76,19 +76,21 @@ In additional to its function as a coolant, water also acts as a neutron moderat
 
 \subsection{Fuel pins and cladding} \label{ss_fuelpin}
 
-Fuel assemblies in nuclear reactors are bundles of fuel pins (see Figure \ref{figure:fuelassembly}). In most commercial reactors, fuel pins are comprised of a zirconium-based cladding (tubes), which are filled with UO$_{2}$ fuel pellets, each of which are approximately 1 cm$^{3}$ in volume (see Figure \ref{figure:fuelpellet}). Once loaded with fuel pellets, the fuel pins are capped and filled with inert helium gas, pressurised to between 2 and 25 atm to improve heat transfer from the fuel pellets to the coolant as well as delaying inward creep deformation of the cladding due to the high coolant pressure \cite{King1980}. 
+Fuel assemblies in nuclear reactors are bundles of fuel pins (see Figure \ref{figure:fuelassembly}). In most commercial reactors, fuel pins are comprised of a zirconium-based cladding (tubes), which are filled with cylindrical UO$_{2}$ fuel pellets, each of which are approximately 1 cm$^{3}$ in volume (see Figure \ref{figure:fuelpellet}). Fuel pellets in PWRs and BWRs have dishes on the top and bottom faces of the cylinder as well as chamfered edges. The main function of the dishes is  to reduce the axial pellet-pellet stresses caused due to swelling of the pellet when irradiated \cite{marino2005crack}. Chamfers aid in the loading of fuel pellets into the cladding, as well as reducing the risk of chipping at the edges of the fuel pellet. This is important because chipping of the fuel pellet can lead to debris falling into the pellet-cladding gap where it can act as a stress raiser \cite{doerr2015nuclear}.
 
 \begin{figure}[ht]
 \centering
-\includegraphics[width=10cm]{images/fuelassembly.png}
+\includegraphics[width=11cm]{images/fuelassembly.png}
 \caption[Schematic view of a PWR fuel assembly and a PWR fuel pin.]{Schematic view of a PWR fuel assembly and a PWR fuel pin. Adapted from \cite{Croff2003}.}
 \label{figure:fuelassembly}
 \end{figure} 
 
+Once loaded with fuel pellets, the fuel pins are capped and filled with inert helium gas, pressurised to between 2 and 25 atm to improve heat transfer from the fuel pellets to the coolant as well as delaying inward creep deformation of the cladding due to the high coolant pressure \cite{King1980}. 
+
 \begin{figure}[ht]
 \centering
 \includegraphics[width=10cm]{images/fuelpellet.png}
-\caption[A UO$_{2}$ LWR fuel pellet showing dishes and chamfers.]{A UO$_{2}$ LWR fuel pellet showing dishes and chamfers. Adapted from \cite{tulenko2013development}.}
+\caption[UO$_{2}$ LWR fuel pellet showing dishes and chamfers.]{UO$_{2}$ LWR fuel pellet showing dishes and chamfers. Adapted from \cite{tulenko2013development}.}
 \label{figure:fuelpellet}
 \end{figure}
 
@@ -126,9 +128,9 @@ Nuclei which can undergo fission will produce daughter nuclei (fission products)
 
 Fissionable nuclei are typically very large and when fission occurs, the daughter nuclei will inevitably inherit a high N/Z ratio. These neutron-rich nuclei will generally decay by $\beta-$ particle emission to reduce their N/Z ratio and increase stability. One decay event is usually not enough to achieve a stable nucleus, so several decays as part of a decay chain are expected. An example is given for Te in Equations \ref{eqn:te_decay} and \ref{eqn:i_decay}.
 \begin{gather}
-Te_{134}^{52} \xrightarrow[]{\beta-} I_{134}^{53}+ e^{-} + \overline{\nu}_{e}
+\ch{Te_{134}^{52}} \xrightarrow[]{\beta-} \ch{I_{134}^{53}}+ e^{-} + \overline{\nu}_{e}
 \label{eqn:te_decay} \\
-I_{134}^{53} \xrightarrow[]{\beta-} Xe_{134}^{54} + e^{-} + \overline{\nu}_{e}
+\ch{I_{134}^{53}} \xrightarrow[]{\beta-} \ch{Xe_{134}^{54}} + e^{-} + \overline{\nu}_{e}
 \label{eqn:i_decay}
 \end{gather}
 Another characteristic feature of fission products is that their masses are bi-modally distributed. Figure \ref{figure:fissionyield} shows calculated fission yields as a function of mass number, indicating a 40:60 rather than 50:50 mass distribution among daughter nuclei when heavy nuclei are fissioned. This is attributed to smaller nuclei (which have high binding energies per nucleon) separating from the nucleus first at the moment when fission occurs. This results in the majority of fission products centring around atomic masses of 95 and 135, producing a disproportionate number of nuclei such as Sr, Y and Zr on the low side and Te, I and Cs on the high side of the distribution. The distribution of fission products varies slightly depending on which nucleus is fissioned (e.g. U$_{233}$, U$_{235}$, Pu$_{239}$) and the energy of the fissioning neutron. Over time, transmutation of U$_{238}$ to Pu$_{239}$ and consumption of U$_{235}$ means that an increasing proportion of energy output will be due to fission of Pu$_{239}$, but fuel assemblies are typically retired before significant build-up of Pu$_{239}$ inventory and so the net yields of fission products will only change slightly over the life of the fuel.
@@ -173,3 +175,13 @@ Isotope & Independent Yield (\%) & Half-life \\
 \end{tabular}
 \end{center}
 \end{table}
+
+\subsection{Formation of plutonium and minor actinides}
+
+Uranium fuel in LWRs is enriched to contain up to 5\% \ch{U^{235}}, which is a fissile isotope. The rest of the uranium is comprised of the more abundant \ch{U^{238}} which is a \emph{fertile} isotope. Fertile isotopes are not fissioned directly, but can be converted into fissile isotopes through nuclear reactions. In the case of \ch{U^{238}}, the fissile isotope \ch{Pu^{239}} is produced through the following reactions:
+\begin{gather}
+\ch{U^{238}_{92}} + n^{1}_{0} \xrightarrow[]{absorption} \ch{U^{239}_{92}} \\
+\ch{U^{239}_{92}} \xrightarrow[]{\beta-} \ch{Np^{239}_{93}} + e^{-} + \overline{\nu}_{e} \\
+\ch{Np^{239}_{92}} \xrightarrow[]{\beta-} \ch{Pu^{239}_{94}} + e^{-} + \overline{\nu}_{e}
+\end{gather}
+Fresh UO$_{2}$ fuel does not contain any plutonium before irradiation, however, production of \ch{Pu^{239}} during reactor operation is so significant that over 40\% of the energy produced (in a LWR) is from the fission of \ch{Pu^{239}}.2
