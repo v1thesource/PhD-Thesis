@@ -57,13 +57,40 @@ c-\zirconia        &   5.11 (5.09)           &              &              & 90 
 \end{tabular}}
 \end{table}
 
+\subsection{Elastic constants and defect relaxation volumes}
+
+Table \ref{stiffness_tensor} shows the calculated elastic constants for the monoclinic, tetragonal, and cubic phases of \zirconia . The cubic phase has the highest stiffness, likely due to the short Zr-O bond lengths in the energy-minimised structure (Figure \ref{figure:zrobonddistance}). It is expected that at high temperatures where the cubic phase is stable, thermal effects (which are not captured in this model) such as larger interatomic spacings will result in a reduction in stiffness.
+
+\begin{table}[ht] % Elastic constants
+\onehalfspacing
+\centering
+\caption{Elastic constants for different phases of \zirconia\ from DFT calculations.}
+\label{stiffness_tensor}
+\begin{tabular}{cccc}
+\hline
+\multirow{2}{*}{\textbf{Elastic Component}} & \multicolumn{3}{c}{\textbf{Stiffness (GPa)}}               \\ \cline{2-4} 
+                                            & \textbf{Monoclinic} & \textbf{Tetragonal} & \textbf{Cubic} \\ \hline
+$C_{11}$                                         & 338.86        & 334.30               & 523.38    \\
+$C_{12}$                                         & 151.80        & 207.30               & 92.93     \\
+$C_{13}$                                         & 89.37         & 48.93               & 92.93     \\
+$C_{22}$                                         & 348.37        & 334.20               & 523.39    \\
+$C_{23}$                                         & 143.04        & 48.93               & 92.93    \\
+$C_{33}$                                         & 262.17        & 250.50               & 523.38   \\
+$C_{44}$                                         & 76.35         & 9.38                & 61.98    \\
+$C_{55}$                                         & 71.65         & 9.38                & 61.98   \\
+$C_{66}$                                         & 114.19        & 152.60               & 61.99     \\ \hline
+\end{tabular}
+\end{table}
+
+The monoclinic and tetragonal phases have similar stiffness along the principal axes, but vary significantly under shearing conditions. In particular, the tetragonal phase exhibits much smaller $C_{44}$ and $C_{55}$ components. This may be attributed to the strong directional anisotropy of the tetragonal phase due to the larger $c$ parameter. 
+
 \subsection{Electronic density of states} 
 
 The electronic density of states for monoclinic, tetragonal and cubic \zirconia\ are generated in a two-step process. First, the non-defective structures are fully relaxed using the geometry optimisation task in CASTEP. This task will also calculate electronic eigenvalues for all k-points and save them to a \texttt{.bands} file. Second, the electronic band data is parsed from the \texttt{.bands} file using the OptaDOS code \cite{Nicholls2012, Morris2014} and the density of states is output to a text file. Further details on using OptaDOS to view the electronic density of states are given in Appendix \ref{castep_scripts}.
 
 The electronic density of states for the three \zirconia\ phase are given in Figure \ref{figure:densityofstates}. In this figure, the valence and conduction bands can clearly be seen at 2-8 eV and 10-15 eV respectively. Most importantly, the energy values of the valence band maximum (VBM) and the conduction band minimum (CBM) for each phase can be obtained from this figure. These values are used to calculate the band gap in the different phases, shown in Figure \ref{table:bandgap} alongside experimental values. The VBM value is also used in the calculation of defect formation energies when electrons are added or removed from a system.
 
-\begin{figure}[ht]
+\begin{figure}[ht] % Density of states
 \begin{center}
 \begin{tikzpicture}
 	\begin{axis}
@@ -78,9 +105,11 @@ The electronic density of states for the three \zirconia\ phase are given in Fig
 	\end{center}
 \end{figure}
 
-The electronic density of states show that the VBM and CBM energies increase from monoclinic to tetragonal to cubic \zirconia . This means that at the same Fermi level, the total electronic energy will be smallest in the monoclinic phase and largest in the cubic phase. This corresponds to the correct order of thermal stability that is seen in experiments. Other features that can be seen are the band gaps of the different phases between 7 and 12 eV. These band gaps are significantly underestimated for each phase (see Table \ref{table:bandgap}), as is typical when using a GGA exchange-correlation functional.
+The electronic density of states show that the VBM and CBM energies increase from monoclinic to tetragonal to cubic \zirconia . This means that at the same Fermi level, the total electronic energy will be smallest in the monoclinic phase and largest in the cubic phase. This corresponds to the correct order of thermal stability that is seen in experiments. 
 
-\begin{table}[ht] % Band Gap
+Other features that can be seen are the band gaps of the different phases between 7 and 12 eV. These band gaps are significantly underestimated for each phase (see Table \ref{table:bandgap}), as is typical when using a GGA exchange-correlation functional.
+
+\begin{table}[ht] % Band gap values
 \onehalfspacing
 \centering
 \caption[Experimentally determined band gaps alongside values calculated from DFT simulations for each crystal structure of zirconia.]{Experimentally determined band gaps alongside values calculated from DFT simulations for each crystal structure of zirconia. Experimental values taken from \cite{French1994}.}
@@ -94,12 +123,17 @@ The electronic density of states show that the VBM and CBM energies increase fro
 \end{tabular}
 \end{table}
 
+DFT studies of the monoclinic phase have given a band gap of 3.19 eV when using an LDA \cite{Foster2002} and 3.20 eV when using a GGA \cite{Jaffe2005}. In the tetragonal phase, two GGA-DFT studies calculated band gaps of 4.21 eV \cite{Eichler2001} and 3.55 eV \cite{Jaffe2005}. The band gap in the cubic phase has been calculated in a GGA-DFT study as 2.95 eV \cite{Jaffe2005}. An early ab initio study using a LDA also reported band gaps of 8 eV and 7 eV for tetragonal and cubic ZrO$_{2}$, respectively \cite{morinaga1983electronic}. One study using an ab initio linear combination of atomic orbitals (LCAO) method calculated band gaps of 4.51 eV, 4.11 eV and 3.84 eV for the monoclinic, tetragonal and cubic phases respectively \cite{Zandiehnadem1988}.
 
-\section{Frenkel and Schottky defects}
+All of these studies highlight the difficulty in accurately modelling electronic exchange and correlation behaviour in ZrO$_{2}$. The smaller band gaps calculated in this thesis mean that concentrations of electronic defects will be overestimated because their formation energies are proportional to the size of the band gap. 
 
-\subsection{Incorporation and defect formation energies}
+\section{Defect formation energies}
 
-\subsubsection*{Isolated Frenkel defects}
+\subsection{Frenkel and Schottky defects}
+
+Formation energies for Frenkel and Schottky defects were calculated in either a \emph{bound} or \emph{isolated} configuration. A bound defect means that the entire defect (interstitial + vacancy for a Frenkel defect or three vacancies for a Schottky defect) is modelled inside a single supercell. An isolated defect means that the formation energy was calculated from the constituent point defects (individual vacancy or interstitial defects). Both of these methods were used for completeness and because the bound defects include the binding energy contributions which can then be derived using the isolated defect energies. Bound and isolated defects are described in more detail below.
+
+\subsubsection{Isolated Frenkel defects}
 
 Zr and O Frenkel pair defect formation energies were determined via point defect DFT calculations for the three structures. The formation energies of the isolated Frenkel defect pairs were defined as: % Interstitial iodine defects were simulated in the neutral charge state at different interstitial sites in each phase. The incorporation energy of these defects, assuming a perfect lattice, was calculated using Equation \ref{equation_incorporation}:
 \begin{equation}
@@ -123,7 +157,7 @@ where $X$ is either Zr or O, $E_{DFT}(V^{q}_{X})$ is the energy of a supercell o
 \end{tabular}
 \end{table}
 
-The isolated defect formation energies reported in Table \ref{isolated_defects} indicate that fully-charged Schottky defects have the lowest formation energy per atom (most energetically favourable) in all phases, followed by oxygen Frenkel defects and then zirconium Frenkel defects. A trend is seen where the high-temperature phases result in lower formation energies for both Schottky and oxygen Frenkel defects, whereas zirconium Frenkel defects have similar formation energies in all three phases. 
+The isolated defect formation energies reported in Table \ref{isolated_defects} indicate that fully-charged Schottky defects have the lowest formation energy per atom (most energetically favourable) in all phases, followed by oxygen Frenkel defects and then zirconium Frenkel defects. A trend is seen where the high-temperature phases result in lower formation energies for both Schottky and oxygen Frenkel defects, whereas zirconium Frenkel defects have similar formation energies in all three phases. The formation energy of a neutral oxygen vacancy-oxygen atom Frenkel pair is calculated as 7.52 eV, which is in good agreement with another DFT study (using the LDA) in the literature which calculated the formation energy as 7.3 eV \cite{Foster2002}. Theoretical calculations of the oxygen Frenkel formation energy in cubic \zirconia\ gave an energy of 9.1 eV \cite{mackrodt1986theoretical}, compared to 8.48 eV in this study for the neutral oxygen Frenkel defect in the cubic phase. Ab initio calculations of zircon, which has a tetragonal crystal structure, also yielded a formation energy of 7.3 eV \cite{Crocombette1999}.
 
 It has been suggested that the relatively small cation size leads to defect structures where oxygen vacancies are favoured over interstitial defects \cite{dwivedi1990computer}. As the zirconium ion is too small to maintain a strong 8-fold bond coordination with its neighbouring oxygen ions, the introduction of oxygen vacancies (which have the added effect of reducing cell volume) will have a stabilising effect.
 
@@ -136,17 +170,17 @@ It has been suggested that the relatively small cation size leads to defect stru
 \hline
 \multirow{2}{*}{\textbf{Defect}}                      & \multirow{2}{*}{\textbf{Equation}}                                        & \multicolumn{3}{c}{\textbf{Formation Energy (eV)}} \\ \cline{3-5}
 	&	& \multicolumn{1}{l}{Monoclinic} & Tetragonal & Cubic \\ \hline
-\multirow{5}{*}{\textbf{Zr Frenkel}} & \ch{Zr_{Zr}^{x}} $\rightarrow$ \ch{V_{Zr}^{''''}} + \ch{Zr_{i}^{****}}              & 5.428 & 5.639 & 5.610                             \\
-                                     & \ch{Zr_{Zr}^{x}} $\rightarrow$ \ch{V_{Zr}^{'''}} + \ch{Zr_{i}^{***}}               & 8.695 & 8.939 & 8.476                            \\
-                                     & \ch{Zr_{Zr}^{x}} $\rightarrow$ \ch{V_{Zr}^{''}} + \ch{Zr_{i}^{**}}                & 12.118 & 12.058 & 11.628                             \\
-                                     & \ch{Zr_{Zr}^{x}} $\rightarrow$ \ch{V_{Zr}^{'}} + \ch{Zr_{i}^{*}}                & 16.021 &	15.696 &	13.319                             \\
-                                     & \ch{Zr_{Zr}^{x}} $\rightarrow$ \ch{V_{Zr}^{x}} + \ch{Zr_{i}^{x}}                  & 20.563	& 20.094 &	18.170                            \\ \hline
-\multirow{3}{*}{\textbf{O Frenkel}}  & \ch{O_{O}^{x}} $\rightarrow$ \ch{V_{O}^{**}} + \ch{O_{i}^{''}}                   & 4.457 &	4.000 & 	3.728                             \\
-                                     & \ch{O_{O}^{x}} $\rightarrow$ \ch{V_{O}^{*}} + \ch{O_{i}^{'}}                   & 6.432	& 6.588 &	7.055                             \\
-                                     & \ch{O_{O}^{x}} $\rightarrow$ \ch{V_{O}^{x}} + \ch{O_{i}^{x}}                     & 7.518 &	7.452 &	8.477                             \\ \hline
-\multirow{3}{*}{\textbf{Schottky}}   & $\varnothing$ $\rightarrow$ \ch{V_{Zr}^{''''}} + 2\ch{V_{O}^{**}} & 5.120 &	3.778	& 1.752                             \\
-                                     & $\varnothing$ $\rightarrow$ \ch{V_{Zr}^{''}} + 2\ch{V_{O}^{*}} & 11.353 &	10.832 &	9.624                             \\
-                                     & $\varnothing$ $\rightarrow$ \ch{V_{Zr}^{x}} + 2\ch{V_{O}^{x}}   & 18.554 &	18.232 &	17.073  \\ \hline                          
+\multirow{5}{*}{\textbf{Zr Frenkel}} & \ch{Zr_{Zr}^{x}} $\rightarrow$ \ch{V_{Zr}^{''''}} + \ch{Zr_{i}^{****}}              & 5.43 & 5.64 & 5.61                             \\
+                                     & \ch{Zr_{Zr}^{x}} $\rightarrow$ \ch{V_{Zr}^{'''}} + \ch{Zr_{i}^{***}}               & 8.70 & 8.94 & 8.48                            \\
+                                     & \ch{Zr_{Zr}^{x}} $\rightarrow$ \ch{V_{Zr}^{''}} + \ch{Zr_{i}^{**}}                & 12.12 & 12.06 & 11.63                             \\
+                                     & \ch{Zr_{Zr}^{x}} $\rightarrow$ \ch{V_{Zr}^{'}} + \ch{Zr_{i}^{*}}                & 16.02 &	15.70 &	13.32                             \\
+                                     & \ch{Zr_{Zr}^{x}} $\rightarrow$ \ch{V_{Zr}^{x}} + \ch{Zr_{i}^{x}}                  & 20.56	& 20.09 &	18.17                            \\ \hline
+\multirow{3}{*}{\textbf{O Frenkel}}  & \ch{O_{O}^{x}} $\rightarrow$ \ch{V_{O}^{**}} + \ch{O_{i}^{''}}                   & 4.46 &	4.00 & 	3.73 \\
+                                     & \ch{O_{O}^{x}} $\rightarrow$ \ch{V_{O}^{*}} + \ch{O_{i}^{'}}                   & 6.43	& 6.59 &	7.06                             \\
+                                     & \ch{O_{O}^{x}} $\rightarrow$ \ch{V_{O}^{x}} + \ch{O_{i}^{x}}                     & 7.52 & 7.45 &	8.48                             \\ \hline
+\multirow{3}{*}{\textbf{Schottky}}   & $\varnothing$ $\rightarrow$ \ch{V_{Zr}^{''''}} + 2\ch{V_{O}^{**}} & 5.12 &	3.78	& 1.75                            \\
+                                     & $\varnothing$ $\rightarrow$ \ch{V_{Zr}^{''}} + 2\ch{V_{O}^{*}} & 11.35 &	10.83 &	9.62                             \\
+                                     & $\varnothing$ $\rightarrow$ \ch{V_{Zr}^{x}} + 2\ch{V_{O}^{x}}   & 18.55 &	18.23 &	17.07  \\ \hline                          
 \end{tabular}
 \end{table}
 
@@ -172,15 +206,13 @@ where $E_{DFT}(BoundFrenkel)$ is the energy of a supercell of \zirconia\ contain
 \hline
 \multirow{2}{*}{\textbf{Defect}} & \multicolumn{3}{c}{\textbf{Formation Energy (eV)}} \\ \cline{2-4} 
  & \textbf{Monoclinic} & \textbf{Tetragonal} & \textbf{Cubic} \\ \hline
-\textbf{O Frenkel} & 4.1212 & 4.0290 & 6.4397 \\
-\textbf{Zr Frenkel} & 8.4232 & 7.8633 & 6.3274 \\
-\textbf{NTV1} & 5.2272 & 3.5813 & 2.6961 \\
-\textbf{NTV2} & 5.1405 & 4.2312 & 0.1798 \\
-\textbf{NTV3} & 4.6620 & 3.3623 & 2.4089 \\ \hline
+\textbf{O Frenkel} & 4.12 & 4.03 & 6.44 \\
+\textbf{Zr Frenkel} & 8.42 & 7.86 & 6.33 \\
+\textbf{NTV1} & 5.23 & 3.58 & 2.70 \\
+\textbf{NTV2} & 5.14 & 4.23 & 0.18 \\
+\textbf{NTV3} & 4.66 & 3.36 & 2.41 \\ \hline
 \end{tabular}
 \end{table}
-
-%Charges ranged from the fully charged case (+2 for oxygen, -4 for zirconium) to neutral. The interstitial sites, shown in Table \ref{table:interstitials}, were chosen based on standard vacant Wyckoff positions in each crystal structure \cite{theo1996international}.  In the case of oxygen vacancies in monoclinic \zirconia , a defect energy was obtained for both the (III) and (IV) co-ordinated oxygen sites. The lowest energies were used in the calculation of the Frenkel defect energy.
 
 \subsubsection*{Isolated Schottky Defects}
 
@@ -200,9 +232,9 @@ Zr^{x}_{Zr} + 2O^{x}_{O} = V^{-2q}_{Zr} + 2V^{q}_{O} + ZrO_{2}
 
 This implies a rearrangement rather than complete removal of ions from the system. As with the Frenkel defects, the lowest energy vacancy energies were used to calculate Schottky formation energies. While there are multiple configurations of Schottky defects, such nuance cannot be accurately represented through a sum of individual vacancy defect energies. The values presented for Schottky defect formation energies should therefore be considered the lower bound for defect formation. 
 
+\subsubsection{Bound Schottky Defects}
 
-\subsubsection*{Bound Schottky Defects}
-
+Bound Schottky defects were modelled in a supercell of \zirconia\ by removing one Zr and two O atoms, in one of several possible nearest neighbour configurations as shown in Figures \ref{figure:monoschottky}, \ref{figure:tetschottky} and \ref{figure:cubicschottky}. For the monoclinic phase, Schottky defects included one threefold and one fourfold coordinated oxygen to maintain equal amounts of each oxygen type in the supercell.
 
 \begin{figure}[ht] % Tet Zr centre
 \centering
@@ -218,16 +250,12 @@ This implies a rearrangement rather than complete removal of ions from the syste
 \label{figure:cubicschottky}
 \end{figure}
 
-Bound Schottky defects were modelled in a supercell of \zirconia\ by removing one Zr and two O atoms, in one of several possible nearest neighbour configurations as shown in Figures \ref{figure:monoschottky}, \ref{figure:tetschottky} and \ref{figure:cubicschottky}. Charge neutrality is maintained by the removal of a stoichiometric unit, therefore these defects were defined as neutral tri-vacancies (NTVs). The NTV formation energy was defined as:
+Charge neutrality is maintained by the removal of a stoichiometric unit, therefore these defects were defined as neutral tri-vacancies (NTVs). The NTV formation energy was defined as:
 \begin{equation}
 \label{equation_NTV}
 E_{NTV} = E_{DFT}(NTV) - \frac{n-3}{n}E_{DFT}(ZrO_2)% - \frac{E_{I_2}}{2}
 \end{equation}
-
 Where $E_{DFT}(NTV)$ is the energy of a supercell containing the NTV defect. As the defective supercell contains three fewer ions than the non-defective cell, the energy of the non-defective cell was adjusted by a proportional factor in our calculation. This form maintains both mass and charge balance of the Schottky defect description for \zirconia\ described in Equation \ref{generic_schottky}.
-
-
-
 
 \section{Defect formation energies} \label{dis_form_energy_intrinsic}
 
@@ -274,7 +302,6 @@ Where $E_{DFT}(NTV)$ is the energy of a supercell containing the NTV defect. As 
 		\label{figure:cubicvacancies}
 	\end{center}
 \end{figure}
-
 
 \subsection{Defect Volumes}
 
@@ -345,37 +372,6 @@ The zirconium Frenkel defect is significantly larger than the oxygen Frenkel, mo
 
 \subsubsection*{Bound Defects}
 The bound defect formation energies shown in Table \ref{table:bound_defects} show that NTV defects, on a per defect atom basis, are the most energetically favourable defects, followed by oxygen and zirconium Frenkel defects respectively. The NTV3 exhibited the smallest formation energy in all three crystal structures, with a single exception of the NTV2 in the cubic phase where a much smaller formation energy was observed due to collapse\footnote{Upon inspecting the output cell, it was found that all the oxygen atoms shifted positions along the [001] direction, becoming more like the tetragonal \zirconia\ structure. The cell size was constrained so the lattice parameters could not be changed, so this was not a true tetragonal cell.} of the supercell during geometry optimisation.
-
-\section{Elastic constants and defect relaxation volumes}
-
-Table \ref{stiffness_tensor} shows the calculated elastic constants for the monoclinic, tetragonal, and cubic phases of \zirconia . The cubic phase has the highest stiffness, likely due to the short Zr-O bond lengths in the energy-minimised structure (Figure \ref{figure:zrobonddistance}). It is expected that at high temperatures where the cubic phase is stable, the resulting increase in bond length would cause a reduction in stiffness. 
-
-\begin{table}[ht] % Elastic constants
-\onehalfspacing
-\centering
-\caption{Elastic constants for different phases of \zirconia\ from DFT calculations.}
-\label{stiffness_tensor}
-\begin{tabular}{cccc}
-\hline
-\multirow{2}{*}{\textbf{Elastic Component}} & \multicolumn{3}{c}{\textbf{Stiffness (GPa)}}               \\ \cline{2-4} 
-                                            & \textbf{Monoclinic} & \textbf{Tetragonal} & \textbf{Cubic} \\ \hline
-$C_{11}$                                         & 338.86        & 334.30               & 523.38    \\
-$C_{12}$                                         & 151.80        & 207.30               & 92.93     \\
-$C_{13}$                                         & 89.37         & 48.93               & 92.93     \\
-$C_{22}$                                         & 348.37        & 334.20               & 523.39    \\
-$C_{23}$                                         & 143.04        & 48.93               & 92.93    \\
-$C_{33}$                                         & 262.17        & 250.50               & 523.38   \\
-$C_{44}$                                         & 76.35         & 9.38                & 61.98    \\
-$C_{55}$                                         & 71.65         & 9.38                & 61.98   \\
-$C_{66}$                                         & 114.19        & 152.60               & 61.99     \\ \hline
-\end{tabular}
-\end{table}
-
-
-The monoclinic and tetragonal phases have similar stiffness along the principal axes, but vary significantly under shearing conditions. In particular, the tetragonal phase exhibits much smaller $C_{44}$ and $C_{55}$ components. This may be attributed to the strong directional anisotropy of the tetragonal phase due to the larger $c$ parameter. 
-
-
-
 
 
 \section{Helmholtz energies}
