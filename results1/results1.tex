@@ -17,31 +17,23 @@ As discussed in Chapter \ref{ch:compmethodology}, DFT calculations were performe
 
 The electrical energy convergence criterion was set to $1\times10^{-6} $ eV. The maximum force between atoms was limited to $1\times10^{-2}$ eV \r{A}\textsuperscript{-1}. A gradient-descent geometry optimisation task was run on the cell until consecutive iterations differed in energy and atomic displacement by less than $1\times10^{-5}$ eV and $5\times10^{-4}$ \r{A}, respectively. 
 
-
 \subsection{Helmholtz free energy}
 
-To determine the temperature dependence of the ground states for the pure crystal structures, a harmonic approximation method as described by Burr et al. was used \cite{burr2015crystal,jackson2016resolving}. A constant-volume phonon calculation was performed for each structure, from which the vibrational enthalpy $H_{vib}(T, V)$ and entropy $S_{vib}(T, V)$ contributions to the Helmholtz free energy were calculated up to a temperature of 2500 K. The complete Helmholtz free energy $F(T, V)$ was then obtained by including the internal energy $U(V)$ and configurational entropy $S_{conf}$ of the system:
+As described in § XXX, a harmonic approximation method as described by Burr et al. \cite{burr2015crystal,jackson2016resolving} was used to determine the temperature dependence of the ground states for the non-defective crystal structures of ZrO$_{2}$. A constant-volume phonon calculation was performed for each structure, from which the vibrational enthalpy $H_{vib}(T, V)$ and entropy $S_{vib}(T, V)$ contributions to the Helmholtz free energy were calculated up to a temperature of 2500 K. The complete Helmholtz free energy $F(T, V)$ was then obtained by including the internal energy $U(V)$ and configurational entropy $S_{conf}$ of the system:
 \begin{equation} \label{helmholtz_equation}
 F(T, V) = U(V) + H_{vib}(T, V) - TS_{vib}(T, V) - TS_{conf}
 \end{equation}
+The calculated free energy was then plotted against temperature to show the relative stability of each phase at different temperatures and the predicted transition points from one phase to another. 
 
 \subsection{Brouwer diagrams}
 
-Using the method outlined in § \ref{brouwer_method}, Brouwer diagrams of the intrinsic defect equilibria for monoclinic, tetragonal and cubic \zirconia\ were generated. The monoclinic and tetragonal Brouwer diagrams were generated at temperatures of 650 K and 1500 K respectively, corresponding to temperatures at which these phases are thermally stabilised. Defect concentrations are reported in parts/fu (i.e. parts per formula unit \zirconia). The cubic Brouwer diagram was generated at 2000K despite being thermally stabilised at temperatures greater than 2400 K. This was because such high temperatures resulted in very large intrinsic defect concentrations such that defect behaviour could not be meaningfully examined (the system was completely defective). As discussed in § \ref{dis_form_energy_intrinsic} and § \ref{brouwer_discussion_intrinsic}, issues with modelling cubic \zirconia\ in DFT mean that calculated energy values may become unreliable, but are presented in this thesis for the purpose of completeness.
+Using the method outlined in § \ref{brouwer_method}, Brouwer diagrams of the intrinsic defect equilibria for monoclinic, tetragonal and cubic \zirconia\ were generated.  The monoclinic and tetragonal Brouwer diagrams were generated at temperatures of 650 K and 1500 K respectively, corresponding to temperatures at which these phases are thermally stabilised. Defect concentrations are reported in parts/fu (i.e. parts per formula unit \zirconia). The cubic Brouwer diagram was generated at 2000 K despite being thermally stabilised at temperatures greater than 2400 K. This was because such high temperatures resulted in very large intrinsic defect concentrations such that defect behaviour could not be meaningfully examined (the system was completely defective). As discussed in § \ref{dis_form_energy_intrinsic} and § \ref{brouwer_discussion_intrinsic}, issues with modelling cubic \zirconia\ in DFT mean that calculated energy values may become unreliable, but are presented in this thesis for the purpose of completeness.
 
-%\section{Cubic phase collapse}
-%
-%\begin{itemize}
-%\item When some oxygen Frenkel defects were introduced to the cubic phase supercell, relaxation under constant volume conditions caused a collapse into a pseudo-tetragonal structure.
-%\item This indicated that the cubic phase as modelled in DFT may not be fully stable.
-%\item Further investigation indicated that the structure of a supercell of c-\zirconia\ broke down even with constrained symmetry, a result corroborated by Burr {et al}. \cite{burr2017importance}. 
-%\end{itemize}
+\section{Non-defective \zirconia}
 
 \subsection{Unit cells}
 
 Having selected and optimised the parameters and functionals, unit cells of \zirconia\ in each phase were fully relaxed at constant pressure and the resulting structures were compared in detail to experimental data. Table \ref{lattice_params} shows the calculated lattice parameters and energy differences between the three \zirconia\ phases. 
-
-The first thing to note is that the correct order of \zirconia\ phases is predicted in the total energy calculations, with monoclinic being the lowest energy phase and cubic being the highest. In addition, the energy difference between phases is small ($<$ 0.1 eV/fu). This is a good indication that the choice of exchange correlation functional can reproduce the energy landscape of the system accurately. This is especially important for when defects are introduced because they may promote stabilisation of one phase over another, and an inaccurate model will not capture this behaviour. In all cases the predicted cell volumes are consistently within approximately 2\% of experimental values. 
 
 \begin{table}[ht] % Unit cell parameters
 \onehalfspacing
@@ -57,7 +49,9 @@ c-\zirconia        &   5.11 (5.09)           &              &              & 90 
 \end{tabular}}
 \end{table}
 
-\subsection{Elastic constants and defect relaxation volumes}
+The first thing to note is that the correct order of \zirconia\ phases is predicted in the total energy calculations, with monoclinic being the lowest energy phase and cubic being the highest. In addition, the energy difference between phases is small ($<$ 0.1 eV/fu). This is a good indication that the choice of exchange correlation functional can reproduce the energy landscape of the system accurately. This is especially important for when defects are introduced because they may promote stabilisation of one phase over another, and an inaccurate model will not capture this behaviour. In all cases the predicted cell volumes are consistently within approximately 2\% of experimental values. 
+
+\subsection{Elastic constants}
 
 Table \ref{stiffness_tensor} shows the calculated elastic constants for the monoclinic, tetragonal, and cubic phases of \zirconia . The cubic phase has the highest stiffness, likely due to the short Zr-O bond lengths in the energy-minimised structure (Figure \ref{figure:zrobonddistance}). It is expected that at high temperatures where the cubic phase is stable, thermal effects (which are not captured in this model) such as larger interatomic spacings will result in a reduction in stiffness.
 
@@ -127,11 +121,32 @@ DFT studies of the monoclinic phase have given a band gap of 3.19 eV when using 
 
 All of these studies highlight the difficulty in accurately modelling electronic exchange and correlation behaviour in ZrO$_{2}$. The smaller band gaps calculated in this thesis mean that concentrations of electronic defects will be overestimated because their formation energies are proportional to the size of the band gap. 
 
+\subsection{Helmholtz energies}
+
+The Helmholtz free energy results (Figure \ref{Figure:helmholtz}) predicted the correct order of crystal structure stability at low temperature (monoclinic \textrightarrow tetragonal \textrightarrow cubic). A transition from the monoclinic to tetragonal crystal structure is predicted at 390K, but no further transition is seen from tetragonal to cubic. This significantly underestimates the experimental monoclinic \textrightarrow tetragonal transition temperature of 1180 $^{\circ}$C (see Figure \ref{figure:hysteresis_monotet}). The low phase transition temperature may be due to both the kinetic barrier \cite{bansal1972martensitic,bansal1974martensitic}, and the inability of the constant volume harmonic model to take into account the effects of thermal expansion. 
+
+\begin{figure}[ht] % Helmholtz
+\begin{center}
+\begin{tikzpicture}
+	\begin{axis}
+		[width=\linewidth*0.7, xlabel={Temperature (K)}, ylabel={Helmholtz free energy (eV)}, ymin=-28, ymax=-10, xmin=0, xmax=3000, legend style={{draw=}, at={(0.95,0.95)}, anchor=north east, legend columns=1}]
+		\addplot[no marks] table [x=temperature, y=monoclinic,]{dat/helmholtz.dat}; \addlegendentry{Monoclinic};
+        \addplot[no marks, dashed] table [x=temperature, y=tetragonal, ]{dat/helmholtz.dat}; \addlegendentry{Tetragonal};
+        \addplot[no marks, densely dotted, black] table [x=temperature, y=cubic,]{dat/helmholtz.dat}; \addlegendentry{Cubic};
+			\end{axis}
+		\end{tikzpicture}
+		\caption{Helmholtz free energy as a function of temperature for the monoclinic, tetragonal, and cubic crystal structures of \zirconia .}
+		\label{Figure:helmholtz}
+	\end{center}
+\end{figure}
+
+The lack of an observed transition to the cubic phase may further indicate an inability to accurately simulate the high-temperature phase using DFT techniques, possibly owing to finite-size effects which are known to affect ZrO$_{2}$ in particular \cite{burr2017importance}. When proceeding to model certain defects (see § \ref{bound_defect}), it was discovered that the cubic phase did indeed exhibit instabilities which yielded anomalous energy values. These results, in addition to the lack of experimental evidence showing pure cubic ZrO$_{2}$ in the internal oxide layer of Zr claddings, led to the decision to focus further studies only on the monoclinic and tetragonal phases.
+
 \section{Defect formation energies}
 
 \subsection{Frenkel and Schottky defects}
 
-Formation energies for Frenkel and Schottky defects were calculated in either a \emph{bound} or \emph{isolated} configuration. A bound defect means that the entire defect (interstitial + vacancy for a Frenkel defect or three vacancies for a Schottky defect) is modelled inside a single supercell. An isolated defect means that the formation energy was calculated from the constituent point defects (individual vacancy or interstitial defects). Both of these methods were used for completeness and because the bound defects include the binding energy contributions which can then be derived using the isolated defect energies. Bound and isolated defects are described in more detail below.
+Formation energies for Frenkel and Schottky defects were calculated in either a \emph{bound} or \emph{isolated} configuration. A bound defect means that the entire defect (interstitial + vacancy for a Frenkel defect or three vacancies for a Schottky defect) is modelled inside a single supercell. An isolated defect means that the formation energy was calculated from the constituent point defects (individual vacancy or interstitial defects). Both of these methods were used for completeness and because the bound defects include binding energy contributions. Bound and isolated defects are described in more detail below.
 
 \subsubsection{Isolated Frenkel defects}
 
@@ -195,24 +210,6 @@ E_{BoundFrenkel} = E_{DFT}(BoundFrenkel) - E_{DFT}(ZrO_2)% - \frac{E_{I_2}}{2}
 \end{equation}
 
 where $E_{DFT}(BoundFrenkel)$ is the energy of a supercell of \zirconia\ containing both a vacancy and interstitial defect of the same ion. The two defects were placed as far apart in the supercell as possible (7-8 \r{A}) to avoid recombination. The interstitial defect is assumed to fully compensate the charge of the vacancy defect, resulting in no overall charge on the supercell. The number and type of ions in the defective and non-defective supercell are the same, requiring no further steps to calculate the formation energy. The formation energies calculated for these defects in each crystal structure are presented in Table \ref{table:bound_defects}.
-
-\begin{table}[ht] % Bound formation energies
-%\setlength{\tabcolsep}{10pt} % Default value: 6pt
-\onehalfspacing
-\centering
-\caption{Formation energies of bound defects in \zirconia.}
-\label{table:bound_defects}
-\begin{tabular}{cccc}
-\hline
-\multirow{2}{*}{\textbf{Defect}} & \multicolumn{3}{c}{\textbf{Formation Energy (eV)}} \\ \cline{2-4} 
- & \textbf{Monoclinic} & \textbf{Tetragonal} & \textbf{Cubic} \\ \hline
-\textbf{O Frenkel} & 4.12 & 4.03 & 6.44 \\
-\textbf{Zr Frenkel} & 8.42 & 7.86 & 6.33 \\
-\textbf{NTV1} & 5.23 & 3.58 & 2.70 \\
-\textbf{NTV2} & 5.14 & 4.23 & 0.18 \\
-\textbf{NTV3} & 4.66 & 3.36 & 2.41 \\ \hline
-\end{tabular}
-\end{table}
 
 \subsubsection*{Isolated Schottky Defects}
 
@@ -310,13 +307,13 @@ Tables \ref{defect_volumes_raw} and \ref{defect_volumes_clusters_isolated} show 
 \begin{table}[ht!] % Isolated defect volumes
 \onehalfspacing
 \centering
-\caption{Isolated defect volumes in the three \zirconia\ structures.}
+\caption{Individual point defect volumes in the three \zirconia\ structures.}
 \label{defect_volumes_raw}
 \begin{tabular}{cccc}
 \hline
                       & \multicolumn{3}{c}{\textbf{Defect volume relative to non-defective cell (\r{A}\textsuperscript{3})}}  \\ \cline{2-4} 
 \textbf{Defect}       & \textbf{Monoclinic} & \hspace{1cm} \textbf{Tetragonal} & \textbf{Cubic} \\ \hline
-\ch{V_{Zr}^{''''}}             & 55.95             & 67.41             & 48.47         \\
+\ch{V_{Zr}^{''''}}             & 55.95             & 88.93            & 48.47         \\
 \ch{V_{Zr}^{'''}}             & 42.48             &         51.08     &     36.94      \\
 \ch{V_{Zr}^{''}}            & 29.90             &  34.28            &     25.93           \\
 \ch{V_{Zr}^{'}}             & 17.10             &  18.43            &     15.08           \\
@@ -326,7 +323,7 @@ Tables \ref{defect_volumes_raw} and \ref{defect_volumes_clusters_isolated} show 
 \ch{Zr_{i}^{**}}             &  -11.79 	        &	-12.02 		  &	-6.24          \\
 \ch{Zr_{i}^{*}}            &  2.68			& -0.02 		  & 	4.69             \\
 \ch{Zr_{i}^{x}}              &  15.94		 	& 13.40	 		  & 15.97         \\
-\ch{V_{O}^{**}} {[}4coord{]} & -22.52            & -37.53            & -22.76       \\
+\ch{V_{O}^{**}} {[}4coord{]} & -22.52            & -40.45            & -22.76       \\
 \ch{V_{O}^{*}} {[}4coord{]} &  -12.41           &    -19.53         &     -12.19           \\
 \ch{V_{O}^{x}} {[}4coord{]}  &  -0.69          &  -2.80           &      -1.11          \\
 \ch{V_{O}^{**}} {[}3coord{]} & -26.13            &                     &                \\
@@ -338,64 +335,61 @@ Tables \ref{defect_volumes_raw} and \ref{defect_volumes_clusters_isolated} show 
 \end{tabular}
 \end{table}
 
-\begin{table}[ht] % Isolated Frenkel volumes
+\begin{table}[ht] % Isolated Frenkel + Schottky volumes
 \onehalfspacing
 \centering
-\caption{Isolated cluster defect volumes in the three \zirconia\ structures.}
+\caption{Defect volumes of Frenkel and Schottky defects in the three \zirconia\ structures calculated from individual point defects.}
 \label{defect_volumes_clusters_isolated}
 \begin{tabular}{cccc}
 \hline
-\multirow{2}{*}{\textbf{Defect}}   & \multicolumn{3}{c}{\textbf{Defect volume (\r{A}\textsuperscript{3})}}  \\ \cline{2-4} 
- & \textbf{Monoclinic} & \textbf{Tetragonal} & \textbf{Cubic} \\ \hline
-\ch{V_{Zr}^{''''}} + \ch{Zr_{i}^{****}}          & 21.331	 & 25.4702 &	21.1309         \\
-\ch{V_{Zr}^{'''}} + \ch{Zr_{i}^{***}}          & 19.7155 &	23.3463 &	19.9954      \\
-\ch{V_{Zr}^{''}} + \ch{Zr_{i}^{**}}          & 18.1149 &	22.2525 &	19.68618           \\
-\ch{V_{Zr}^{'}} + \ch{Zr_{i}^{*}}          & 19.78339 &	18.4096913 &	19.76396           \\
-\ch{V_{Zr}^{x}} + \ch{Zr_{i}^{x}}          & 19.99485 &	18.1061 &	20.29223       \\
-\ch{V_{O}^{**}} + \ch{O_{i}^{''}}           & 0.8839 &	2.4704 &	5.8217       \\
-\ch{V_{O}^{*}} + \ch{O_{i}^{'}}           &  0.9486 &	5.032 &	4.1146        \\
-\ch{V_{O}^{x}} + \ch{O_{i}^{x}}           &  0.9576 &	8.26065 &	7.83687          \\
-\ch{V_{Zr}^{''''}} + 2\ch{V_{O}^{**}}       &  3.6979 &	-7.647 &	2.9448             \\
-\ch{V_{Zr}^{''}} + 2\ch{V_{O}^{*}}       &  1.0707 &	-4.7866 &	1.5564         \\
-\ch{V_{Zr}^{x}} + 2\ch{V_{O}^{x}}        & 0.64517 &	-0.8985 &	2.08973       \\ \hline
+                      & \multicolumn{3}{c}{\textbf{Defect volume relative to non-defective cell (\r{A}\textsuperscript{3})}}  \\ \cline{2-4} 
+\textbf{Defect}       & \textbf{Monoclinic} & \hspace{1cm} \textbf{Tetragonal} & \textbf{Cubic} \\ \hline
+\ch{V_{Zr}^{''''}} + \ch{Zr_{i}^{****}}          & 21.33	 & 46.99 &	21.13         \\
+\ch{V_{Zr}^{'''}} + \ch{Zr_{i}^{***}}          & 19.72 &	23.35 &	20.00      \\
+\ch{V_{Zr}^{''}} + \ch{Zr_{i}^{**}}          & 18.11 &	22.25 & 19.69           \\
+\ch{V_{Zr}^{'}} + \ch{Zr_{i}^{*}}          & 19.78 &	18.41 &	19.76           \\
+\ch{V_{Zr}^{x}} + \ch{Zr_{i}^{x}}          & 19.99 &	18.11 &	20.29       \\
+\ch{V_{O}^{**}} + \ch{O_{i}^{''}}           & 0.88 &	-0.45 &	 5.82       \\
+\ch{V_{O}^{*}} + \ch{O_{i}^{'}}           &  0.95 &	5.03 &	4.11        \\
+\ch{V_{O}^{x}} + \ch{O_{i}^{x}}           &  0.96 &	8.26 &	7.84          \\
+\ch{V_{Zr}^{''''}} + 2\ch{V_{O}^{**}}       &  3.70 &	8.03 &	2.94             \\
+\ch{V_{Zr}^{''}} + 2\ch{V_{O}^{*}}       &  1.07 &	-4.79 &	 1.56         \\
+\ch{V_{Zr}^{x}} + 2\ch{V_{O}^{x}}        & 0.65 &	-0.90 &	 2.09       \\ \hline
 \end{tabular}
 \end{table}
 
-The oxygen Frenkel defect has the smallest defect volume in the monoclinic phase, followed by the tetragonal phase. This can be explained by the competition between phase density and matrix stiffness. As the monoclinic phase has the highest specific volume (see Table \ref{lattice_params}), we can argue that the monoclinic phase can best absorb the lattice strains imposed by the defect, despite having a lower stiffness than the cubic phase.
+The fully-charged O Frenkel defect has the smallest defect volume in the tetragonal phase, followed by the monoclinic phase. This can be explained by the relative stiffness of the different phases. Of the nine calculated elastic components of the stiffness tensor shown in table \ref{stiffness_tensor}, seven are smaller in the tetragonal phase compared to monoclinic, and by significant amounts for the $C_{23}$, $C_{44}$ and $C_{55}$ components. In the monoclinic phase, none of the calculated elastic components are below 71 GPa, whereas four of the elastic components in the tetragonal phase are below 50 GPa, making the structure more compliant. The resulting smaller defect volume may then partly explain the lower formation energy of O Frenkel defects in the tetragonal phase, since they impose a smaller strain on the lattice.
 
-The zirconium Frenkel defect is significantly larger than the oxygen Frenkel, mostly due to the large positive strain contribution from the zirconium vacancy. This can explain the larger defect formation energy of zirconium Frenkel defects.
+The Zr Frenkel defect is significantly larger than the oxygen Frenkel, mostly due to the large positive strain contribution from the zirconium vacancy. The tetragonal phase in particular has a significantly larger fully-charged Zr Frenkel defect, again partly due to the low stiffness of the tetragonal phase. Compared to the O Frenkel defect, these defects are significantly larger and will therefore impose larger strains in the lattice, leading to larger formation energies. 
 
 %\subsubsection*{Isolated Defects}
 %
 %The isolated defect formation energies reported in Table \ref{isolated_defects} indicate that fully-charged Schottky defects have the lowest formation energy per atom (most energetically favourable) in all phases, followed by oxygen Frenkel defects. A trend is seen where the high-temperature phases result in lower formation energies for both Schottky and oxygen Frenkel defects, whereas zirconium Frenkel defects have similar formation energies in all three phases. It has been suggested that the relatively small cation size leads to defect structures where oxygen vacancies are favoured over interstitial defects \cite{dwivedi1990computer}. As the zirconium ion is too small to maintain a strong 8-fold bond coordination with its neighbouring oxygen ions, the introduction of oxygen vacancies (which have the added effect of reducing cell volume) will have a stabilising effect.
 
 
-\subsubsection*{Bound Defects}
-The bound defect formation energies shown in Table \ref{table:bound_defects} show that NTV defects, on a per defect atom basis, are the most energetically favourable defects, followed by oxygen and zirconium Frenkel defects respectively. The NTV3 exhibited the smallest formation energy in all three crystal structures, with a single exception of the NTV2 in the cubic phase where a much smaller formation energy was observed due to collapse\footnote{Upon inspecting the output cell, it was found that all the oxygen atoms shifted positions along the [001] direction, becoming more like the tetragonal \zirconia\ structure. The cell size was constrained so the lattice parameters could not be changed, so this was not a true tetragonal cell.} of the supercell during geometry optimisation.
+\subsubsection*{Bound Defects} \label{bound_defect}
 
+The bound defect formation energies shown in Table \ref{table:bound_defects} show that NTV defects, on a per defect atom basis, are the most energetically favourable defects, followed by oxygen and zirconium Frenkel defects respectively. The NTV3 exhibited the smallest formation energy in all three crystal structures, with a single exception of the NTV2 in the cubic phase where a much smaller formation energy was observed due to collapse\footnote{Upon inspecting the output cell, it was found that all the oxygen atoms shifted positions along the [001] direction, becoming more like the tetragonal \zirconia\ structure. The cell size was constrained so the lattice parameters could not be changed, so this was not a true tetragonal cell.} of the supercell during geometry optimisation. 
 
-\section{Helmholtz energies}
+\begin{table}[ht] % Bound formation energies
+%\setlength{\tabcolsep}{10pt} % Default value: 6pt
+\onehalfspacing
+\centering
+\caption{Formation energies of bound defects in \zirconia.}
+\label{table:bound_defects}
+\begin{tabular}{cccc}
+\hline
+\multirow{2}{*}{\textbf{Defect}} & \multicolumn{3}{c}{\textbf{Formation Energy (eV)}} \\ \cline{2-4} 
+ & \textbf{Monoclinic} & \textbf{Tetragonal} & \textbf{Cubic} \\ \hline
+\textbf{O Frenkel} & 4.12 & 4.03 & 6.44 \\
+\textbf{Zr Frenkel} & 8.42 & 7.86 & 6.33 \\
+\textbf{NTV1} & 5.23 & 3.58 & 2.70 \\
+\textbf{NTV2} & 5.14 & 4.23 & 0.18 \\
+\textbf{NTV3} & 4.66 & 3.36 & 2.41 \\ \hline
+\end{tabular}
+\end{table}
 
-%The calculated Helmholtz energies plotted in Figure \ref{Figure:helmholtz} show the correct order of stability for the three phases of \zirconia\ at low temperatures (monoclinic $\rightarrow$ tetragonal $\rightarrow$ cubic) . However, as temperature is increased, only a transition from monoclinic to tetragonal is seen. The cubic phase Helmholtz energy does fall below the monoclinic curve, but never below the tetragonal curve, thus predicting no tetragonal to cubic phase transition. 
-
-%It must also be noted that the transition temperatures are not predicted accurately. The tetragonal phase is predicted to have a lower energy than monoclinic at approximately 400 K, while experiments indicate that the transition temperature is above 1400 K. This difference is too large to attribute to a kinetic barrier.
-
-The Helmholtz free energy results (Figure \ref{Figure:helmholtz}) show the correct order of crystal structure stability at low temperature. A transition from the monoclinic to tetragonal crystal structure is seen at 390K, but no further transition is seen from tetragonal to cubic. The low monoclinic-tetragonal transition temperature may be due to both the kinetic barrier \cite{bansal1972martensitic,bansal1974martensitic}, and the inability of the constant volume harmonic model to take into account the effects of thermal expansion. The lack of an observed transition to the cubic phase may indicate an inability to accurately simulate the high-temperature phase using DFT techniques. 
-
-\begin{figure}[ht] % Helmholtz
-\begin{center}
-\begin{tikzpicture}
-	\begin{axis}
-		[width=\linewidth*0.7, xlabel={Temperature (K)}, ylabel={Helmholtz free energy (eV)}, ymin=-28, ymax=-10, xmin=0, xmax=3000, legend style={{draw=}, at={(0.95,0.95)}, anchor=north east, legend columns=1}]
-		\addplot[no marks] table [x=temperature, y=monoclinic,]{dat/helmholtz.dat}; \addlegendentry{Monoclinic};
-        \addplot[no marks, dashed] table [x=temperature, y=tetragonal, ]{dat/helmholtz.dat}; \addlegendentry{Tetragonal};
-        \addplot[no marks, densely dotted, black] table [x=temperature, y=cubic,]{dat/helmholtz.dat}; \addlegendentry{Cubic};
-			\end{axis}
-		\end{tikzpicture}
-		\caption{Helmholtz free energy as a function of temperature for the monoclinic, tetragonal, and cubic crystal structures of \zirconia .}
-		\label{Figure:helmholtz}
-	\end{center}
-\end{figure}
+The symmetry of cubic ZrO$_{2}$ has previously been reported to sometimes break when relaxing supercells with interstitial oxygen defects \cite{samanta2010thermodynamic}. However, reports of Schottky defect clusters breaking cubic symmetry in \zirconia\ have not been found in the literature. Later studies by Burr \emph{et al}. have shown that the energies of NTVs calculated in MO$_{2}$ cubic fluorite structures is highly sensitive to the size of the supercell, with larger errors found when using smaller supercells \cite{burr2017importance}. It was also found that the symmetry of cubic ZrO$_{2}$ could not be retained during relaxation in large supercells (324 and 768 atoms) due to the stability of the monoclinic phase. Cubic supercells with 96 atoms are studied in this thesis, and while cubic symmetry of \zirconia\ can be retained at this size, the instability of the phase when introducing defect clusters puts the bound defect energies into question.
 
 \section{Defect equilibria} \label{brouwer_discussion_intrinsic}
 

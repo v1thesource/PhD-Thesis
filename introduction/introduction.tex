@@ -72,7 +72,7 @@ The operating temperature of the coolant in a typical PWR is approximately 600 K
 
 For both PWRs and BWRs, the coolant is typically light water (as opposed to heavy water, D$_{2}$O). Water is used because it has many useful engineering properties. It has a high heat capacity (compared to the gaseous coolant in gas cooled reactors), has low activation in a free neutron environment and also serves as a good radiation shield. Furthermore, it is plentiful, cheap and easily purified.
 
-In additional to its function as a coolant, water also acts as a neutron moderator, slowing down high-energy fast neutrons from fission events and nuclear decay processes. Moderation of neutrons is an important step in the nuclear reactor because slow thermal neutrons (i.e. neutrons at thermal equilibrium with the coolant) are significantly more likely to cause uranium nuclei to undergo fission than fast neutrons. Fast neutrons will typically escape from the fuel pin after they are generated, dispense most of their energy in the coolant via scattering with H and O nuclei, and then some will re-enter the fuel, where they may cause fission of a U$_{235}$ nucleus near the outer edge of the fuel pellet. Neutrons which do not end up fissioning fuel will either be absorbed parasitically by other nuclei (e.g in the control rods or coolant), escape from the reactor entirely (neutron leakage), or decay into protons (free neutrons have a half-life of 10.61 minutes \cite{Christensen1972}).
+In additional to its function as a coolant, water also acts as a neutron moderator, slowing down high-energy fast neutrons from fission events and nuclear decay processes. Moderation of neutrons is an important step in the nuclear reactor because slow thermal neutrons (i.e. neutrons at thermal equilibrium with the coolant) are significantly more likely to cause uranium nuclei to undergo fission than fast neutrons. Fast neutrons will typically escape from the fuel pin after they are generated, dispense most of their energy in the coolant via scattering with H and O nuclei, and then some will re-enter the fuel, where they may cause fission of a U$_{235}$ nucleus near the outer edge of the fuel pellet. Neutrons which do not end up fissioning fuel will either be absorbed parasitically by other nuclei (e.g. in the control rods or coolant), escape from the reactor entirely (neutron leakage), or decay into protons (free neutrons have a half-life of 10.61 minutes \cite{Christensen1972}).
 
 \subsection{Fuel pellets and cladding} \label{ss_fuelpin}
 
@@ -125,7 +125,7 @@ One material phenomenon exclusive to nuclear reactor environments is neutron act
 
 In high-radiation environments, it is also possible for some molecules to be split by gamma photons above certain energies through the process of radiolysis. Corrosive fission products such as iodine will be present inside the fuel pin, but may exist in the form of (for example) CsI, which is not highly corrosive. Radiolysis however, decomposes CsI into Cs and I$_{2}$ vapour which can diffuse towards the cladding and promote cracking \cite{Konashi1983}.
 
-\subsection{Fission products, their distribution and decay chains}
+\subsection{Fission products, their distribution and decay chains} \label{fissionyieldsection}
 
 Nuclei which can undergo fission will produce daughter nuclei (fission products) with specific characteristics. At first, these nuclei will almost always be neutron-rich, as compared to their stable isotopes. This is the result of the higher neutron to proton (N/Z) ratios of larger nuclei. Figure \ref{figure:NZcurve} shows how the nuclei of abundant isotopes start with N/Z ratios of around 1 for small elements (e.g. \ch{He_{2}^{4}}, \ch{C_{6}^{12}}, \ch{O_{8}^{16}}), whereas larger elements will have isotopes with N/Z ratios approaching 1.6 (e.g. \ch{Pb_{82}^{208}}, \ch{Th_{90}^{232}}, \ch{U_{92}^{238}}).
 
@@ -157,7 +157,7 @@ Another characteristic feature of fission products is that their masses are bi-m
 
 Iodine is an important fission product because it is known to corrode Zr metal. It is part of the Te $\rightarrow$ Cs decay chain, with most isotopes exhibiting half-lives ranging from a few seconds to several days. Select data on Te and I fission yields are presented in Table \ref{table:decaydata_chap1}. In total, the independent yield of I isotopes from U$^{235}$ fission is 11.4\%, while the independent yield of Te isotopes (I precursors) is 18.1\%, with \ch{Te_{52}^{134}} having the highest independent yield of all possible fission products (6.3\%). These particular elements will also usually be paired with Zr and Y fission products, the latter of which is a common phase stabiliser dopant in \zirconia .
 
-\begin{table}[ht!]
+\begin{table}[ht!] % Yields and half lives
 \onehalfspacing
 \caption{Independent fission product yields and half-lives for the major iodine isotopes and precursors in a thermal neutron reactor. Yields taken from the Joint Evaluated Fission and Fusion File (JEFF 3.3). All isotopes undergo single $\beta$- decay. Metastable states are included.}  \label{table:decaydata_chap1}
 \begin{center}
@@ -165,22 +165,24 @@ Iodine is an important fission product because it is known to corrode Zr metal. 
 \hline
 Isotope & Independent Yield (\%) & Half-life \\
 \hline
-\ch{I^{131}} & 0.0029604
- & 8.023 d \cite{I131halflife} \\
-\ch{Te^{132}} & 1.5042 & 3.180 d \cite{Te132} \\
-\ch{I^{132}} & 0.028399  & 2.295 h \cite{Te132} \\
-\ch{Te^{133}} & 3.9386 & 12.5 m \cite{khazov2011nuclear} \\
-\ch{I^{133}} & 0.198194  & 20.87 h \cite{I133} \\
-\ch{Te^{134}} & 6.3001 & 41.8 m \cite{Sonzogni2004} \\
-\ch{I^{134}} & 0.7673 & 52.5 m \cite{Sonzogni2004} \\
-\ch{Te^{135}} & 3.4777 & 19.0 s \cite{tellurium135halflife} \\
-\ch{I^{135}} & 2.4635 & 6.58 h \cite{tellurium135halflife} \\ 
-\ch{Te^{136}} & 1.6652 & 17.63  s \cite{Mccutchan2018} \\
-\ch{I^{136}} & 3.03823 & 83.4 s \cite{Mccutchan2018} \\
-\ch{Te^{137}} & 0.48440 & 2.49 s \cite{browne2007nuclear} \\
-\ch{I^{137}} & 2.7026 & 24.5 s \cite{browne2007nuclear} \\ 
-\ch{Te^{138}} & 0.11280 & 1.4 s \cite{chen2017nuclear} \\ 
-\ch{I^{138}} & 1.2419 & 6.26 s \cite{chen2017nuclear} \\ 
+\ch{Te^{131}} & 0.126
+ & 25.0 m \cite{auble1976nuclear} \\
+\ch{I^{131}} & 0.00296
+ & 8.02 d \cite{I131halflife} \\
+\ch{Te^{132}} & 1.50 & 3.18 d \cite{Te132} \\
+\ch{I^{132}} & 0.0284  & 2.30 h \cite{Te132} \\
+\ch{Te^{133}} & 3.94 & 12.5 m \cite{khazov2011nuclear} \\
+\ch{I^{133}} & 0.198  & 20.9 h \cite{I133} \\
+\ch{Te^{134}} & 6.30 & 41.8 m \cite{Sonzogni2004} \\
+\ch{I^{134}} & 0.767 & 52.5 m \cite{Sonzogni2004} \\
+\ch{Te^{135}} & 3.48 & 19.0 s \cite{tellurium135halflife} \\
+\ch{I^{135}} & 2.46 & 6.58 h \cite{tellurium135halflife} \\ 
+\ch{Te^{136}} & 1.67 & 17.6  s \cite{Mccutchan2018} \\
+\ch{I^{136}} & 3.04 & 83.4 s \cite{Mccutchan2018} \\
+\ch{Te^{137}} & 0.484 & 2.49 s \cite{browne2007nuclear} \\
+\ch{I^{137}} & 2.70 & 24.5 s \cite{browne2007nuclear} \\ 
+\ch{Te^{138}} & 0.113 & 1.40 s \cite{chen2017nuclear} \\ 
+\ch{I^{138}} & 1.24 & 6.26 s \cite{chen2017nuclear} \\ 
 \hline
 \end{tabular}
 \end{center}

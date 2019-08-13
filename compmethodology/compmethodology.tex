@@ -301,7 +301,7 @@ E_{inc}(\ch{I_{$i$}^{x}}) = E_{DFT}(\ch{I_{$i$}^{x}}) - (E_{DFT}(ZrO_2) + \frac{
 where $E_{inc}(\ch{I_{$i$}^{x}})$ is the incorporation energy of a neutral iodine interstitial, $E_{DFT}(\ch{I_{$i$}^{x}})$ is the energy of a neutral iodine interstitial, $E_{DFT}(ZrO_2)$ is the energy of a non-defective \zirconia\ supercell and $\mu_{I_{2}}$ is the chemical potential of an I$_{2}$ molecule, taken from a single point DFT calculation of the I$_{2}$ dimer. For incorporation of a charged interstitial (e.g. $\ch{I_{i}^{*}}$), the energy required to add or remove an electron is included in the calculation:
 \begin{equation}
 \label{interstitial_incorp_equation_charged}
-E_{inc}(\ch{I_{$i$}^{q}}) = E_{DFT}(\ch{I_{$i$}^{q}}) - (E_{DFT}(ZrO_2) + \frac{1}{2}\mu_{I_{2}} + q(E_{VBM} + \mu_{e}))
+E_{inc}(\ch{I_{$i$}^{n}}) = E_{DFT}(\ch{I_{$i$}^{n}}) - (E_{DFT}(ZrO_2) + \frac{1}{2}\mu_{I_{2}} + n(E_{VBM} + \mu_{e}))
 \end{equation}
 Similarly, for a substitutional defect:
 \begin{equation}
@@ -316,17 +316,19 @@ The stiffness tensors for the pure monoclinic, tetragonal and cubic phases of \z
 
 The first step is to generate multiple different \texttt{.cell} files, each with either a small deviation in the lattice parameter or an additional shear on the cell. This requires starting with a unit cell that has already been completely relaxed via the \emph{geometry optimisation} task. In total, 36 \texttt{.cell} files are generated, each corresponding to a single element of the eventual stiffness matrix. The next step is to run a single point DFT calculation on each \texttt{.cell} file with the \emph{calculate stress} parameter enabled to output the resulting stress matrix. The final step is to calculate the stiffnesses in the stiffness matrix by using the known stress state and strains using Hooke's Law. 
 
-\subsection{Strain method for defect volumes}
+%\subsection{Strain method for defect volumes}
+%
+%The volumes of the defective supercells were kept constant because constant pressure calculations have been shown to sometimes break the symmetry of the supercell \cite{samanta2010thermodynamic}, leading to unreliable energy values. This is partly due to the assumed arrangement of the defects that may not be commensurate with the cell symmetry. This approach to calculating defect volumes then relies on calculating the elastic constants of the non-defective supercell, followed by extracting the resultant stress tensor from a defect simulation. The strain tensor of the defective cell can then be calculated using Hooke's law, giving the relaxation volume. 
 
-The volumes of the defective supercells were kept constant because constant pressure calculations have been shown to sometimes break the symmetry of the supercell \cite{samanta2010thermodynamic}, leading to unreliable energy values. This is partly due to the assumed arrangement of the defects that may not be commensurate with the cell symmetry. The approach to calculating defect volumes then relies on calculating the elastic constants of the non-defective supercell, followed by extracting the resultant stress tensor from a defect simulation. The strain tensor of the defective cell can then be calculated using Hooke's law, giving the relaxation volume. 
+\subsection{Defect volumes} \label{isobaricmethod}
 
-\subsection{Isobaric method for defect volumes}
+Defect volumes of point defects were calculated using an isobaric method, requiring two constant-pressure calculations to be performed using the geometry optimisation task in CASTEP. The defect volume ($\Delta$V) is defined as: 
+\begin{equation}
+\Delta V = V_{def} - V_{perf}
+\end{equation}
+where $V_{def}$ is the volume of the defective supercell and $V_{perf}$ is the volume of the non-defective (perfect) supercell. This quantity is sometimes referred to as the relaxation volume of a defect.
 
-It is also possible to calculate defect volumes using an isobaric method. This method is more simple than the strain method as there is no need to determine the elastic constants, reducing the number of geometry optimisation jobs from 36 to 1. 
-
-After a calculation, CASTEP provides the volume of the resulting cell, defined as the volume enclosed by the calculated lattice parameters. By subtracting the volume of a relaxed, non-defective cell from the volume of a relaxed, defective cell, we obtain a value for the total defect volume. % re: volume,  Or the volume within the boundary of the outermost atoms?
-
-It is important to consider that if there is a non-zero charge on the system, this will affect the calculated volume. This is because two systems with the same type, amount and arrangement of atoms, but different overall charges, will have different energies (due to the number of electrons). Different electronic orbital occupancies will affect the inter-atomic forces and therefore the shape of the cell. 
+After completing an energy calculation, CASTEP provides the volume of the resulting cell, defined as the volume enclosed by a repeating unit of the within the calculated lattice parameters. By subtracting the volume of a relaxed, non-defective cell from the volume of a relaxed, defective cell, we obtain a value for the total defect volume. It is important to consider that if there is a non-zero charge on the system, this will affect the calculated volume. This is because two systems with the same type, amount and arrangement of atoms, but different overall charges, will have different energies (due to the number of electrons). Different electronic orbital occupancies will affect the inter-atomic forces and therefore the shape of the cell. 
 
 \section{Defect energies and equilibria} 
 
@@ -370,6 +372,10 @@ Once a value of $\mu_{O_2}$ is calculated, defect concentrations can then be cal
 
 Where $c_{i}$ is the concentration of defect $i$, $q_{i}$ is its respective charge, $N_{c}$ and $N_{v}$ are the integrated density of states for the conduction and valence bands, $E_{g}$ is the band gap and $\mu_{e}$ is the Fermi level. 
 
+\subsubsection{Temperature and pressure stabilisation}
+
+As discussed in Chapter \ref{ch:crystallography}, the tetragonal and cubic phases are stabilised at elevated temperatures and pressures. However, DFT calculations of supercells under stress require significantly greater computational resources to yield sufficiently converged energy results, and so all DFT calculations in this thesis are performed on relaxed supercells. To account for this lack of stress stabilisation, Brouwer diagrams are generated at higher temperatures (where the tetragonal and cubic phases are thermally stabilised) rather than at 650 K, which is the expected temperature at the internal surface of the cladding. This approach to compensating for stress stabilisation follow that of similar studies published by other groups \cite{youssef2012intrinsic, Youssef2014, Otgonbaatar2014}.
+
 \subsection{Effect of space charge} \label{space_charge}
 
 Electrons have a higher rate of diffusion than oxygen vacancies in ZrO2, leading to a build-up of oxygen vacancies near the metal-oxide interface as corrosion progresses \cite{bojinov2010influence}. In the case of \zirconia , this effect will be pronounced because the layer is thin. This results in an overall positive charge (since the dominant oxygen vacancy is \ch{V_{O}^{**}}) referred to as a space charge. This effect can be taken into account when generating Brouwer diagrams by assuming an overall charge in the crystal structure instead of charge-neutrality:
@@ -379,14 +385,14 @@ Electrons have a higher rate of diffusion than oxygen vacancies in ZrO2, leading
 \end{equation}
 where $q_{s}$ is the charge of a unit of the artificial space charge defect and $c_{s}$ is the concentration.
 
-Figure \ref{figure:spacechargeexample} shows an example of the defect equilibria in tetragonal \zirconia\ with an overall positive space charge. In order for such a condition to be satisfied, higher concentrations of positively charged oxygen vacancy and hole defects are predicted to be present. When extrinsic defects are also present in the lattice in significant concentrations, the space charge condition may influence which defect types are dominant at different oxygen pressures, as different oxidation states may be necessary to satisfy the charge condition.
+Figure \ref{figure:spacechargeexample} shows an example of the defect equilibria in tetragonal \zirconia\ with an overall positive space charge. In order for such a condition to be satisfied, higher concentrations of positively charged oxygen vacancy and hole defects are predicted to be present, while zirconium vacancy defects fall significantly. When extrinsic defects are also present in the lattice in significant concentrations, the space charge condition may influence which defect types are dominant at different oxygen pressures, as different oxidation states may be necessary to satisfy the charge condition.
 
 %Another effect considered was the space charge of the system. Electrons have a higher rate of diffusion than oxygen vacancies in ZrO2, leading to a build-up of oxygen vacancies near the metal-oxide interface as corrosion progresses [44]. This results in an overall positive charge (since the dominant oxygen vacancy is referred to as a space charge. When included in our Brouwer diagrams, this space charge had a negligible effect on the concentration or charge state of iodine up to a charge of  holes per f.u. ZrO2. This corresponds to a high concentration of oxygen vacancies relative to the equilibrium concentration, predicting that a significant deviation from the equilibrium is not expected near the metal oxide interface as a result of a positive space charge.
 
-\begin{figure}[ht!] % Tet intrinsic no space charge
+\begin{figure}[htp] % Tet intrinsic no space charge
 \begin{center}
 \begin{tikzpicture}
-	\begin{groupplot}[group style={group size=1 by 2}, width=13cm, height=10.2cm]
+	\begin{groupplot}[group style={group size=1 by 2}, width=14cm, height=11cm]
 	\nextgroupplot[
 		 ylabel={\ch{log_{10}}([D]) (per f.u.)}, ymin=-10, ymax=0, xmin=-35, xmax=0, legend style={{draw=}, at={(0.40,0.97)}, anchor=north west, legend columns=2, nodes={scale=1, transform shape}}]
         \addplot[no marks, draw=blue!70!black] table [x=pO2, y=electrons,]{dat/intrinsic_tet.dat}; \addlegendentry{\ch{e^{'}}}; \node at (-26.0,-2) {\ch{e^{'}}};
@@ -507,7 +513,9 @@ There are a range of possible exchange-correlation functionals available in CAST
 
 While the PBE-GGA exchange-correlation functional in this work had already been selected, it was helpful to conduct an energy convergence study of the systems across the different functionals available in CASTEP in order to determine how other functionals compared. Only 6 of the 14 functionals available in CASTEP were able to yield a converged energy calculation, as shown in Figure \ref{Figure:xc_test}. This is because several hybrid functionals partially incorporate the exact exchange using the Hartree-Fock method \cite{hartree1928wave}, significantly increasing the computational cost of an energy calculation. 
 
-The calculated energies indicate that each functional correctly predicts the order of phase stability in \zirconia , though the magnitude of the energy difference between phases varied. These differences are small, approximately 0.1 eV/f.u., but their effects are compounded when defects are introduced into the cell. The total energies were more varied, with several eV differences between functionals, however, lower total energies across different exchange-correlation functionals do not necessarily suggest that a better minima has been found. For example, the PW91 functional resulted in even lower energies than PBE, despite PW91 preceding PBE and both having been developed by Perdew et al. \cite{perdew1991unified, perdew1992atoms}. It is the energy difference between systems calculated with the same exchange-correlation functional which is important. To better gauge the performance of each functional, further studies across a much larger range of parameters, and even materials, would need to be conducted, but this is beyond the scope of this thesis.
+The calculated energies indicate that each functional correctly predicts the order of phase stability in \zirconia , though the magnitude of the energy difference between phases varied. These differences are small, approximately 0.1 eV/f.u., but their effects are compounded when defects are introduced into the cell. The total energies were more varied, with several eV differences between functionals, however, lower total energies across different exchange-correlation functionals do not necessarily suggest that a better minima has been found. For example, the PW91 functional resulted in even lower energies than PBE, despite PW91 preceding PBE and both having been developed by Perdew et al. \cite{perdew1991unified, perdew1992atoms}. It is the energy difference between systems calculated with the same exchange-correlation functional which is important. 
+
+To better gauge the performance of each functional, further studies across a much larger range of parameters, and even materials, would need to be conducted, however this is beyond the scope of this thesis.
 
 \begin{figure}[ht!] % XC functional study
   \begin{center}

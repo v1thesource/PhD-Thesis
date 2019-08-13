@@ -32,7 +32,7 @@ The conceptual model of fuel pellet relocation is shown in Figure \ref{figure:re
 
 The gap between the fuel and the cladding allows fuel pellets to be inserted into the fuel pin easily during manufacture, but this clearance is also designed to accommodate some increase in fuel pellet volume. It is important to consider the thermal expansion of the fuel pellet, as the centreline temperature of a PWR fuel pellet during a power transient can vary between 1500 and 1800 $^{\circ}$C, depending on the burnup of the fuel and magnitude of the reactivity insertion \cite{Bagger1994}. In addition, fuel pellets will swell due to radiation damage throughout their operational lifetime. Once the pellet-clad gap has closed entirely, any pellet expansion during a power transient will translate to a force exerted on the cladding, generating hoop stresses which open cracks on the inner cladding surface. This is the mechanical component of PCI.
 
-In LWRs, the pellet-cladding gap closes at high burnups of approximately 50 GWd/tU \cite{Nogita1997, Suzuki2006, Rudling2008}. When the surface of the fuel pellet makes contact with the cladding, there is also a chemical interaction between the UO$_{2}$ (and fission products) and the internal surface oxide of the cladding. UO$_{2}$ has some solid solubility in ZrO$_{2}$, and we therefore see a bonded reaction layer, which has a chemical composition (U, Zr)O$_{2}$. Due to the large U atom, cation substitution allows some of this mixed layer to adopt the crystal structure of cubic fluorite, the high temperature phase of ZrO$_{2}$. The uranium nuclei in both this bonding layer and the outer rim of the fuel pellet experience the highest number of fission events (due to the proximity to the moderator), and therefore this region contains fission products that contribute to the chemical degradation of the fuel cladding, in particular iodine. This is the chemical component of PCI.
+In LWRs, the pellet-cladding gap closes at high burnups of approximately 50 GWd/t U \cite{Nogita1997, Suzuki2006, Rudling2008}. When the surface of the fuel pellet makes contact with the cladding, there is also a chemical interaction between the UO$_{2}$ (and fission products) and the internal surface oxide of the cladding. UO$_{2}$ has some solid solubility in ZrO$_{2}$, and we therefore see a bonded reaction layer, which has a chemical composition (U, Zr)O$_{2}$. Due to the large U atom, cation substitution allows some of this mixed layer to adopt the crystal structure of cubic fluorite, the high temperature phase of ZrO$_{2}$. The uranium nuclei in both this bonding layer and the outer rim of the fuel pellet experience the highest number of fission events (due to the proximity to the moderator), and therefore this region contains fission products that contribute to the chemical degradation of the fuel cladding, in particular iodine. This is the chemical component of PCI.
 
 \subsection{Reactor power ramps}
 
@@ -60,11 +60,24 @@ Figure \ref{figure:fuelcladdingcrack} shows the typical cracking behaviour of fu
 \begin{figure}[ht] % abc Fuel cladding crack
 \centering
 \includegraphics[width=\linewidth]{images/fuelcladdingcrack.png}
-\caption[Cracking of PWR fuel pellets and cladding. \textbf{a)} Transversal macrography of a fuel rod irradiated for two annual PWR operating cycles. \textbf{b)} Axial macrography of a fuel rod irradiated for two annual PWR operating cycles. \textbf{c)} SCC cladding failure.]{Cracking of PWR fuel pellets and cladding. \textbf{a)} Transversal macrography of a fuel rod irradiated for two annual PWR operating cycles. \textbf{b)} Axial macrography of a fuel rod irradiated for two annual PWR operating cycles. \textbf{c)} SCC cladding failure. Adapted from \cite{brochard2001modelling}.}
+\caption[Cracking of PWR fuel pellets and cladding. \textbf{a)} Transversal macrography of a fuel rod irradiated for two annual PWR operating cycles. \textbf{b)} Axial macrography of a fuel rod irradiated for two annual PWR operating cycles. \textbf{c)} SCC cladding failure.]{Cracking of PWR fuel pellets and cladding. \textbf{a)} Transversal macrography of a fuel rod irradiated for two annual PWR operating cycles. \textbf{b)} Axial macrography of a fuel rod irradiated for two annual PWR operating cycles. \textbf{c)} SCC cladding crack. Adapted from \cite{brochard2001modelling}.}
 \label{figure:fuelcladdingcrack}
 \end{figure}
 
 Figure \ref{figure:fuelcladdingcrack}c shows an SCC crack which has not progressed through the entire thickness of the cladding and exhibits intergranular morphology. The crack initiation site is also aligned with a radial crack in the fuel pellet. There is much evidence in post-irradiation examinations of fuel pins that I-SCC of the cladding will occur ahead of these radial pellet cracks and at the ends of the pellet \cite{Peehs2009, Haddad1983, haynes2015modelling, Wood1975, Nobrega1985, Syrett1981, Shimada1983}.
+
+\subsubsection{Cladding Zr liners}
+
+Claddings in BWRs are more prone to PCI failures, and therefore differ from claddings in PWRs by including an additional layer of Zr metal up to 0.1 mm thick, called a \emph{liner}, bonded to the inner surface of the cladding \cite{Kitano2006, Takagi1996}. The liner material is softer than the the Zr alloy used in the rest of the cladding for the purpose of suppressing crack initiation and propagation. The introduction of a liner in BWR fuel pins has been successful in reducing the incidence of PCI failures \cite{andersson2003fuel, klinger2003experience}, and this has prompted interest in introducing liners to PWR claddings \cite{groeschel2003failure}. Zr liners are still susceptible to SCC however, and their function is to alleviate the mechanical component of PCI rather than the chemical component. Figure \ref{figure:linercracks}a shows incipient cracks in a Zr liner after ramp test in a BWR. The cracks are up to 10 $\mu$m in length, spanning the thickness of the oxide layer and stopping near the metal/oxide interface. Crack arrest in this case was attributed solely to the softness of metal, although this same study showed that the hardness of the metal measured in this region was almost double that of the rest of the liner (due to radiation hardening). It should be noted that the metal near the metal/oxide interface will contain up to 29 at. \% oxygen and this has implications for the corrosion process (see § \ref{oxygensolubility}).
+
+\begin{figure}[ht] % Liner cracks
+\centering
+\includegraphics[width=14cm]{images/linercracks.png}
+\caption[Optical micrographs of incipient cracks in BWR cladding liners at a burnup of 30 MWd/kg U following \textbf{a)} a ramp test up to a LHR of 57 kW/m and \textbf{b)} irradiation for 422 hours with a LHR of 47 kW/m. Black arrow indicates oxidised crack.]{Optical micrographs of incipient cracks in BWR cladding liners at a burnup of 30 MWd/kg U following \textbf{a)} a ramp test up to a LHR of 57 kW/m and \textbf{b)} irradiation for 422 hours with a LHR of 47 kW/m. Black arrow indicates oxidised crack. Adapted from \cite{Kitano2006}.}
+\label{figure:linercracks}
+\end{figure}
+
+Figure \ref{figure:linercracks}b shows an incipient crack in a BWR cladding liner which has been oxidised in a long (422 hour) irradiation test. This shows that repassivation of the cladding can occur during operation, preventing further attack at a crack site by iodine and other fission products. Additionally, a bonding layer between the pellet and cladding liner several $\mu$m thick is observed. In this case, the crack in the liner does not follow a crack in the fuel pellet as expected (see Figure \ref{figure:fuelcladdingcrack}), but this particular sample did not fail so it is not clear if this type of crack would eventually lead to a PCI failure. 
 
 \subsubsection{Failure thresholds}
 
@@ -77,12 +90,12 @@ The propensity for a fuel pin to fail due to PCI is a function of both burnup an
 \label{figure:BWRrampthreshold}
 \end{figure}
 
-SCC damage has also been observed to occur with a threshold effect based on fuel burnup. Figure \ref{figure:SCCthreshold} shows 
+SCC damage has also been observed to occur with a threshold effect based on fuel burnup \cite{Wood1974}. Figure \ref{figure:SCCthreshold} shows the results of I-SCC tests on irradiated Zircaloy cladding C-rings. A failure threshold exists at a burnup of approximately 24 MWh/kg U (1 MWd/kg U). All samples were loaded and held for 25 minutes, and the failure fraction was plotted against burnup. Yield strengths of samples from the same irradiated claddings are also provided and clearly show a radiation hardening effect, increasing yield strength of the samples from 470 MPa at a burnup of 1 MWd/kg U, to 730 MPa at approximately 20 MWd/kg U. This is accompanied by a large decrease in ductility and ability to resist crack propagation. C-ring samples have failure rates approaching 100\% at these higher burnups.
 
 \begin{figure}[ht] % SCC initiation threshold
 \centering
 \includegraphics[width=14cm]{images/SCCthreshold.png}
-\caption[SCC susceptibility of stress relieved Zircaloy fuel cladding at 573 K as a function of burnup and cladding yield strengths at 553 K. Numbers next to data points indicate number of rings from the sample used in yield data.]{SCC susceptibility of stress relieved Zircaloy fuel cladding at 573 K as a function of burnup and cladding yield strengths at 553 K. Numbers next to data points indicate number of rings from the sample used in yield data. Figure from \cite{bcoxpelletclad1990} with yield strength data from \cite{Bement1964}}
+\caption[I-SCC susceptibility of stress relieved Zircaloy fuel cladding at 573 K as a function of burnup and cladding yield strengths at 553 K. Numbers next to data points indicate number of rings from the sample used in yield data.]{I-SCC susceptibility of stress relieved Zircaloy fuel cladding at 573 K as a function of burnup and cladding yield strengths at 553 K. Numbers next to data points indicate number of rings from the sample used in yield data. Figure from \cite{bcoxpelletclad1990} with yield strength data from \cite{Bement1964}.}
 \label{figure:SCCthreshold}
 \end{figure}
 
@@ -90,9 +103,11 @@ SCC damage has also been observed to occur with a threshold effect based on fuel
 
 Although PCI failures were found to occur during power ramping, it was not yet known whether these failures were due to fission product induced SCC or tensile failure of the cladding due to radiation embrittlement. 
 
-In 1971, scientists at the Chalk River Nuclear Laboratories conducted a series of tests to determine if fission products were necessary for PCI failures to occur \cite{MacDonald1979}. The experiments involved taking highly irradiated zirconium fuel pins (fluence of $8 \times 10^{24}$ n/m$^{2}$ with 1 MeV neutrons) and then inserting fresh, unirradiated UO$_{2}$ fuel pellets into them. These fuel pins were then inserted back into a reactor and subjected to large power ramps with linear power ratings of up to 77 kW/m, as shown in Figure \ref{figure:fueltests}. These ramps (phase I and II) would typically cause failures in fuel pins with similar irradiation histories (see Figures \ref{figure:BWRrampthreshold} and \ref{figure:SCCthreshold}. In the initial ramp tests however, all the fuel pins survived the ramps intact. Six fuel pins were then irradiated in the reactor at low power to a burnup in excess of 50 MWh/kg U in order to build up fission products in the fuel (phase III). In a subsequent ramp test (phase IV), two of the high burnup fuel pins failed in the reactor. This finding provided the strongest evidence to date that fission products are necessary for PCI failure of zirconium-based claddings. The fission product most likely to cause cracking, based on known SCC susceptibility of Zr metal, is iodine.
+In 1971, scientists at the Chalk River Nuclear Laboratories conducted a series of tests to determine if fission products were necessary for PCI failures to occur \cite{MacDonald1979}. The experiments involved taking highly irradiated zirconium fuel pins (fluence of $8 \times 10^{24}$ n/m$^{2}$ with 1 MeV neutrons) and then inserting fresh, unirradiated UO$_{2}$ fuel pellets into them. These fuel pins were then inserted back into a reactor and subjected to large power ramps with linear power ratings of up to 77 kW/m, as shown in Figure \ref{figure:fueltests}. These ramps (phase I and II) would typically cause failures in fuel pins with similar irradiation histories (see Figures \ref{figure:BWRrampthreshold} and \ref{figure:SCCthreshold}). In the initial ramp tests however, all the fuel pins survived the ramps intact. Six fuel pins were then irradiated in the reactor at low power to a burnup in excess of 50 MWh/kg U (2.1 MWd/kg U) in order to build up fission products in the fuel (phase III). 
 
-\begin{landscape}
+In a subsequent ramp test (phase IV), two of the high burnup fuel pins failed in the reactor. This finding provided the strongest evidence to date that fission products are necessary for PCI failure of zirconium-based claddings. The fission product most likely to cause cracking, based on known SCC susceptibility of Zr metal, is iodine.
+
+\begin{landscape} % Chalk river fresh fuel old cladding
 \begin{figure}[ht]
 \centering
 \includegraphics[width=\linewidth]{images/fueltests.png}
@@ -103,9 +118,9 @@ In 1971, scientists at the Chalk River Nuclear Laboratories conducted a series o
 
 As discussed earlier, iodine is one of the most prevalent fission products and it is known to corrode zirconium metal \cite{iodinezrmetal, Sidky1998, rosenbaum1966interaction, Fregonese1998, Lewis2011, anghel2010experimental}. The exact mechanism by which this occurs in fuel pins is not yet known, though a combination of radiolysis, I$_{2}$ diffusion and chemical attack (I-SCC) are considered to be most likely. 
 
-The most commonly proposed mechanism is illustrated in Figure \ref{figure:vanarkel}. In the first step, iodine and caesium are produced through fission of the fuel and diffuse towards the outer surface of the fuel pellet (though not necessarily together \cite{Grimes1992}). A thin film of CsI is deposited on the outer surface of the fuel pellet and subsequently decomposes via radiolysis, liberating iodine in vapour form. The iodine vapour then diffuses towards a crack site in the cladding and reacts with Zr to produce ZrI$_{4}$. The ZrI$_{4}$ then breaks away from the metal due to the high surface energies, causing pitting and progressing the crack tip further into the metal. This model however, fails to consider the effect of the oxide on the internal layer of the cladding (as a barrier layer to ingress of corrosive species), and it does not take into account the presence of oxygen in the pellet-cladding gap and in the metal matrix (in solution) near the metal-oxide interface. Both these factors are important as the oxide provides a protective effect (otherwise I-SCC failures would be far more prevalent, regardless of ramp rate limitations and conditioning holds) and where the oxide has been ruptured, repassivation and competition between iodine and oxygen will occur.
+The most commonly proposed mechanism is illustrated in Figure \ref{figure:vanarkel}. In the first step, iodine and caesium are produced through fission of the fuel and diffuse towards the outer surface of the fuel pellet (though not necessarily together \cite{Grimes1992}). A thin film of CsI is deposited on the outer surface of the fuel pellet and subsequently decomposes via radiolysis, liberating iodine in vapour form. The iodine vapour then diffuses towards a crack site in the cladding and reacts with Zr to produce ZrI$_{4}$. The ZrI$_{4}$ then breaks away from the metal due to the high surface energies, causing pitting and progressing the crack tip further into the metal. This model however, fails to consider the effect of the oxide on the internal layer of the cladding (as a barrier layer to ingress of corrosive species), and it does not take into account the presence of oxygen in the pellet-cladding gap and in the metal matrix (in solution) near the metal-oxide interface. Both these factors are important as the oxide provides a protective effect (otherwise I-SCC failures would be far more prevalent, regardless of ramp rate limitations and conditioning holds) and where the oxide has been ruptured, repassivation and competition between iodine and oxygen will occur. The effect of this internal oxide layer is one of the gaps in knowledge that is addressed in this thesis.
 
-\begin{figure}[ht]
+\begin{figure}[ht] % Van Arkel
 \centering
 \includegraphics[width=\linewidth]{images/vanarkel.png}
 \caption[Schematic of a proposed I-SCC process for cladding crack penetration.]{Schematic of a proposed I-SCC process for cladding crack penetration. Taken from \cite{Lewis2011}.}
@@ -114,7 +129,18 @@ The most commonly proposed mechanism is illustrated in Figure \ref{figure:vanark
 
 \subsection{Iodine availability}
 
-The amount of free iodine available in the fuel pin is dependent on many different factors (e.g. temperature, pressure, power history, axial location in fuel pin, diffusion rate through fuel), making it difficult to measure. Additionally, iodine nuclei (and fission products in general) will likely implant in either the fuel pellet or the cladding due to their large kinetic energies following a fission event. 
+The amount of iodine available in the fuel pin is dependent on many different factors (e.g. temperature, pressure, power history, axial location in fuel pin, diffusion rate through fuel), making it difficult to measure. Additionally, iodine nuclei (and fission products in general) will likely implant in either the fuel pellet or the cladding due to their large kinetic energies following a fission event.
+
+\subsubsection{Iodine precursors}
+
+Lewis \emph{et al}. showed that the iodine inventory will increase sharply during both startup and shutdown \cite{Lewis2017}, and attributed the iodine spike during shutdown solely to cracking of the fuel pellet (and subsequent release of trapped iodine). However, this ignores the contribution of iodine precursors (tellurium isotopes) to the iodine inventory. For example, \ch{I^{131}} is shown to increase following shutdown. Production of \ch{I^{131}} is dominated by $\beta$- decay of \ch{Te^{131}} (half-life 25 minutes, see Figure \ref{table:decaydata_chap1}). Immediately following shutdown from steady state operation, the rate of \ch{I^{131}} production from \ch{Te^{131}} decay remains the same (because there is still \ch{Te^{131}} in the fuel), but `burning` of \ch{I^{131}} by neutron capture falls to zero. The thermal neutron absorption cross-section of \ch{I^{131}}, shown in Figure \ref{figure:te_i_xsection}, is significant, being of comparable magnitude to the thermal fission cross-section of \ch{U^{235}}. With the absorption reduced to zero, \ch{I^{131}} can only be removed by nuclear decay. Decay of \ch{I^{131}} (half-life 8.023 days) is much slower than \ch{Te^{131}}, and therefore the quantity of \ch{I^{131}} will spike immediately after shutdown. All isotopes of tellurium in the mass range 131 to 138 have high fission yields (often higher than iodine) and short half lives, contributing significantly to the iodine inventory in the fuel. This effect has largely been overlooked in the literature.
+
+\begin{figure}[ht] % I, U cross-sections
+\centering
+\includegraphics[width=14cm]{images/te_i_xsection.png}
+\caption[Neutron absorption and fission spectra of \ch{I^{131}} and \ch{U^{235}}, respectively.]{Neutron absorption and fission spectra of \ch{I^{131}} and \ch{U^{235}}, respectively.}
+\label{figure:te_i_xsection}
+\end{figure}
 
 \subsubsection{Radiolysis}
 
@@ -122,7 +148,7 @@ Thermodynamic calculations performed by Konashi \emph{et al}. estimate the equil
 
 \subsubsection{Implantation}
 
-Fission products immediately following a fission event have kinetic energies of up to 90 MeV. These are large, highly ionising particles which deposit their energy to the surrounding atoms within several microns of where they are produced, due to the large electronic and nuclear stopping power of crystalline solids such as UO$_{2}$ and ZrO$_{2}$. Figure \ref{figure:srimtrim}a shows TRIM calculations of the amount of iodine that is implanted in ZrO$_{2}$ at different incident ion energy levels. 
+Fission products immediately following a fission event have kinetic energies of up to 90 MeV. These are large, highly ionising particles which deposit their energy to the surrounding atoms within several microns of where they are produced, due to the large electronic and nuclear stopping power of crystalline solids such as UO$_{2}$ and ZrO$_{2}$. Computer simulations are often used to predict the distribution ions in a material subjected to some ion fluence. Figure \ref{figure:srimtrim}a shows TRIM calculations of the amount of iodine that is implanted in ZrO$_{2}$ at different incident ion energy levels. Iodine at 6.5 MeV is predicted to penetrate ZrO$_{2}$ up to a thickness of 1.6 $\mu$m (the internal oxide thickness is typically between 5 and 10 $\mu$m). Less energetic ions will have distribution peaks nearer to the oxide surface. There is good agreement between TRIM predictions and experimental data (Figure \ref{figure:srimtrim}b) for the distribution of 50 keV iodine ions implanted in ZrO$_{2}$, with the distribution peak at 12 nm from the surface.
 
 \begin{figure}[ht] % SRIM/TRIM values for iodine in ZrO2
 \centering
@@ -131,7 +157,9 @@ Fission products immediately following a fission event have kinetic energies of 
 \label{figure:srimtrim}
 \end{figure}
 
-Further to the mechanism described above, it is important to consider the role of oxygen in the I-SCC process. Fuel pins do not regularly fail during normal operation, despite iodine being produced continuously from fission of the fuel. As previously mentioned, this is because the inner surface of the cladding is not pure Zr metal, but rather a protective oxide which provides an effective barrier against corrosive species such as iodine.
+Implantation of fission products has also been studied experimentally in YSZ due to interest in inert matrix fuels and wasteforms for actinide wastes. At dopant concentrations between 0.4 and 1 at. \%, caesium was found to preferentially occupy cation sites (i.e. Cs substitutional defect formation), whereas iodine seemed to occupy random sites in the lattice \cite{Thome1999}. It was not clear however if iodine was occupying interstitial sites or forming defect clusters (or even compounds with Zr). These studies provided limited insight for pure ZrO$_{2}$ because stabilisation of the cubic phase with yttrium will significantly increase the concentration of oxygen vacancy defects, and these defects in addition to the presence of yttrium ions will influence the types of iodine and caesium defects which form in ZrO$_{2}$.
+
+Further to the mechanisms described above, it is important to consider the role of oxygen in the I-SCC process. Fuel pins do not regularly fail during normal operation, despite iodine being produced continuously from fission of the fuel. As previously mentioned, this is because the inner surface of the cladding is not pure Zr metal, but rather a protective oxide which provides an effective barrier against corrosive species such as iodine.
 
 \section{Oxidation of zirconium}
 
@@ -150,9 +178,9 @@ An oxide layer will form on the surface of zirconium metal even at very low oxyg
 \label{figure:oxide_weight_gain}
 \end{figure}
 
-\subsection{Oxygen solubility of zirconium}
+\subsection{Oxygen solubility of zirconium} \label{oxygensolubility}
 
-Considering the Zr-O binary phase diagram in Figure \ref{figure:binary_phase_diagram}, oxygen is soluble in zirconium up to 29\% of total molar mass when below 400 $^{\circ}$C, commensurate with the operating temperature of a typical PWR (330 \textdegree C at the outer surface of the cladding). Solubility increases slightly up to 35\% of total molar mass as temperature is increased to the liquidus line at 2065 $^{\circ}$C. This is important to note because in the literature, it is assumed that there is pure Zr metal immediately beneath the \zirconia\ layer \cite{rossi2015first}, which is an assumption that will underestimate the extent to which repassivation occurs when the oxide layer is breached, and disregards the effect of the thin ZrO interface that can precede the metal. The molar mass of oxygen required to grow more oxide near the interface will therefore be at least 37\% lower than expected when using this assumption.
+Considering the Zr-O binary phase diagram in Figure \ref{figure:binary_phase_diagram}, oxygen is soluble in zirconium up to 29 at. \% when below 400 $^{\circ}$C, commensurate with the operating temperature of a typical PWR (330 \textdegree C at the outer surface of the cladding). Solubility increases slightly up to 35 at. \% as temperature is increased to the liquidus line at 2065 $^{\circ}$C. This is important to note because in the literature, it is assumed that there is pure Zr metal immediately beneath the \zirconia\ layer \cite{rossi2015first}, which is an assumption that will underestimate the extent to which repassivation occurs when the oxide layer is breached, and disregards the effect of the thin ZrO interface that can precede the metal. The molar mass of oxygen required to grow more oxide near the interface will therefore be at least 37\% lower than expected when using this assumption.
 
 The presence of oxygen in the Zr metal will also have an effect on thermodynamic calculations of extrinsic defect formation. Atoms such as Te and I will have to compete with O atoms (and potentially, self-interstitial Zr atoms) for interstitial sites in the metal. This increases the energy barrier to diffusion because of the lower availability of sites. An energy input is required to remove O or Zr atoms occupying these sites, making them a less favourable diffusion path.
 
@@ -180,16 +208,16 @@ The outer oxide layer is in contact with the coolant, which is mostly light wate
 The internal oxide layer is much more challenging to examine due to the need to prepare samples in hot cells. This layer is typically very brittle due to radiation damage and implantation of fission products. At a high enough burnup, the \zirconia\ layer makes contact with the UO$_{2}$ fuel, with which it will bond. Figure \ref{figure:inner_oxide} shows a section of the cladding with the inner oxide layer bonded to the pellet. The crystal structure of the \zirconia\ in this layer is debated. Some studies report no monoclinic phase in high burnup fuels, with cubic phase \zirconia\ throughout most of the layer and an amorphous phase nearer the pellet side \cite{Nogita1997}, while other studies report mostly tetragonal phase in this layer \cite{ciszak2017etude, gibert1998influence}. 
 %After removal from the reactor and the subsequent cooling period, the inner oxide
 
-\begin{figure}[ht]
+\begin{figure}[ht] % PCI bonding layer high burnup
 \centering
 \includegraphics[height=10.5cm]{images/pci_bondinglayer.png}
-\caption[High resolution scanning electron microscrope (SEM) image of the bonding layer between a PWR UO$_{2}$ fuel pellet and Zr cladding in a fuel pin at an approximate burnup of 60 GWd/tU.]{High resolution SEM image of the bonding layer between a PWR UO$_{2}$ fuel pellet and Zr cladding in a fuel pin at an approximate burnup of 60 GWd/tU. Adapted from \cite{Lozano1998}.}
+\caption[High resolution scanning electron microscrope (SEM) image of the bonding layer between a PWR UO$_{2}$ fuel pellet and Zr cladding in a fuel pin at an approximate burnup of 60 GWd/t U.]{High resolution SEM image of the bonding layer between a PWR UO$_{2}$ fuel pellet and Zr cladding in a fuel pin at an approximate burnup of 60 GWd/tU. Adapted from \cite{Lozano1998}.}
 \label{figure:inner_oxide}
 \end{figure}
 
 Figure \ref{figure:bonding_layer_composition} shows the composition of the inner oxide of a high burnup fuel pin. The fission product (Ba, Mo, Nd) content is highest at the beginning of the \zirconia\ layer and decreases almost linearly with distance towards the Zr metal. This is due to fission product implantation rather than diffusion in the oxide as these elements have low volatility and low cation diffusion rates in UO$_{2}$ where they are produced \cite{S.G.PrussinD.R.OlanderP.Goubeault1984, Prussin1988}. % can you use the weight composition and fission yields to estimate what percentage of iodine implantation will be?
 
-\begin{figure}[ht!]
+\begin{figure}[ht!] % Elemental composition of fuel pellet
 \centering
 \includegraphics[width=14cm]{images/bonding_layer_composition.png}
 \caption[Elemental composition of the bonded UO$_{2}$/ZrO$_{2}$ layer from a PWR UO$_{2}$ fuel pellet with a burnup of 61 GWd/tU.]{Elemental composition of the bonded UO$_{2}$/ZrO$_{2}$ layer from a PWR UO$_{2}$ fuel pellet with a burnup of 61 GWd/tU. Taken from \cite{Lozano1998}.}
