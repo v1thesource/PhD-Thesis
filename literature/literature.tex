@@ -283,14 +283,7 @@ Two energy bands, the \emph{valence band} and \emph{conduction band}, help deter
 
 In addition to the valence and conduction bands, a value for the electron chemical potential or Fermi level of the material is needed to determine how the energy bands are filled. If the Fermi level is exactly halfway between the valence band maximum (VBM) and the conduction band minimum (CBM), then the additional energy input required to promote an electron to the conduction band is half of the band gap. The Fermi level is strongly dependent on extrinsic defects and temperature. Extrinsic defects (called dopants) can be introduced to materials such as semiconductors in order to change the concentration of electronic defects (electrons and holes), while an increase in temperature will result in an increase in the Fermi level because of the larger quantity of thermal energy available.
 
-It is important to note that band gaps reported in DFT studies using classical LDA/GGA methods are significantly lower than those obtained experimentally. This is a known problem in DFT, and an exchange-correlation functional which reproduces correct band gap energies in semiconductors and insulators (without overfitting to experimental data) has not yet been discovered. The GW method, which uses a self-energy energy term in place of an exchange-correlation functional, allows more accurate\footnote{The GW approximation still has inaccuracies when modelling strongly correlated systems, but works well with $s$-$p$ systems.} estimates of the band gap than with DFT, but at a significantly higher computational expense. In many cases, the band gap from DFT calculations may be increased by appending an additional potential term, known as a +U parameter, to certain valence electron orbitals (discussed further in § \ref{subsection:plus_U}), or by using hybrid potentials which can incorporate the exact exchange energy.
-
-
-
-
-
-
-
+It should be noted that band gaps reported in DFT studies using LDA/GGA methods are significantly lower than those obtained experimentally. This is a known problem in DFT, and an exchange-correlation functional which reproduces correct band gap energies in semiconductors and insulators (without overfitting to experimental data) is not yet known. The GW method, which uses a self-energy energy term in place of an exchange-correlation functional, allows more accurate\footnote{The GW approximation still has inaccuracies when modelling strongly correlated systems, but works well with $s$-$p$ systems.} estimates of the band gap than with DFT, but at a significantly higher computational expense. The band gap from DFT calculations may also be increased by appending an additional potential term, known as a +U parameter, to certain valence electron orbitals (discussed further in § \ref{subsection:plus_U}), or by using hybrid potentials which can incorporate the exact exchange energy.
 
 %\section{Fission product empirical potential}
 %
@@ -305,11 +298,3 @@ It is important to note that band gaps reported in DFT studies using classical L
 %\section{Zr/ZrO/\zirconia\ interface study}
 %
 %The inner oxide is not a homogeneous structure, as described in § \ref{ch:crystallography}. Figure \ref{fig:zro_interface} clearly shows the existence of a ZrO phase up to 200 nm thick at the interface between \zirconia\ and Zr metal. The presence of ZrO and even oxygen-saturated Zr metal will have an effect on the thermodynamic equilibria of different fission products. An interface study can be conducted using DFT, to determine stresses at the interfaces of Zr and ZrO, and ZrO and \zirconia . Studying the aggregate effect of these interfaces on fission product behaviour may require larger molecular dynamics simulations, however. The crystal structure of the ZrO phase has been studied using both simulation and high-resolution electron microscopy, with two likely crystal structures being proposed \cite{Nicholls2015}. Further atomistic studies must be conducted to determine the stability of each crystal structure of ZrO when constrained by \zirconia\ and oxygen-saturated Zr metal interfaces.
-%
-%
-%\begin{figure}[ht]
-%    \centering
-%    \includegraphics[height=9cm]{images/zro_interface.png}
-%    \caption[STEM image of a Zr-1.0\%Nb sample oxidised in simulated PWR water at 360 C for 120 days.]{STEM image of a Zr-1.0\%Nb sample oxidised in simulated PWR water at 360 C for 120 days. Taken from \cite{inproceedings}.}
-%    \label{fig:zro_interface}
-%\end{figure}

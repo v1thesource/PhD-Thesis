@@ -289,6 +289,18 @@ When calculating the energy of a defect with an overall non-zero charge, this ch
 
 The source of the error from charged defects is self-interaction across the periodic boundary, made necessary by the finite cell size. A common solution is to append a Makov-Payne correction term when calculating formation energies of defects \cite{Makov1995, Makov1996}. This works well in many cases, but does not take into consideration the anisotropy of the dielectric properties, as is the case in tetragonal \zirconia\ due to the non-unity lattice $c/a$ ratio. These effects are better captured when using a screened Madelung correction \cite{Murphy2013}. This method provides a more complete description of the dielectric properties by utilising a dielectric tensor rather than a single value of the dielectric constant (or relative permittivity). Dielectric tensors for the different phases of \zirconia\ were taken from \cite{Zhao2002a, Zhao2002}. The screened Madelung correction is therefore used in preference to a Makov-Payne correction throughout this thesis.
 
+\subsection{Helmholtz free energy} \label{helmholtz_method}
+
+In order to examine the relationship between temperature and energy for the different \zirconia\ phases, phonon calculations were performed in CASTEP using a method outlined by Burr \emph{et al.} \cite{burr2015crystal,jackson2016resolving}. This entails using the harmonic approximation to determine the shape of the potential well that an atom sits in. The potential well is approximated by a spherically symmetric harmonic well, centred at an atom's equilibrium position in the lattice. At a temperature of 0 K, an atom will occupy the lowest region of its potential well, known as the ground state (though they will still have energy, known as zero-point energy). As temperature increases, the atom will sometimes occupy higher energy states in the potential well due to increased thermal vibrations, moving from its equilibrium position. The total energy ($A(T, V)$) of this system, known as the Helmholtz free energy, is calculated using the internal energy ($U(V)$), vibrational enthalpy ($H_{v}(T, V)$), vibrational entropy ($S_{v}(T, V)$) and configurational entropy ($S_{conf}$):
+\begin{equation} \label{vibrational}
+A(T, V) = U(V) + H_{v}(T, V) - TS_{v}(T, V) - TS_{conf} 
+\end{equation}
+where $T$ is temperature and $V$ is volume. The configurational entropy is calculated using Boltzmann statistics:
+\begin{equation}
+S_{conf} = k_{B}\ch{ln}(\Omega)
+\end{equation}
+where $k_{B}$ is the Boltzmann constant and $\Omega$ denotes the number of possible configurations (i.e. valid permutations of energy level occupancy). The vibrational terms in Equation \ref{vibrational} are obtained by performing a constant-volume phonon calculation in CASTEP and then integrating over the resulting phonon DOS. This is done over a range of temperatures for each crystal structure of \zirconia .
+
 \subsection{Incorporation energies}
 
 The inner oxide of the fuel cladding will be highly defective due to radiation damage, resulting in a high concentration of pre-existing intrinsic defect sites relative to the concentration of fission products. We therefore consider the energy of fission product incorporation on to these existing defect sites. The energies to incorporate atoms at interstitial and substitutional sites in \zirconia\ were calculated from the set of defective and perfect supercell DFT energies. For iodine, incorporation energies were established to place atoms into vacancy sites of different charge to generate defects from \ch{I_{O}^{x}} to \ch{I_{O}^{**}}, and \ch{I_{Zr}^{x}} to \ch{I_{Zr}^{''''}}. I was also incorporated onto the interstitial sites.
@@ -322,7 +334,7 @@ The first step is to generate multiple different \texttt{.cell} files, each with
 
 \subsection{Defect volumes} \label{isobaricmethod}
 
-Defect volumes of point defects were calculated using an isobaric method, requiring two constant-pressure calculations to be performed using the geometry optimisation task in CASTEP. The defect volume ($\Delta$V) is defined as: 
+Defect volumes of point defects were calculated using an isobaric method, requiring two calculations to be performed under constant-pressure using the geometry optimisation task in CASTEP. The defect volume ($\Delta$V) is defined as: 
 \begin{equation}
 \Delta V = V_{def} - V_{perf}
 \end{equation}

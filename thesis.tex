@@ -40,6 +40,8 @@
 \input{results1/results1} % Good
 \input{results2/results2} % Good
 \input{results3/results3} % Good
+\input{summary/summary} 
+%\input{future/future} % Moved to summary.tex
 
 \setstretch{1.6}
 \addcontentsline{toc}{chapter}{References}
@@ -62,5 +64,33 @@ ParaSweep is a generalised sensitivity analysis visualisation tool which was dev
 \label{castep_scripts}
 
 Throughout the course of this project, many useful scripts were created to help with preparing CASTEP jobs and analysing their outputs. These scripts have been made available online and for free at \href{https://github.com/v1thesource/CASTEP}{https://github.com/v1thesource/CASTEP}. The purpose of open-sourcing these scripts is to simplify the experience for new users of CASTEP and help them save a considerable amount of time.
+
+\chapter{Steady state calculation of iodine inventory}
+
+Consider a reactor such as the AP1000 with thermal efficiency $\eta_{t}$ = 1/3 and electrical power output $P_{e}$ = 1000 MWe. Thermal power output ($P_{t}$) is therefore:
+\begin{equation}
+P_{t} = \frac{P_{e}}{\eta_{t}} = \frac{1000}{1/3} = 3000 \ \ch{MWt}
+\end{equation}
+Assuming all thermal energy comes from fission events with each fission of U$^{235}$ releasing 170 MeV, the mean rate of fission ($\dot{f}$) is given by:
+\begin{equation}
+\dot{f} = \frac{P_{t}}{E_{fission}} = \frac{3 \times 10^{9}}{(170 \times 10^{6})(1.60 \times 10^{-19})} = 1.10 \times 10^{20} \ \ch{s^{-1}}
+\end{equation}
+Each fission of U$^{235}$ is an independent event, therefore the production rate of a particular isotope from fission ($\dot{f}_{X}$) is related to its independent fission yield ($y_{X}$) as follows:
+\begin{equation}
+\dot{f}_{X} = \dot{f}y_{X}
+\end{equation}
+The total inventory of iodine at steady state operation is dependent on four factors:
+\begin{itemize}
+\item Production directly from fission
+\item Production from decay of tellurium precursors
+\item Loss through radioactive decay
+\item Loss (of a particular iodine isotope) through neutron capture
+\end{itemize}
+The rate of change of tellurium and iodine populations (\ch{N_{Te}} and \ch{N_{I}}) can be expressed by:
+\begin{gather}
+\frac{d\ch{N_{Te}}}{dt} = \dot{f}_{Te} - \lambda_{Te}\ch{N_{Te}} \\
+\frac{d\ch{N_{I}}}{dt} = \dot{f}_{I} + \lambda_{Te}\ch{N_{Te}} - \lambda_{I}\ch{N_{I}} - \phi\sigma_{a_{I}}\ch{N_{I}}
+\end{gather}
+where $\lambda_{X}$ is the decay constant of isotope $X$, $\phi$ is the thermal neutron flux and $\sigma_{a_{I}}$ is the microscopic thermal neutron absorption cross-section of iodine.
 
 \end{document}
