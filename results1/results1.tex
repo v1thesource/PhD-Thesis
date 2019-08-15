@@ -19,7 +19,7 @@ The electrical energy convergence criterion was set to $1\times10^{-6} $ eV. The
 
 \subsection{Helmholtz free energy}
 
-As discussed in § \ref{helmholtz_method}, a harmonic approximation was used to determine the temperature dependence of the free energies for the non-defective crystal structures of ZrO$_{2}$. A constant-volume phonon calculation was performed for each structure, from which the vibrational enthalpy $H_{v}(T, V)$ and entropy $S_{v}(T, V)$ contributions to the Helmholtz free energy were calculated up to a temperature of 2500 K. The complete Helmholtz free energy $A(T, V)$ was then obtained by including the internal energy $U(V)$ and configurational entropy $S_{conf}$ of the system:
+As discussed in § \ref{helmholtz_method}, a harmonic approximation was used to determine the temperature dependence of the free energies for the non-defective crystal structures of ZrO$_{2}$. A constant-volume phonon calculation was performed for each structure, from which the vibrational enthalpy $H_{v}(T, V)$ and entropy $S_{v}(T, V)$ contributions to the Helmholtz free energy were calculated up to a temperature of 2500 K in order to cover the temperature range of the three common \zirconia\ phases. The complete Helmholtz free energy $A(T, V)$ was then obtained by including the internal energy $U(V)$ and configurational entropy $S_{conf}$ of the system:
 \begin{equation} \label{helmholtz_equation}
 A(T, V) = U(V) + H_{v}(T, V) - TS_{v}(T, V) - TS_{conf}
 \end{equation}
@@ -77,6 +77,14 @@ $C_{66}$                                         & 114.19        & 152.60       
 \end{table}
 
 The monoclinic and tetragonal phases have similar stiffness along the principal axes, but vary significantly under shearing conditions. In particular, the tetragonal phase exhibits much smaller $C_{44}$ and $C_{55}$ components. This may be attributed to the strong directional anisotropy of the tetragonal phase due to the larger $c$ parameter. 
+
+The bulk modulus ($B$) of each phase was calculated from the elastic constants using the following formulae \cite{Watt1980, Wu2018, wu2017critical}:
+\begin{gather}
+B_{\ch{monoclinic}} = \frac{1}{9}(C_{11} + C_{22} + C_{33} + 2(C_{12} + C_{13} + C_{23})) \\
+B_{\ch{tetragonal}} = \frac{1}{9}(2C_{11} + 2C_{12} + 4C_{13} + C_{33}) \\
+B_{\ch{cubic}} = \frac{1}{3}(C_{11} + 2C_{12})
+\end{gather}
+These yielded bulk modulus values 190.87 GPa, 169.94 GPa and 236.41 GPa for the monoclinic, tetragonal and cubic phases respectively. These compare with experimental values of 201 GPa for monoclinic at 20 $^{\circ}$C \cite{Chan1991}, 176 GPa for tetragonal at room temperature (pressure stabilised between 1-20 GPa) \cite{Bouvier2000} and 201.09 GPa for 10 \% YSZ (cubic) at 300 K \cite{Cai1995}. The monoclinic and tetragonal values are in good agreement with experiment. The cubic phase value is difficult to compare as this phase is always studied with a phase stabilising dopant, thus affecting the measured value.
 
 \subsection{Electronic density of states} 
 
@@ -146,9 +154,11 @@ The lack of an observed transition to the cubic phase may further indicate an in
 
 \subsection{Formation energies}
 
+Calculated point defect formation energies are provided and discussed below as a function of the Fermi level, defined as the electrochemical potential above the energy of the valence band maximum (VBM). Formation energies are plotted up to a Fermi level of 6 eV in order to span the entire experimental band gap of \zirconia . Only the defects with the lowest formation energies at each Fermi level are shown.
+
 \subsubsection{Monoclinic}
 
-XXX
+Oxygen vacancies in the monoclinic phase are shown in Figure \ref{figure:monovacancies} for both the III and IV coordinated oxygen atoms. At Fermi levels between 0 and 3 eV, formation of \ch{V_{O}^{**}} defects is expected, with III coordinated oxygen atoms having formation energies 0.6 eV lower. This energy difference between the two types of oxygen vacancy is substantial, and since both are anion sites of the same charge, this suggests that the defect size is the main reason for the difference in energy. In this case, a vacancy at the III oxygen site is larger defect than at the IV oxygen site (see § \ref{defect_volumes_r1} for defect volumes), and the negative energies reveal that the non-defective monoclinic structure is too large at low Fermi levels. At Fermi levels above 3 eV, \ch{V_{O}^{x}} defects become the most favourable at both oxygen sites, with almost the same formation energy (0.9 eV). The defect with the smallest formation energy switches from \ch{V_{O}^{**}} to \ch{V_{O}^{x}} as the Fermi level is increased. The absence of \ch{V_{O}^{*}} defects is due to the relatively unfavourable electronic state imposed in the lattice with this defect configuration. This could be because of the suboptimal orbital occupancy in the surrounding ions when a single electron is missing rather than two.
 
 \begin{figure}[ht] % Mono vacancies Fermi level
 \begin{center}
@@ -164,6 +174,8 @@ XXX
 		\label{figure:monovacancies}
 	\end{center}
 \end{figure}
+
+
 
 \subsubsection{Tetragonal}
 
@@ -304,7 +316,7 @@ E_{NTV} = E_{DFT}(NTV) - \frac{n-3}{n}E_{DFT}(ZrO_2)% - \frac{E_{I_2}}{2}
 \end{equation}
 Where $E_{DFT}(NTV)$ is the energy of a supercell containing the NTV defect. As the defective supercell contains three fewer ions than the non-defective cell, the energy of the non-defective cell was adjusted by a proportional factor in our calculation. This form maintains both mass and charge balance of the Schottky defect description for \zirconia\ described in Equation \ref{generic_schottky}.
 
-\subsection{Defect Volumes}
+\subsection{Defect Volumes} \label{defect_volumes_r1}
 
 Tables \ref{defect_volumes_raw} and \ref{defect_volumes_clusters_isolated} show the calculated point defect and cluster defect volumes respectively. The Frenkel and Schottky defect volumes are calculated from the sum of the relevant point defects that would result in an overall neutral charge, with clusters of fully-charged point defects being the expected defect structures in a real material.
 
@@ -390,7 +402,7 @@ The bound defect formation energies shown in Table \ref{table:bound_defects} sho
 
 The symmetry of cubic ZrO$_{2}$ has previously been reported to sometimes break when relaxing supercells with interstitial oxygen defects \cite{samanta2010thermodynamic}. However, reports of Schottky defect clusters breaking cubic symmetry in \zirconia\ have not been found in the literature. Later studies by Burr \emph{et al}. have shown that the energies of NTVs calculated in MO$_{2}$ cubic fluorite structures is highly sensitive to the size of the supercell, with larger errors found when using smaller supercells \cite{burr2017importance}. It was also found that the symmetry of cubic ZrO$_{2}$ could not be retained during relaxation in large supercells (324 and 768 atoms) due to the stability of the monoclinic phase. Cubic supercells with 96 atoms are studied in this thesis, and while cubic symmetry of \zirconia\ can be retained at this size, the instability of the phase when introducing defect clusters puts the bound defect energies into question.
 
-\section{Defect equilibria} \label{brouwer_discussion_intrinsic}
+\subsection{Defect equilibria} \label{brouwer_discussion_intrinsic}
 
 \subsubsection*{Monoclinic}
 

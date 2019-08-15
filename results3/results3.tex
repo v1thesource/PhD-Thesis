@@ -21,24 +21,23 @@ Tetragonal \zirconia\ will be present on the inner surface of the cladding becau
 
 %SCC studies of the internal surface of zirconium-based fuel claddings have been conducted, which indicate that iodine is likely to be one of the main corrosive species involved in promoting crack growth \cite{rosenbaum1966interaction, Cox1990Pellet-cladReview,Fregonese1998AmountIodine,Sidky1998IodineReview}. The exact mechanism for iodine SCC has not yet been determined due to difficulties observing the internal cladding surface in-situ, while experimental studies are not yet capable of reproducing the conditions under which such failures occur. This study focuses on the oxide on the internal surface of the fuel cladding, following from a previous study on iodine in the oxide layer. \\
 
-Nuclei produced during fission are typically neutron-rich, resulting in decay modes such as $\beta-$ or neutron emission. In the case of tellurium nuclei, most decay into iodine, which then decays into xenon with different half-lives depending on the isotope. Several of these isotopes' fission yield and decay data were shown in Table \ref{table:decaydata_chap1}. The decay chain continues with xenon nuclei decaying into caesium, many isotopes of which have half lives measured in years. At this point, conventional power reactor fuel is retired long before a significant proportion of the caesium decays into barium. For this reason, only the elements tellurium through caesium are considered in this study. 
+Nuclei produced during fission are typically neutron-rich, resulting in decay modes such as $\beta-$ or neutron emission. These will typically decay into other unstable nuclei, creating a decay chain. An example of a decay chain starting from \ch{Te^{52}_{135}} is shown in Figure \ref{fig:decaychain}. In the case of tellurium nuclei, most decay into iodine, which then decays into xenon with different half-lives depending on the isotope. Several of these isotopes' fission yield and decay data were shown in Table \ref{table:decaydata_chap1}. The decay chain continues with xenon nuclei decaying into caesium, many isotopes of which have half lives measured in years. At this point, conventional power reactor fuel is retired long before a significant proportion of the caesium decays into barium. For this reason, only the elements tellurium through caesium are considered in this study. 
 
-The majority of thermal fission events occur in the outer rim of a fuel pellet. Given a fission product penetration depth of up to 8 $\mu$m in \zirconia\ \cite{degueldre2001behaviour}, a large proportion of fission products implant within the oxide. It has also been observed in PCI failures that there is a highly variable time delay (depending on burnup, fuel power history and ramping rate \cite{international2003iaea}) of up to several hours between the power ramping of the reactor and the subsequent detection of failure of the cladding \cite{bergenlid1980experimental, wood1983effects, pankaskie1981mechanistic}. Figure \ref{figure:BWRrampthreshold} shows cladding failures occurring within 77 minutes following a ramp, whereas figure \ref{figure:fueltests} shows how a cladding failure was detected within 4 hours of a power ramp\footnote{These fuel pins had been irradiated before, but were stored outside a reactor 10 months prior to this test, resulting in a lower fission product inventory than what would normally be present in a real scenario.}. Detection of a cladding failure gives an upper bound for the time delay because it relies on sensors in the core registering the presence of fission products in the coolant. This time delay is in line with the half-lives of many Te and I isotopes (Table \ref{table:decaydata_chap1}) such that significant proportions of these isotopes will decay during this time delay, hinting that these phenomena could be related. 
-%In addition, it is known that irradiated cladding containing fresh fuel does not crack when power ramped  \cite{wood1983effects}. \\
-
-With each nuclear decay comes a change in the chemical and therefore physical behaviour of the atom with its immediate environment. For example, an iodine dopant in \zirconia\ may decay into xenon, which may then have a significantly different thermodynamic equilibrium site preference from the one it inherited. Determining the behaviour of each of these elements in the oxide layer may provide information about the initiation of SCC in fuel cladding. A quantum-mechanical calculation approach has therefore been adopted to model the behaviour of the decay chain elements tellurium through caesium within tetragonal phase \zirconia.
-
-\begin{figure}[ht]
+\begin{figure}[ht] % Decay chain diagram
     \centering
     \includegraphics[height=9.5cm]{images/te_decay_chain2.png}
     \caption{Diagram of the production of Te$_{135}$ decay chain elements with decay modes and half-lives shown.}
     \label{fig:decaychain}
 \end{figure}
 
+The majority of thermal fission events occur in the outer rim of a fuel pellet. Given a fission product penetration depth of up to 8 $\mu$m in \zirconia\ \cite{degueldre2001behaviour}, a large proportion of fission products implant within the oxide. Implantation was discussed in detail in § \ref{implantation}. It has also been observed in PCI failures that there is a highly variable time delay (depending on burnup, fuel power history and ramping rate \cite{international2003iaea}) of up to several hours between the power ramping of the reactor and the subsequent detection of failure of the cladding \cite{bergenlid1980experimental, wood1983effects, pankaskie1981mechanistic}. Figure \ref{figure:BWRrampthreshold} shows cladding failures occurring within 77 minutes following a ramp, whereas figure \ref{figure:fueltests} shows how a cladding failure was detected within 4 hours of a power ramp\footnote{These fuel pins had been irradiated before, but were stored outside a reactor 10 months prior to this test, resulting in a lower fission product inventory than what would normally be present in a real scenario.}. Detection of a cladding failure gives an upper bound for the time delay because it relies on sensors in the core registering the presence of fission products in the coolant. This time delay is in line with the half-lives of many Te and I isotopes (Table \ref{table:decaydata_chap1}) such that significant proportions of these isotopes will decay during this time delay, hinting that these phenomena could be related. 
+%In addition, it is known that irradiated cladding containing fresh fuel does not crack when power ramped  \cite{wood1983effects}. \\
+
+With each nuclear decay comes a change in the chemical and therefore physical behaviour of the atom with its immediate environment. For example, an iodine dopant in \zirconia\ may decay into xenon, which may then have a significantly different thermodynamic equilibrium site preference from the one it inherited. This phenomenon, termed \emph{radioparagenesis} by Stanek \emph{et al}. \cite{stanek2010radioparagenesis}, is known of and studied mainly in the context of nuclear wastes. By considering the implantation of fission products and the short half-lives of tellurium decay chain isotopes, this phenomenon is now examined in the context of in-pile operation. Determining the behaviour of each of these elements in the oxide layer may provide information about the initiation of SCC in fuel cladding. A quantum-mechanical calculation approach has therefore been adopted to model the behaviour of the decay chain elements tellurium through caesium within tetragonal phase \zirconia.
+
 %Iodine is produced in the fuel pellet directly from fission and also from the decay of tellurium precursors. Both iodine and tellurium are relatively common fission products, with combined independent yields from thermal fission of U$_{235}$ above 5\% \cite{kennett1956mass, iodine129fissionyield, imanishi1976independent, iodinefissionyields, iodine132, amiel1975odd}. The majority of thermal fission events occur in the outer rim of the fuel pellet, and a fission product penetration depth of up to 8 $\mu$m in \zirconia\ \cite{degueldre2001behaviour} suggests a large degree of implantation within the oxide and the Zr metal into which the oxide grows, raising the concentration of I well above the equilibrium value. Iodine and many of its compounds (ZrI$_{4}$, CsI) are volatile and fuel pellets contain many cracks and spaces through which iodine may be rapidly transported to the cladding. When reactor power is increased during start-up, iodine is released in substantial quantities from the UO$_{2}$ pellet \cite{peehs1982experimental}. This is believed to cause crack propagation in the cladding when combined with stresses imposed on the cladding by the fuel pellet, a phenomenon known as pellet-cladding interaction (PCI). Upper limits on power ramping and holding times have therefore been established by fuel suppliers to mitigate potential PCI failures \cite{yagnik2005effect}. While these restrictions have reduced or prevented the incidence of PCI failures, they also impose costs on the operator due to longer ramping periods. This also restricts the ability of the nuclear reactor to load-follow grid demand. Cladding/fuel materials resistant to PCI failure are therefore of great interest in the nuclear power industry, promoting research into solutions such as cladding liners and doped fuel pellets \cite{nonon2005pci,yang2012effect}. \\
 
 %\item Power ramping: Increasing power, such as during reactor start-up, can lead to cladding failure.   %power must be ramped up gradually in order to avoid excessive temperature gradients in the fuel pins, but also to manage fission product concentrations. Due to the different half-lives of various fission products, a power ramp will cause a transient increase in the iodine concentration within a fuel pin
-
 
 %Iodine is an oxidising agent, which, under standard conditions, will oxidise Zr metal to produce ZrI$_{4}$. However, oxygen is also present in the internal fuel pin environment, both from the native \zirconia\ layer on the cladding, and the evolution of oxygen from the fuel pellet during burnup. Liberated oxygen will compete with iodine in the oxidation of the Zr metal, but whereas iodine promotes crack growth under stress, oxygen provides a more protective effect, self-limiting its diffusion into the metal \cite{farina2002stress, causey2005review}. Furthermore, oxygen is a more powerful oxidising agent than iodine, reacting together to produce I${_2}$O$_{5}$. For these reasons, the internal oxide layer of the cladding is often considered a barrier to the ingress of iodine into the Zr metal. \\
 
@@ -58,9 +57,11 @@ The electronic energy convergence criterion was set to $1\times10^{-6}$ eV and t
 
 Using these convergence criteria, non-defective supercells of tetragonal (3x3x2 unit cells) \zirconia\ were relaxed under constant pressure. The resulting structure was used as the starting point to which defects were introduced, and subsequently relaxed again, this time under constant volume conditions to simulate low defect concentrations \cite{Murphy2014, Bell2015}. The supercell was constructed such that its dimensions were as close to a cube as possible in order to minimise directional defect self-interaction across the periodic boundaries. 
 
-\subsection{Defect Volumes}
+\subsection{Defect volumes and stress states}
 
-As described in § \ref{isobaricmethod}, defect volumes were calculated by completely relaxing an unconstrained, defective supercell using the geometry optimisation task in CASTEP. This allows the defective supercell to alter its volume in order to minimise the total energy of the system, at which point this relaxed supercell volume is recorded. The non-defective supercell volume, calculated in the same way, is then subtracted from the defective supercell volume to give the individual defect volume.
+As described in § \ref{isobaricmethod}, defect volumes were calculated by completely relaxing an unconstrained, defective supercell using the geometry optimisation task in CASTEP. This allows the defective supercell to alter its volume in order to minimise the total energy of the system, at which point this relaxed supercell volume is recorded. The non-defective supercell volume, calculated in the same way, is then subtracted from the defective supercell volume to give the individual defect volume. 
+
+In order to calculate the stress state on the supercell imposed by a defect, an isochoric calculation is performed as described in § \ref{convergence_criteria}. This type of calculation will generate the resultant stress tensor of the supercell after an energy minimisation. The magnitude of this stress tensor is then computed to give the overall pressure on the supercell. % bulk modulus 190 GPa \cite{Milman2009}
 
 \subsection{Brouwer diagrams}
 
@@ -88,38 +89,7 @@ Brouwer diagrams were constructed as outlined in § \ref{brouwer_method} in orde
 
 \section{Results} \label{Results}
 
-\subsection{Defect volumes and stress}
-
-\begin{table}[ht] % Defect volumes and stress magnitudes
-\onehalfspacing
-\centering
-\caption{Calculated defect volumes and stress tensor magnitudes of the dominant defect types in tetragonal \zirconia .}
-\label{defect_volumes}
-\begin{tabular}{ccc}
-\hline
-Defect type & \begin{tabular}[c]{@{}c@{}}Defect volume relative\\ to perfect crystal (\r{A}$^{3}$)\end{tabular} & \begin{tabular}[c]{@{}c@{}}Stress tensor \\ magnitude (GPa)\end{tabular} \\ \hline
-\ch{V_{O}^{**}} & -40.45 & -5.13 \\ %7440 \\ %362 \\
-\ch{V_{Zr}^{''''}} & 88.93 & 9.21 \\ %9072 \\ %8347 \\
-%\ch{V_{O}^{*}} & -21.14 \\ %3522 \\
-%\ch{V_{O}^{x}} & -2.96 \\ %415 \\
-\ch{Te_{O}^{***}} & -18.83 & -1.84 \\ %8097 \\ %6605 \\
-\ch{Te_{O}^{**}} & 2.74 & 0.84 \\ %5940 \\ %3752 \\
-\ch{Te_{O}^{*}} & 24.61 & 3.29 \\ %5090 \\ %7451 \\
-\ch{Te_{Zr}^{''''}} & 83.01 & 13.04 \\ %6289 \\ %8247 \\
-\ch{Te_{Zr}^{'''}} & 59.93 & 10.08 \\ %0934 \\ %2232 \\
-\ch{I_{O}^{***}} & -18.59 & -1.61 \\ %6196 \\ %0449 \\
-\ch{I_{O}^{*}} & 29.90 & 3.25 \\ %8003 \\ %6407 \\
-\ch{I_{Zr}^{'''}} & 87.07 & 11.76 \\ %5444 \\ %912 \\
-\ch{Xe_{O}^{**}} & 9.02 & 0.88 \\ %8234 \\ %3892 \\
-\ch{Xe_{O}^{*}} & 32.07 & 3.87 \\ %7508 \\ %5247 \\
-\ch{Xe_{Zr}^{''''}} & 115.50 & 13.53 \\ %2321 \\ %4415 \\
-\ch{Xe_{Zr}^{'''}} & 91.65 & 10.65 \\ %1595 \\ %578 \\
-\ch{Cs_{O}^{**}} & 4.38 & 1.50 \\ %0571 \\ %1495 \\
-\ch{Cs_{Zr}^{'''}} & 90.37 & 10.60 \\ \hline %0931 \\ \hline %6229 \\ \hline
-\end{tabular}
-\end{table}
-
-\subsection{Brouwer Diagrams}
+\subsection{Brouwer diagrams}
 
 \subsubsection{Tellurium}
 
@@ -204,7 +174,7 @@ The presence of these defects and their sizes will have an effect on the lattice
 
 \subsubsection{Iodine}
 
-Iodine was previously predicted in Brouwer diagrams (Figure \ref{figure:tikzbrouwerconctet} to produce the defects \ch{I_{O}^{*}} and \ch{I_{Zr}^{'''}} at low and high oxygen pressures respectively. Since the extrinsic defect site is similar for tellurium defects over most oxygen pressures, $\beta$- decay of tellurium could have directly produced these iodine defects without requiring a change of site. Thus, \ch{Te_{O}^{**}} would decay and produce \ch{I_{O}^{*}} with a defect volume of 29.90 \r{A}$^{3}$, and \ch{Te_{Zr}^{'''}} would decay and produce \ch{I_{Zr}^{'''}} with a defect volume of 87.07 \r{A}$^{3}$. At the oxygen site, this means a defect volume change from 2.74 to 29.90 \r{A}$^{3}$. This increase is in large part due to the change in charge state from 0 to -1, as the ions are of similar size otherwise. 
+Iodine was previously predicted in Brouwer diagrams (Figure \ref{figure:tikzbrouwerconctet}) to produce the defects \ch{I_{O}^{*}} and \ch{I_{Zr}^{'''}} at low and high oxygen pressures respectively. Since the extrinsic defect site is similar for tellurium defects over most oxygen pressures, $\beta$- decay of tellurium could have directly produced these iodine defects without requiring a change of site. Thus, \ch{Te_{O}^{**}} would decay and produce \ch{I_{O}^{*}} with a defect volume of 29.90 \r{A}$^{3}$, and \ch{Te_{Zr}^{'''}} would decay and produce \ch{I_{Zr}^{'''}} with a defect volume of 87.07 \r{A}$^{3}$. At the oxygen site, this means a defect volume change from 2.74 to 29.90 \r{A}$^{3}$. This increase is in large part due to the change in charge state from 0 to -1, as the ions are of similar size otherwise. 
 
 Similarly at the zirconium site, the defect volume changes from 59.93 to 87.07 \r{A}$^{3}$. Both of these are relatively large increases in defect volume and will come with an increase in lattice stress in the immediate vicinity of the defect, especially if highly constrained. Of course, this  process will take place continuously over time as tellurium atoms decay, with half-lives ranging from seconds to hours depending on the isotope. It is of note however, that PCI failures tend to occur after power ramps with a time delay, ranging from several minutes to hours after the transient. While not conclusive, this may hint at a mechanism involving decay processes. 
 
@@ -458,6 +428,43 @@ The defect volumes of \ch{Cs_{O}^{**}} and \ch{Cs_{Zr}^{'''}} were 4.38 and 90.3
 %We can therefore not consider Cs in this process, narrowing it down to Te, I, and Xe. 
 
 % healing radiation damage occurs much faster than the decay of isotopes. 
+
+\subsection{Stress magnitudes and defect volumes}
+
+Table \ref{defect_volumes} shows the calculated defect volumes and stresses (based on the magnitude of the DFT calculated stress tensor) generated by the dominant defect types in tetragonal \zirconia . In this table, a negative stress value implies that the supercell is in a compressive stress state.
+
+\begin{table}[ht] % Defect volumes and stress magnitudes
+\onehalfspacing
+\centering
+\caption{Calculated defect volumes and stress tensor magnitudes of the dominant defect types in tetragonal \zirconia .}
+\label{defect_volumes}
+\begin{tabular}{ccc}
+\hline
+Defect type & \begin{tabular}[c]{@{}c@{}}Defect volume relative\\ to perfect crystal (\r{A}$^{3}$)\end{tabular} & \begin{tabular}[c]{@{}c@{}}Stress tensor \\ magnitude (GPa)\end{tabular} \\ \hline
+\ch{V_{O}^{**}} & -40.45 & -5.13 \\ %7440 \\ %362 \\
+\ch{V_{Zr}^{''''}} & 88.93 & 9.21 \\ %9072 \\ %8347 \\
+%\ch{V_{O}^{*}} & -21.14 \\ %3522 \\
+%\ch{V_{O}^{x}} & -2.96 \\ %415 \\
+\ch{Te_{O}^{***}} & -18.83 & -1.84 \\ %8097 \\ %6605 \\
+\ch{Te_{O}^{**}} & 2.74 & 0.84 \\ %5940 \\ %3752 \\
+\ch{Te_{O}^{*}} & 24.61 & 3.29 \\ %5090 \\ %7451 \\
+\ch{Te_{Zr}^{''''}} & 83.01 & 13.04 \\ %6289 \\ %8247 \\
+\ch{Te_{Zr}^{'''}} & 59.93 & 10.08 \\ %0934 \\ %2232 \\
+\ch{I_{O}^{***}} & -18.59 & -1.61 \\ %6196 \\ %0449 \\
+\ch{I_{O}^{*}} & 29.90 & 3.25 \\ %8003 \\ %6407 \\
+\ch{I_{Zr}^{'''}} & 87.07 & 11.76 \\ %5444 \\ %912 \\
+\ch{Xe_{O}^{**}} & 9.02 & 0.88 \\ %8234 \\ %3892 \\
+\ch{Xe_{O}^{*}} & 32.07 & 3.87 \\ %7508 \\ %5247 \\
+\ch{Xe_{Zr}^{''''}} & 115.50 & 13.53 \\ %2321 \\ %4415 \\
+\ch{Xe_{Zr}^{'''}} & 91.65 & 10.65 \\ %1595 \\ %578 \\
+\ch{Cs_{O}^{**}} & 4.38 & 1.50 \\ %0571 \\ %1495 \\
+\ch{Cs_{Zr}^{'''}} & 90.37 & 10.60 \\ \hline %0931 \\ \hline %6229 \\ \hline
+\end{tabular}
+\end{table}
+
+The calculated stresses range from 1 to 13 GPa, with notable exceptions \ch{V_{O}^{**}}, \ch{Te_{O}^{***}} and \ch{I_{O}^{***}} which are negative (mainly due to their large positive charges). While these values seem large, it must be noted that due to the size of the supercell, these reflect values at an effective defect concentration of 1 at. \% each, and without the presence of other defects such as \ch{V_{O}^{**}} which will reduce overall stress. 
+
+Curiously, the calculated defect volumes do not follow the same proportional relationship with stress when looking at different atoms. For example, \ch{Xe_{O}^{**}} has a defect volume of 9.02 \r{A}$^{3}$ while \ch{Cs_{O}^{**}} has a lower defect volume of 4.38 \r{A}$^{3}$. However, a greater stress is generated in the lattice by \ch{Cs_{O}^{**}} defects. Upon closer inspection of the calculated stress tensors, \ch{Cs_{O}^{**}} was found to produce a much more anisotropic stress state than \ch{Xe_{O}^{**}} (i.e. Xe exerts similar forces in all directions, whereas Cs exerts most force in the $a$ and $b$ directions). This is most likely due to the shape of the electronic orbitals. The Cs ion in this case mostly pushes in the high stiffness $a$ and $b$ directions (see Table \ref{stiffness_tensor} for the calculated elastic constants in tetragonal \zirconia ), resulting in smaller strains and therefore a smaller overall defect volume.
 
 \section{Conclusions}
 
