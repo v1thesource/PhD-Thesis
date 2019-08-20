@@ -25,9 +25,9 @@ A(T, V) = U(V) + H_{v}(T, V) - TS_{v}(T, V) - TS_{conf}
 \end{equation}
 The calculated free energy was then plotted against temperature to show the relative stability of each phase at different temperatures and the predicted transition points from one phase to another. 
 
-\subsection{Brouwer diagrams}
+\subsection{Brouwer diagrams} \label{intrinsicbrouwer}
 
-Using the method outlined in § \ref{brouwer_method}, Brouwer diagrams of the intrinsic defect equilibria for monoclinic, tetragonal and cubic \zirconia\ were generated.  The monoclinic and tetragonal Brouwer diagrams were generated at temperatures of 650 K and 1500 K respectively, corresponding to temperatures at which these phases are thermally stabilised. Defect concentrations are reported in parts/fu (i.e. parts per formula unit \zirconia). The cubic Brouwer diagram was generated at 2000 K despite being thermally stabilised at temperatures greater than 2400 K. This was because such high temperatures resulted in very large intrinsic defect concentrations such that defect behaviour could not be meaningfully examined (the system was completely defective). As discussed in § \ref{dis_form_energy_intrinsic} and § \ref{brouwer_discussion_intrinsic}, issues with modelling cubic \zirconia\ in DFT mean that calculated energy values may become unreliable, but are presented in this thesis for the purpose of completeness.
+Using the method outlined in § \ref{brouwer_method}, Brouwer diagrams of the intrinsic defect equilibria for monoclinic, tetragonal and cubic \zirconia\ were generated.  The monoclinic and tetragonal Brouwer diagrams were generated at temperatures of 650 K and 1500 K respectively, corresponding to temperatures at which these phases are thermally stabilised. Defect concentrations are reported in parts/fu (i.e. parts per formula unit \zirconia). The cubic Brouwer diagram was generated at 2000 K despite being thermally stabilised at temperatures greater than 2400 K. This was because such high temperatures resulted in very large intrinsic defect concentrations such that defect behaviour could not be meaningfully examined (the system was completely defective). As discussed in § \ref{dis_form_energy_intrinsic}, issues with modelling cubic \zirconia\ in DFT mean that calculated energy values may become unreliable, but are presented in this thesis for the purpose of completeness.
 
 \section{Non-defective \zirconia}
 
@@ -51,7 +51,7 @@ c-\zirconia        &   5.11 (5.09)           &              &              & 90 
 
 The first thing to note is that the correct order of \zirconia\ phases is predicted in the total energy calculations, with monoclinic being the lowest energy phase and cubic being the highest. In addition, the energy difference between phases is small ($<$ 0.1 eV/fu). This is a good indication that the choice of exchange correlation functional can reproduce the energy landscape of the system accurately. This is especially important for when defects are introduced because they may promote stabilisation of one phase over another, and an inaccurate model will not capture this behaviour. In all cases the predicted cell volumes are consistently within approximately 2\% of experimental values. 
 
-\subsection{Elastic constants}
+\subsection{Elastic constants} \label{bulk_moduli}
 
 Table \ref{stiffness_tensor} shows the calculated elastic constants for the monoclinic, tetragonal, and cubic phases of \zirconia . The cubic phase has the highest stiffness, likely due to the short Zr-O bond lengths in the energy-minimised structure (Figure \ref{figure:zrobonddistance}). It is expected that at high temperatures where the cubic phase is stable, thermal effects (which are not captured in this model) such as larger interatomic spacings will result in a reduction in stiffness.
 
@@ -154,20 +154,22 @@ The lack of an observed transition to the cubic phase may further indicate an in
 
 \subsection{Formation energies}
 
-Calculated point defect formation energies are provided and discussed below as a function of the Fermi level, defined as the electrochemical potential above the energy of the valence band maximum (VBM). Formation energies are plotted up to a Fermi level of 6 eV in order to span the entire experimental band gap of \zirconia . Only the defects with the lowest formation energies at each Fermi level are shown.
+Calculated point defect formation energies of lattice vacancies are provided and discussed below as a function of the Fermi level, defined as the electrochemical potential above the energy of the valence band maximum (VBM). Formation energies are plotted up to a Fermi level of 6 eV in order to span the entire experimental band gap of \zirconia . Only the defects with the lowest formation energies at each Fermi level are shown.
 
 \subsubsection{Monoclinic}
 
-Oxygen vacancies in the monoclinic phase are shown in Figure \ref{figure:monovacancies} for both the III and IV coordinated oxygen atoms. At Fermi levels between 0 and 3 eV, formation of \ch{V_{O}^{**}} defects is expected, with III coordinated oxygen atoms having formation energies 0.6 eV lower. This energy difference between the two types of oxygen vacancy is substantial, and since both are anion sites of the same charge, this suggests that the defect size is the main reason for the difference in energy. In this case, a vacancy at the III oxygen site is larger defect than at the IV oxygen site (see § \ref{defect_volumes_r1} for defect volumes), and the negative energies reveal that the non-defective monoclinic structure is too large at low Fermi levels. At Fermi levels above 3 eV, \ch{V_{O}^{x}} defects become the most favourable at both oxygen sites, with almost the same formation energy (0.9 eV). The defect with the smallest formation energy switches from \ch{V_{O}^{**}} to \ch{V_{O}^{x}} as the Fermi level is increased. The absence of \ch{V_{O}^{*}} defects is due to the relatively unfavourable electronic state imposed in the lattice with this defect configuration. This could be because of the suboptimal orbital occupancy in the surrounding ions when a single electron is missing rather than two.
+Oxygen vacancies in the monoclinic phase are shown in Figure \ref{figure:monovacancies} for both the III and IV coordinated oxygen atoms. At Fermi levels between 0 and 3 eV, formation of \ch{V_{O}^{**}} defects is expected, with III coordinated oxygen atoms having formation energies 0.6 eV smaller. This energy difference between the two types of oxygen vacancy is substantial, and since both are anion sites of the same charge, this suggests that the defect size is the main reason for the difference in energy. In this case, a vacancy at the III oxygen site is larger defect than at the IV oxygen site (see § \ref{defect_volumes_r1} for defect volumes), and the negative energies reveal that the non-defective monoclinic structure is too large at low Fermi levels. At Fermi levels above 3 eV, \ch{V_{O}^{x}} defects become the most favourable at both oxygen sites, with almost the same formation energy (0.9 eV). 
 
 \begin{figure}[ht] % Mono vacancies Fermi level
 \begin{center}
 \begin{tikzpicture}
 	\begin{axis}
-		[width=11cm, xlabel={Fermi level $\mu_{e}$ (eV)}, ylabel={Formation energy (eV) per \zirconia\ }, ymin=-10, ymax=18, xmin=0, xmax=6, legend style={{draw=}, at={(0.95,0.95)}, anchor=north east, legend columns=1}]
-		\addplot[no marks, blue] table [x=ZRmono1, y=ZRmono2,]{dat/vacancies.dat}; \addlegendentry{\ch{V_{Zr}}} \node at (3,10) {-4};
-        \addplot[no marks, red, dashed] table [x=O3mono1, y=O3mono2,]{dat/vacancies.dat}; \addlegendentry{\ch{V_{O}} (III)} \node at (1.0,-1.5) {+2};
+		[width=12cm, xlabel={Fermi level $\mu_{e}$ (eV)}, ylabel={Formation energy (eV) per \zirconia\ }, ymin=-10, ymax=20, xmin=0, xmax=6, legend style={{draw=}, at={(0.95,0.95)}, anchor=north east, legend columns=1}]
+		\addplot[no marks, blue] table [x=ZRmono1, y=ZRmono2,]{dat/vacancies.dat}; \addlegendentry{\ch{V_{Zr}}} \node at (3,9) {\ch{V_{Zr}^{''''}}};
+        \addplot[no marks, red, dashed] table [x=O3mono1, y=O3mono2,]{dat/vacancies.dat}; \addlegendentry{\ch{V_{O}} (III)} \node at (1.0,-1.5) {\ch{V_{O}^{\textperiodcentered\textperiodcentered}}};
         \addplot[no marks, red] table [x=O4mono1, y=O4mono2,]{dat/vacancies.dat}; \addlegendentry{\ch{V_{O}} (IV)};
+        \node at (5.5,2) {\ch{V_{O}^{x}}};
+        \node at (0.6,18) {\ch{V_{Zr}^{''}}};
 			\end{axis}
 		\end{tikzpicture}
 		\caption{Monoclinic phase formation energies of intrinsic vacancy defects as a function of Fermi level. Gradient indicates defect charge. Oxygen coordination number shown in legend.}
@@ -175,19 +177,24 @@ Oxygen vacancies in the monoclinic phase are shown in Figure \ref{figure:monovac
 	\end{center}
 \end{figure}
 
+The O vacancy defect with the smallest formation energy switches from \ch{V_{O}^{**}} to \ch{V_{O}^{x}} as the Fermi level is increased. The absence of \ch{V_{O}^{*}} defects is due to the relatively unfavourable electronic state imposed in the lattice with this defect configuration. This could be because of the suboptimal orbital occupancy in the surrounding ions when a single electron is missing rather than two. A similar effect is seen for the Zr vacancies, with only the neutral and even charged defects (\ch{V_{Zr}^{x}}, \ch{V_{Zr}^{''}}, \ch{V_{Zr}^{''''}}) having the smallest formation energies.
 
+At high Fermi levels ($>$4.6 eV), \ch{V_{Zr}^{''''}} defect energies become negative and are even more favourable than \ch{V_{O}^{x}}. It is possible that such high Fermi levels may occur at the metal-oxide interface (high availability of electrons from the metal). It is also expected that the concentration of O vacancy defects will be larger at the metal-oxide interface, but the formation energies predict that these will be uncharged and therefore not capable of compensating for the negative charge at the Zr vacancies. It is possible that hole defects may form instead, but at high Fermi levels the formation energy of hole defects will be almost as large as the band gap itself, providing a significant energy barrier.
 
 \subsubsection{Tetragonal}
 
-XXX
+The formation energies of vacancy defects in tetragonal \zirconia\ shown in Figure \ref{figure:tetvacancies} show similar behaviour to those in the monoclinic phase. A transition from \ch{V_{O}^{**}} to \ch{V_{O}^{x}} defects is seen at a Fermi level of 3 eV, and Zr vacancies will likely exist as \ch{V_{Zr}^{''''}} at Fermi levels above 0.7 eV. 
+
+Formation energies of \ch{V_{Zr}^{''''}} defects in the tetragonal phase are smaller than in monoclinic by 1 eV and they become more favourable than \ch{V_{O}^{x}} defects at a Fermi level of 4.3 eV compared to 4.6 eV in the monoclinic phase. It is therefore expected that the tetragonal phase will contain a larger concentration of Zr vacancies, likely in the form of Schottky defects due to the small formation energy of O vacancies as well.
 
 \begin{figure}[ht] % Tet vacancies Fermi level
 \begin{center}
 \begin{tikzpicture}
 	\begin{axis}
-		[width=11cm, xlabel={Fermi level $\mu_{e}$ (eV)}, ylabel={Formation energy (eV) per \zirconia\ }, ymin=-10, ymax=18, xmin=0, xmax=6, legend style={{draw=}, at={(0.95,0.95)}, anchor=north east, legend columns=1}]
-		\addplot[no marks, blue] table [x=ZRtet1, y=ZRtet2,]{dat/vacancies.dat}; \addlegendentry{Zr};
-        \addplot[no marks, red] table [x=Otet1, y=Otet2,]{dat/vacancies.dat}; \addlegendentry{O};
+		[width=12cm, xlabel={Fermi level $\mu_{e}$ (eV)}, ylabel={Formation energy (eV) per \zirconia\ }, ymin=-10, ymax=20, xmin=0, xmax=6, legend style={{draw=}, at={(0.95,0.95)}, anchor=north east, legend columns=1}]
+		\addplot[no marks, blue] table [x=ZRtet1, y=ZRtet2,]{dat/vacancies.dat}; \addlegendentry{\ch{V_{Zr}}} \node at (3,8) {\ch{V_{Zr}^{''''}}};
+        \addplot[no marks, red] table [x=Otet1, y=Otet2,]{dat/vacancies.dat}; \addlegendentry{\ch{V_{O}}} \node at (1.0,-2) {\ch{V_{O}^{\textperiodcentered\textperiodcentered}}};
+        \node at (5.5,2) {\ch{V_{O}^{x}}};
 			\end{axis}
 		\end{tikzpicture}
 		\caption{Tetragonal phase formation energies of intrinsic vacancy defects as a function of Fermi level. Gradient indicates defect charge.}
@@ -197,15 +204,18 @@ XXX
 
 \subsubsection{Cubic}
 
-XXX
+The formation energies of vacancy defects in the cubic phase are shown in Figure \ref{figure:cubicvacancies}. O vacancies in the cubic phase have smaller formation energies than in both the monoclinic and tetragonal phases by 2.5 eV, and \ch{V_{O}^{**}} defects are favourable across a larger range of Fermi levels. The transition from \ch{V_{O}^{**}} to \ch{V_{O}^{x}} as the most favourable oxygen defect occurs above a Fermi level of 3.8 eV. 
+
+The greater stability of fully-charged O vacancies in the cubic phase provides more evidence indicating that the monoclinic and tetragonal phases in \zirconia\ are distortions of the cubic phase due to the small Zr ion. This is because \ch{V_{O}^{**}} defects reduce the size of the cell (see Table \ref{defect_volumes_raw} for defect volumes), thereby allowing Zr ions to maintain a cubic configuration.
 
 \begin{figure}[ht] % Cubic vacancies Fermi level
 \begin{center}
 \begin{tikzpicture}
 	\begin{axis}
-		[width=11cm, xlabel={Fermi level $\mu_{e}$ (eV)}, ylabel={Formation energy (eV) per \zirconia\ }, ymin=-10, ymax=18, xmin=0, xmax=6, legend style={{draw=}, at={(0.95,0.95)}, anchor=north east, legend columns=1}]
-		\addplot[no marks, blue] table [x=ZRcubic1, y=ZRcubic2,]{dat/vacancies.dat}; \addlegendentry{Zr};
-        \addplot[no marks, red] table [x=Ocubic1, y=Ocubic2,]{dat/vacancies.dat}; \addlegendentry{O};
+		[width=12cm, xlabel={Fermi level $\mu_{e}$ (eV)}, ylabel={Formation energy (eV) per \zirconia\ }, ymin=-10, ymax=20, xmin=0, xmax=6, legend style={{draw=}, at={(0.95,0.95)}, anchor=north east, legend columns=1}]
+		\addplot[no marks, blue] table [x=ZRcubic1, y=ZRcubic2,]{dat/vacancies.dat}; \addlegendentry{{\ch{V_{Zr}}}} \node at (3,9) {\ch{V_{Zr}^{''''}}};
+        \addplot[no marks, red] table [x=Ocubic1, y=Ocubic2,]{dat/vacancies.dat}; \addlegendentry{{\ch{V_{O}}}} \node at (2,-1.5) {\ch{V_{O}^{\textperiodcentered\textperiodcentered}}};
+        \node at (5.5,2) {\ch{V_{O}^{x}}};
 			\end{axis}
 		\end{tikzpicture}
 		\caption{Cubic phase formation energies of intrinsic vacancy defects as a function of Fermi level. Gradient indicates defect charge.}
@@ -248,7 +258,7 @@ It has been suggested that the relatively small cation size leads to defect stru
 \begin{table}[ht] % Isolated formation energies
 \onehalfspacing
 \centering
-\caption{Formation energies in eV of isolated \zirconia\ defects.}
+\caption{Formation energies in eV of Frenkel and Schottky defects calculated from point defects in \zirconia .}
 \label{isolated_defects}
 \begin{tabular}{cccll}
 \hline
@@ -316,68 +326,6 @@ E_{NTV} = E_{DFT}(NTV) - \frac{n-3}{n}E_{DFT}(ZrO_2)% - \frac{E_{I_2}}{2}
 \end{equation}
 Where $E_{DFT}(NTV)$ is the energy of a supercell containing the NTV defect. As the defective supercell contains three fewer ions than the non-defective cell, the energy of the non-defective cell was adjusted by a proportional factor in our calculation. This form maintains both mass and charge balance of the Schottky defect description for \zirconia\ described in Equation \ref{generic_schottky}.
 
-\subsection{Defect Volumes} \label{defect_volumes_r1}
-
-Tables \ref{defect_volumes_raw} and \ref{defect_volumes_clusters_isolated} show the calculated point defect and cluster defect volumes respectively. The Frenkel and Schottky defect volumes are calculated from the sum of the relevant point defects that would result in an overall neutral charge, with clusters of fully-charged point defects being the expected defect structures in a real material.
-
-\begin{table}[ht!] % Isolated defect volumes
-\onehalfspacing
-\centering
-\caption{Individual point defect volumes in the three \zirconia\ structures.}
-\label{defect_volumes_raw}
-\begin{tabular}{cccc}
-\hline
-                      & \multicolumn{3}{c}{\textbf{Defect volume relative to non-defective cell (\r{A}\textsuperscript{3})}}  \\ \cline{2-4} 
-\textbf{Defect}       & \textbf{Monoclinic} & \hspace{1cm} \textbf{Tetragonal} & \textbf{Cubic} \\ \hline
-\ch{V_{Zr}^{''''}}             & 55.95             & 88.93            & 48.47         \\
-\ch{V_{Zr}^{'''}}             & 42.48             &         51.08     &     36.94      \\
-\ch{V_{Zr}^{''}}            & 29.90             &  34.28            &     25.93           \\
-\ch{V_{Zr}^{'}}             & 17.10             &  18.43            &     15.08           \\
-\ch{V_{Zr}^{x}}              & 4.06             &  4.70            &    4.32       \\
-\ch{Zr_{i}^{****}}             & -34.62            & -41.94            & -27.34       \\
-\ch{Zr_{i}^{***}}             &  -22.76           &	-27.74 		  &	-16.95         \\
-\ch{Zr_{i}^{**}}             &  -11.79 	        &	-12.02 		  &	-6.24          \\
-\ch{Zr_{i}^{*}}            &  2.68			& -0.02 		  & 	4.69             \\
-\ch{Zr_{i}^{x}}              &  15.94		 	& 13.40	 		  & 15.97         \\
-\ch{V_{O}^{**}} {[}4coord{]} & -22.52            & -40.45            & -22.76       \\
-\ch{V_{O}^{*}} {[}4coord{]} &  -12.41           &    -19.53         &     -12.19           \\
-\ch{V_{O}^{x}} {[}4coord{]}  &  -0.69          &  -2.80           &      -1.11          \\
-\ch{V_{O}^{**}} {[}3coord{]} & -26.13            &                     &                \\
-\ch{V_{O}^{*}} {[}3coord{]} &  -14.42           &                     &                \\
-\ch{V_{O}^{x}} {[}3coord{]}  &   -1.71          &                     &                \\
-\ch{O_{i}^{''}}              & 27.01             & 40.00              & 28.58        \\
-\ch{O_{i}^{'}}              &  15.36            &    24.56         &  16.30              \\
-\ch{O_{i}^{x}}               & 2.66             &    11.06          &   8.95        \\ \hline
-\end{tabular}
-\end{table}
-
-\begin{table}[ht] % Isolated Frenkel + Schottky volumes
-\onehalfspacing
-\centering
-\caption{Defect volumes of Frenkel and Schottky defects in the three \zirconia\ structures calculated from individual point defects.}
-\label{defect_volumes_clusters_isolated}
-\begin{tabular}{cccc}
-\hline
-                      & \multicolumn{3}{c}{\textbf{Defect volume relative to non-defective cell (\r{A}\textsuperscript{3})}}  \\ \cline{2-4} 
-\textbf{Defect}       & \textbf{Monoclinic} & \hspace{1cm} \textbf{Tetragonal} & \textbf{Cubic} \\ \hline
-\ch{V_{Zr}^{''''}} + \ch{Zr_{i}^{****}}          & 21.33	 & 46.99 &	21.13         \\
-\ch{V_{Zr}^{'''}} + \ch{Zr_{i}^{***}}          & 19.72 &	23.35 &	20.00      \\
-\ch{V_{Zr}^{''}} + \ch{Zr_{i}^{**}}          & 18.11 &	22.25 & 19.69           \\
-\ch{V_{Zr}^{'}} + \ch{Zr_{i}^{*}}          & 19.78 &	18.41 &	19.76           \\
-\ch{V_{Zr}^{x}} + \ch{Zr_{i}^{x}}          & 19.99 &	18.11 &	20.29       \\
-\ch{V_{O}^{**}} + \ch{O_{i}^{''}}           & 0.88 &	-0.45 &	 5.82       \\
-\ch{V_{O}^{*}} + \ch{O_{i}^{'}}           &  0.95 &	5.03 &	4.11        \\
-\ch{V_{O}^{x}} + \ch{O_{i}^{x}}           &  0.96 &	8.26 &	7.84          \\
-\ch{V_{Zr}^{''''}} + 2\ch{V_{O}^{**}}       &  3.70 &	8.03 &	2.94             \\
-\ch{V_{Zr}^{''}} + 2\ch{V_{O}^{*}}       &  1.07 &	-4.79 &	 1.56         \\
-\ch{V_{Zr}^{x}} + 2\ch{V_{O}^{x}}        & 0.65 &	-0.90 &	 2.09       \\ \hline
-\end{tabular}
-\end{table}
-
-The fully-charged O Frenkel defect has the smallest defect volume in the tetragonal phase, followed by the monoclinic phase. This can be explained by the relative stiffness of the different phases. Of the nine calculated elastic components of the stiffness tensor shown in table \ref{stiffness_tensor}, seven are smaller in the tetragonal phase compared to monoclinic, and by significant amounts for the $C_{23}$, $C_{44}$ and $C_{55}$ components. In the monoclinic phase, none of the calculated elastic components are below 71 GPa, whereas four of the elastic components in the tetragonal phase are below 50 GPa, making the structure more compliant. The resulting smaller defect volume may then partly explain the lower formation energy of O Frenkel defects in the tetragonal phase, since they impose a smaller strain on the lattice.
-
-The Zr Frenkel defect is significantly larger than the oxygen Frenkel, mostly due to the large positive strain contribution from the zirconium vacancy. The tetragonal phase in particular has a significantly larger fully-charged Zr Frenkel defect, again partly due to the low stiffness of the tetragonal phase. Compared to the O Frenkel defect, these defects are significantly larger and will therefore impose larger strains in the lattice, leading to larger formation energies. 
-
 \subsubsection*{Bound Defects} \label{bound_defect}
 
 The bound defect formation energies shown in Table \ref{table:bound_defects} show that NTV defects, on a per defect atom basis, are the most energetically favourable defects, followed by oxygen and zirconium Frenkel defects respectively. The NTV3 exhibited the smallest formation energy in all three crystal structures, with a single exception of the NTV2 in the cubic phase where a much smaller formation energy was observed due to collapse\footnote{Upon inspecting the output cell, it was found that all the oxygen atoms shifted positions along the [001] direction, becoming more like the tetragonal \zirconia\ structure. The cell size was constrained so the lattice parameters could not be changed, therefore this was not a P4$_{2}$/nmc tetragonal cell.} of the supercell during geometry optimisation. 
@@ -400,25 +348,83 @@ The bound defect formation energies shown in Table \ref{table:bound_defects} sho
 \end{tabular}
 \end{table}
 
-The symmetry of cubic ZrO$_{2}$ has previously been reported to sometimes break when relaxing supercells with interstitial oxygen defects \cite{samanta2010thermodynamic}. However, reports of Schottky defect clusters breaking cubic symmetry in \zirconia\ have not been found in the literature. Later studies by Burr \emph{et al}. have shown that the energies of NTVs calculated in MO$_{2}$ cubic fluorite structures is highly sensitive to the size of the supercell, with larger errors found when using smaller supercells \cite{burr2017importance}. It was also found that the symmetry of cubic ZrO$_{2}$ could not be retained during relaxation in large supercells (324 and 768 atoms) due to the stability of the monoclinic phase. Cubic supercells with 96 atoms are studied in this thesis, and while cubic symmetry of \zirconia\ can be retained at this size, the instability of the phase when introducing defect clusters puts the bound defect energies into question.
+The symmetry of cubic ZrO$_{2}$ has previously been reported to sometimes break when relaxing supercells with interstitial oxygen defects \cite{samanta2010thermodynamic}. However, reports of Schottky defect clusters breaking cubic symmetry in \zirconia\ have not been found in the literature. Later studies by Burr \emph{et al}. have shown that the energies of NTVs calculated in MO$_{2}$ cubic fluorite structures are highly sensitive to the size of the supercell, with larger errors found when using smaller supercells \cite{burr2017importance}. It was also found that the symmetry of cubic ZrO$_{2}$ could not be retained during relaxation in large supercells (324 and 768 atoms) due to the stability of the monoclinic phase. Cubic supercells with 96 atoms are studied in this thesis, and while cubic symmetry of \zirconia\ can be retained at this size, the instability of the phase when introducing defect clusters puts the bound defect energies into question.
+
+
+\subsection{Defect Volumes} \label{defect_volumes_r1}
+
+Tables \ref{defect_volumes_raw} and \ref{defect_volumes_clusters_isolated} show the calculated point defect and cluster defect volumes respectively. The Frenkel and Schottky defect volumes are calculated from the sum of the relevant point defects that would result in an overall neutral charge, with clusters of fully-charged point defects being the expected defect structures in a real material.
+
+\begin{table}[ht!] % Isolated defect volumes
+\onehalfspacing
+\centering
+\caption{Individual point defect volumes in the three \zirconia\ structures.}
+\label{defect_volumes_raw}
+\begin{tabular}{cccc}
+\hline
+                      & \multicolumn{3}{c}{\textbf{Defect volume relative to non-defective cell (\r{A}\textsuperscript{3})}}  \\ \cline{2-4} 
+\textbf{Defect}       & \textbf{Monoclinic} & \hspace{1cm} \textbf{Tetragonal} & \textbf{Cubic} \\ \hline
+\ch{V_{Zr}^{''''}}             & 55.95             & 67.41            & 48.47         \\
+\ch{V_{Zr}^{'''}}             & 42.48             &         51.08     &     36.94      \\
+\ch{V_{Zr}^{''}}            & 29.90             &  34.28            &     25.93           \\
+\ch{V_{Zr}^{'}}             & 17.10             &  18.43            &     15.08           \\
+\ch{V_{Zr}^{x}}              & 4.06             &  4.70            &    4.32       \\
+\ch{Zr_{i}^{****}}             & -34.62            & -41.94            & -27.34       \\
+\ch{Zr_{i}^{***}}             &  -22.76           &	-27.74 		  &	-16.95         \\
+\ch{Zr_{i}^{**}}             &  -11.79 	        &	-12.02 		  &	-6.24          \\
+\ch{Zr_{i}^{*}}            &  2.68			& -0.02 		  & 	4.69             \\
+\ch{Zr_{i}^{x}}              &  15.94		 	& 13.40	 		  & 15.97         \\
+\ch{V_{O}^{**}} {[}4coord{]} & -22.52            & -37.53            & -22.76       \\
+\ch{V_{O}^{*}} {[}4coord{]} &  -12.41           &    -19.53         &     -12.19           \\
+\ch{V_{O}^{x}} {[}4coord{]}  &  -0.69          &  -2.80           &      -1.11          \\
+\ch{V_{O}^{**}} {[}3coord{]} & -26.13            &                     &                \\
+\ch{V_{O}^{*}} {[}3coord{]} &  -14.42           &                     &                \\
+\ch{V_{O}^{x}} {[}3coord{]}  &   -1.71          &                     &                \\
+\ch{O_{i}^{''}}              & 27.01             & 40.00              & 28.58        \\
+\ch{O_{i}^{'}}              &  15.36            &    24.56         &  16.30              \\
+\ch{O_{i}^{x}}               & 2.66             &    11.06          &   8.95        \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[ht] % Isolated Frenkel + Schottky volumes
+\onehalfspacing
+\centering
+\caption{Defect volumes of Frenkel and Schottky defects in the three \zirconia\ structures calculated from individual point defects.}
+\label{defect_volumes_clusters_isolated}
+\begin{tabular}{cccc}
+\hline
+                      & \multicolumn{3}{c}{\textbf{Defect volume relative to non-defective cell (\r{A}\textsuperscript{3})}}  \\ \cline{2-4} 
+\textbf{Defect}       & \textbf{Monoclinic} & \hspace{1cm} \textbf{Tetragonal} & \textbf{Cubic} \\ \hline
+\ch{V_{Zr}^{''''}} + \ch{Zr_{i}^{****}}          & 21.33	 & 25.47 &	21.13         \\
+\ch{V_{Zr}^{'''}} + \ch{Zr_{i}^{***}}          & 19.72 &	23.35 &	20.00      \\
+\ch{V_{Zr}^{''}} + \ch{Zr_{i}^{**}}          & 18.11 &	22.25 & 19.69           \\
+\ch{V_{Zr}^{'}} + \ch{Zr_{i}^{*}}          & 19.78 &	18.41 &	19.76           \\
+\ch{V_{Zr}^{x}} + \ch{Zr_{i}^{x}}          & 19.99 &	18.11 &	20.29       \\
+\ch{V_{O}^{**}} + \ch{O_{i}^{''}}           & 0.88 &	2.47 &	 5.82       \\
+\ch{V_{O}^{*}} + \ch{O_{i}^{'}}           &  0.95 &	5.03 &	4.11        \\
+\ch{V_{O}^{x}} + \ch{O_{i}^{x}}           &  0.96 &	8.26 &	7.84          \\
+\ch{V_{Zr}^{''''}} + 2\ch{V_{O}^{**}}       &  3.70 & -7.65 &	2.94             \\
+\ch{V_{Zr}^{''}} + 2\ch{V_{O}^{*}}       &  1.07 &	-4.79 &	 1.56         \\
+\ch{V_{Zr}^{x}} + 2\ch{V_{O}^{x}}        & 0.65 &	-0.90 &	 2.09       \\ \hline
+\end{tabular}
+\end{table}
+
+The fully-charged O Frenkel defect has the smallest defect volume in the monoclinic phase, followed by the tetragonal phase. Interestingly, the tetragonal phase exhibits far larger \ch{O_{i}^{''}} and \ch{V_{O}^{**}} defects than the other phases. This can be explained partly by the relative stiffness of the different phases. Most of the calculated elastic constants in the tetragonal phase are smaller than in the monoclinic phase (Table \ref{stiffness_tensor}), and by significant amounts for the $C_{23}$, $C_{44}$ and $C_{55}$ components. In the monoclinic phase, none of the calculated elastic components are below 71 GPa, whereas four of the elastic components in the tetragonal phase are below 50 GPa. The overall effect on stiffness can be seen when calculating the bulk modulus of each phase (see § \ref{bulk_moduli}). The monoclinic phase bulk modulus is 190.87 GPa compared to 169.94 GPa in tetragonal \zirconia , making the tetragonal phase more compliant to volume changes. This is also apparent in the calculated defect volumes of Schottky defects in the tetragonal phase. These Schottky defects all have negative volumes compared to positive volumes in the monoclinic and cubic phases, and this is because of the significantly smaller oxygen vacancy defect volume in the tetragonal phase.
+
+The Zr Frenkel defect is significantly larger than the oxygen Frenkel, mostly due to the large positive strain contribution from the zirconium vacancy. The tetragonal phase in particular has a larger fully-charged Zr Frenkel defect than the other phases, again partly due to the low stiffness of the tetragonal phase. Compared to the O Frenkel defect, these defects are significantly larger and will therefore impose larger strains in the lattice, leading to larger formation energies. 
 
 \subsection{Defect equilibria} \label{brouwer_discussion_intrinsic}
 
 \subsubsection*{Monoclinic}
 
-The monoclinic Brouwer diagram (Figure \ref{figure:mono_intrinsic_brouwer}) predicts that at 650 K, intrinsic defects will be present at very low (\textless 10 ppb \zirconia ) concentrations. This is typical of defect behaviour in a ceramics at temperatures far below their melting points \cite{kingery1997physical,ball2006computer}. At oxygen pressures below $10^{-20}$ atm, the major defects are \ch{e^{'}} and \ch{h^{*}} which fully charge-compensate each other. As the oxygen pressure increases, \ch{V_{Zr}^{'''}} defects become more numerous and overtake \ch{e^{'}} defects as the dominant negatively charged defect. The greater charge magnitude of the \ch{V_{Zr}^{''''}} defects force the formation of more \ch{h^{*}} defects as these are the easiest positively charged defects which can be produced to achieve charge neutrality (i.e. \ch{V_{O}^{**}} and \ch{Zr_{i}^{****}} defects require too much energy to produce at high oxygen pressures). \ch{O_{i}^{x}} defects are also present at high oxygen pressures, but these do not affect the concentrations of charged defects.
-
-%Fully-charged zirconium vacancies, charge-compensated by holes, are the major defect type we expect to observe at $p_{O_{2}}$ \textgreater $10^{-15}$ atm. Below this, only \ch{e^{'}} defects compensated by electron hole defects are expected. 
-
-%We briefly see increased concentrations of uncharged oxygen interstitial defects at very high levels of $p_{O_{2}}$.
-%The intrinsic defect equilibria are shown in Brouwer diagrams in Figures \ref{figure:mono_intrinsic_brouwer}, \ref{figure:tet_intrinsic_brouwer} and \ref{figure:cubic_intrinsic_brouwer}. The monoclinic phase exhibits the smallest overall concentration of intrinsic defects due to the low temperature (650 K) relative to the other tetragonal (1500 K) and cubic (XXX K) phases.
+The monoclinic Brouwer diagram (Figure \ref{figure:mono_intrinsic_brouwer}) predicts that at 650 K, intrinsic defects will be present at very low (\textless 10 ppb \zirconia ) concentrations. This is typical of defect behaviour in a ceramics at temperatures far below their melting points \cite{kingery1997physical,ball2006computer}. As a result, stoichiometry occurs at a $p_{O_{2}}$ of $10^{-27}$ atm. At oxygen pressures below $10^{-20}$ atm, the major defects are \ch{e^{'}} and \ch{h^{*}} which fully charge-compensate each other. 
 
 \begin{figure}[ht] % Mono intrinsic Brouwer
 \begin{center}
 \begin{tikzpicture}
 	\begin{axis}
 		[width=\linewidth*0.7, xlabel={\ch{log_{10}}($p_{O_{2}}$) (atm)}, ylabel={\ch{log_{10}}([D]) (per f.u.)}, ymin=-18, ymax=0, xmin=-35, xmax=0, legend style={{draw=}, at={(0.40,0.94)}, anchor=north west, legend columns=4, nodes={scale=1, transform shape}}]
-        \addplot[no marks, draw=blue!70!black] table [x=pO2, y=electrons,]{dat/intrinsic_mono.dat}; \addlegendentry{\ch{e^{'}}}; \node at (-5.5,-12.2) {\ch{e^{'}}};
+        \addplot[no marks, draw=blue!70!black] table [x=pO2, y=electrons,]{dat/intrinsic_mono.dat}; \addlegendentry{\ch{e^{'}}}; \node at (-5.6,-12.3) {\ch{e^{'}}};
         \addplot[no marks, draw=red!85!black] table [x=pO2, y=holes,]{dat/intrinsic_mono.dat}; \addlegendentry{\ch{h^{\textperiodcentered}}}; \node at (-4.5,-8) {\ch{h^{\textperiodcentered}}};
         \addplot[no marks, draw=black!70!green] table [x=pO2, y=VO{2},]{dat/intrinsic_mono.dat}; \addlegendentry{\ch{V_{O}^{\textperiodcentered\textperiodcentered}}}; \node at (-33,-16.5) {\ch{V_{O}^{\textperiodcentered\textperiodcentered}}};
 %         \addplot[no marks, draw=black!55!green] table [x=pO2, y=VO{1},]{dat/intrinsic_mono.dat}; \addlegendentry{\ch{V_{O}^{*}}};
@@ -436,7 +442,7 @@ The monoclinic Brouwer diagram (Figure \ref{figure:mono_intrinsic_brouwer}) pred
 %         \addplot[no marks, draw=green!60!pink] table [x=pO2, y=Mi{2},]{dat/intrinsic_mono.dat}; \addlegendentry{\ch{Zr_{i}^{\textbf{**}}}};
 %         \addplot[no marks, draw=green!50!pink] table [x=pO2, y=Mi{1},]{dat/intrinsic_mono.dat}; \addlegendentry{\ch{Zr_{i}^{*}}};
 %         \addplot[no marks, draw=green!40!pink] table [x=pO2, y=Mi{0},]{dat/intrinsic_mono.dat}; \addlegendentry{\ch{Zr_{i}^{x}}};
-%         \addplot[no marks] table [x=pO2, y=Stoich,]{dat/intrinsic_mono.dat}; \addlegendentry{Stoich};
+         %\addplot[no marks] table [x=pO2, y=Stoich,]{dat/intrinsic_mono.dat}; \addlegendentry{Stoich};
 %\node at (-33.7,-0.5) {\textbf{a)}};
 			\end{axis}            
 \end{tikzpicture}
@@ -445,9 +451,11 @@ The monoclinic Brouwer diagram (Figure \ref{figure:mono_intrinsic_brouwer}) pred
 	\end{center}
 \end{figure}
 
+As the oxygen pressure increases, \ch{V_{Zr}^{'''}} defects become more numerous and overtake \ch{e^{'}} defects as the dominant negatively charged defect. The greater charge magnitude of the \ch{V_{Zr}^{''''}} defects force the formation of more \ch{h^{*}} defects as these are the easiest positively charged defects which can be produced to achieve charge neutrality (i.e. \ch{V_{O}^{**}} and \ch{Zr_{i}^{****}} defects require too much energy to produce at high oxygen pressures). \ch{O_{i}^{x}} defects are also present at high oxygen pressures, but these do not compensate for the charge of other defects.
+
 \subsubsection*{Tetragonal}
 
-Figure \ref{figure:tet_intrinsic_brouwer} shows a much greater concentration of defects across a wide range of $p_{O_{2}}$, mainly owing to an elevated temperature of 1500 K where the tetragonal crystal structure is fully stabilised. At low levels of $p_{O_{2}}$, electronic defects are again the dominant defect, but are now charge-compensated by the formation of fully-charged oxygen vacancies. A clear neutrality condition is seen at a $p_{O_{2}}$ of $10^{-11}$ atm where $[\ch{V_{O}^{**}}] = 2[\ch{V_{Zr}^{''''}}]$, with higher levels of $p_{O_{2}}$ being dominated by fully-charged zirconium vacancies charge-compensated by the formation of electron hole defects.
+Figure \ref{figure:tet_intrinsic_brouwer} shows a much greater concentration of defects across a wide range of $p_{O_{2}}$, mainly owing to an elevated temperature of 1500 K where the tetragonal crystal structure is fully stabilised. At low levels of $p_{O_{2}}$, electronic defects are again the dominant defect, but are now charge-compensated by the formation of fully-charged oxygen vacancies. Stoichiometry occurs at a $p_{O_{2}}$ of $10^{-11}$ atm where $[\ch{V_{O}^{**}}] = 2[\ch{V_{Zr}^{''''}}]$ and $[\ch{h^{*}}] = [\ch{e^{'}}]$. As with the monoclinic phase, Schottky defects are expected to be the main defect structure instead of anion Frenkel defects. Higher levels of $p_{O_{2}}$ are dominated by fully-charged zirconium vacancies charge-compensated by the formation of positive hole defects.
 
 \begin{figure}[ht] % Tet intrinsic Brouwer
 \begin{center}
@@ -464,7 +472,7 @@ Figure \ref{figure:tet_intrinsic_brouwer} shows a much greater concentration of 
 %         \addplot[no marks, draw=yellow!65!blue] table [x=pO2, y=VM{-2},]{dat/intrinsic_tet.dat}; \addlegendentry{\ch{V_{Zr}^{''}}};
 %         \addplot[no marks, draw=yellow!55!blue] table [x=pO2, y=VM{-1},]{dat/intrinsic_tet.dat}; \addlegendentry{\ch{V_{Zr}^{'}}};
 %         \addplot[no marks, draw=yellow!45!blue] table [x=pO2, y=VM{0},]{dat/intrinsic_tet.dat}; \addlegendentry{\ch{V_{Zr}^{x}}};
-%         \addplot[no marks, draw=red!60!yellow] table [x=pO2, y=Oi{-2},]{dat/intrinsic_tet.dat}; \addlegendentry{\ch{O_{i}^{''}}};
+         \addplot[no marks, draw=red!60!yellow] table [x=pO2, y=Oi{-2},]{dat/intrinsic_tet.dat}; \addlegendentry{\ch{O_{i}^{''}}};
 %         \addplot[no marks, draw=red!50!yellow] table [x=pO2, y=Oi{-1},]{dat/intrinsic_tet.dat}; \addlegendentry{\ch{O_{i}^{'}}};
 %         \addplot[no marks, draw=red!40!yellow] table [x=pO2, y=Oi{0},]{dat/intrinsic_tet.dat}; \addlegendentry{\ch{O_{i}^{x}}};
 %         \addplot[no marks, draw=green!80!pink] table [x=pO2, y=Mi{4},]{dat/intrinsic_tet.dat}; \addlegendentry{\ch{Zr_{i}^{****}}};
@@ -472,7 +480,7 @@ Figure \ref{figure:tet_intrinsic_brouwer} shows a much greater concentration of 
 %         \addplot[no marks, draw=green!60!pink] table [x=pO2, y=Mi{2},]{dat/intrinsic_tet.dat}; \addlegendentry{\ch{Zr_{i}^{\textbf{**}}}};
 %         \addplot[no marks, draw=green!50!pink] table [x=pO2, y=Mi{1},]{dat/intrinsic_tet.dat}; \addlegendentry{\ch{Zr_{i}^{*}}};
 %         \addplot[no marks, draw=green!40!pink] table [x=pO2, y=Mi{0},]{dat/intrinsic_tet.dat}; \addlegendentry{\ch{Zr_{i}^{x}}};
-%         \addplot[no marks] table [x=pO2, y=Stoich,]{dat/intrinsic_tet.dat}; \addlegendentry{Stoich};
+        % \addplot[no marks] table [x=pO2, y=Stoich,]{dat/intrinsic_tet.dat}; \addlegendentry{Stoich};
 %\node at (-33.7,-0.5) {\textbf{a)}};
 			\end{axis}            
 \end{tikzpicture}
@@ -480,6 +488,14 @@ Figure \ref{figure:tet_intrinsic_brouwer} shows a much greater concentration of 
 		\label{figure:tet_intrinsic_brouwer}
 	\end{center}
 \end{figure}
+
+\subsubsection{Cubic}
+
+Figure \ref{figure:cubic_intrinsic_brouwer} shows a Brouwer diagram constructed for intrinsic defects in cubic \zirconia\ at 2000 K. As explained in § \ref{intrinsicbrouwer}, a temperature of 2000 K was used because higher temperatures where the cubic phase is thermally stabilised yielded extremely high defect concentrations, leading to unusual defect behaviour. For example, the stoichiometric $p_{O_{2}}$ from the Brouwer diagram is predicted to be greater than 1 atm, an unrealistically large value for oxygen in a fuel pin, despite internal pressures reaching up to 25 atm (see § \ref{ss_fuelpin}). The Brouwer diagram is still included here for the purpose of completeness and to show the limitations of modelling defect equilibria in high-temperature phases near a material's melting point.
+
+One insight which can be obtained the cubic Brouwer diagram is that the preference for Schottky rather than Frenkel defects is still predicted. Concentrations of Zr and O interstitials are still small relative to vacancies and electronic defects. 
+
+Relaxed supercells of cubic phase \zirconia\ are more dense than monoclinic and tetragonal supercells (see § \ref{density_calculation}), therefore it is expected that interstitial defects would be even more unfavourable in the cubic phase due to the smaller sites they must occupy.
 
 \begin{figure}[ht] % cubic intrinsic Brouwer
 \begin{center}
@@ -496,10 +512,10 @@ Figure \ref{figure:tet_intrinsic_brouwer} shows a much greater concentration of 
 %         \addplot[no marks, draw=yellow!65!blue] table [x=pO2, y=VM{-2},]{dat/intrinsic_cubic.dat}; \addlegendentry{\ch{V_{Zr}^{''}}};
 %         \addplot[no marks, draw=yellow!55!blue] table [x=pO2, y=VM{-1},]{dat/intrinsic_cubic.dat}; \addlegendentry{\ch{V_{Zr}^{'}}};
 %         \addplot[no marks, draw=yellow!45!blue] table [x=pO2, y=VM{0},]{dat/intrinsic_cubic.dat}; \addlegendentry{\ch{V_{Zr}^{x}}};
-%         \addplot[no marks, draw=red!60!yellow] table [x=pO2, y=Oi{-2},]{dat/intrinsic_cubic.dat}; \addlegendentry{\ch{O_{i}^{''}}};
+        % \addplot[no marks, draw=red!60!yellow] table [x=pO2, y=Oi{-2},]{dat/intrinsic_cubic.dat}; \addlegendentry{\ch{O_{i}^{''}}};
 %         \addplot[no marks, draw=red!50!yellow] table [x=pO2, y=Oi{-1},]{dat/intrinsic_cubic.dat}; \addlegendentry{\ch{O_{i}^{'}}};
 %         \addplot[no marks, draw=red!40!yellow] table [x=pO2, y=Oi{0},]{dat/intrinsic_cubic.dat}; \addlegendentry{\ch{O_{i}^{x}}};
-%         \addplot[no marks, draw=green!80!pink] table [x=pO2, y=Mi{4},]{dat/intrinsic_cubic.dat}; \addlegendentry{\ch{Zr_{i}^{****}}};
+         %\addplot[no marks, draw=green!80!pink] table [x=pO2, y=Mi{4},]{dat/intrinsic_cubic.dat}; \addlegendentry{\ch{Zr_{i}^{****}}};
 %         \addplot[no marks, draw=green!70!pink] table [x=pO2, y=Mi{3},]{dat/intrinsic_cubic.dat}; \addlegendentry{\ch{Zr_{i}^{***}}};
 %         \addplot[no marks, draw=green!60!pink] table [x=pO2, y=Mi{2},]{dat/intrinsic_cubic.dat}; \addlegendentry{\ch{Zr_{i}^{\textbf{**}}}};
 %         \addplot[no marks, draw=green!50!pink] table [x=pO2, y=Mi{1},]{dat/intrinsic_cubic.dat}; \addlegendentry{\ch{Zr_{i}^{*}}};
@@ -516,6 +532,13 @@ Figure \ref{figure:tet_intrinsic_brouwer} shows a much greater concentration of 
 
 \section{Conclusions}
 
-The main defects in \zirconia\ are oxygen vacancies and zirconium vacancies at low and high oxygen pressures respectively. 
-
-The cubic phase cannot be modelled accurately due to instabilities outlined by Burr \emph{et al}. \cite{burr2017importance}. For this reason, it was decided that the cubic phase would not be considered when conducting extrinsic dopant simulation studies in \zirconia .
+\begin{itemize}
+\item The correct order of phase stability is calculated for the monoclinic, tetragonal and cubic phases of \zirconia\ from DFT energies and harmonic phonon calculations. 
+\item Helmholtz free energy calculations show that, as temperature is increased, the lowest energy phase changes from monoclinic to tetragonal, but not from tetragonal to cubic.
+\item Elastic constants for each phase were calculated from DFT. Bulk moduli for the monoclinic and tetragonal phases agreed to within 5\% of experimental values. 
+\item Formation energy calculations for each phase show that Zr vacancies will be \ch{V_{Zr}^{''''}} over most Fermi levels, while O vacancies will be reduced from \ch{V_{O}^{**}} to \ch{V_{O}^{x}} as the Fermi level increases.
+\item Fully-charged Schottky defects are shown to have the smallest formation energy per defect in all three phases, followed by O Frenkel defects and then Zr Frenkel defects.
+\item Schottky defects are calculated to have the smallest defect volume in the tetragonal and cubic phase, while O Frenkel defects have the smallest volume in the monoclinic phase. Zr Frenkel defects have the largest defect volume in all three phases.
+\item Some defects were found to be unstable in cubic \zirconia\ calculations, causing loss of supercell symmetry. This behaviour in addition to results from the free energy calculations lead to the conclusion that cubic phase \zirconia\ cannot be modelled accurately with present DFT methods. This result is supported by work from Burr \emph{et al.} \cite{burr2017importance}.
+\item Brouwer diagrams show that defect equilibria in each phase are dominated by \ch{V_{Zr}^{''''}}, \ch{V_{O}^{**}}, \ch{h^{*}} and \ch{e^{'}} defects. At high $p_{O_{2}}$, \ch{V_{Zr}^{''''}} will be charge-compensated by \ch{h^{*}} defects. At low $p_{O_{2}}$, \ch{V_{O}^{**}} will be charge-compensated by \ch{e^{'}} defects.
+\end{itemize}

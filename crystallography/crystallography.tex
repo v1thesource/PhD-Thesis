@@ -132,7 +132,7 @@ There is some degree of tetragonal phase autostabilisation during the oxidation 
 
 Stabilisation of the tetragonal phase at low temperatures is also dependent on grain size, which can be controlled during the cladding manufacturing process since the oxide inherits the grain size of the zirconium metal grains. Pure \zirconia\ exhibits a strong relationship between grain size and phase stability, where the tetragonal phase is only stable when grown from metal grains below a critical size of approximately 30 nm \cite{barberis1995zirconia}. This can be explained by increased dislocation interaction in smaller grains due to limited room for dislocation glide, as per the Hall-Petch relationship \cite{hall1951deformation, petch1953cleavage}. Grains of tetragonal \zirconia\ larger than this critical size are therefore likely to have tetragonal-stabilising dopant ions incorporated in the lattice.
 
-\subsection{Cubic}
+\subsection{Cubic} \label{density_calculation}
 
 Cubic \zirconia\ (unit cell shown in Figure \ref{fig:cubic_unitcell}) adopts the cubic fluorite (space group F$m\overline{3}m$) crystal structure, consisting of zirconium ions in a face-centred cubic configuration with a rock salt oxygen sub-lattice occupying the tetrahedral sites.
 
@@ -145,7 +145,7 @@ Cubic \zirconia\ (unit cell shown in Figure \ref{fig:cubic_unitcell}) adopts the
 
 The lowest specific volume (i.e. highest density), as calculated from DFT geometry optimisations in this thesis, is exhibited by the cubic phase (11.13 \r{A}$^{3}$ion$^{-1}$) followed by the tetragonal phase (11.51 \r{A}$^{3}$ion$^{-1}$) and then the monoclinic phase (11.99 \r{A}$^{3}$ion$^{-1}$). This is due to it having the largest atomic packing factor, resulting in a mean Zr-O bond distance of 2.22 \r{A}, compared to 2.26 \r{A} in the tetragonal phase and 2.31 \r{A} in the monoclinic phase, as shown in Figure \ref{figure:zrobonddistance}. 
 
-\begin{figure}[ht]
+\begin{figure}[ht] % Bond distances to nearest neighbour
 \begin{center}
 \begin{tikzpicture}
 	\begin{axis}
@@ -160,10 +160,7 @@ The lowest specific volume (i.e. highest density), as calculated from DFT geomet
 	\end{center}
 \end{figure}
 
-
 %\textbf{Also due to the high temperature, the stability of the cubic phase in DFT calculations may be inaccurate. This is discussed further in Chapter 3.}
-
-
 \subsection{Other phases}
 
 Two orthorhombic phases have also been observed at high pressures in pure \zirconia\ \cite{howard1991crystal}. These structures are referred to as OI and OII, the latter of which is isostructural with cotunnite (PbCl$_{2}$). A third orthorhombic phase ($bc2_{1}$) has also been reported in partially stabilised zirconia (PSZ), but has not been found in pure zirconia \cite{kisi1998crystal}.
