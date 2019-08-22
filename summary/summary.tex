@@ -2,7 +2,13 @@
 
 \label{ch:summary}
 
-\section{DFT modelling of \zirconia}
+\section{Structure properties and intrinsic defects in \zirconia}
+
+DFT calculations of non-defective \zirconia\ predicted the correct order of phase stability for the monoclinic, tetragonal and cubic phases. Calculated lattice parameters of each phase also agreed to within 2\% of experimental values. Calculated band gaps of each phase were underestimated by approximately 2 eV, which is typical when modelling using GGA-DFT. A Hubbard +U study revealed that the calculated band gaps could be increased by up to 1 eV, but that the symmetry of the supercells would be distorted in the process.
+
+Helmholtz free energy calculations at temperatures ranging from 0 to 2500 K showed that the lowest energy phase changes from monoclinic to tetragonal, but not from tetragonal to cubic. Furthermore, the predicted transition temperature of the monoclinic-tetragonal phase change is underestimated by almost 1100 K. This is attributed to the kinetic barrier of the phase transformation and the lack of thermal expansion when using the constant volume harmonic model.
+
+Elastic constants were calculated and reported for each phase. The cubic phase was predicted to have the highest stiffness, followed by monoclinic and then tetragonal. The elastic constants were used to calculate the bulk modulus of each phase, and it was shown that the monoclinic and tetragonal bulk moduli agreed with experimental values to within 5\%. The calculated bulk modulus in the cubic phase could not be compared to an experimental value in pure \zirconia , but was 15\% larger than that of YSZ.
 
 \section{Iodine doping and oxygen competition}
 
@@ -14,11 +20,13 @@
 
 In order to study the interaction of fission products with larger features in the cladding microstructure, such as dislocations and grain boundaries, it is necessary to develop empirical potentials for use in molecular dynamics simulations. Grain boundary transport is of particular interest, and this would require something on the order of 10$^{4}$ atoms to simulate to a reasonable degree of accuracy. This cannot be done using DFT currently due to the significant amount of computing resources required to run such a simulation. 
 
-The development of an iodine and xenon potential with \zirconia\ should be prioritised in order to run simulations to determine the migration of iodine within \zirconia, followed by the behaviour of xenon at the equilibrium iodine sites.
+The development of an iodine and xenon potential with \zirconia\ should be prioritised in order to run simulations to determine the migration of iodine within \zirconia, followed by the behaviour of xenon at sites occupied by iodine.
 
 \subsection{Zr/ZrO/\zirconia\ interface study}
 
-The inner oxide is not a homogeneous structure, as described in § \ref{ch:crystallography}. Figure \ref{fig:zro_interface} clearly shows the existence of a ZrO phase up to 200 nm thick at the interface between \zirconia\ and Zr metal. The presence of ZrO and even oxygen-saturated Zr metal will have an effect on the thermodynamic equilibria of different fission products. An interface study can be conducted using DFT, to determine stresses at the interfaces of Zr and ZrO, and ZrO and \zirconia . Studying the aggregate effect of these interfaces on fission product behaviour may require larger molecular dynamics simulations, however. The crystal structure of the ZrO phase has been studied using both simulation and high-resolution electron microscopy, with two likely crystal structures being proposed \cite{Nicholls2015}. Further atomistic studies must be conducted to determine the stability of each crystal structure of ZrO when constrained by \zirconia\ and oxygen-saturated Zr metal interfaces.
+The inner oxide is not a homogeneous structure, as described in § \ref{ch:crystallography}. Figure \ref{fig:zro_interface} clearly shows the existence of a ZrO phase up to 200 nm thick at the interface between \zirconia\ and Zr metal. The presence of ZrO and even oxygen-saturated Zr metal will have an effect on the thermodynamic equilibria of different fission products. An interface study can be conducted using DFT, to determine stresses at the interfaces of Zr and ZrO, and ZrO and \zirconia . Studying the aggregate effect of these interfaces on fission product behaviour may require larger molecular dynamics simulations, however. 
+
+The crystal structure of the ZrO phase has been studied using both simulation and high-resolution electron microscopy, with two likely crystal structures being proposed \cite{Nicholls2015}. Further atomistic studies must be conducted to determine the stability of each crystal structure of ZrO when constrained by \zirconia\ and oxygen-saturated Zr metal interfaces.
 
 \begin{figure}[ht] % ZrO interface
     \centering
@@ -26,6 +34,8 @@ The inner oxide is not a homogeneous structure, as described in § \ref{ch:cryst
     \caption[STEM image of a Zr-1.0\%Nb sample oxidised in simulated PWR water at 360 C for 120 days.]{STEM image of a Zr-1.0\%Nb sample oxidised in simulated PWR water at 360 C for 120 days. Taken from \cite{inproceedings}.}
     \label{fig:zro_interface}
 \end{figure}
+
+\subsubsection{Bromine}
 
 \subsection{Experimental work}
 
