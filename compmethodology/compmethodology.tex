@@ -278,7 +278,7 @@ Four convergence criteria are used for the geometry optimisation tasks throughou
 \item \emph{Change in energy per ion}: The largest change in the energy per ion between iterations must be below $10^{-5}$ eV. Below this value, the total energy improvement towards the ground state for a 100 atom supercell is less than 0.001 eV, and is therefore considered converged.
 \item \emph{Maximum force on an ion}: The maximum force requirement on any single ion in an iteration must be below $10^{-2}$ eV/\r{A}. This is required to make sure that the ion position will not change significantly in the following iteration, possibly bringing another convergence criterion above its threshold.
 \item \emph{Maximum change in ion position}: This must be below $5 \times 10^{-4}$ \r{A} between iterations to be considered converged. This criterion specifies the maximum `rattle' of the ion that is tolerated once the minimum energy is reached (i.e. displacements above this value may still be important for achieving a correct atomic configuration). 
-\item \emph{Maximum stress (constant-pressure only)}: During unconstrained relaxation, the maximum change in stress between iterations should be below $5 \times 10^{-2}$ GPa. This is necessary to avoid large deviations which may distort the symmetry of the supercell, resulting in anomalous energy values.
+\item \emph{Maximum stress (constant-pressure only)}: During unconstrained relaxation, the maximum change in stress between iterations should be below 50 MPa. This is necessary to avoid large deviations which may distort the symmetry of the supercell, resulting in anomalous energy values.
 \end{itemize}
 
 Using these convergence criteria, non-defective supercells of \zirconia\ were relaxed under constant pressure. The resulting structure was used as the starting point to which defects were introduced, and subsequently relaxed again, this time under constant volume conditions to simulate low defect concentrations \cite{Murphy2014, Bell2015}. Finally, all DFT calculations on doped and defective structures in this thesis employed the Pulay method for density mixing \cite{Pulay1980} to take into consideration changes in electronic behaviour of the system caused by the defect.
@@ -322,25 +322,31 @@ E_{inc}(\ch{I_{O}^{$n$}}) = E_{DFT}(\ch{I_{O}^{$n$}}) - (E_{DFT}(\ch{V_{O}^{$n$}
 \end{equation}
 where $\ch{I_{O}^{$n$}}$ is an iodine substitutional defect at an oxygen site of charge $n$ and $\ch{V_{O}^{$n$}}$ is the corresponding oxygen vacancy.
 
-\subsection{Stiffness tensor generation}
+\subsection{Stiffness matrix generation}
 
-The stiffness tensors for the pure monoclinic, tetragonal and cubic phases of \zirconia\ were calculated using CASTEP's \emph{elastic constants} task. The calculation of elastic constants is a multi-step process involving up to 36 individual DFT calculations. Several scripts have been made available to simplify this process (see Appendix \ref{castep_scripts}).
+The elastic stiffness matrices for the pure monoclinic, tetragonal and cubic phases of \zirconia\ were calculated using CASTEP's \emph{elastic constants} task. The calculation of elastic constants is a multi-step process involving up to 36 individual DFT calculations. Several scripts have been made available to simplify this process (see Appendix \ref{castep_scripts}).
 
-The first step is to generate multiple different \texttt{.cell} files, each with either a small deviation in the lattice parameter or an additional shear on the cell. This requires starting with a unit cell that has already been completely relaxed via the \emph{geometry optimisation} task. In total, 36 \texttt{.cell} files are generated, each corresponding to a single element of the eventual stiffness matrix. The next step is to run a single point DFT calculation on each \texttt{.cell} file with the \emph{calculate stress} parameter enabled to output the resulting stress matrix. The final step is to calculate the stiffnesses in the stiffness matrix by using the known stress state and strains using Hooke's Law. 
+The first step is to generate multiple different \texttt{.cell} files, each with either a small deviation in the lattice parameter or an additional shear on the cell. This requires starting with a unit cell that has already been completely relaxed via the \emph{geometry optimisation} task. In total, 36 \texttt{.cell} files are generated, each corresponding to a single element of the eventual stiffness matrix. The next step is to run a single point DFT calculation on each \texttt{.cell} file with the \emph{calculate stress} parameter enabled to output the resulting stress matrix. The final step is to use Hooke's Law to calculate the elastic stiffness constants using the known stress and strain state. 
 
 %\subsection{Strain method for defect volumes}
 %
 %The volumes of the defective supercells were kept constant because constant pressure calculations have been shown to sometimes break the symmetry of the supercell \cite{samanta2010thermodynamic}, leading to unreliable energy values. This is partly due to the assumed arrangement of the defects that may not be commensurate with the cell symmetry. This approach to calculating defect volumes then relies on calculating the elastic constants of the non-defective supercell, followed by extracting the resultant stress tensor from a defect simulation. The strain tensor of the defective cell can then be calculated using Hooke's law, giving the relaxation volume. 
 
-\subsection{Defect volumes} \label{isobaricmethod}
+\subsection{Defect relaxation volumes} \label{isobaricmethod}
 
-Defect volumes of point defects were calculated using an isobaric method, requiring two calculations to be performed under constant-pressure using the geometry optimisation task in CASTEP. The defect volume ($\Delta$V) is defined as: 
+Defect relaxation volumes of point defects were calculated using an isobaric method, requiring two calculations to be performed under constant-pressure using the geometry optimisation task in CASTEP. The defect relaxation volume ($\Delta$V) is defined as: 
 \begin{equation}
 \Delta V = V_{def} - V_{perf}
 \end{equation}
-where $V_{def}$ is the volume of the defective supercell and $V_{perf}$ is the volume of the non-defective (perfect) supercell. This quantity is sometimes referred to as the relaxation volume of a defect.
+where $V_{def}$ is the relaxation volume of the defective supercell and $V_{perf}$ is the relaxation volume of the non-defective (perfect) supercell. In this thesis, mentions of `volume' will refer to relaxation volumes unless stated otherwise.
 
-After completing an energy calculation, CASTEP provides the volume of the resulting cell, defined as the volume enclosed by a repeating unit of the within the calculated lattice parameters. By subtracting the volume of a relaxed, non-defective cell from the volume of a relaxed, defective cell, we obtain a value for the total defect volume. It is important to consider that if there is a non-zero charge on the system, this will affect the calculated volume. This is because two systems with the same type, amount and arrangement of atoms, but different overall charges, will have different energies (due to the number of electrons). Different electronic orbital occupancies will affect the inter-atomic forces and therefore the shape of the cell. 
+After completing an energy calculation, CASTEP provides the volume of the resulting cell, defined as the space enclosed by the repeating unit of atoms within the calculated lattice parameters. By subtracting the volume of a non-defective cell from the volume of a defective cell, we obtain a value for the total defect volume. 
+
+It is important to consider that if there is a non-zero charge on the system, this will affect the calculated volume. Two systems with the same type, amount and arrangement of atoms, but different overall charges, will have different energies (due to the number of electrons). Different electronic orbital occupancies will affect the inter-atomic forces and therefore the shape of the cell. In order to compensate for this effect, a `corrected' relaxation volume, as described by Goyal \emph{et al.} is calculated when the defect has a non-zero charge:
+\begin{equation}
+\Delta V = V_{def}^{q} - V_{perf}^{q}
+\end{equation}
+where $q$ is the defect charge. This formulation uses the volume of a non-defective supercell with equal charge magnitude as the reference structure. This method has been shown to yield more reasonable defect volumes than when using neutral non-defective supercells as the reference structure \cite{goyal2017conundrum}. Defect volumes without this correction applied are provided in Appendix \ref{uncorrected_volumes} for comparison.
 
 \section{Defect energies and equilibria} 
 
@@ -348,10 +354,9 @@ After completing an energy calculation, CASTEP provides the volume of the result
 
 Defect formation energies are calculated using equation \ref{equation:formation_energy}:
 \begin{equation} \label{equation:formation_energy}
-    E_{f} = E_{def} - E_{perf} \pm \sum_{i} n_i\mu_i + q(E_{VBM} + \mu_{e}) + E_{corr}
+    E_{f} = E_{def} - (E_{perf} \pm \sum_{i} n_i\mu_i + q(E_{VBM} + \mu_{e})) + E_{corr}
 \end{equation}
-
-where $E_{f}$ is the formation energy, $E_{def}$ is the energy of the defective supercell, $E_{perf}$ is the energy of a non-defective supercell, $q$ is the defect charge, $E_{VBM}$ is the valence band maximum, $\mu_{e}$ is the Fermi level and $E_{corr}$ is a charged-cell correction term (see § \ref{charged_cell_correction}). Since $\mu_{e}$ is not a fixed value, plots of formation energy against $\mu_{e}$ are produced to examine the behaviour of these defects across the entire range of band gap (e.g. Figures \ref{figure:monovacancies}, \ref{figure:tetvacancies} and \ref{figure:cubicvacancies}).
+where $E_{f}$ is the formation energy, $E_{def}$ is the energy of the defective supercell, $E_{perf}$ is the energy of a non-defective supercell, $q$ is the defect charge, $E_{VBM}$ is the valence band maximum, $\mu_{e}$ is the Fermi level relative to the VBM and $E_{corr}$ is a charged-cell correction term (see § \ref{charged_cell_correction}). Since $\mu_{e}$ is not a fixed value, plots of formation energy against $\mu_{e}$ are produced to examine the behaviour of these defects across the entire range of the band gap (e.g. Figures \ref{figure:monovacancies}, \ref{figure:tetvacancies} and \ref{figure:cubicvacancies}).
 
 \subsection{Defect equilibria} \label{brouwer_method} % 
 
@@ -362,7 +367,6 @@ Brouwer diagrams, also known as Kr{\"o}ger-Vink diagrams, were produced using a 
 {\mu}_{ZrO_2(s)} = {\mu}_{Zr}(p_{O_2}, T) + {\mu}_{O_{2}}(p_{O_{2}}, T)
 \label{mewZrO2compmethodology}
 \end{equation}
-
 where $T$ denotes temperature and $p_{O_2}$ denotes oxygen partial pressure. The chemical potential of \zirconia\ in the solid state is assumed to have negligible dependence on $T$ and $p_{O_2}$ relative to ${\mu}_{Zr}$ and ${\mu}_{O_2}$. Energies can be obtained for bulk \zirconia\ and Zr, but the ground state of oxygen is not correctly reproduced in DFT \cite{Batyrev2000,Lozovoi2001}. Instead, we use the approach of Finnis et al. \cite{Finnis2005} to infer the oxygen chemical potential from standard state values. We can use the experimental Gibbs free energy to produce an equation where $\mu_{O_2}$ is the only unknown:
 \begin{equation}
 \Delta{G^{\plimsoll}_{f, ZrO_2}} = \mu_{ZrO_2(s)} - (\mu_{Zr(s)} + \mu^{\plimsoll}_{O_2})
@@ -455,7 +459,7 @@ Figure \ref{figure:spacechargeexample} shows an example of the defect equilibria
 	\end{groupplot}
 			%\end{axis}              
 \end{tikzpicture}
-		\caption{Tetragonal phase Brouwer diagrams of intrinsic point defects at a temperature of 1500 K \textbf{a)} without a space charge and \textbf{b)} with a space charge of $10^{-1}$ e$^{-1}$ per f.u.}
+		\caption{Tetragonal phase Brouwer diagrams of intrinsic point defects at a temperature of 1500 K \textbf{a)} without a space charge and \textbf{b)} with a space charge of $10^{-1}$ e$^{-1}$/f.u.}
 		\label{figure:spacechargeexample}
 	\end{center}
 \end{figure}
@@ -514,7 +518,7 @@ style={/pgf/number format/.cd,fixed,precision=5}]
 coordinates { (0.09,-2.35) };
 			\end{axis}
 		\end{tikzpicture}
-		\caption{Log of the error in the total energy of the system as a function of \textbf{k}-point spacing. The error is calculated relative to a highly converged energy value at a \textbf{k}-point spacing of 0.01 \r{A}\textsuperscript{-1}. The red arrow indicates the \textbf{k}-point spacing, which ensures an error below 0.01 eV for all structures.}
+		\caption{Log of the error in the total energy of the system as a function of \textbf{k}-point spacing. The error is calculated relative to a highly converged energy value at a \textbf{k}-point spacing of 0.01 \r{A}\textsuperscript{-1}. The red arrow indicates the \textbf{k}-point spacing which yields an error below 0.01 eV for all structures.}
 		\label{Figure:kpoint_convergence}
 	\end{center}
 \end{figure}

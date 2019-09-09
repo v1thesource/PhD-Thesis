@@ -64,7 +64,7 @@ Brouwer diagrams were generated using the method previously outlined in § \ref{
 \subsection{Incorporation energies}
 
 \subsubsection*{Interstitial Sites}
-Neutral iodine incorporation energies at interstitial sites for each phase are reported in Table \ref{i_incorp_interstitial}. The $2a$ and $2c$ sites in monoclinic \zirconia\ provide the least unfavourable iodine incorporation energy, followed by the $2b$ and $8e$ sites in tetragonal \zirconia , although in all cases energies are positive and large, indicating a large energy penalty against interstitial incorporation. The difference in incorporation energies between monoclinic and tetragonal \zirconia\ is approximately 1 eV, whereas the difference between tetragonal and cubic is 3.5 eV, indicating especially unfavourable conditions in cubic \zirconia . These differences are likely due to the larger interstitial sites in the lower-temperature phases, as monoclinic \zirconia\ exhibits the least and cubic \zirconia\ the most dense cell, (see Chapter \ref{ch:crystallography}). 
+Iodine incorporation energies at interstitial sites for each phase are reported in Table \ref{i_incorp_interstitial}. The $2a$ and $2c$ sites in monoclinic \zirconia\ provide the least unfavourable iodine incorporation energy, followed by the $2b$ and $8e$ sites in tetragonal \zirconia , although in all cases energies are positive and large, indicating a large energy penalty against interstitial incorporation. The difference in incorporation energies between monoclinic and tetragonal \zirconia\ is approximately 1 eV, whereas the difference between tetragonal and cubic is 3.5 eV, indicating especially unfavourable conditions in cubic \zirconia . These differences are likely due to the larger interstitial sites in the lower-temperature phases, as monoclinic \zirconia\ exhibits the least and cubic \zirconia\ the most dense cell, (see Chapter \ref{ch:crystallography}). 
 %It is expected that these densities will be representative because the decreased density due to thermal expansion at 650 K will be countered by attractive dispersion forces. 
 
 \begin{table}[ht] % Iodine interstitial incorporation energy
@@ -89,7 +89,7 @@ Neutral iodine incorporation energies at interstitial sites for each phase are r
 
 While the incorporation energies of iodine in the interstitial sites of \zirconia\ are large for a fixed iodine concentration, they become relevant as the intrinsic defect populations become small, such as at low temperatures relative to the melting point. This is because interstitial sites are always available, whereas at low intrinsic defect concentrations, substitutional sites become saturated and accommodation at a lattice site first requires the creation of a vacancy defect, which has a formation energy penalty associated with it. 
 
-When Brouwer diagrams are generated, iodine will also be considered as a charged species at an interstitial site (see § \ref{results2_brouwer}). This includes I$^{+}$ and I$^{-}$, where I$^{+}$ is a smaller ion that is more easily accommodated at an interstitial site. Energy values for I$^{+}$ and I$^{-}$ are also reported in Table \ref{i_incorp_interstitial}, however, values for different charge states cannot be compared because an electron has been added or removed from the I atom to form the specific charge state. An interstitial site will always be uncharged (resultant charge is distributed onto nearby ions instead), meaning that there is no pre-existing charged interstitial site to incorporate an atom onto. It is therefore only appropriate to consider the \emph{formation} energy (i.e. including the addition or removal of an electron) of a charged interstitial defect. 
+When Brouwer diagrams are generated, iodine is also considered as a charged species at an interstitial site (see § \ref{results2_brouwer}). This includes I$^{+}$ and I$^{-}$, where I$^{+}$ is a smaller ion that is more easily accommodated at an interstitial site. Energy values for I$^{+}$ and I$^{-}$ are also reported in Table \ref{i_incorp_interstitial}, however, values for different charge states cannot be compared because an electron has been added or removed from the I atom to form the specific charge state. An interstitial site will always be uncharged (resultant charge is distributed onto nearby ions instead), meaning that there is no pre-existing charged interstitial site to incorporate an atom onto. It is therefore only appropriate to consider the \emph{formation} energy (i.e. including the addition or removal of an electron) of a charged interstitial defect. 
 
 \subsubsection*{Oxygen Sites}
 
@@ -165,17 +165,20 @@ The formation energies of iodine interstitial defects are useful not only to det
 
 \subsubsection{Monoclinic interstitial defects}
 
-Figure \ref{figure:monointer} shows how the formation energy of an iodine interstitial defect in monoclinic ZrO$_{2}$ varies based on site and Fermi level. In this phase, the 2$b$ Wyckoff position is the site of lowest formation energy across the entire range of Fermi levels that span the band gap, with a maximum of 8.1 eV at a Fermi level of 2.8 eV.  The next most favourable site is at 2$a$, with formation energies at least 0.4 eV greater at similar Fermi levels. Iodine at the 2$c$ and 2$d$ sites exhibits formation energies between 1 and 4 eV larger than at the 2$b$ site, making these sites significantly unfavourable. This shows that there are indeed four unique sites which iodine atoms can occupy in the monoclinic phase (as evidenced by the different formation energy evolutions at each site), and that of these sites, the 2$c$ is the most energetically favourable for iodine.
+Figure \ref{figure:monointer} shows how the formation energy of an iodine interstitial defect in monoclinic ZrO$_{2}$ varies based on site and Fermi level. In this phase, the 2$b$ Wyckoff position is the site of lowest formation energy across the entire range of Fermi levels that span the band gap, with a maximum of 8.1 eV at a Fermi level of 2.8 eV.  The next most favourable site is at 2$a$, with formation energies at least 0.4 eV greater at similar Fermi levels. Iodine at the 2$c$ and 2$d$ sites exhibits formation energies between 1 and 4 eV larger than at the 2$b$ site, making these sites significantly unfavourable. This shows that there are indeed four unique sites which iodine atoms can occupy in the monoclinic phase (as evidenced by the different formation energy evolutions at each site), and that of these sites, the 2$b$ is the most energetically favourable for iodine. 
 
 \begin{figure}[ht] % Mono iodine interstitials E vs Fermi
 \begin{center}
 \begin{tikzpicture}
 	\begin{axis}
-		[width=11.5cm, xlabel={Fermi level $\mu_{e}$ (eV)}, ylabel={Formation energy (eV) per \zirconia\ }, ymin=4, ymax=11, xmin=0, xmax=6, legend style={{draw=}, at={(0.5,0.05)}, anchor=south, legend columns=2}]
+		[width=11.5cm, xlabel={Fermi level $\mu_{e}$ (eV)}, ylabel={Formation energy (eV) per \zirconia\ }, ymin=4, ymax=12, xmin=0, xmax=6, legend style={{draw=}, at={(0.5,0.05)}, anchor=south, legend columns=2}]
 		\addplot[no marks, red] table [x=2a1, y=2a2,]{dat/monointer.dat}; \addlegendentry{$2a$};
         \addplot[no marks, red, dashed] table [x=2b1, y=2b2, ]{dat/monointer.dat}; \addlegendentry{$2b$};
         \addplot[no marks, blue] table [x=2c1, y=2c2,]{dat/monointer.dat}; \addlegendentry{$2c$};
         \addplot[no marks, blue, dashed] table [x=2d1, y=2d2,]{dat/monointer.dat}; \addlegendentry{$2d$};
+        \node at (1,9.5) {\ch{I_{i}^{\textperiodcentered}}};
+        \node at (4.5,8.4) {\ch{I_{i}^{'}}};
+        \node at (4.5,11.2) {\ch{I_{i}^{x}}};
 			\end{axis}
 		\end{tikzpicture}
 		\caption{Iodine interstitial formation energies in monoclinic \zirconia\ as a function of Fermi level. Gradient indicates defect charge.}
@@ -183,17 +186,21 @@ Figure \ref{figure:monointer} shows how the formation energy of an iodine inters
 	\end{center}
 \end{figure}
 
-It should also be noted that iodine will occupy these interstitial sites as either \ch{I^{*}_{i}} or \ch{I^{'}_{i}} (the slope of the curve indicates defect charge). \ch{I^{x}_{i}} appears for a small range of Fermi levels in the 2$c$ site, but the formation energy is so large compared to the other sites that this will not be present in the crystal. The preference for a charged state of +1 or -1 may be due to a combination of electron availability and ionic radius. \ch{I^{*}_{i}}, being positively charged, has a smaller ionic radius than \ch{I^{x}_{i}}. The smaller size of this defect comes with a smaller energy penalty when occupying an interstitial site, and at low Fermi levels the iodine is more susceptible to oxidation. At high Fermi levels, \ch{I^{'}_{i}} forms because electrons are more readily available and iodine has a high electron affinity, which compensates energetically for the increased ionic radius.
+It should also be noted that iodine will occupy these interstitial sites as either \ch{I^{*}_{i}} or \ch{I^{'}_{i}} (the slope of the curve indicates defect charge). \ch{I^{x}_{i}} appears for a small range of Fermi levels in the 2$c$ site, but the formation energy is so large compared to the other sites that this will not be present in the crystal. The preference for a charged state of +1 or -1 may be due to a combination of electron availability and ionic radius. \ch{I^{*}_{i}}, being positively charged, has a smaller ionic radius than \ch{I^{x}_{i}}. The smaller size of this defect comes with a smaller energy penalty when occupying an interstitial site, and at low Fermi levels the iodine is more susceptible to oxidation. At high Fermi levels, \ch{I^{'}_{i}} forms because iodine has a large electron affinity and electrons are more readily available. This compensates energetically for the increased ionic radius.
 
 \subsubsection{Tetragonal interstitial defects}
+
+Figure \ref{figure:tetinter} shows the formation energies of iodine interstitial defects in the tetragonal phase as a function of Fermi level. In this phase, both the $2b$ and $8e$ sites are predicted to be occupied (i.e. the site of lowest formation energy changes) by iodine at different Fermi levels. The $2b$ site, which is an octahedral site with 8 O nearest neighbour ions, is the lowest energy site for \ch{I_{i}^{'}} defects at Fermi levels above 3 eV. The $8e$ site is a tetrahedral site with two Zr and two O nearest neighbour ions, and is the lowest energy site for \ch{I_{i}^{*}} defects below Fermi levels of 3 eV. Of the two sites, the $2b$ site is larger (the shortest I-O distance before relaxation is 2.07 \r{A}, compared to 1.29 \r{A} for the $8e$ site). It is therefore reasonable that the larger I$^{-}$ ion will preferentially accommodate the $2b$ site. The eight O$^{2-}$ ions enclosing the $2b$ site also make it more reducing, promoting the negative charge state (I$^{-1}$) when occupied.
 
 \begin{figure}[ht] % Tet iodine interstitials E vs Fermi
 \begin{center}
 \begin{tikzpicture}
 	\begin{axis}
-		[width=11cm, xlabel={Fermi level $\mu_{e}$ (eV)}, ylabel={Formation energy (eV) per \zirconia\ }, ymin=6, ymax=11, xmin=0, xmax=6, legend style={{draw=}, at={(0.5,0.05)}, anchor=south, legend columns=1}]
-		\addplot[no marks, red] table [x=2atet1, y=2atet2,]{dat/tetcubicinter.dat}; \addlegendentry{$2a$};
+		[width=11cm, xlabel={Fermi level $\mu_{e}$ (eV)}, ylabel={Formation energy (eV) per \zirconia\ }, ymin=6, ymax=12, xmin=0, xmax=6, legend style={{draw=}, at={(0.5,0.05)}, anchor=south, legend columns=1}]
+		\addplot[no marks, red] table [x=2atet1, y=2atet2,]{dat/tetcubicinter.dat}; \addlegendentry{$2b$};
         \addplot[no marks, blue] table [x=8etet1, y=8etet2, ]{dat/tetcubicinter.dat}; \addlegendentry{$8e$};
+        \node at (1,10) {\ch{I_{i}^{\textperiodcentered}}};
+        \node at (4.5,8.5) {\ch{I_{i}^{'}}};
 			\end{axis}
 		\end{tikzpicture}
 		\caption{Iodine interstitial formation energies in tetragonal \zirconia\ as a function of Fermi level. Gradient indicates defect charge.}
@@ -203,13 +210,17 @@ It should also be noted that iodine will occupy these interstitial sites as eith
 
 \subsubsection{Cubic interstitial defects}
 
+Much like in the tetragonal phase, the formation energies of iodine interstitials in cubic \zirconia\ (Figure \ref{figure:cubicinter}) show that the preferred interstitial site will change based on Fermi level and the defect charge. Once again, \ch{I_{i}^{*}} will occupy the octahedral site ($4b$) and \ch{I_{i}^{'}} will occupy the tetrahedral site ($24d$). The transition from \ch{I_{i}^{*}} to \ch{I_{i}^{'}} is predicted to occur above a Fermi level of 3.8 eV, higher than in the tetragonal phase (3 eV). The tetragonal and cubic structures are very similar, and so the same reasoning of relative site sizes can be used to explain  this behaviour.
+
 \begin{figure}[ht] % Cubic iodine interstitials E vs Fermi
 \begin{center}
 \begin{tikzpicture}
 	\begin{axis}
-		[width=11cm, xlabel={Fermi level $\mu_{e}$ (eV)}, ylabel={Formation energy (eV) per \zirconia\ }, ymin=8, ymax=13, xmin=0, xmax=6, legend style={{draw=}, at={(0.5,0.05)}, anchor=south, legend columns=1}]
+		[width=11cm, xlabel={Fermi level $\mu_{e}$ (eV)}, ylabel={Formation energy (eV) per \zirconia\ }, ymin=8, ymax=14, xmin=0, xmax=6, legend style={{draw=}, at={(0.5,0.05)}, anchor=south, legend columns=1}]
 		\addplot[no marks, red] table [x=24cubic1, y=24cubic2,]{dat/tetcubicinter.dat}; \addlegendentry{$24d$};
         \addplot[no marks, blue] table [x=4bmcubic1, y=4bmcubic2, ]{dat/tetcubicinter.dat}; \addlegendentry{$4b$};
+        \node at (1.5,11.5) {\ch{I_{i}^{\textperiodcentered}}};
+        \node at (4.8,11.2) {\ch{I_{i}^{'}}};
 			\end{axis}
 		\end{tikzpicture}
 		\caption{Iodine interstitial formation energies in cubic \zirconia\ as a function of Fermi level. Gradient indicates defect charge.}
@@ -228,7 +239,7 @@ Brouwer diagrams associated with the monoclinic phase, at 650 K, at which temper
 \begin{tikzpicture} % 10e-3 iodine conc in mono
 	\begin{groupplot}[group style={group size=1 by 2}, width=14cm, height=11cm]
 	\nextgroupplot[
-		 ylabel={\ch{log_{10}}([D]) (per f.u.)}, ymin=-10, ymax=0, xmin=-35, xmax=0, legend style={{draw=}, at={(0.40,0.97)}, anchor=north west, legend columns=2, nodes={scale=1, transform shape}}]
+		 ylabel={\ch{log_{10}}([D]) (per f.u.)}, ymin=-10, ymax=0, xmin=-35, xmax=0, legend style={{draw=}, at={(0.40,0.97)}, anchor=north west, legend columns=4, nodes={scale=1, transform shape}}]
         \addplot[no marks, draw=blue!70!black] table [x=pO2, y=electrons,]{dat/1e5iconcmono650.dat};  \node at (-28.1,-7.5) {\ch{e^{'}}};  \addlegendentry{\ch{e^{'}}};
         \addplot[no marks, draw=red!85!black] table [x=pO2, y=holes,]{dat/1e5iconcmono650.dat}; \addlegendentry{\ch{h^{\textperiodcentered}}}; % \node at (-1,-4.5) {\ch{h^{\textperiodcentered}}};
 %         \addplot[no marks, draw=black!70!green] table [x=pO2, y=VO{2},]{dat/1e5iconcmono650.dat}; \addlegendentry{\ch{V_{O}^{\textperiodcentered\textperiodcentered}}};
@@ -296,7 +307,7 @@ Brouwer diagrams associated with the monoclinic phase, at 650 K, at which temper
 	\end{center}
 \end{figure} % 10e-3 iodine conc in mono
 
-Between oxygen pressures of $10^{-35}$ and $10^{-10}$ atm, the dominant defects were \ch{I_{O}^{*}} charge-compensated by \ch{I_{Zr}^{'''}}. Above an oxygen pressure of $10^{-10}$ atm, a combination of \ch{I_{i}^{*}}, \ch{I_{Zr}^{'''}} and \ch{I_{O}^{***}} defects were dominant. This demonstrates that iodine will adopt a +1 oxidation state in order to facilitate iodine incorporation into the lattice. The effective ionic radius of I$^{-}$ is 2.20 \r{A} in VI-fold coordination, compared to 1.38 \r{A} for O$^{2-}$ in IV-fold coordination, as is the case in \zirconia\ \cite{Shannon1976}. Iodine with a higher positive charge state will have a smaller ionic radius, and thus impose less strain on the lattice (and therefore a smaller energy penalty) in each defect configuration, including substitution on a Zr site. At the highest oxygen pressures, the Brouwer diagrams show that oxidation of iodine, substituted at an oxygen site, to the +1 oxidation state (i.e. \ch{I_{O}^{***}}) becomes a necessary charge compensating defect. This is because the energy penalty to form hole defects in this broad band insulator is too great, as is the formation of other positive charge defects such as \ch{Zr_{i}^{****}}. This may translate to iodine out-competing oxygen for oxygen sites in monoclinic \zirconia , with higher oxygen pressures providing very little in terms of a barrier effect. 
+Between oxygen pressures of $10^{-35}$ and $10^{-10}$ atm, the dominant defects were \ch{I_{O}^{*}} charge-compensated by \ch{I_{Zr}^{'''}}. Above an oxygen pressure of $10^{-10}$ atm, a combination of \ch{I_{i}^{*}}, \ch{I_{Zr}^{'''}} and \ch{I_{O}^{***}} defects were dominant. This demonstrates that iodine will adopt a +1 oxidation state in order to facilitate iodine incorporation into the lattice. The effective ionic radius of I$^{-}$ is 2.20 \r{A} in VI-fold coordination, compared to 1.38 \r{A} for O$^{2-}$ in IV-fold coordination, as is the case in \zirconia\ \cite{Shannon1976}. Iodine with a higher positive charge state will have a smaller ionic radius, and thus impose less strain on the lattice (and therefore a smaller energy penalty) in each defect configuration, including substitution on a Zr site. At the highest oxygen pressures, the Brouwer diagrams show that oxidation of iodine, substituted at an oxygen site, to the +1 oxidation state (i.e. \ch{I_{O}^{***}}) becomes a necessary charge compensating defect. This is because the energy penalty to form additional hole defects is too large, as is the formation of other positive charge defects such as \ch{Zr_{i}^{****}}. This may translate to iodine out-competing oxygen for oxygen sites in monoclinic \zirconia , with higher oxygen pressures providing very little in terms of a barrier effect. 
 
 % \begin{itemize}
 % %\item Figure 1 shows monoclinic Brouwer diagrams generated at different assumed iodine concentrations.
@@ -309,14 +320,14 @@ Between oxygen pressures of $10^{-35}$ and $10^{-10}$ atm, the dominant defects 
 
 \subsubsection*{Tetragonal Phase}
 
-Brouwer diagrams for the tetragonal phase are shown in Figure \ref{figure:tikzbrouwerconctet}. As these diagrams were generated at a temperature of 1500 K (at which the tetragonal phase becomes stable), intrinsic defect concentrations were significantly higher than in the monoclinic diagrams for all oxygen pressures (though trends remained the same). Intrinsic defects \ch{e^{'}}, \ch{h^{*}}, \ch{V_{O}^{**}} and \ch{V_{Zr}^{''''}} were dominant across most oxygen pressures at an iodine concentration of $10^{-5}$ parts/fu. Only around stoichiometry do extrinsic defect concentrations approach intrinsic values (which as mentioned earlier is why this concentration of iodine was chosen). Across all oxygen pressures, \ch{I_{O}^{*}} and \ch{I_{Zr}^{'''}} are the major iodine defects. Between $10^{-15}$ and $10^{-5}$ atm, Figure \ref{figure:tikzbrouwerconctet} illustrates that the major iodine defect swaps from being \ch{I_{O}^{*}} to \ch{I_{Zr}^{'''}}. 
+Brouwer diagrams for the tetragonal phase are shown in Figure \ref{figure:tikzbrouwerconctet}. As these diagrams were generated at a temperature of 1500 K (at which the tetragonal phase becomes stable), intrinsic defect concentrations were significantly higher than in the monoclinic diagrams for all oxygen pressures (though trends remained the same). Intrinsic defects \ch{e^{'}}, \ch{h^{*}}, \ch{V_{O}^{**}} and \ch{V_{Zr}^{''''}} were dominant across most oxygen pressures at an iodine concentration of $10^{-5}$ parts/fu. Only near stoichiometry do extrinsic defect concentrations approach intrinsic values (which as mentioned earlier is why this concentration of iodine was chosen). Across all oxygen pressures, \ch{I_{O}^{*}} and \ch{I_{Zr}^{'''}} are the major iodine defects. Between $10^{-15}$ and $10^{-5}$ atm, Figure \ref{figure:tikzbrouwerconctet} illustrates that the major iodine defect swaps from being \ch{I_{O}^{*}} to \ch{I_{Zr}^{'''}}. 
 
 \begin{figure}[htp] % 10e-5 iodine conc in tet
 \begin{center}
 \begin{tikzpicture}
 	\begin{groupplot}[group style={group size=1 by 2}, width=14cm, height=11cm]
 	\nextgroupplot[
-		 ylabel={\ch{log_{10}}([D]) (per f.u.)}, ymin=-10, ymax=0, xmin=-35, xmax=0, legend style={{draw=}, at={(0.40,0.97)}, anchor=north west, legend columns=2, nodes={scale=1, transform shape}}]
+		 ylabel={\ch{log_{10}}([D]) (per f.u.)}, ymin=-10, ymax=0, xmin=-35, xmax=0, legend style={{draw=}, at={(0.40,0.97)}, anchor=north west, legend columns=4, nodes={scale=1, transform shape}}]
         \addplot[no marks, draw=blue!70!black] table [x=pO2, y=electrons,]{dat/1e5iconctet1500.dat}; \addlegendentry{\ch{e^{'}}}; \node at (-26.0,-1.9) {\ch{e^{'}}};
         \addplot[no marks, draw=red!85!black] table [x=pO2, y=holes,]{dat/1e5iconctet1500.dat}; \addlegendentry{\ch{h^{\textperiodcentered}}}; \node at (-7,-3.6) {\ch{h^{\textperiodcentered}}};
         \addplot[no marks, draw=black!70!green] table [x=pO2, y=VO{2},]{dat/1e5iconctet1500.dat}; \addlegendentry{\ch{V_{O}^{\textperiodcentered\textperiodcentered}}}; \node at (-26.7,-3.3) {\ch{V_{O}^{\textperiodcentered\textperiodcentered}}};
@@ -392,8 +403,14 @@ Another effect considered was the space charge of the system. Electrons have a h
 
 \section{Conclusions}
 
-Iodine exhibits lower incorporation energies when occupying defects in monoclinic \zirconia\ than in the tetragonal phase. However, as monoclinic is the low-temperature phase, intrinsic defect concentrations will also be low, thereby requiring additional energy input to produce vacancies when the concentration of iodine is much larger than that of the intrinsic defects. This leads to relatively large concentrations of iodine interstitial defects predicted in the monoclinic Brouwer diagrams, as interstitial sites are always available in the lattice. 
+\begin{itemize}
+\item Iodine exhibits lower incorporation energies when occupying defects in monoclinic \zirconia\ than in the tetragonal phase. However, as monoclinic is the low-temperature phase, intrinsic defect concentrations as calculated in the Brouwer diagrams will also be low, thereby requiring additional energy input to produce vacancies when the concentration of iodine is much larger than that of the intrinsic defects. This leads to relatively large concentrations of iodine interstitial defects predicted in the monoclinic Brouwer diagrams, as interstitial sites are always available in the lattice. 
+\item Defects involving iodine in the +1 oxidation state are present in significant concentrations, especially in monoclinic \zirconia , indicating that filling of the $p$ electronic sub-shell is not always energetically favourable compared to forming iodine with a smaller ionic radius developed through oxidation. 
+\item The competition between iodine and oxygen for anion sites in \zirconia\ is phase and oxygen pressure dependent. Higher oxygen pressures will reduce the equilibrium concentration of iodine substitutional defects on oxygen sites and iodine interstitial defects.
+\item At high oxygen pressures in monoclinic \zirconia , iodine in the +1 oxidation state is predicted to occupy oxygen and interstitial sites. The reduction in \ch{I_{O}^{***}} and \ch{I_{i}^{*}} defects is small at higher oxygen pressures, indicating that iodine defects are still favourable even at high $p_{O_{2}}$.
+\item In tetragonal \zirconia\ at high oxygen pressures, the concentration of iodine defects on anion sites decreases steeply, indicating a preference for iodine accommodated at zirconium cation sites. This is indicative of a barrier effect in the tetragonal phase with oxygen out-competing iodine for anion sites.
+\end{itemize} 
 
-Defects involving iodine in the +1 oxidation state are present in significant concentrations, especially in monoclinic \zirconia , indicating that filling of the $p$ electronic sub-shell is not always energetically favourable compared to forming the smaller iodine ionic radius developed through oxidation. 
 
-The competition between iodine and oxygen for anion sites in \zirconia\ is phase and oxygen pressure dependent. At high oxygen pressures in monoclinic \zirconia , iodine in the +1 oxidation state is predicted to occupy oxygen sites and remains the dominant defect. In tetragonal \zirconia\ at high oxygen pressures, however, the concentration of iodine defects on anion sites decreases steeply, indicating a preference for iodine accommodated at zirconium cation sites. This is indicative of a barrier effect in the tetragonal phase with oxygen out-competing iodine for anion sites.
+
+

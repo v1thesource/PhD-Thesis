@@ -13,7 +13,7 @@
 }
 
 \author{Alexandros Kenich}
-\submitdate{October 2019}
+\submitdate{September 2019}
 
 \normallinespacing
 \maketitle
@@ -35,15 +35,15 @@
 
 \setstretch{2.1}
 \input{introduction/introduction} % Complete
-\input{literature/literature} % Good
+\input{literature/literature} % Complete
 \input{crystallography/crystallography} % Complete 
-\input{compmethodology/compmethodology} % Good
-%\input{defects/defects.tex} % Good
+\input{compmethodology/compmethodology} % Complete
 \input{results1/results1} % Good
 \input{results2/results2} % Good
 \input{results3/results3} % Good
-\input{summary/summary} 
+\input{summary/summary} % Good
 %\input{future/future} % Moved to summary.tex
+%\input{defects/defects.tex} % Moved to results1
 
 \setstretch{1.6}
 \addcontentsline{toc}{chapter}{References}
@@ -67,7 +67,94 @@ ParaSweep is a generalised sensitivity analysis visualisation tool which was dev
 
 Throughout the course of this project, many useful scripts were created to help with preparing CASTEP jobs and analysing their outputs. These scripts have been made available online and for free at \href{https://github.com/v1thesource/CASTEP}{https://github.com/v1thesource/CASTEP}. The purpose of open-sourcing these scripts is to simplify the experience for new users of CASTEP and help them save a considerable amount of time.
 
-\chapter{Steady state calculation of iodine inventory}
+\chapter{Defect volumes without charge correction} \label{uncorrected_volumes}
+
+Defect relaxation volumes for charged defects were initially calculated only with respect to the uncharged non-defective cell, a method which has been shown to yield inaccurate values. These values are provided in Tables \ref{appendix_defect_volumes_raw}, \ref{appendix_frenkel_volumes} and \ref{appendix_defect_volumes} below for comparison.
+
+\begin{table}[ht!] % Isolated defect volumes
+\onehalfspacing
+\centering
+\caption{Individual point defect volumes in the three \zirconia\ structures.}
+\label{appendix_defect_volumes_raw}
+\begin{tabular}{cccc}
+\hline
+                      & \multicolumn{3}{c}{\textbf{Defect volume relative to non-defective cell (\r{A}\textsuperscript{3})}}  \\ \cline{2-4} 
+\textbf{Defect}       & \textbf{Monoclinic} & \hspace{1cm} \textbf{Tetragonal} & \textbf{Cubic} \\ \hline
+\ch{V_{Zr}^{''''}}             & 55.95             & 88.93            & 48.47         \\
+\ch{V_{Zr}^{'''}}             & 42.48             &         51.08     &     36.94      \\
+\ch{V_{Zr}^{''}}            & 29.90             &  34.28            &     25.93           \\
+\ch{V_{Zr}^{'}}             & 17.10             &  18.43            &     15.08           \\
+\ch{V_{Zr}^{x}}              & 4.06             &  4.70            &    4.32       \\
+\ch{Zr_{i}^{****}}             & -34.62            & -41.94            & -27.34       \\
+\ch{Zr_{i}^{***}}             &  -22.76           &	-27.74 		  &	-16.95         \\
+\ch{Zr_{i}^{**}}             &  -11.79 	        &	-12.02 		  &	-6.24          \\
+\ch{Zr_{i}^{*}}            &  2.68			& -0.02 		  & 	4.69             \\
+\ch{Zr_{i}^{x}}              &  15.94		 	& 13.40	 		  & 15.97         \\
+\ch{V_{O}^{**}} {[}4coord{]} & -22.52            & -40.45            & -22.76       \\
+\ch{V_{O}^{*}} {[}4coord{]} &  -12.41           &    -19.53         &     -12.19           \\
+\ch{V_{O}^{x}} {[}4coord{]}  &  -0.69          &  -2.80           &      -1.11          \\
+\ch{V_{O}^{**}} {[}3coord{]} & -26.13            &                     &                \\
+\ch{V_{O}^{*}} {[}3coord{]} &  -14.42           &                     &                \\
+\ch{V_{O}^{x}} {[}3coord{]}  &   -1.71          &                     &                \\
+\ch{O_{i}^{''}}              & 27.01             & 40.00              & 28.58        \\
+\ch{O_{i}^{'}}              &  15.36            &    24.56         &  16.30              \\
+\ch{O_{i}^{x}}               & 2.66             &    11.06          &   8.95        \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[ht] % Isolated Frenkel + Schottky volumes
+\onehalfspacing
+\centering
+\caption{Defect volumes of Frenkel and Schottky defects in the three \zirconia\ structures calculated from individual point defects.}
+\label{appendix_frenkel_volumes}
+\begin{tabular}{cccc}
+\hline
+                      & \multicolumn{3}{c}{\textbf{Defect volume relative to non-defective cell (\r{A}\textsuperscript{3})}}  \\ \cline{2-4} 
+\textbf{Defect}       & \textbf{Monoclinic} & \hspace{1cm} \textbf{Tetragonal} & \textbf{Cubic} \\ \hline
+\ch{V_{Zr}^{''''}} + \ch{Zr_{i}^{****}}          & 21.33	 & 46.99 &	21.13         \\
+\ch{V_{Zr}^{'''}} + \ch{Zr_{i}^{***}}          & 19.72 &	23.35 &	20.00      \\
+\ch{V_{Zr}^{''}} + \ch{Zr_{i}^{**}}          & 18.11 &	22.25 & 19.69           \\
+\ch{V_{Zr}^{'}} + \ch{Zr_{i}^{*}}          & 19.78 &	18.41 &	19.76           \\
+\ch{V_{Zr}^{x}} + \ch{Zr_{i}^{x}}          & 19.99 &	18.11 &	20.29       \\
+\ch{V_{O}^{**}} + \ch{O_{i}^{''}}           & 0.88 &	-0.45 &	 5.82       \\
+\ch{V_{O}^{*}} + \ch{O_{i}^{'}}           &  0.95 &	5.03 &	4.11        \\
+\ch{V_{O}^{x}} + \ch{O_{i}^{x}}           &  0.96 &	8.26 &	7.84          \\
+\ch{V_{Zr}^{''''}} + 2\ch{V_{O}^{**}}       &  3.70 &	8.03 &	2.94             \\
+\ch{V_{Zr}^{''}} + 2\ch{V_{O}^{*}}       &  1.07 &	-4.79 &	 1.56         \\
+\ch{V_{Zr}^{x}} + 2\ch{V_{O}^{x}}        & 0.65 &	-0.90 &	 2.09       \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[ht] % Defect volumes and stress magnitudes (UNCORRECTED)
+\onehalfspacing
+\centering
+\caption{Calculated defect volumes and stress tensor magnitudes of the dominant defect types in tetragonal \zirconia . Stress tensors are calculated for defective supercells.}
+\label{appendix_defect_volumes}
+\begin{tabular}{cccc}
+\hline
+Defect type & \begin{tabular}[c]{@{}c@{}}Defect volume relative\\ to perfect crystal (\r{A}$^{3}$)\end{tabular} & \begin{tabular}[c]{@{}c@{}}Defect volume relative\\ to vacant site (\r{A}$^{3}$)\end{tabular} & \begin{tabular}[c]{@{}c@{}}Stress tensor \\ magnitude (GPa)\end{tabular} \\ \hline
+\ch{V_{O}^{**}} & -37.53 & 0 & -5.13 \\ %7440 \\ %362 \\
+\ch{V_{Zr}^{''''}} & 67.41 & 0 & 9.21 \\ %9072 \\ %8347 \\
+%\ch{V_{O}^{*}} & -21.14 \\ %3522 \\
+%\ch{V_{O}^{x}} & -2.96 \\ %415 \\
+%\ch{Te_{O}^{***}} & -18.83 & 18.70 & -1.84 \\ %8097 \\ %6605 \\
+\ch{Te_{O}^{**}} & 2.74 & 40.26 & 0.84 \\ %5940 \\ %3752 \\
+\ch{Te_{O}^{*}} & 24.61 & 62.14 & 3.29 \\ %5090 \\ %7451 \\
+\ch{Te_{Zr}^{''''}} & 83.01 & 15.60 & 13.04 \\ %6289 \\ %8247 \\
+\ch{Te_{Zr}^{'''}} & 59.93 & -7.48 & 10.08 \\ %0934 \\ %2232 \\
+\ch{I_{O}^{***}} & -18.59 & 18.94 & -1.61 \\ %6196 \\ %0449 \\
+\ch{I_{O}^{*}} & 29.90 & 67.43 & 3.25 \\ %8003 \\ %6407 \\
+\ch{I_{Zr}^{'''}} & 87.07 & 19.66 & 11.76 \\ %5444 \\ %912 \\
+\ch{Xe_{O}^{**}} & 9.02 & 46.55 & 0.88 \\ %8234 \\ %3892 \\
+%\ch{Xe_{O}^{*}} & 32.07 & 69.60 & 3.87 \\ %7508 \\ %5247 \\
+\ch{Xe_{Zr}^{''''}} & 115.50 & 48.09 & 13.53 \\ %2321 \\ %4415 \\
+\ch{Xe_{Zr}^{'''}} & 91.65 & 24.24 & 10.65 \\ %1595 \\ %578 \\
+\ch{Cs_{O}^{**}} & 4.38 & 41.91 & 1.50 \\ %0571 \\ %1495 \\
+\ch{Cs_{Zr}^{'''}} & 90.37 & 22.96 & 10.60 \\ \hline
+\end{tabular}
+\end{table}
+
+\chapter{Steady state calculation of iodine inventory} \label{ss_i_conc}
 
 Consider a reactor such as the AP1000 with thermal efficiency $\eta_{t}$ = 1/3 and electrical power output $P_{e}$ = 1000 MWe. Thermal power output ($P_{t}$) is therefore:
 \begin{equation}
@@ -85,7 +172,7 @@ The total inventory of iodine at steady state operation is dependent on four fac
 \begin{itemize}
 \item Production directly from fission
 \item Production from decay of tellurium precursors
-\item Loss through radioactive decay
+\item Loss of iodine through radioactive decay
 \item Loss (of a particular iodine isotope) through neutron capture
 \end{itemize}
 The rate of change of tellurium and iodine populations (\ch{N_{Te}} and \ch{N_{I}}) can therefore be expressed by:
@@ -93,6 +180,26 @@ The rate of change of tellurium and iodine populations (\ch{N_{Te}} and \ch{N_{I
 \frac{d\ch{N_{Te}}}{dt} = \dot{f}_{Te} - \lambda_{Te}\ch{N_{Te}} \\
 \frac{d\ch{N_{I}}}{dt} = \dot{f}_{I} + \lambda_{Te}\ch{N_{Te}} - \lambda_{I}\ch{N_{I}} - \phi\sigma_{a_{I}}\ch{N_{I}}
 \end{gather}
-where $\lambda$ is the decay constant, $\phi$ is the thermal neutron flux and $\sigma_{a_{I}}$ is the microscopic thermal neutron absorption cross-section of iodine.
+where $\lambda$ is the decay constant, $\phi$ is the thermal neutron flux and $\sigma_{a_{I}}$ is the microscopic thermal neutron absorption cross-section of iodine. Assuming a clean reactor core at start-up and using the boundary condition of \ch{N_{Te}}($t=0$) = 0, a general solution for \ch{N_{Te}} at time $t$ can be found:
+\begin{equation}
+\ch{N_{Te}}(t) = \frac{\dot{f}_{Te}}{\lambda_{Te}}(1 - e^{-\lambda_{Te}t})
+\end{equation}
+Using this form of \ch{N_{Te}}($t$) in Equation D.5, a solution for \ch{N_{I}} at time $t$ can also be found:
+\begin{equation}
+\ch{N_{I}}(t) = \frac{\dot{f}_{Te} + \dot{f}_{I}}{\lambda_{I} + \phi\sigma_{a_{I}}}(1 - e^{-(\lambda_{I} + \phi\sigma_{a_{I}})t}) + \frac{\dot{f}_{Te}}{\phi\sigma_{a_{I}} - \lambda_{Te} + \lambda_{I}}(e^{-(\lambda_{I} + \phi\sigma_{a_{I}})t} - e^{-\lambda_{Te}t})
+\end{equation}
+A steady state quantity of iodine is reached after a few days due to the short half-lives of many isotopes. This steady state quantity is given by:
+\begin{equation}
+\ch{N_{I}}(t=\infty) = \frac{\dot{f}_{Te} + \dot{f}_{I}}{\lambda_{I} + \phi\sigma_{a_{I}}}
+\end{equation}
+The quantity $\phi\sigma_{a_{I}}$ varies non-linearly in the reactor core and is therefore difficult to evaluate. Instead, an order of magnitude analysis of the denominator terms in Equation D.8 is conducted to determine their relative significance. The thermal neutron flux $\phi$ at the core center in an AP1000 reported by Westinghouse is 5.47 $\times$ 10$^{13}$ n/cm$^{2}$s \cite{stefani2015neutronic}. The largest thermal neutron capture cross section for an iodine isotope (\ch{I^{131}}) is approximately 100 barns (1 $\times$ 10$^{-22}$ cm$^{2}$). The smallest decay constant $\lambda$ for a major iodine isotope (\ch{I^{131}}) is 1 $\times$ 10$^{-6}$ s$^{-1}$. Using these values, the quantity $\phi\sigma_{a_{I}}$ is 5.47 $\times$ 10$^{-9}$ s$^{-1}$, more than two orders of magnitude smaller than the decay constant of \ch{I^{131}}. Thus, the decay constant of an iodine isotope will always be the dominant term in the denominator of Equation D.8, therefore:
+\begin{equation}
+\lambda_{I} >> \phi\sigma_{a_{I}}
+\end{equation}
+therefore Equation D.8 can be written as:
+\begin{equation}
+\ch{N_{I}}(t=\infty) = \frac{\dot{f}_{Te} + \dot{f}_{I}}{\lambda_{I}}
+\end{equation}
+With all values in Equation D.10 now known, the steady state number of atoms for each iodine isotope from mass 130 to 138 was computed. These values were converted to moles, and then to mass. A total mass of 203.84 grams of iodine was calculated at steady state operation in the core of a 1000 MWe reactor. In an AP1000 reactor, which holds 157 fuel assemblies, this amounts to an average of approximately 1.3 grams of iodine per fuel assembly.
 
 \end{document}
