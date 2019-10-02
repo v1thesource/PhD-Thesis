@@ -4,7 +4,7 @@
 
 \section{Introduction}  
 
-It is important to fully understand the behaviour of intrinsic defects in \zirconia\ before performing studies with dopant ions. In this chapter, intrinsic defects in monoclinic, tetragonal and cubic \zirconia\ are compared and contrasted, including values for formation energy, defect volumes and defect equilibria. Elastic constants, electronic density of states, band gaps and free energies of the non-defective structures are also reported. % because useful material properties may be exploited to improve performance, e.g. by doping with other ions to stabilise one crystal structure. For example, \zirconia\ doped with enough yttrium cations will stabilise the cubic phase and increase the concentration of oxygen vacancies. This would then affect the behaviour of dopant atoms also present in the lattice.
+It is important to fully understand the behaviour of intrinsic defects in \zirconia\ before performing studies with dopant ions. In this chapter, intrinsic defects in monoclinic, tetragonal and cubic \zirconia\ are compared and contrasted, including values for formation energy, defect volumes and defect equilibria. Elastic stiffness constants, electronic density of states, band gaps and free energies of the non-defective structures are also reported. % because useful material properties may be exploited to improve performance, e.g. by doping with other ions to stabilise one crystal structure. For example, \zirconia\ doped with enough yttrium cations will stabilise the cubic phase and increase the concentration of oxygen vacancies. This would then affect the behaviour of dopant atoms also present in the lattice.
 
 \subsection{Previous work} 
 
@@ -51,18 +51,18 @@ c-\zirconia        &   5.11 (5.09)           &              &              & 90 
 
 The first thing to note is that the correct order of \zirconia\ phases is predicted in the total energy calculations, with monoclinic being the lowest energy phase and cubic being the highest. In addition, the energy difference between phases is small ($<$ 0.1 eV/fu). This is a good indication that the choice of exchange correlation functional can reproduce the energy landscape of the system accurately. This is especially important for when defects are introduced because they may promote stabilisation of one phase over another, and an inaccurate model will not capture this behaviour. In all cases the predicted cell volumes are consistently within approximately 2\% of experimental values. 
 
-\subsection{Elastic constants} \label{bulk_moduli}
+\subsection{Elastic stiffness constants} \label{bulk_moduli}
 
-Table \ref{stiffness_tensor} shows the calculated elastic constants for the monoclinic, tetragonal, and cubic phases of \zirconia . The cubic phase has the highest stiffness, likely due to the short Zr-O bond lengths in the energy-minimised structure (Figure \ref{figure:zrobonddistance}). It is expected that at high temperatures where the cubic phase is stable, thermal effects (which are not captured in this model) such as larger interatomic spacings will result in a reduction in stiffness.
+Table \ref{stiffness_tensor} shows the calculated elastic stiffness constants for the monoclinic, tetragonal, and cubic phases of \zirconia . The cubic phase has the greatest elastic stiffness, possibly leading to the short Zr-O bond lengths in the energy-minimised structure (Figure \ref{figure:zrobonddistance}). It is expected that at high temperatures where the cubic phase is stable, thermal effects (which are not captured in this model) such as larger interatomic spacings will result in a reduction in stiffness.
 
 \begin{table}[ht] % Elastic constants
 \onehalfspacing
 \centering
-\caption{Elastic constants for different phases of \zirconia\ from DFT calculations.}
+\caption{Elastic stiffness constants for different phases of \zirconia\ from DFT calculations.}
 \label{stiffness_tensor}
 \begin{tabular}{cccc}
 \hline
-\multirow{2}{*}{\textbf{Elastic Component}} & \multicolumn{3}{c}{\textbf{Stiffness (GPa)}}               \\ \cline{2-4} 
+\multirow{2}{*}{\textbf{Elastic stiffness constant}} & \multicolumn{3}{c}{\textbf{Stiffness (GPa)}}               \\ \cline{2-4} 
                                             & \textbf{Monoclinic} & \textbf{Tetragonal} & \textbf{Cubic} \\ \hline
 $C_{11}$                                         & 338.86        & 334.30               & 523.38    \\
 $C_{12}$                                         & 151.80        & 207.30               & 92.93     \\
@@ -76,15 +76,15 @@ $C_{66}$                                         & 114.19        & 152.60       
 \end{tabular}
 \end{table}
 
-The monoclinic and tetragonal phases have similar stiffness along the principal axes, but vary significantly under shearing conditions. In particular, the tetragonal phase exhibits much smaller $C_{44}$ and $C_{55}$ components. This may be attributed to the directional anisotropy of the tetragonal phase due to the larger $c$ parameter. 
+The monoclinic and tetragonal phases have similar stiffness along the principal axes, but vary significantly under shearing conditions. The $C_{44}$ and $C_{55}$ elastic stiffness constants are considerably smaller in the tetragonal phase. This may be attributed to the directional anisotropy of the tetragonal phase due to the larger $c$ parameter. 
 
-The bulk modulus ($B$) of each phase was calculated from the elastic constants using the following formulae \cite{Watt1980, Wu2018, wu2017critical}:
+The bulk modulus ($B$) of each phase was calculated from the elastic stiffness constants using the following formulae \cite{Watt1980, Wu2018, wu2017critical}:
 \begin{gather}
 B_{\ch{monoclinic}} = \frac{1}{9}(C_{11} + C_{22} + C_{33} + 2(C_{12} + C_{13} + C_{23})) \\
 B_{\ch{tetragonal}} = \frac{1}{9}(2C_{11} + 2C_{12} + 4C_{13} + C_{33}) \\
 B_{\ch{cubic}} = \frac{1}{3}(C_{11} + 2C_{12})
 \end{gather}
-These yielded bulk modulus values 190.87 GPa, 169.94 GPa and 236.41 GPa for the monoclinic, tetragonal and cubic phases respectively. These compare with experimental values of 201 GPa for monoclinic at 20 $^{\circ}$C \cite{Chan1991}, 176 GPa for tetragonal at room temperature (pressure stabilised between 1-20 GPa) \cite{Bouvier2000} and 201.09 GPa for 10 \% YSZ (cubic) at 300 K \cite{Cai1995}. The monoclinic and tetragonal values are in good agreement with experiment. The cubic phase value is difficult to compare as this phase is always studied with a phase stabilising dopant, thus affecting the measured value.
+These yielded bulk modulus values of 190.87 GPa, 169.94 GPa and 236.41 GPa for the monoclinic, tetragonal and cubic phases respectively. These compare with experimental values of 201 GPa for monoclinic at 20 $^{\circ}$C \cite{Chan1991}, 176 GPa for tetragonal at room temperature (pressure stabilised between 1-20 GPa) \cite{Bouvier2000} and 201.09 GPa for 10 \% YSZ (cubic) at 300 K \cite{Cai1995}. The monoclinic and tetragonal values are in good agreement with experiment. The cubic phase value is difficult to compare as this phase is always studied with a phase stabilising dopant, thus affecting the measured value.
 
 \subsection{Electronic density of states} 
 
@@ -409,7 +409,7 @@ Tables \ref{defect_volumes_raw} and \ref{defect_volumes_clusters_isolated} show 
 \end{tabular}
 \end{table}
 
-The fully-charged O Frenkel defect has the smallest defect volume in the tetragonal phase, followed by the cubic phase. The tetragonal phase also exhibits larger \ch{O_{i}^{''}} and \ch{V_{O}^{**}} defects than the other phases. This can be explained partly by the relative stiffness of the different phases. Most of the calculated elastic constants in the tetragonal phase are smaller than in the monoclinic phase (Table \ref{stiffness_tensor}), and by significant amounts for the $C_{23}$, $C_{44}$ and $C_{55}$ components. In the monoclinic phase, none of the calculated elastic components are below 71 GPa, whereas four of the elastic components in the tetragonal phase are below 50 GPa. The overall effect on stiffness can be seen when calculating the bulk modulus of each phase (see § \ref{bulk_moduli}). The monoclinic phase bulk modulus is 190.87 GPa compared to 169.94 GPa in tetragonal \zirconia , making the tetragonal phase more compliant to volume changes.
+The fully-charged O Frenkel defect has the smallest defect volume in the tetragonal phase, followed by the cubic phase. The tetragonal phase also exhibits larger \ch{O_{i}^{''}} and \ch{V_{O}^{**}} defects than the other phases. This can be explained partly by the relative elastic stiffness of the different phases. Most of the calculated elastic stiffness constants in the tetragonal phase are smaller than in the monoclinic phase (Table \ref{stiffness_tensor}), and by significant amounts for the $C_{23}$, $C_{44}$ and $C_{55}$ components. In the monoclinic phase, none of the calculated elastic components are below 71 GPa, whereas four of the elastic components in the tetragonal phase are below 50 GPa. The overall effect on stiffness can be seen when calculating the bulk modulus of each phase (see § \ref{bulk_moduli}). The monoclinic phase bulk modulus is 190.87 GPa compared to 169.94 GPa in tetragonal \zirconia , making the tetragonal phase more compliant to volume changes.
 
 The Zr Frenkel defect is significantly larger than the O Frenkel, mostly due to the large positive strain contribution from the Zr interstitial defects. The tetragonal phase in particular has a larger fully-charged Zr Frenkel defect than the other phases, again partly due to the low stiffness of the tetragonal phase. Compared to the O Frenkel defect, these defects are larger and will therefore impose larger strains in the lattice, leading to larger formation energies. 
 
@@ -417,7 +417,7 @@ The Zr Frenkel defect is significantly larger than the O Frenkel, mostly due to 
 
 \subsubsection*{Monoclinic}
 
-The monoclinic Brouwer diagram (Figure \ref{figure:mono_intrinsic_brouwer}) predicts that at 650 K, intrinsic defects will be present at very low (\textless 10 ppb \zirconia ) concentrations. This is typical of defect behaviour in a ceramics at temperatures far below their melting points \cite{kingery1997physical,ball2006computer}. As a result, stoichiometry occurs at a $p_{O_{2}}$ of $10^{-27}$ atm. At oxygen pressures below $10^{-20}$ atm, the major defects are \ch{e^{'}} and \ch{h^{*}} which fully charge-compensate each other. 
+The monoclinic Brouwer diagram (Figure \ref{figure:mono_intrinsic_brouwer}) predicts that at 650 K, intrinsic defects will be present at very low (\textless 10 ppb \zirconia ) concentrations. This is typical of defect behaviour in a ceramic at temperatures far below their melting points \cite{kingery1997physical,ball2006computer}. As a result, stoichiometry occurs at a $p_{O_{2}}$ of $10^{-27}$ atm. At oxygen pressures below $10^{-20}$ atm, the major defects are \ch{e^{'}} and \ch{h^{*}} which fully charge-compensate each other. 
 
 \begin{figure}[ht] % Mono intrinsic Brouwer
 \begin{center}
@@ -535,7 +535,7 @@ Relaxed supercells of cubic phase \zirconia\ are more dense than monoclinic and 
 \begin{itemize}
 \item The correct order of phase stability is calculated for the monoclinic, tetragonal and cubic phases of \zirconia\ from DFT energies and harmonic phonon calculations. 
 \item Helmholtz free energy calculations show that, as temperature is increased, the lowest energy phase changes from monoclinic to tetragonal, but not from tetragonal to cubic.
-\item Elastic constants for each phase were calculated from DFT. Bulk moduli for the monoclinic and tetragonal phases agreed to within 5\% of experimental values. 
+\item Elastic stiffness constants for each phase were calculated from DFT. Bulk moduli for the monoclinic and tetragonal phases agreed to within 5\% of experimental values. 
 \item Formation energy calculations for each phase show that Zr vacancies will be \ch{V_{Zr}^{''''}} over most Fermi levels, while O vacancies will be reduced from \ch{V_{O}^{**}} to \ch{V_{O}^{x}} as the Fermi level increases.
 \item Fully-charged Schottky defects are shown to have the smallest formation energy per defect in all three phases, followed by O Frenkel defects and then Zr Frenkel defects.
 \item Schottky defects are calculated to have the smallest defect volume in the tetragonal and cubic phase, while O Frenkel defects have the smallest volume in the monoclinic phase. Zr Frenkel defects have the largest defect volume in all three phases.
