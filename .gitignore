@@ -7,6 +7,5 @@
 *.lot
 *.out
 *.gz
-*.pdf
 *.toc
 *.DS_Store
