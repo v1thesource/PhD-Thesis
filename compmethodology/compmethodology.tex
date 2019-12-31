@@ -387,11 +387,18 @@ Once a value of $\mu_{O_2}$ is calculated, defect concentrations can then be cal
 \label{charge_neutrality}
 \end{equation}
 
-Where $c_{i}$ is the concentration of defect $i$, $q_{i}$ is its respective charge, $N_{c}$ and $N_{v}$ are the integrated density of states for the conduction and valence bands, $E_{g}$ is the band gap and $\mu_{e}$ is the Fermi level. 
+Where $c_{i}$ is the concentration of defect $i$, $q_{i}$ is its respective charge, $N_{c}$ and $N_{v}$ are the integrated density of states for the conduction and valence bands, $E_{g}$ is the band gap and $\mu_{e}$ is the Fermi level. Using this framework, Brouwer diagrams were constructed according to the algorithm outlined in Figure \ref{figure:brouwer_algorithm}.
+
+\begin{figure}[ht] % Brouwer diagram construction
+\centering
+\includegraphics[width=14.2cm]{images/brouwer_algorithm.png}
+\caption[Flowchart for Brouwer diagram construction based on program provided in Appendix \ref{castep_scripts}. Red and green ovals represent unsuccessful and successful termination sequences, respectively. Blue borders highlight the Fermi energy calculation while green borders highlight the dopant chemical potential calculation. Red borders highlight the iteration procedure for different oxygen pressures.]{Flowchart for Brouwer diagram construction based on program provided in Appendix \ref{castep_scripts}. Red and green ovals represent unsuccessful and successful termination sequences, respectively. Blue borders highlight the Fermi energy calculation while green borders highlight the dopant chemical potential calculation. Red borders highlight the iterative procedure for different oxygen pressures. Adapted from \cite{Bell2016}.}
+\label{figure:brouwer_algorithm}
+\end{figure}
 
 \subsubsection{Temperature and pressure stabilisation}
 
-As discussed in Chapter \ref{ch:crystallography}, the tetragonal and cubic phases are stabilised at elevated temperatures and pressures. However, DFT calculations of supercells under stress require significantly greater computational resources to yield sufficiently converged energy results, and so all DFT calculations in this thesis are performed on relaxed supercells. To account for this lack of stress stabilisation, Brouwer diagrams are generated at higher temperatures (where the tetragonal and cubic phases are thermally stabilised) rather than at 650 K, which is the expected temperature at the internal surface of the cladding. This approach to compensating for stress stabilisation follow that of similar studies published by other groups \cite{youssef2012intrinsic, Youssef2014, Otgonbaatar2014}.
+As discussed in Chapter \ref{ch:crystallography}, the tetragonal and cubic phases are stabilised at elevated temperatures and pressures. However, DFT calculations of supercells under stress require significantly greater computational resources to yield sufficiently converged energy results, and so all DFT calculations in this thesis are performed on relaxed supercells. To account for this lack of stress stabilisation, Brouwer diagrams are generated at higher temperatures (where the tetragonal and cubic phases are thermally stabilised) rather than at 650 K, which is the expected temperature at the internal surface of the cladding. This approach to compensating for stress stabilisation follows that of similar studies published by other groups \cite{youssef2012intrinsic, Youssef2014, Otgonbaatar2014}.
 
 \subsection{Effect of space charge} \label{space_charge}
 
@@ -469,15 +476,15 @@ Figure \ref{figure:spacechargeexample} shows an example of the defect equilibria
 
 \subsection{Plane-wave cut-off energy}
 
-In order to determine an appropriate value for the plane-wave cut-off energy, a convergence test was performed to determine the relative error in predicted energy compared to a highly converged value. This convergence test was conducted by running multiple geometry optimisation procedures under fully relaxed conditions on a unit cell of \zirconia\ for each phase. A small \textbf{k}-point spacing of 0.01 \r{A}$^{-1}$ was used for each task (highly converged), while increasing the plane-wave cut-off energy from 300 eV to 750 eV in 50 eV increments. The energy of each run was recorded and compared to the energy of a highly converged value taken when a cut-off energy of 900 eV was used. This provides a value for the truncation error at different cut-off energies. Figure \ref{Figure:cutoffconvergence} shows a log plot of the energy error for each phase of \zirconia\ as the cut-off energy is increased. 
+In order to determine an appropriate value for the plane-wave cut-off energy, a convergence test was performed to determine the relative error in predicted energy compared to a highly converged value. This convergence test was conducted by running multiple geometry optimisation procedures under fully relaxed conditions on a unit cell of \zirconia\ for each phase. A small \textbf{k}-point spacing of 0.01 \r{A}$^{-1}$ was used for each task (highly converged), while increasing the plane-wave cut-off energy from 300 eV to 750 eV in 50 eV increments. The energy of each run was recorded and compared to the energy of a highly converged value $E_{conv}$, taken when a cut-off energy of 900 eV was used. This provides a value for the truncation error at different cut-off energies. Figure \ref{Figure:cutoffconvergence} shows a log plot of the energy error for each phase of \zirconia\ as the cut-off energy is increased. 
 
-The error is shown to be independent of phase, with all lines lying on a single path. This might be expected because the atoms in each phase are the same, and therefore the electrons involved in the calculations remain unchanged, however, interatomic distances are different in the different phases and thus so are the electron densities, so this equivalence in convergence does not necessarily have to follow. A cut-off energy of 600 eV was found to produce an error below 0.01 eV, and was subsequently used for future calculations as it provides a good compromise between computational cost and accuracy.
+The relative error is shown to be independent of phase, with all lines lying on a single path. This might be expected because the atoms in each phase are the same, and therefore the electrons involved in the calculations remain unchanged, however, interatomic distances are different in the different phases and thus so are the electron densities, so this equivalence in convergence does not necessarily have to follow. A cut-off energy of 600 eV was found to produce a relative error below 0.01 eV, and was subsequently used for future calculations as it provides a good compromise between computational cost and accuracy.
 
 \begin{figure}[ht] % Plane-wave cut-off convergence
 	\begin{center}
 		\begin{tikzpicture}
 			\begin{axis}
-				[width=\linewidth*0.7, xlabel={E\textsubscript{cutoff} (eV)}, ylabel={log$_{10}$(error) / formula unit}, ymin=-3.5, legend style={{draw=}, at={(0.95,0.95)}, anchor=north east,}]
+				[width=\linewidth*0.7, xlabel={E\textsubscript{cutoff} (eV)}, ylabel={log$_{10}$(E-E$_{conv}$) (eV)}, ymin=-3.5, legend style={{draw=}, at={(0.95,0.95)}, anchor=north east,}]
 				\addplot[no marks] table [x=cutoffenergy, y=logerrormono,]{dat/convergence.dat}; \addlegendentry{Monoclinic};
 			    \addplot[no marks, dashed] table [x=cutoffenergy, y=logerrortet,]{dat/convergence.dat}; \addlegendentry{Tetragonal};
 			    \addplot[no marks, densely dotted] table [x=cutoffenergy, y=logerrorcubic,]{dat/convergence.dat}; \addlegendentry{Cubic};
@@ -490,22 +497,22 @@ The error is shown to be independent of phase, with all lines lying on a single 
 coordinates { (600,-1.95) };
 			\end{axis}
 		\end{tikzpicture}
-		\caption{Plot of the log error of DFT energy against plane-wave cut-off energy for a perfect cell of each crystal structure. The error is calculated with respect to a highly converged value, calculated at a plane-wave cut-off energy of 900 eV. The red arrow indicates the cut-off energy beyond which the error is below 0.01 eV.}
+		\caption{Log of the energy difference with respect to a highly converged calculation against plane-wave cut-off energy. The red arrow indicates the cut-off energy beyond which the error is below 0.01 eV.} % The error is calculated with respect to a highly converged value, calculated at a plane-wave cut-off energy of 900 eV. 
 		\label{Figure:cutoffconvergence}
 	\end{center}
 \end{figure}
 
 \subsection{\textbf{k}-point convergence}
 
-Too fine a grid in reciprocal space (i.e. a large number of \textbf{k}-points) results in prohibitively computationally expensive simulations, whereas too coarse a grid may have a large truncation error when energies are calculated. To find the optimum spacing of \textbf{k}-points, a convergence study was performed across a range of \textbf{k}-point spacings, with the output energies compared to a highly converged simulation to obtain a value for the error. 
+Too fine a grid in reciprocal space (i.e. a large number of \textbf{k}-points) results in prohibitively computationally expensive simulations, whereas too coarse a grid may have a large truncation error when energies are calculated. To find the optimum spacing of \textbf{k}-points, a convergence study was performed across a range of \textbf{k}-point spacings, with the output energies compared to a highly converged calculation, again yielding a value for E-E$_{conv}$ but this time as a function of \textbf{k}-point spacing. 
 
-Figure \ref{Figure:kpoint_convergence} shows the energy error for each phase of \zirconia\ as a function of the \textbf{k}-point spacing (given in reciprocal space as \r{A}$^{-1}$). The highly converged energy value was calculated with a \textbf{k}-point spacing of 0.01 \r{A}$^{-1}$ for error calculations. The plot shows a stepwise change in the error value as the grid spacing is reduced. This is because calculations demand an integer number of \textbf{k}-points, and larger spacings do not provide sufficient resolution to effectively fit an integer number of \textbf{k}-points into the reciprocal grid, so that the program snaps to the nearest appropriate grid number. An optimum \textbf{k}-point spacing was chosen at 0.09 \r{A}$^{-1}$, which was the largest spacing that kept the error below 0.01 eV for all phases, highlighted in the plot by the red arrow.
+Figure \ref{Figure:kpoint_convergence} shows the relative error for each phase of \zirconia\ as a function of the \textbf{k}-point spacing (given in reciprocal space as \r{A}$^{-1}$). The highly converged energy value $E_{conv}$ was calculated with a \textbf{k}-point spacing of 0.01 \r{A}$^{-1}$ for error calculations. The plot shows a stepwise change in the error value as the grid spacing is reduced. This is because calculations demand an integer number of \textbf{k}-points, and larger spacings do not provide sufficient resolution to effectively fit an integer number of \textbf{k}-points into the reciprocal grid, so that the program snaps to the nearest appropriate grid number. An optimum \textbf{k}-point spacing was chosen at 0.09 \r{A}$^{-1}$, which was the largest spacing that kept the error below 0.01 eV for all phases, highlighted in the plot by the red arrow.
 
 \begin{figure}[ht]
 \begin{center}
 \begin{tikzpicture}
 	\begin{axis}
-		[width=\linewidth*0.7, xlabel={\textbf{k}-point spacing (\r{A}\textsuperscript{-1})}, ylabel={log[error]}, ymin=-7, ymax=1, xmin=0, xmax=0.22, legend style={{draw=}, at={(0.05,0.95)}, anchor=north west, legend columns=1}, xticklabel
+		[width=\linewidth*0.7, xlabel={\textbf{k}-point spacing (\r{A}\textsuperscript{-1})}, ylabel={log$_{10}$(E-E$_{conv}$) (eV)}, ymin=-7, ymax=1, xmin=0, xmax=0.22, legend style={{draw=}, at={(0.05,0.95)}, anchor=north west, legend columns=1}, xticklabel
 style={/pgf/number format/.cd,fixed,precision=5}]
 		\addplot[no marks] table [x=kpoint_spacing, y=monoclinic,]{dat/kpoint_convergence.dat}; \addlegendentry{Monoclinic};
         \addplot[no marks, dashed] table [x=kpoint_spacing, y=tetragonal, ]{dat/kpoint_convergence.dat}; \addlegendentry{Tetragonal};
@@ -519,7 +526,7 @@ style={/pgf/number format/.cd,fixed,precision=5}]
 coordinates { (0.09,-2.35) };
 			\end{axis}
 		\end{tikzpicture}
-		\caption{Log of the error in the total energy of the system as a function of \textbf{k}-point spacing. The error is calculated relative to a highly converged energy value at a \textbf{k}-point spacing of 0.01 \r{A}\textsuperscript{-1}. The red arrow indicates the \textbf{k}-point spacing which yields an error below 0.01 eV for all structures.}
+		\caption{Log of the energy difference with respect to a highly converged calculation against \textbf{k}-point spacing. The red arrow indicates the \textbf{k}-point spacing which yields an error below 0.01 eV for all structures.} % The error is calculated relative to a highly converged energy value at a \textbf{k}-point spacing of 0.01 \r{A}\textsuperscript{-1}.
 		\label{Figure:kpoint_convergence}
 	\end{center}
 \end{figure}
@@ -530,7 +537,7 @@ There are a range of possible exchange-correlation functionals available in CAST
 
 While the PBE-GGA exchange-correlation functional in this work had already been selected, it was helpful to conduct an energy convergence study of the systems across the different functionals available in CASTEP in order to determine how other functionals compared. Only 6 of the 14 functionals available in CASTEP were able to yield a converged energy calculation within a reasonable amount of time, as shown in Figure \ref{Figure:xc_test}. This is because several hybrid functionals partially incorporate the exact exchange using the Hartree-Fock method \cite{hartree1928wave}, significantly increasing the computational cost of an energy calculation. 
 
-The calculated energies indicate that each functional correctly predicts the order of phase stability in \zirconia , though the magnitude of the energy difference between phases varied. These differences are small, approximately 0.1 eV/f.u., but their effects are compounded when defects are introduced into the cell. The total energies were more varied, with several eV differences between functionals, however, lower total energies across different exchange-correlation functionals do not necessarily suggest that a better minima has been found. For example, the PW91 functional resulted in even lower energies than PBE, despite PW91 preceding PBE and both having been developed by Perdew \emph{et al}. \cite{perdew1991unified, perdew1992atoms}. It is the energy difference between systems calculated with the same exchange-correlation functional which is important. 
+The calculated energies indicate that each functional correctly predicts the order of phase stability in \zirconia , though the magnitude of the energy difference between phases varied. These differences are small, approximately 0.1 eV/fu, but their effects are compounded when defects are introduced into the cell. The total energies were more varied, with several eV differences between functionals, however, lower total energies across different exchange-correlation functionals do not necessarily suggest that a better minima has been found. For example, the PW91 functional resulted in even lower energies than PBE, despite PW91 preceding PBE and both having been developed by Perdew \emph{et al}. \cite{perdew1991unified, perdew1992atoms}. It is the energy difference between systems calculated with the same exchange-correlation functional which is important. 
 
 To better gauge the performance of each functional, further studies across a much larger range of parameters, and even materials, would need to be conducted, however this is beyond the scope of this thesis.
 

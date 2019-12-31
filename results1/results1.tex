@@ -154,11 +154,11 @@ The lack of an observed transition to the cubic phase may further indicate an in
 
 \subsection{Formation energies}
 
-Calculated point defect formation energies of lattice vacancies are provided and discussed below as a function of the Fermi level, defined as the electrochemical potential above the energy of the VBM. Formation energies are plotted up to a Fermi level of 6 eV in order to span the entire experimental band gap of \zirconia . Only the defects with the lowest formation energies at each Fermi level are shown.
+It is important to know the formation energies of different atomic defects because they help predict which defects are likely to form in the lattice and their respective concentrations. Calculated point defect formation energies of lattice vacancies are provided and discussed below as a function of the Fermi level, defined as the electrochemical potential above the energy of the VBM. Formation energies are plotted up to a Fermi level of 6 eV in order to span the entire experimental band gap of \zirconia . Only the defects with the lowest formation energies at each Fermi level are shown.
 
 \subsubsection{Monoclinic}
 
-Oxygen vacancies in the monoclinic phase are shown in Figure \ref{figure:monovacancies} for both the III and IV coordinated oxygen atoms. At Fermi levels between 0 and 3 eV, formation of \ch{V_{O}^{**}} defects is expected, with III coordinated oxygen atoms having formation energies 0.6 eV smaller. This energy difference between the two types of oxygen vacancy is substantial, and since both are anion sites of the same charge, this suggests that the defect size is the main reason for the difference in energy. In this case, a vacancy at the III oxygen site is larger defect than at the IV oxygen site (see § \ref{defect_volumes_r1} for defect volumes), and the negative energies reveal that the non-defective monoclinic structure is too large at low Fermi levels. At Fermi levels above 3 eV, \ch{V_{O}^{x}} defects become the most favourable at both oxygen sites, with almost the same formation energy (0.9 eV). 
+Oxygen vacancies in the monoclinic phase are shown in Figure \ref{figure:monovacancies} for both the III and IV coordinated oxygen atoms. At Fermi levels between 0 and 3 eV, formation of \ch{V_{O}^{**}} defects is expected, with III coordinated oxygen atoms having formation energies 0.6 eV smaller. This energy difference between the two types of oxygen vacancy is substantial, and since both are anion sites of the same charge, this suggests that the size of the site may be the reason for the difference in energy. In this case, the III oxygen site is slightly smaller than the IV oxygen site and therefore causes a larger relaxation in the lattice when a III-coordinated oxygen ion is removed (see § \ref{defect_volumes_r1} for defect volumes). Additionally, the negative energies reveal that the non-defective monoclinic structure is too large at low Fermi levels. At Fermi levels above 3 eV, \ch{V_{O}^{x}} defects become the most favourable at both oxygen sites, with almost the same formation energy (0.9 eV). 
 
 \begin{figure}[ht] % Mono vacancies Fermi level
 \begin{center}
@@ -177,7 +177,7 @@ Oxygen vacancies in the monoclinic phase are shown in Figure \ref{figure:monovac
 	\end{center}
 \end{figure}
 
-The O vacancy defect with the smallest formation energy switches from \ch{V_{O}^{**}} to \ch{V_{O}^{x}} as the Fermi level is increased. The absence of \ch{V_{O}^{*}} defects is due to the relatively unfavourable electronic state imposed in the lattice with this defect configuration. This could be because of the suboptimal orbital occupancy in the surrounding ions when a single electron is missing rather than two. A similar effect is seen for the Zr vacancies, with only the neutral and even charged defects (\ch{V_{Zr}^{x}}, \ch{V_{Zr}^{''}}, \ch{V_{Zr}^{''''}}) having the smallest formation energies.
+The O vacancy defect with the smallest formation energy switches from \ch{V_{O}^{**}} to \ch{V_{O}^{x}} as the Fermi level is increased. The absence of \ch{V_{O}^{*}} defects is due to their relatively higher formation energies at any Fermi level within the band gap. This could be because of the suboptimal orbital occupancy in the surrounding ions when a single electron is missing rather than two. A similar effect is seen for the Zr vacancies, with only the neutral and even charged defects (\ch{V_{Zr}^{x}}, \ch{V_{Zr}^{''}}, \ch{V_{Zr}^{''''}}) having the smallest formation energies.
 
 At high Fermi levels ($>$4.6 eV), \ch{V_{Zr}^{''''}} defect energies become negative and are even more favourable than \ch{V_{O}^{x}}. It is possible that such high Fermi levels may occur at the metal-oxide interface (high availability of electrons from the metal). It is also expected that the concentration of O vacancy defects will be larger at the metal-oxide interface, but the formation energies predict that these will be uncharged and therefore not capable of compensating for the negative charge at the Zr vacancies. It is possible that hole defects may form instead, but at high Fermi levels the formation energy of hole defects will be almost as large as the band gap itself, providing a significant energy barrier.
 
@@ -315,7 +315,7 @@ Bound Schottky defects were modelled in a supercell of \zirconia\ by removing on
 \begin{figure}[ht] % Cubic Zr centre
 \centering
 \includegraphics[width=8cm]{images/sd_cubic_zro2.png}
-\caption{Zirconium centre cell showing nearest oxygen atoms in cubic \zirconia. Schottky trios indicated by oxygen enumeration with Zr, O and a second oxygen in either the 1\textsuperscript{st}, 2\textsuperscript{nd} or 3\textsuperscript{rd} nearest neighbour with respect to the initial oxygen.. Zirconium atoms are shown in green and oxygen atoms in red.}
+\caption{Zirconium centre cell showing nearest oxygen atoms in cubic \zirconia. Schottky trios indicated by oxygen enumeration with Zr, O and a second oxygen in either the 1\textsuperscript{st}, 2\textsuperscript{nd} or 3\textsuperscript{rd} nearest neighbour with respect to the initial oxygen. Zirconium atoms are shown in green and oxygen atoms in red.}
 \label{figure:cubicschottky}
 \end{figure}
 
@@ -436,7 +436,7 @@ The monoclinic Brouwer diagram (Figure \ref{figure:mono_intrinsic_brouwer}) pred
 %         \addplot[no marks, draw=yellow!45!blue] table [x=pO2, y=VM{0},]{dat/intrinsic_mono.dat}; \addlegendentry{\ch{V_{Zr}^{x}}};
          %\addplot[no marks, draw=red!60!yellow] table [x=pO2, y=Oi{-2},]{dat/intrinsic_mono.dat}; \addlegendentry{\ch{O_{i}^{''}}};
          %\addplot[no marks, draw=red!50!yellow] table [x=pO2, y=Oi{-1},]{dat/intrinsic_mono.dat}; \addlegendentry{\ch{O_{i}^{'}}};
-         \addplot[no marks, draw=red!40!yellow] table [x=pO2, y=Oi{0},]{dat/intrinsic_mono.dat}; \addlegendentry{\ch{O_{i}^{x}}};
+         \addplot[no marks, draw=red!40!yellow] table [x=pO2, y=Oi{0},]{dat/intrinsic_mono.dat}; \addlegendentry{\ch{O_{i}^{x}}}; \node at (-7,-16) {\ch{O_{i}^{x}}};
         % \addplot[no marks, draw=green!80!pink] table [x=pO2, y=Mi{4},]{dat/intrinsic_mono.dat}; \addlegendentry{\ch{Zr_{i}^{****}}};
 %         \addplot[no marks, draw=green!70!pink] table [x=pO2, y=Mi{3},]{dat/intrinsic_mono.dat}; \addlegendentry{\ch{Zr_{i}^{***}}};
 %         \addplot[no marks, draw=green!60!pink] table [x=pO2, y=Mi{2},]{dat/intrinsic_mono.dat}; \addlegendentry{\ch{Zr_{i}^{\textbf{**}}}};
@@ -451,7 +451,7 @@ The monoclinic Brouwer diagram (Figure \ref{figure:mono_intrinsic_brouwer}) pred
 	\end{center}
 \end{figure}
 
-As the oxygen pressure increases, \ch{V_{Zr}^{'''}} defects become more numerous and overtake \ch{e^{'}} defects as the dominant negatively charged defect. The greater charge magnitude of the \ch{V_{Zr}^{''''}} defects force the formation of more \ch{h^{*}} defects as these are the easiest positively charged defects which can be produced to achieve charge neutrality (i.e. \ch{V_{O}^{**}} and \ch{Zr_{i}^{****}} defects require too much energy to produce at high oxygen pressures). \ch{O_{i}^{x}} defects are also present at high oxygen pressures, but these do not compensate for the charge of other defects.
+As the oxygen pressure increases, \ch{V_{Zr}^{''''}} defects become more numerous and overtake \ch{e^{'}} defects as the dominant negatively charged defect. The greater charge magnitude of the \ch{V_{Zr}^{''''}} defects force the formation of more \ch{h^{*}} defects as these are the easiest positively charged defects which can be produced to achieve charge neutrality (i.e. \ch{V_{O}^{**}} and \ch{Zr_{i}^{****}} defects require too much energy to produce at high oxygen pressures). \ch{O_{i}^{x}} defects are also present at high oxygen pressures, but these do not compensate for the charge of other defects.
 
 \subsubsection*{Tetragonal}
 
@@ -472,7 +472,7 @@ Figure \ref{figure:tet_intrinsic_brouwer} shows a much greater concentration of 
 %         \addplot[no marks, draw=yellow!65!blue] table [x=pO2, y=VM{-2},]{dat/intrinsic_tet.dat}; \addlegendentry{\ch{V_{Zr}^{''}}};
 %         \addplot[no marks, draw=yellow!55!blue] table [x=pO2, y=VM{-1},]{dat/intrinsic_tet.dat}; \addlegendentry{\ch{V_{Zr}^{'}}};
 %         \addplot[no marks, draw=yellow!45!blue] table [x=pO2, y=VM{0},]{dat/intrinsic_tet.dat}; \addlegendentry{\ch{V_{Zr}^{x}}};
-         \addplot[no marks, draw=red!60!yellow] table [x=pO2, y=Oi{-2},]{dat/intrinsic_tet.dat}; \addlegendentry{\ch{O_{i}^{''}}};
+         \addplot[no marks, draw=red!60!yellow] table [x=pO2, y=Oi{-2},]{dat/intrinsic_tet.dat}; \addlegendentry{\ch{O_{i}^{''}}}; \node at (-8.5,-16) {\ch{O_{i}^{''}}};
 %         \addplot[no marks, draw=red!50!yellow] table [x=pO2, y=Oi{-1},]{dat/intrinsic_tet.dat}; \addlegendentry{\ch{O_{i}^{'}}};
 %         \addplot[no marks, draw=red!40!yellow] table [x=pO2, y=Oi{0},]{dat/intrinsic_tet.dat}; \addlegendentry{\ch{O_{i}^{x}}};
 %         \addplot[no marks, draw=green!80!pink] table [x=pO2, y=Mi{4},]{dat/intrinsic_tet.dat}; \addlegendentry{\ch{Zr_{i}^{****}}};
