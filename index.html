@@ -758,6 +758,10 @@
     let oAnionSpheres = [];
     let strainLines = [];
     let latticeGroup;
+    let isDragging = false;
+    let previousMousePosition = { x: 0, y: 0 };
+    let targetRotationX = 0.2;
+    let targetRotationY = 0;
 
     // Initial relaxed positions for tetragonal ZrO2 unit cell
     const baseAtomPositions = {
@@ -778,6 +782,8 @@
         { x: 1.0, y: 0, z: -1.4 },
         { x: 0, y: -1.0, z: 1.4 },
         { x: 0, y: 1.0, z: 1.4 },
+        { x: 0, y: -1.0, z: -1.4 },
+        { x: 0, y: 1.0, z: -1.4 },
         { x: -1.0, y: -1.0, z: 0 },
         { x: 1.0, y: 1.0, z: 0 }
       ]
@@ -804,20 +810,49 @@
       const container = document.getElementById('lattice-3d-container');
       if (!container) return;
 
+      const width = container.clientWidth || 400;
+      const height = container.clientHeight || 384;
+
       // Create Scene
       latticeScene = new THREE.Scene();
       latticeScene.background = new THREE.Color(0x020617); // bg-slate-950
 
       // Create Camera
-      latticeCamera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.1, 100);
+      latticeCamera = new THREE.PerspectiveCamera(45, width / height, 0.1, 100);
       latticeCamera.position.set(0, 5, 10);
       latticeCamera.lookAt(0, 0, 0);
 
       // Create Renderer
       latticeRenderer = new THREE.WebGLRenderer({ antialias: true });
-      latticeRenderer.setSize(container.clientWidth, container.clientHeight);
+      latticeRenderer.setSize(width, height);
       latticeRenderer.setPixelRatio(window.devicePixelRatio);
+      latticeRenderer.domElement.style.width = '100%';
+      latticeRenderer.domElement.style.height = '100%';
+      latticeRenderer.domElement.style.display = 'block';
+      latticeRenderer.domElement.style.cursor = 'grab';
       container.appendChild(latticeRenderer.domElement);
+
+      // Pointer drag listeners for manual 3D rotation
+      const dom = latticeRenderer.domElement;
+      dom.addEventListener('pointerdown', (e) => {
+        isDragging = true;
+        previousMousePosition = { x: e.clientX, y: e.clientY };
+        dom.style.cursor = 'grabbing';
+      });
+
+      window.addEventListener('pointermove', (e) => {
+        if (!isDragging) return;
+        const deltaX = e.clientX - previousMousePosition.x;
+        const deltaY = e.clientY - previousMousePosition.y;
+        targetRotationY += deltaX * 0.008;
+        targetRotationX += deltaY * 0.008;
+        previousMousePosition = { x: e.clientX, y: e.clientY };
+      });
+
+      window.addEventListener('pointerup', () => {
+        isDragging = false;
+        if (dom) dom.style.cursor = 'grab';
+      });
 
       // Create Lights
       const ambientLight = new THREE.AmbientLight(0xffffff, 0.4);
@@ -833,6 +868,7 @@
 
       // Main Group holding crystal structure
       latticeGroup = new THREE.Group();
+      latticeGroup.rotation.x = targetRotationX;
       latticeScene.add(latticeGroup);
 
       // Build Tetragonal unit cell boundaries (bonds/lines)
@@ -891,18 +927,23 @@
     function onLatticeResize() {
       const container = document.getElementById('lattice-3d-container');
       if (!container || !latticeRenderer) return;
-      latticeCamera.aspect = container.clientWidth / container.clientHeight;
+      const width = container.clientWidth || 400;
+      const height = container.clientHeight || 384;
+      latticeCamera.aspect = width / height;
       latticeCamera.updateProjectionMatrix();
-      latticeRenderer.setSize(container.clientWidth, container.clientHeight);
+      latticeRenderer.setSize(width, height);
     }
 
     function animate3DLattice() {
       requestAnimationFrame(animate3DLattice);
 
-      // Rotate crystal structure slowly
+      // Rotate crystal structure smoothly
       if (latticeGroup) {
-        latticeGroup.rotation.y += 0.005;
-        latticeGroup.rotation.x = 0.2; // slight tilt
+        if (!isDragging) {
+          targetRotationY += 0.004; // slow auto-spin when idle
+        }
+        latticeGroup.rotation.y += (targetRotationY - latticeGroup.rotation.y) * 0.1;
+        latticeGroup.rotation.x += (targetRotationX - latticeGroup.rotation.x) * 0.1;
       }
 
       // Smooth interpolation (lerp) towards target radii and strain states
@@ -947,10 +988,11 @@
         sLine.line.geometry.setFromPoints([new THREE.Vector3(0,0,0), currentEnd]);
 
         // Color transition based on strain
-        const glowColor = new THREE.Color().interpolateColors(
+        const strainRatio = Math.min(1.0, Math.max(0.0, animationState.currentStrain / 0.42));
+        const glowColor = new THREE.Color().lerpColors(
           new THREE.Color(0x334155), // Neutral slate
           new THREE.Color(0xef4444), // Intense Red
-          animationState.currentStrain / 0.42 // Xenon has max strain (0.42)
+          strainRatio
         );
         sLine.line.material.color.copy(glowColor);
         sLine.line.material.opacity = 0.3 + animationState.currentStrain * 1.5;
