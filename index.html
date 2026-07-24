@@ -1,11 +1,1187 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Alexandros Kenich PhD Thesis</title>
-  </head>
-  <body>
-    <h1>Alexandros Kenich PhD Thesis</h1>
-    <iframe src="https://github.com/v1thesource/PhD-Thesis/raw/master/thesis.pdf" width="100%" height="800px">
-    </iframe>
-  </body>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zirconia Fission Products Thesis Dashboard</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- FontAwesome CDN for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            nuclear: {
+              50: '#f0fdf4',
+              100: '#dcfce7',
+              500: '#22c55e',
+              600: '#16a34a',
+              700: '#15803d',
+              900: '#14532d',
+            },
+            zirconia: {
+              50: '#f8fafc',
+              500: '#0ea5e9',
+              600: '#2563eb',
+              700: '#1d4ed8',
+              900: '#1e3a8a',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Premium glassmorphism scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: rgba(15, 23, 42, 0.3);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(14, 165, 233, 0.4);
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(14, 165, 233, 0.7);
+    }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans min-h-screen flex flex-col md:flex-row transition-colors duration-200">
+
+  <!-- Sidebar Component -->
+  <aside id="sidebar" class="fixed inset-y-0 left-0 z-40 w-72 bg-slate-900/95 border-r border-slate-800 flex flex-col justify-between transform -translate-x-full md:translate-x-0 md:static transition-transform duration-300">
+    <div class="p-6 flex-1 flex flex-col overflow-y-auto">
+      <!-- Title Header -->
+      <div class="flex items-center space-x-3 mb-8 border-b border-slate-800 pb-5">
+        <div class="h-10 w-10 rounded-lg bg-gradient-to-tr from-nuclear-600 to-zirconia-500 flex items-center justify-center text-white text-xl shadow-lg shadow-nuclear-500/20">
+          <i class="fa-solid fa-atom animate-spin-slow"></i>
+        </div>
+        <div>
+          <h2 class="text-sm font-semibold tracking-wider text-slate-400 uppercase">PhD Thesis</h2>
+          <h1 class="text-base font-bold text-white tracking-tight">Zirconia Simulations</h1>
+        </div>
+      </div>
+
+      <!-- Navigation Tabs -->
+      <nav class="space-y-1.5 flex-1" aria-label="Sidebar Navigation">
+        <button onclick="switchTab('overview')" id="tab-btn-overview" class="tab-btn w-full flex items-center space-x-3 px-4 py-3 rounded-lg text-sm font-medium transition-all duration-200 bg-slate-800 text-zirconia-500 border-l-4 border-zirconia-500 shadow-md">
+          <i class="fa-solid fa-chart-line text-lg"></i>
+          <span>Dashboard Overview</span>
+        </button>
+
+        <button onclick="switchTab('brouwer')" id="tab-btn-brouwer" class="tab-btn w-full flex items-center space-x-3 px-4 py-3 rounded-lg text-sm font-medium transition-all duration-200 text-slate-400 hover:bg-slate-800/50 hover:text-white border-l-4 border-transparent">
+          <i class="fa-solid fa-diagram-project text-lg"></i>
+          <span>Brouwer Diagrams</span>
+        </button>
+
+        <button onclick="switchTab('calculator')" id="tab-btn-calculator" class="tab-btn w-full flex items-center space-x-3 px-4 py-3 rounded-lg text-sm font-medium transition-all duration-200 text-slate-400 hover:bg-slate-800/50 hover:text-white border-l-4 border-transparent">
+          <i class="fa-solid fa-calculator text-lg"></i>
+          <span>Iodine Inventory Calc</span>
+        </button>
+
+        <button onclick="switchTab('gallery')" id="tab-btn-gallery" class="tab-btn w-full flex items-center space-x-3 px-4 py-3 rounded-lg text-sm font-medium transition-all duration-200 text-slate-400 hover:bg-slate-800/50 hover:text-white border-l-4 border-transparent">
+          <i class="fa-solid fa-images text-lg"></i>
+          <span>Figures Gallery</span>
+        </button>
+
+        <button onclick="switchTab('polymorph')" id="tab-btn-polymorph" class="tab-btn w-full flex items-center space-x-3 px-4 py-3 rounded-lg text-sm font-medium transition-all duration-200 text-slate-400 hover:bg-slate-800/50 hover:text-white border-l-4 border-transparent">
+          <i class="fa-solid fa-cube text-lg"></i>
+          <span>Crystallography Guide</span>
+        </button>
+
+        <button onclick="switchTab('reader')" id="tab-btn-reader" class="tab-btn w-full flex items-center space-x-3 px-4 py-3 rounded-lg text-sm font-medium transition-all duration-200 text-slate-400 hover:bg-slate-800/50 hover:text-white border-l-4 border-transparent">
+          <i class="fa-solid fa-file-pdf text-lg"></i>
+          <span>Original PDF Thesis</span>
+        </button>
+      </nav>
+    </div>
+
+    <!-- Sidebar Footer -->
+    <div class="p-6 border-t border-slate-800 bg-slate-950/40 text-xs text-slate-500 space-y-1">
+      <div class="flex items-center space-x-2 text-slate-400 font-medium">
+        <i class="fa-solid fa-user-graduate"></i>
+        <span>Alexandros Kenich</span>
+      </div>
+      <div>Imperial College London</div>
+      <div>September 2019 Submission</div>
+    </div>
+  </aside>
+
+  <!-- Overlay for Mobile Sidebar -->
+  <div id="sidebar-overlay" onclick="toggleSidebar()" class="fixed inset-0 z-30 bg-black/60 hidden md:hidden"></div>
+
+  <!-- Main Content Area -->
+  <main class="flex-1 flex flex-col overflow-hidden min-h-screen">
+    <!-- Top Navigation Header -->
+    <header class="bg-slate-900 border-b border-slate-800 px-6 py-4 flex items-center justify-between">
+      <div class="flex items-center space-x-4">
+        <button onclick="toggleSidebar()" class="md:hidden text-slate-400 hover:text-white text-xl">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+        <div>
+          <h2 id="header-subtitle" class="text-xs font-semibold text-nuclear-500 uppercase tracking-wider">dashboard overview</h2>
+          <h1 id="header-title" class="text-lg font-bold text-white tracking-tight">Interactive Thesis Reader</h1>
+        </div>
+      </div>
+
+      <!-- Quick Actions (Theme Switcher / GitHub Links) -->
+      <div class="flex items-center space-x-4">
+        <a href="https://github.com/v1thesource/PhD-Thesis" target="_blank" class="text-slate-400 hover:text-white text-lg transition-colors duration-150" title="View Source on GitHub">
+          <i class="fa-brands fa-github text-xl"></i>
+        </a>
+        <button onclick="toggleTheme()" class="text-slate-400 hover:text-white text-lg transition-colors duration-150" title="Toggle Theme (Light/Dark)">
+          <i id="theme-icon" class="fa-solid fa-sun"></i>
+        </button>
+      </div>
+    </header>
+
+    <!-- Subpage Container -->
+    <div class="flex-1 overflow-y-auto p-6 md:p-8 space-y-8 bg-slate-950/20" id="main-content">
+
+      <!-- ================= OVERVIEW TAB ================= -->
+      <section id="tab-overview" class="tab-content space-y-8">
+        <!-- Hero Thesis Welcome -->
+        <div class="relative bg-gradient-to-r from-slate-900 via-slate-900 to-zirconia-950/40 rounded-2xl p-6 md:p-8 border border-slate-800 shadow-xl overflow-hidden">
+          <div class="absolute -right-10 -bottom-10 h-64 w-64 rounded-full bg-nuclear-500/10 blur-3xl"></div>
+          <div class="absolute right-1/4 -top-10 h-48 w-48 rounded-full bg-zirconia-500/5 blur-3xl"></div>
+
+          <div class="relative z-10 space-y-4 max-w-4xl">
+            <span class="bg-nuclear-500/10 text-nuclear-400 text-xs font-semibold px-3 py-1 rounded-full border border-nuclear-500/20 uppercase tracking-wider">
+              Highlighted Research Concept
+            </span>
+            <h2 class="text-2xl md:text-3xl font-extrabold text-white leading-tight">
+              Atomistic simulations of fission products in zirconia
+            </h2>
+            <p class="text-slate-300 text-sm md:text-base leading-relaxed">
+              This interactive dashboard translates detailed DFT modeling results and reactor thermodynamics formulas of uranium fission products (Te, I, Xe, Cs) inside Zirconia claddings into a fully readable and visual interface.
+            </p>
+            <div class="pt-2 flex flex-wrap gap-3">
+              <span class="bg-slate-800/60 border border-slate-700/80 px-3 py-1.5 rounded-lg text-xs text-slate-300 flex items-center space-x-2">
+                <i class="fa-solid fa-microscope text-zirconia-500"></i>
+                <span>Density Functional Theory</span>
+              </span>
+              <span class="bg-slate-800/60 border border-slate-700/80 px-3 py-1.5 rounded-lg text-xs text-slate-300 flex items-center space-x-2">
+                <i class="fa-solid fa-shield-halved text-nuclear-500"></i>
+                <span>Pellet-Cladding Interaction</span>
+              </span>
+              <span class="bg-slate-800/60 border border-slate-700/80 px-3 py-1.5 rounded-lg text-xs text-slate-300 flex items-center space-x-2">
+                <i class="fa-solid fa-atom text-orange-500"></i>
+                <span>Radioparagenesis & Transmutation</span>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dynamic Transmutation Simulator -->
+        <div class="bg-slate-900/50 border border-slate-800 rounded-2xl p-6 md:p-8 space-y-6">
+          <div class="flex flex-col md:flex-row md:items-center md:justify-between border-b border-slate-800 pb-5 gap-4">
+            <div>
+              <h3 class="text-lg font-bold text-white flex items-center space-x-2">
+                <i class="fa-solid fa-repeat text-nuclear-500 animate-spin-slow"></i>
+                <span>Interactive Transmutational Defect Simulator</span>
+              </h3>
+              <p class="text-slate-400 text-xs mt-1">Implantation and radioactive decay within the zirconia crystal lattice.</p>
+            </div>
+            <!-- Transmutation Controls -->
+            <div class="flex items-center gap-2">
+              <button onclick="startTransmutation()" class="px-4 py-2 bg-nuclear-600 hover:bg-nuclear-500 text-white rounded-lg text-xs font-semibold shadow-lg shadow-nuclear-600/10 flex items-center space-x-2 transition-all duration-200">
+                <i class="fa-solid fa-play"></i>
+                <span>Trigger Decay Chain</span>
+              </button>
+              <button onclick="resetTransmutation()" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-lg text-xs font-semibold flex items-center space-x-2 transition-all duration-200">
+                <i class="fa-solid fa-rotate-left"></i>
+                <span>Reset</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- The Visual Decay Line -->
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-6 relative">
+            <!-- Connecting Arrow Backgrounds -->
+            <div class="hidden md:block absolute top-1/2 left-0 right-0 h-0.5 bg-slate-800 -translate-y-1/2 z-0"></div>
+
+            <!-- Element 1: Tellurium -->
+            <div id="element-te" class="element-card relative z-10 bg-slate-950 p-5 rounded-xl border-2 border-slate-800 flex flex-col items-center space-y-3 shadow-lg transition-all duration-300 scale-100">
+              <div class="absolute -top-3 left-3 bg-slate-800 text-[10px] uppercase font-bold px-2 py-0.5 rounded text-slate-400 border border-slate-700">Initial</div>
+              <div class="h-14 w-14 rounded-full bg-orange-600/20 text-orange-500 border border-orange-500/30 flex items-center justify-center text-xl font-black">Te</div>
+              <div class="text-center">
+                <div class="text-sm font-bold text-white">Tellurium</div>
+                <div class="text-[11px] text-slate-400 mt-0.5">Precursor Fission Product</div>
+              </div>
+              <div class="w-full border-t border-slate-800/80 pt-3 text-[11px] text-slate-400 space-y-1">
+                <div class="flex justify-between"><span>Site preference:</span> <span class="font-semibold text-orange-400">Oxygen site</span></div>
+                <div class="flex justify-between"><span>Relaxation Vol:</span> <span class="font-semibold text-slate-300">2.74 Å³</span></div>
+              </div>
+            </div>
+
+            <!-- Element 2: Iodine -->
+            <div id="element-i" class="element-card relative z-10 bg-slate-950 p-5 rounded-xl border-2 border-slate-800 flex flex-col items-center space-y-3 shadow-lg transition-all duration-300 opacity-60">
+              <div class="absolute -top-3 left-3 bg-orange-600 text-[10px] uppercase font-bold px-2 py-0.5 rounded text-white border border-orange-500 shadow-md">Decay 1</div>
+              <div class="h-14 w-14 rounded-full bg-violet-600/10 text-violet-400 border border-violet-500/20 flex items-center justify-center text-xl font-black">I</div>
+              <div class="text-center">
+                <div class="text-sm font-bold text-white">Iodine</div>
+                <div class="text-[11px] text-slate-400 mt-0.5">Highly Corrosive Agent</div>
+              </div>
+              <div class="w-full border-t border-slate-800/80 pt-3 text-[11px] text-slate-400 space-y-1">
+                <div class="flex justify-between"><span>Site preference:</span> <span class="font-semibold text-violet-400">Oxygen site</span></div>
+                <div class="flex justify-between"><span>Relaxation Vol:</span> <span class="font-semibold text-slate-300">29.90 Å³</span></div>
+              </div>
+            </div>
+
+            <!-- Element 3: Xenon -->
+            <div id="element-xe" class="element-card relative z-10 bg-slate-950 p-5 rounded-xl border-2 border-slate-800 flex flex-col items-center space-y-3 shadow-lg transition-all duration-300 opacity-60">
+              <div class="absolute -top-3 left-3 bg-violet-600 text-[10px] uppercase font-bold px-2 py-0.5 rounded text-white border border-violet-500 shadow-md">Decay 2</div>
+              <div class="h-14 w-14 rounded-full bg-sky-600/10 text-sky-400 border border-sky-500/20 flex items-center justify-center text-xl font-black">Xe</div>
+              <div class="text-center">
+                <div class="text-sm font-bold text-white">Xenon</div>
+                <div class="text-[11px] text-slate-400 mt-0.5">Noble Inert Gas</div>
+              </div>
+              <div class="w-full border-t border-slate-800/80 pt-3 text-[11px] text-slate-400 space-y-1">
+                <div class="flex justify-between"><span>Site preference:</span> <span class="font-semibold text-sky-400">Zr site</span></div>
+                <div class="flex justify-between"><span>Relaxation Vol:</span> <span class="font-semibold text-red-400">115.50 Å³</span></div>
+              </div>
+            </div>
+
+            <!-- Element 4: Cesium -->
+            <div id="element-cs" class="element-card relative z-10 bg-slate-950 p-5 rounded-xl border-2 border-slate-800 flex flex-col items-center space-y-3 shadow-lg transition-all duration-300 opacity-60">
+              <div class="absolute -top-3 left-3 bg-sky-600 text-[10px] uppercase font-bold px-2 py-0.5 rounded text-white border border-sky-500 shadow-md">Final</div>
+              <div class="h-14 w-14 rounded-full bg-emerald-600/10 text-emerald-400 border border-emerald-500/20 flex items-center justify-center text-xl font-black">Cs</div>
+              <div class="text-center">
+                <div class="text-sm font-bold text-white">Cesium</div>
+                <div class="text-[11px] text-slate-400 mt-0.5">Highly Reactive Metal</div>
+              </div>
+              <div class="w-full border-t border-slate-800/80 pt-3 text-[11px] text-slate-400 space-y-1">
+                <div class="flex justify-between"><span>Site preference:</span> <span class="font-semibold text-emerald-400">Zr site</span></div>
+                <div class="flex justify-between"><span>Relaxation Vol:</span> <span class="font-semibold text-slate-300">90.37 Å³</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Explanation box -->
+          <div class="p-4 rounded-xl bg-slate-950 border border-slate-800/60 text-xs leading-relaxed text-slate-300 flex items-start space-x-3">
+            <i class="fa-solid fa-circle-info text-zirconia-500 mt-0.5 text-base"></i>
+            <p id="transmutation-explainer">
+              Tellurium atoms (produced via fission) typically occupy oxygen vacancies inside ZrO₂ with a tiny defect volume of 2.74 Å³. However, through radioactive beta minus decays, Te decays to I, Xe, and finally Cs. Over time, the lattice site is forced to accept atoms with significantly larger sizes. This transmutation increases defect relaxation volumes significantly, accumulating massive internal lattice stresses and leading to crack propagation inside the claddings.
+            </p>
+          </div>
+        </div>
+
+        <!-- Research Abstract Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-4">
+            <h3 class="text-md font-bold text-white flex items-center space-x-2">
+              <i class="fa-solid fa-circle-question text-nuclear-500"></i>
+              <span>Core Problem explored</span>
+            </h3>
+            <p class="text-slate-300 text-xs leading-relaxed">
+              Zirconium alloys are highly suited as nuclear cladding materials due to unique properties. However, during operations, pellet-cladding interactions (PCI), especially chemical interactions involving corrosive iodine fission products, limit cladding lifespan and raise structural concerns. This thesis employs DFT models to determine precisely how iodine enters, prefers defect sites, and transmutates within the oxide layers formed on claddings.
+            </p>
+          </div>
+          <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-4">
+            <h3 class="text-md font-bold text-white flex items-center space-x-2">
+              <i class="fa-solid fa-lightbulb text-yellow-500"></i>
+              <span>Key Discoveries</span>
+            </h3>
+            <ul class="text-slate-300 text-xs space-y-2 list-disc list-inside">
+              <li>Iodine defects preferentially adopt +1 or -1 oxidation states in monoclinic and tetragonal zirconia structures.</li>
+              <li>At high oxygen partial pressures ($p_{O_{2}}$), iodine defects in tetragonal Zirconia fall significantly due to competition.</li>
+              <li>Steady-state reactor calculations confirm significant Average Iodine populations (approx 1.3g per assembly).</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- ================= BROUWER DIAGRAM TAB ================= -->
+      <section id="tab-brouwer" class="tab-content space-y-6 hidden">
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
+          <!-- Selection sidebar -->
+          <div class="lg:col-span-1 bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-5">
+            <h3 class="text-sm font-bold text-white uppercase tracking-wider text-slate-400">Environment Selector</h3>
+
+            <!-- Environment Select buttons -->
+            <div class="space-y-2">
+              <button onclick="loadBrouwerDataset('intrinsic_tet')" id="btn-env-intrinsic_tet" class="brouwer-env-btn w-full text-left px-3.5 py-2.5 rounded-lg text-xs font-semibold bg-slate-800 border-l-4 border-zirconia-500 text-white shadow">
+                Intrinsic Tetragonal Zirconia
+              </button>
+              <button onclick="loadBrouwerDataset('te_tet_10-3')" id="btn-env-te_tet_10-3" class="brouwer-env-btn w-full text-left px-3.5 py-2.5 rounded-lg text-xs font-semibold text-slate-400 hover:bg-slate-800/50 hover:text-white border-l-4 border-transparent">
+                Tetragonal ZrO₂ with Te (10⁻³)
+              </button>
+              <button onclick="loadBrouwerDataset('xe_tet_10-3')" id="btn-env-xe_tet_10-3" class="brouwer-env-btn w-full text-left px-3.5 py-2.5 rounded-lg text-xs font-semibold text-slate-400 hover:bg-slate-800/50 hover:text-white border-l-4 border-transparent">
+                Tetragonal ZrO₂ with Xe (10⁻³)
+              </button>
+              <button onclick="loadBrouwerDataset('cs_tet_10-3')" id="btn-env-cs_tet_10-3" class="brouwer-env-btn w-full text-left px-3.5 py-2.5 rounded-lg text-xs font-semibold text-slate-400 hover:bg-slate-800/50 hover:text-white border-l-4 border-transparent">
+                Tetragonal ZrO₂ with Cs (10⁻³)
+              </button>
+            </div>
+
+            <!-- Series Selection list -->
+            <div class="border-t border-slate-800 pt-4 space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-white">Select Defect Series</span>
+                <button onclick="toggleAllDefectSeries(true)" class="text-[10px] text-zirconia-400 hover:text-white underline">All</button>
+              </div>
+              <div id="series-checkboxes-container" class="space-y-1.5 max-h-48 overflow-y-auto pr-2">
+                <!-- Checkboxes populated dynamically -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Main diagram plot -->
+          <div class="lg:col-span-3 bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-4">
+            <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+              <h3 class="text-sm font-bold text-white flex items-center space-x-2">
+                <i class="fa-solid fa-chart-line text-nuclear-500"></i>
+                <span id="chart-title">Brouwer Diagram: Defect Concentrations vs pO₂</span>
+              </h3>
+              <div class="text-[11px] text-slate-400">
+                Temperature: <span class="text-white font-semibold">1500 K</span>
+              </div>
+            </div>
+
+            <!-- Chart Canvas -->
+            <div class="relative w-full h-[400px]">
+              <canvas id="brouwerChart"></canvas>
+            </div>
+
+            <!-- Plot Description -->
+            <div class="p-3 bg-slate-950 rounded-lg text-slate-400 text-[11px] leading-relaxed flex items-start space-x-2">
+              <i class="fa-solid fa-circle-question text-zirconia-500 mt-0.5"></i>
+              <span>
+                <strong>Understanding Brouwer Diagrams:</strong> This chart plots defect concentration (log₁₀ of site fraction) versus the oxygen partial pressure $pO_{2}$ (representing atmospheric conditions). Under oxidizing conditions (high $pO_{2}$), metal vacancies or oxygen interstitials dominate, while under reducing conditions (low $pO_{2}$), electrons and oxygen vacancies ($V_O^{\bullet\bullet}$) rise. Check/uncheck series on the sidebar to filter specific defects.
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- ================= CALCULATOR TAB ================= -->
+      <section id="tab-calculator" class="tab-content space-y-6 hidden">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <!-- Input Sliders Panel -->
+          <div class="lg:col-span-1 bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-6">
+            <div>
+              <h3 class="text-sm font-bold text-white uppercase tracking-wider text-slate-400 flex items-center space-x-2">
+                <i class="fa-solid fa-sliders text-zirconia-500"></i>
+                <span>Reactor Parameters</span>
+              </h3>
+              <p class="text-slate-400 text-[11px] mt-0.5">Set parameters according to reactor characteristics (Default: AP1000).</p>
+            </div>
+
+            <div class="space-y-5">
+              <!-- Electrical Power -->
+              <div class="space-y-2">
+                <div class="flex justify-between text-xs">
+                  <span class="text-slate-300">Electrical Power ($P_e$)</span>
+                  <span class="text-zirconia-400 font-bold" id="pe-val">1000 MWe</span>
+                </div>
+                <input type="range" id="param-pe" min="300" max="1800" step="50" value="1000" oninput="calculateIodine()" class="w-full h-1 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-zirconia-500">
+              </div>
+
+              <!-- Thermal Efficiency -->
+              <div class="space-y-2">
+                <div class="flex justify-between text-xs">
+                  <span class="text-slate-300">Thermal Efficiency ($\eta_t$)</span>
+                  <span class="text-zirconia-400 font-bold" id="eta-val">33.3%</span>
+                </div>
+                <input type="range" id="param-eta" min="20" max="50" step="0.5" value="33.33" oninput="calculateIodine()" class="w-full h-1 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-zirconia-500">
+              </div>
+
+              <!-- Thermal Flux -->
+              <div class="space-y-2">
+                <div class="flex justify-between text-xs">
+                  <span class="text-slate-300">Thermal Neutron Flux ($\phi$)</span>
+                  <span class="text-zirconia-400 font-bold" id="flux-val">5.47 × 10¹³ n/cm²s</span>
+                </div>
+                <input type="range" id="param-flux" min="1" max="10" step="0.05" value="5.47" oninput="calculateIodine()" class="w-full h-1 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-zirconia-500">
+              </div>
+
+              <!-- Fuel Assemblies -->
+              <div class="space-y-2">
+                <div class="flex justify-between text-xs">
+                  <span class="text-slate-300">Fuel Assemblies Count</span>
+                  <span class="text-zirconia-400 font-bold" id="assemblies-val">157</span>
+                </div>
+                <input type="range" id="param-assemblies" min="50" max="250" step="1" value="157" oninput="calculateIodine()" class="w-full h-1 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-zirconia-500">
+              </div>
+            </div>
+          </div>
+
+          <!-- Calculation Outputs -->
+          <div class="lg:col-span-2 bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-6">
+            <h3 class="text-sm font-bold text-white uppercase tracking-wider text-slate-400 pb-3 border-b border-slate-800">
+              Iodine Steady-State Inventory Results (Appendix D)
+            </h3>
+
+            <!-- Calculated Metrics Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div class="bg-slate-950 p-4 rounded-xl border border-slate-800/80">
+                <div class="text-[10px] text-slate-400 uppercase tracking-wider font-semibold">Thermal Power Output</div>
+                <div class="text-lg font-extrabold text-white mt-1" id="out-pt">3000 MWt</div>
+              </div>
+              <div class="bg-slate-950 p-4 rounded-xl border border-slate-800/80">
+                <div class="text-[10px] text-slate-400 uppercase tracking-wider font-semibold">Reactor Mean Fission Rate</div>
+                <div class="text-lg font-extrabold text-white mt-1" id="out-f">1.10 × 10²⁰ s⁻¹</div>
+              </div>
+              <div class="bg-slate-950 p-4 rounded-xl border border-slate-800/80">
+                <div class="text-[10px] text-slate-400 uppercase tracking-wider font-semibold">Iodine micro-absorption</div>
+                <div class="text-lg font-extrabold text-white mt-1" id="out-sigma">5.47 × 10⁻⁹ s⁻¹</div>
+              </div>
+            </div>
+
+            <!-- Table of isotopes -->
+            <div class="overflow-x-auto">
+              <table class="w-full text-left text-xs text-slate-300">
+                <thead class="bg-slate-950 text-slate-400 uppercase text-[10px] tracking-wider border-b border-slate-800">
+                  <tr>
+                    <th class="px-4 py-3">Isotope</th>
+                    <th class="px-4 py-3">Yield ($y_{Te} + y_I$) %</th>
+                    <th class="px-4 py-3">Half-Life ($T_{1/2}$)</th>
+                    <th class="px-4 py-3">Decay Constant ($\lambda$) s⁻¹</th>
+                    <th class="px-4 py-3 text-right">Steady-State Mass (g)</th>
+                  </tr>
+                </thead>
+                <tbody id="isotope-table-body" class="divide-y divide-slate-800/50">
+                  <!-- Isotope calculation rows populated via JavaScript -->
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Total Iodine output indicator -->
+            <div class="bg-nuclear-500/5 border border-nuclear-500/10 rounded-xl p-4 flex flex-col md:flex-row items-center justify-between gap-4">
+              <div>
+                <h4 class="text-xs font-bold text-nuclear-400 uppercase tracking-wider">Total Steady State Iodine Inventory</h4>
+                <p class="text-slate-300 text-xs mt-1">Sum of calculated isotopes from Mass 130 to 138.</p>
+              </div>
+              <div class="text-center md:text-right">
+                <div class="text-xl md:text-2xl font-black text-white" id="total-iodine-mass">203.84 g</div>
+                <div class="text-[11px] text-nuclear-400 font-semibold" id="average-per-assembly">1.30 g per Assembly</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- ================= FIGURES GALLERY TAB ================= -->
+      <section id="tab-gallery" class="tab-content space-y-6 hidden">
+        <!-- Search and Filter bar -->
+        <div class="bg-slate-900 border border-slate-800 rounded-xl p-4 flex flex-col md:flex-row gap-4 justify-between items-center">
+          <!-- Search box -->
+          <div class="relative w-full md:w-80">
+            <span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </span>
+            <input type="text" id="gallery-search" oninput="filterGallery()" placeholder="Search figures..." class="w-full pl-9 pr-4 py-2 bg-slate-950 border border-slate-800 rounded-lg text-xs text-white focus:outline-none focus:border-zirconia-500 transition-colors">
+          </div>
+
+          <!-- Filter tags -->
+          <div class="flex flex-wrap gap-1.5">
+            <button onclick="setGalleryFilter('all')" id="tag-filter-all" class="gallery-tag-btn px-3 py-1 bg-zirconia-500 text-white rounded-full text-xs font-medium shadow-md transition-all">All</button>
+            <button onclick="setGalleryFilter('crystal')" id="tag-filter-crystal" class="gallery-tag-btn px-3 py-1 bg-slate-800 text-slate-400 rounded-full text-xs font-medium hover:text-white transition-all">Crystallography</button>
+            <button onclick="setGalleryFilter('reactor')" id="tag-filter-reactor" class="gallery-tag-btn px-3 py-1 bg-slate-800 text-slate-400 rounded-full text-xs font-medium hover:text-white transition-all">Reactor/Fission</button>
+            <button onclick="setGalleryFilter('defects')" id="tag-filter-defects" class="gallery-tag-btn px-3 py-1 bg-slate-800 text-slate-400 rounded-full text-xs font-medium hover:text-white transition-all">Defects</button>
+          </div>
+        </div>
+
+        <!-- Gallery Grid -->
+        <div id="gallery-grid" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <!-- Populated dynamically via JS -->
+        </div>
+      </section>
+
+
+      <!-- ================= CRYSTALLOGRAPHY GUIDE ================= -->
+      <section id="tab-polymorph" class="tab-content space-y-6 hidden">
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 md:p-8 space-y-6">
+          <div class="border-b border-slate-800 pb-5">
+            <h3 class="text-lg font-bold text-white flex items-center space-x-2">
+              <i class="fa-solid fa-cube text-zirconia-500"></i>
+              <span>Zirconia (ZrO₂) Crystal Polymorphs Comparison</span>
+            </h3>
+            <p class="text-slate-400 text-xs mt-1">Zirconia undergoes structural transformations with temperature, radically affecting defect volumes and stress states.</p>
+          </div>
+
+          <!-- Polymorph Cards Side-by-Side -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Monoclinic -->
+            <div class="bg-slate-950 border border-slate-800/80 rounded-xl p-5 space-y-4">
+              <div class="flex justify-between items-center">
+                <h4 class="text-sm font-bold text-white flex items-center space-x-2">
+                  <span class="inline-block w-2.5 h-2.5 rounded-full bg-violet-500"></span>
+                  <span>Monoclinic (m-ZrO₂)</span>
+                </h4>
+                <span class="text-[10px] bg-slate-850 px-2 py-0.5 rounded text-violet-400 border border-violet-500/20 font-bold">Stable &lt; 1443 K</span>
+              </div>
+              <div class="relative h-44 rounded-lg bg-slate-900 flex items-center justify-center overflow-hidden border border-slate-800/50">
+                <img src="images/coordination.png" alt="Monoclinic structure coordinate" class="h-32 object-contain filter drop-shadow-md">
+              </div>
+              <div class="text-xs space-y-1.5 text-slate-300">
+                <div class="flex justify-between border-b border-slate-800/50 pb-1.5"><span>Space Group:</span> <span class="text-white font-medium">$P2_1/c$</span></div>
+                <div class="flex justify-between border-b border-slate-800/50 pb-1.5"><span>Coordination:</span> <span class="text-white font-medium">Zr: 7-fold, O: 3 & 4-fold</span></div>
+                <div class="flex justify-between pb-1"><span>Iodine behavior:</span> <span class="text-slate-400">Adopt +1/ -1 oxidation state. Small changes with $pO_{2}$</span></div>
+              </div>
+            </div>
+
+            <!-- Tetragonal -->
+            <div class="bg-slate-950 border border-slate-800/80 rounded-xl p-5 space-y-4">
+              <div class="flex justify-between items-center">
+                <h4 class="text-sm font-bold text-white flex items-center space-x-2">
+                  <span class="inline-block w-2.5 h-2.5 rounded-full bg-zirconia-500"></span>
+                  <span>Tetragonal (t-ZrO₂)</span>
+                </h4>
+                <span class="text-[10px] bg-slate-850 px-2 py-0.5 rounded text-zirconia-400 border border-zirconia-500/20 font-bold">Stable 1443 - 2643 K</span>
+              </div>
+              <div class="relative h-44 rounded-lg bg-slate-900 flex items-center justify-center overflow-hidden border border-slate-800/50">
+                <img src="images/zr_centre_tet.png" alt="Tetragonal coordination" class="h-32 object-contain filter drop-shadow-md">
+              </div>
+              <div class="text-xs space-y-1.5 text-slate-300">
+                <div class="flex justify-between border-b border-slate-800/50 pb-1.5"><span>Space Group:</span> <span class="text-white font-medium">$P4_2/nmc$</span></div>
+                <div class="flex justify-between border-b border-slate-800/50 pb-1.5"><span>Coordination:</span> <span class="text-white font-medium">Zr: 8-fold, O: 4-fold</span></div>
+                <div class="flex justify-between pb-1"><span>Iodine behavior:</span> <span class="text-slate-400">Significant drop under oxidizing conditions. Highly stable.</span></div>
+              </div>
+            </div>
+
+            <!-- Cubic -->
+            <div class="bg-slate-950 border border-slate-800/80 rounded-xl p-5 space-y-4">
+              <div class="flex justify-between items-center">
+                <h4 class="text-sm font-bold text-white flex items-center space-x-2">
+                  <span class="inline-block w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
+                  <span>Cubic (c-ZrO₂)</span>
+                </h4>
+                <span class="text-[10px] bg-slate-850 px-2 py-0.5 rounded text-emerald-400 border border-emerald-500/20 font-bold">Stable &gt; 2643 K</span>
+              </div>
+              <div class="relative h-44 rounded-lg bg-slate-900 flex items-center justify-center overflow-hidden border border-slate-800/50">
+                <img src="images/cubic_unitcell.png" alt="Cubic unitcell" class="h-32 object-contain filter drop-shadow-md">
+              </div>
+              <div class="text-xs space-y-1.5 text-slate-300">
+                <div class="flex justify-between border-b border-slate-800/50 pb-1.5"><span>Space Group:</span> <span class="text-white font-medium">$Fm\bar{3}m$</span></div>
+                <div class="flex justify-between border-b border-slate-800/50 pb-1.5"><span>Coordination:</span> <span class="text-white font-medium">Zr: 8-fold, O: 4-fold</span></div>
+                <div class="flex justify-between pb-1"><span>Iodine behavior:</span> <span class="text-slate-400">Extremely sensitive to defect cluster symmetry breaks.</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- ================= ORIGINAL PDF READER ================= -->
+      <section id="tab-reader" class="tab-content space-y-4 hidden">
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-4 h-[750px] flex flex-col">
+          <div class="flex items-center justify-between border-b border-slate-800 pb-3 mb-4">
+            <h3 class="text-sm font-bold text-white flex items-center space-x-2">
+              <i class="fa-solid fa-file-pdf text-red-500"></i>
+              <span>Original PhD Thesis PDF Document</span>
+            </h3>
+            <a href="https://github.com/v1thesource/PhD-Thesis/raw/master/thesis.pdf" target="_blank" class="px-3.5 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded text-xs font-semibold flex items-center space-x-1.5 transition">
+              <i class="fa-solid fa-download"></i>
+              <span>Download PDF</span>
+            </a>
+          </div>
+          <!-- PDF Iframe -->
+          <iframe src="https://github.com/v1thesource/PhD-Thesis/raw/master/thesis.pdf" class="w-full flex-1 rounded-lg border border-slate-800" title="PhD Thesis PDF Viewer"></iframe>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Lightbox Modal for Figures Gallery -->
+  <div id="lightbox" onclick="closeLightbox()" class="fixed inset-0 z-50 bg-black/90 hidden items-center justify-center p-4">
+    <div class="relative max-w-4xl w-full bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden shadow-2xl flex flex-col md:flex-row gap-6 p-6" onclick="event.stopPropagation()">
+      <button onclick="closeLightbox()" class="absolute top-4 right-4 text-slate-400 hover:text-white text-xl z-50">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <!-- Image container -->
+      <div class="flex-1 flex items-center justify-center bg-slate-950 rounded-xl p-4 border border-slate-800/80">
+        <img id="lightbox-img" src="" alt="" class="max-h-[500px] object-contain">
+      </div>
+      <!-- Description panel -->
+      <div class="w-full md:w-80 flex flex-col justify-between">
+        <div class="space-y-4">
+          <span id="lightbox-tag" class="bg-zirconia-500/10 text-zirconia-400 text-[10px] font-bold px-2 py-0.5 rounded border border-zirconia-500/20 uppercase tracking-wider inline-block">Category</span>
+          <h3 id="lightbox-title" class="text-lg font-bold text-white leading-snug">Figure Title</h3>
+          <p id="lightbox-desc" class="text-xs text-slate-400 leading-relaxed">Detailed figure caption goes here.</p>
+        </div>
+        <div class="pt-4 border-t border-slate-800 text-[10px] text-slate-500 flex justify-between">
+          <span>PhD Thesis Illustration</span>
+          <span>Fig Reference</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // State management
+    let activeTab = 'overview';
+    let currentBrouwerDataset = 'intrinsic_tet';
+    let loadedBrouwerData = null;
+    let brouwerChartInstance = null;
+    let activeGalleryFilter = 'all';
+
+    // Global constant figures array
+    const figures = [
+      {
+        id: 'isotopes',
+        title: 'Te and I Decay Chain and half-lives',
+        tag: 'reactor',
+        src: 'images/Isotopes_and_half-life.png',
+        desc: 'This figure details the fission product tellurium decaying dynamically to Iodine, Xenon, and Cesium. Transmutation forces site transitions and introduces massive mismatch stresses.'
+      },
+      {
+        id: 'zirconia_phase',
+        title: 'Zirconia Crystal Phases Binary Diagram',
+        tag: 'crystal',
+        src: 'images/zirconiaphasediagram.png',
+        desc: 'Zirconia binary phase diagram showing transformations from monoclinic, tetragonal, to cubic depending on temperature and composition stabilizers.'
+      },
+      {
+        id: 'te_decay',
+        title: 'Tellurium-132 Transmutation Sequence',
+        tag: 'reactor',
+        src: 'images/te_decay_chain2.png',
+        desc: 'Illustrating nuclear decay chains starting with tellurium precursor atoms decaying by beta minus decays to radioactive iodine.'
+      },
+      {
+        id: 'fuel_assembly',
+        title: 'Nuclear Reactor Fuel Assembly Schematic',
+        tag: 'reactor',
+        src: 'images/fuelassembly.png',
+        desc: 'Core architecture schematic showing fuel rods cladded in Zr-alloy and held together in spacing grids.'
+      },
+      {
+        id: 'fuel_cladding_crack',
+        title: 'Pellet Cladding Interaction Cladding Crack',
+        tag: 'defects',
+        src: 'images/fuelcladdingcrack.png',
+        desc: 'In-pile cladding failure cross-section demonstrating crack initiation on the inner oxide surface promoted by fission product iodine corridor corrosion.'
+      },
+      {
+        id: 'coordination_guide',
+        title: 'ZrO₂ Atomic Coordination Comparison',
+        tag: 'crystal',
+        src: 'images/coordination.png',
+        desc: 'Structural details showing oxygen and zirconium coordination changes within monoclinic and tetragonal unit cells.'
+      }
+    ];
+
+    // Isotope yield parameters
+    const isotopeData = [
+      { mass: '130', yield: 1.61, halfLife: 'Stable', lambda: 0 },
+      { mass: '131', yield: 2.80, halfLife: '8.02 days', lambda: 1.0e-6 },
+      { mass: '132', yield: 4.31, halfLife: '2.29 hours', lambda: 8.41e-5 },
+      { mass: '133', yield: 6.70, halfLife: '20.8 hours', lambda: 9.26e-6 },
+      { mass: '134', yield: 7.84, halfLife: '52.5 mins', lambda: 2.20e-4 },
+      { mass: '135', yield: 6.54, halfLife: '6.57 hours', lambda: 2.93e-5 },
+      { mass: '136', yield: 3.10, halfLife: '83 seconds', lambda: 8.35e-3 },
+      { mass: '137', yield: 0.16, halfLife: '24 seconds', lambda: 2.89e-2 },
+      { mass: '138', yield: 0.01, halfLife: '6.5 seconds', lambda: 1.07e-1 }
+    ];
+
+    // Color palettes for Brouwer defect series
+    const defectColors = {
+      'electrons': '#10b981', // green
+      'holes': '#ef4444', // red
+      'VO{2}': '#38bdf8', // sky blue
+      'Oi{-2}': '#f59e0b', // amber
+      'Oi{-1}': '#fbbf24',
+      'Oi{0}': '#fef08a',
+      'VM{-4}': '#ec4899', // pink
+      'VM{-3}': '#f472b6',
+      'VM{-2}': '#fbcfe8',
+      'Mi{4}': '#8b5cf6', // purple
+      'Mi{3}': '#a78bfa',
+      'Mi{2}': '#c4b5fd'
+    };
+
+    // Fallback colors for unknown columns
+    function getSeriesColor(name) {
+      if (defectColors[name]) return defectColors[name];
+      // Generate a deterministically stable high contrast color
+      let hash = 0;
+      for (let i = 0; i < name.length; i++) {
+        hash = name.charCodeAt(i) + ((hash << 5) - hash);
+      }
+      const h = Math.abs(hash % 360);
+      return `hsl(${h}, 80%, 60%)`;
+    }
+
+    // Initialize Page
+    window.addEventListener('DOMContentLoaded', () => {
+      switchTab('overview');
+      buildIsotopeTable();
+      calculateIodine();
+      buildFiguresGallery();
+    });
+
+    function buildIsotopeTable() {
+      // Stub if table rows are fully reactive
+    }
+
+    function calculateIodine() {
+      const Pe = parseFloat(document.getElementById('param-pe').value);
+      const eta = parseFloat(document.getElementById('param-eta').value) / 100;
+      const fluxVal = parseFloat(document.getElementById('param-flux').value); // in units of 10^13
+      const assemblies = parseInt(document.getElementById('param-assemblies').value);
+
+      // Update slider label displays
+      document.getElementById('pe-val').innerText = `${Pe} MWe`;
+      document.getElementById('eta-val').innerText = `${(eta * 100).toFixed(1)}%`;
+      document.getElementById('flux-val').innerText = `${fluxVal.toFixed(2)} × 10¹³ n/cm²s`;
+      document.getElementById('assemblies-val').innerText = assemblies;
+
+      // 1. Thermal Power
+      const Pt = Pe / eta;
+      document.getElementById('out-pt').innerText = `${Pt.toFixed(0)} MWt`;
+
+      // 2. Mean Fission Rate f
+      const Efission = 170.0 * 1e6 * 1.602176634e-19; // Joules per fission
+      const fRate = (Pt * 1e6) / Efission;
+      document.getElementById('out-f').innerText = `${fRate.toExponential(2)} s⁻¹`;
+
+      // 3. Sigma absorption
+      const phi = fluxVal * 1e13;
+      const sigmaAbsorption = 100.0 * 1e-24; // 100 barns to cm^2
+      const captureLoss = phi * sigmaAbsorption;
+      document.getElementById('out-sigma').innerText = `${captureLoss.toExponential(2)} s⁻¹`;
+
+      // 4. Calculate for each isotope and build rows
+      const tbody = document.getElementById('isotope-table-body');
+      tbody.innerHTML = '';
+
+      let totalMass = 0;
+      const avogadro = 6.02214076e23;
+
+      isotopeData.forEach(iso => {
+        let massInGrams = 0;
+        if (iso.lambda > 0) {
+          // Atoms = fRate * (yield/100) / (lambda + captureLoss)
+          const atoms = (fRate * (iso.yield / 100)) / (iso.lambda + captureLoss); // Including absorption loss
+          const moles = atoms / avogadro;
+          massInGrams = moles * parseFloat(iso.mass);
+          totalMass += massInGrams;
+        }
+
+        const row = document.createElement('tr');
+        row.className = "hover:bg-slate-800/30 transition-colors border-b border-slate-800/40";
+        row.innerHTML = `
+          <td class="px-4 py-3 font-semibold text-white">I-${iso.mass}</td>
+          <td class="px-4 py-3 text-slate-300">${iso.yield.toFixed(2)}%</td>
+          <td class="px-4 py-3 text-slate-400">${iso.halfLife}</td>
+          <td class="px-4 py-3 text-slate-400 font-mono">${iso.lambda === 0 ? '0' : iso.lambda.toExponential(2)}</td>
+          <td class="px-4 py-3 text-right font-bold text-zirconia-400">${massInGrams === 0 ? 'Stable' : massInGrams.toFixed(4) + ' g'}</td>
+        `;
+        tbody.appendChild(row);
+      });
+
+      // Update total mass card
+      document.getElementById('total-iodine-mass').innerText = `${totalMass.toFixed(2)} g`;
+      const perAssembly = totalMass / assemblies;
+      document.getElementById('average-per-assembly').innerText = `${perAssembly.toFixed(2)} g per Assembly`;
+    }
+
+    // --- Tab 4: Figures Gallery ---
+    function buildFiguresGallery() {
+      const grid = document.getElementById('gallery-grid');
+      grid.innerHTML = '';
+
+      const query = document.getElementById('gallery-search').value.toLowerCase();
+
+      const filtered = figures.filter(fig => {
+        // Tag filter
+        if (activeGalleryFilter !== 'all' && fig.tag !== activeGalleryFilter) return false;
+        // Text search filter
+        if (query) {
+          const matchTitle = fig.title.toLowerCase().includes(query);
+          const matchDesc = fig.desc.toLowerCase().includes(query);
+          return matchTitle || matchDesc;
+        }
+        return true;
+      });
+
+      if (filtered.length === 0) {
+        grid.innerHTML = `
+          <div class="col-span-full py-12 text-center text-slate-500 text-xs">
+            <i class="fa-solid fa-face-frown text-2xl mb-2.5 block text-slate-600"></i>
+            <span>No figures match your filters or search query.</span>
+          </div>
+        `;
+        return;
+      }
+
+      filtered.forEach(fig => {
+        const tagNames = { crystal: 'Crystallography', reactor: 'Reactor/Fission', defects: 'Defects' };
+        const card = document.createElement('div');
+        card.className = "group bg-slate-900 border border-slate-800 rounded-xl overflow-hidden shadow-lg hover:border-zirconia-500/50 hover:shadow-zirconia-500/5 transition-all duration-300 cursor-pointer flex flex-col justify-between";
+        card.onclick = () => openLightbox(fig);
+        card.innerHTML = `
+          <div class="relative h-48 bg-slate-950 flex items-center justify-center overflow-hidden border-b border-slate-850">
+            <img src="${fig.src}" alt="${fig.title}" class="h-40 max-w-full object-contain group-hover:scale-105 transition-transform duration-300">
+            <span class="absolute top-3 left-3 bg-slate-900/90 text-slate-300 border border-slate-800 text-[10px] px-2 py-0.5 rounded font-bold uppercase tracking-wider">${tagNames[fig.tag]}</span>
+          </div>
+          <div class="p-4 space-y-2 flex-1 flex flex-col justify-between">
+            <h4 class="text-xs font-bold text-white group-hover:text-zirconia-400 transition-colors duration-200 line-clamp-1">${fig.title}</h4>
+            <p class="text-[11px] text-slate-400 line-clamp-2 leading-relaxed flex-1">${fig.desc}</p>
+            <div class="pt-2 text-[10px] text-zirconia-500 font-bold flex items-center space-x-1 justify-end">
+              <span>Inspect Figure</span>
+              <i class="fa-solid fa-arrow-right-long"></i>
+            </div>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    function setGalleryFilter(filterName) {
+      activeGalleryFilter = filterName;
+
+      // Update filter tabs styling
+      document.querySelectorAll('.gallery-tag-btn').forEach(btn => {
+        btn.className = "gallery-tag-btn px-3 py-1 bg-slate-800 text-slate-400 rounded-full text-xs font-medium hover:text-white transition-all";
+      });
+      const activeBtn = document.getElementById(`tag-filter-${filterName}`);
+      if (activeBtn) {
+        activeBtn.className = "gallery-tag-btn px-3 py-1 bg-zirconia-500 text-white rounded-full text-xs font-medium shadow-md transition-all";
+      }
+
+      buildFiguresGallery();
+    }
+
+    function filterGallery() {
+      buildFiguresGallery();
+    }
+
+    function openLightbox(fig) {
+      const tagNames = { crystal: 'Crystallography Reference', reactor: 'Reactor Physics & Fission Yields', defects: 'Materials Defects & Cracking' };
+
+      document.getElementById('lightbox-img').src = fig.src;
+      document.getElementById('lightbox-tag').innerText = tagNames[fig.tag];
+      document.getElementById('lightbox-title').innerText = fig.title;
+      document.getElementById('lightbox-desc').innerText = fig.desc;
+
+      const lightbox = document.getElementById('lightbox');
+      lightbox.classList.remove('hidden');
+      lightbox.classList.add('flex');
+    }
+
+    function closeLightbox() {
+      const lightbox = document.getElementById('lightbox');
+      lightbox.classList.remove('flex');
+      lightbox.classList.add('hidden');
+    }
+
+    // Theme Switcher
+    function toggleTheme() {
+      const html = document.documentElement;
+      const themeIcon = document.getElementById('theme-icon');
+      if (html.classList.contains('dark')) {
+        html.classList.remove('dark');
+        themeIcon.className = 'fa-solid fa-moon';
+      } else {
+        html.classList.add('dark');
+        themeIcon.className = 'fa-solid fa-sun';
+      }
+      // Re-render chart with new styles if active
+      if (activeTab === 'brouwer') {
+        renderBrouwerChart();
+      }
+    }
+
+    // Toggle Mobile Sidebar
+    function toggleSidebar() {
+      const sidebar = document.getElementById('sidebar');
+      const overlay = document.getElementById('sidebar-overlay');
+      sidebar.classList.toggle('-translate-x-full');
+      overlay.classList.toggle('hidden');
+    }
+
+    // Switch Tab Views
+    function switchTab(tabId) {
+      activeTab = tabId;
+
+      // Update sidebar nav style
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.classList.remove('bg-slate-800', 'text-zirconia-500', 'border-zirconia-500', 'shadow-md');
+        btn.classList.add('text-slate-400', 'hover:bg-slate-800/50', 'hover:text-white', 'border-transparent');
+      });
+      const activeBtn = document.getElementById(`tab-btn-${tabId}`);
+      if (activeBtn) {
+        activeBtn.classList.remove('text-slate-400', 'hover:bg-slate-800/50', 'hover:text-white', 'border-transparent');
+        activeBtn.classList.add('bg-slate-800', 'text-zirconia-500', 'border-zirconia-500', 'shadow-md');
+      }
+
+      // Hide/Show tab contents
+      document.querySelectorAll('.tab-content').forEach(content => {
+        content.classList.add('hidden');
+      });
+      document.getElementById(`tab-${tabId}`).classList.remove('hidden');
+
+      // Update Top Nav Header
+      const headerTitle = document.getElementById('header-title');
+      const headerSubtitle = document.getElementById('header-subtitle');
+
+      const tabNames = {
+        overview: { title: 'Interactive Thesis Reader', subtitle: 'dashboard overview' },
+        brouwer: { title: 'Defect Brouwer Diagrams', subtitle: 'dft defect chemistry' },
+        calculator: { title: 'Steady-State Iodine Calculator', subtitle: 'reactor physics model' },
+        gallery: { title: 'Figures and Visual Captions', subtitle: 'illustrated results' },
+        polymorph: { title: 'Zirconia Crystallography Guide', subtitle: 'structural polymorphs' },
+        reader: { title: 'Full Thesis Document (PDF)', subtitle: 'official raw manuscript' }
+      };
+
+      headerTitle.innerText = tabNames[tabId].title;
+      headerSubtitle.innerText = tabNames[tabId].subtitle;
+
+      // Special Tab Initiations
+      if (tabId === 'brouwer' && !loadedBrouwerData) {
+        loadBrouwerDataset(currentBrouwerDataset);
+      }
+
+      // Close mobile drawer if open
+      const sidebar = document.getElementById('sidebar');
+      if (!sidebar.classList.contains('-translate-x-full')) {
+        toggleSidebar();
+      }
+    }
+
+    // --- Tab 1: Transmutation Simulator logic ---
+    let transmutationStep = 0;
+    let transmutationInterval = null;
+
+    function startTransmutation() {
+      if (transmutationInterval) clearInterval(transmutationInterval);
+      transmutationStep = 0;
+      resetTransmutationStyles();
+
+      const explainers = [
+        "Tellurium (Te) initial state: occupying oxygen vacancies. Atomic volume mismatch is minimal (2.74 Å³). It behaves similarly to standard lattice oxygen.",
+        "Te decays to Iodine (I): defect preference remains on Oxygen Site but relaxation volume skyrockets to 29.90 Å³ (an increase of over 10x!). Cladding lattice experiences massive initial outward stress.",
+        "Iodine subsequently decays to Xenon (Xe): the giant inert gas cannot fit on an O site. It migrates preferentially to a Zirconium cation site, creating a massive relaxation volume expansion of 115.50 Å³, creating peak micro-tensile stresses.",
+        "Finally, Xenon decays to Cesium (Cs): highly reactive Cs remains stable on Zr sites with a relaxation volume of 90.37 Å³, leaving behind permanently stressed, cracked, and damaged cladding matrices."
+      ];
+
+      const elements = ['te', 'i', 'xe', 'cs'];
+      transmutationInterval = setInterval(() => {
+        if (transmutationStep >= elements.length) {
+          clearInterval(transmutationInterval);
+          return;
+        }
+
+        // Highlight active element
+        document.querySelectorAll('.element-card').forEach(card => card.classList.add('opacity-60', 'scale-95'));
+        const activeCard = document.getElementById(`element-${elements[transmutationStep]}`);
+        activeCard.classList.remove('opacity-60', 'scale-95');
+        activeCard.classList.add('scale-105', 'border-nuclear-500', 'shadow-nuclear-500/20');
+
+        // Explainer text update
+        document.getElementById('transmutation-explainer').innerText = explainers[transmutationStep];
+
+        transmutationStep++;
+      }, 2000);
+    }
+
+    function resetTransmutation() {
+      if (transmutationInterval) clearInterval(transmutationInterval);
+      resetTransmutationStyles();
+      document.getElementById('transmutation-explainer').innerText = "Tellurium atoms (produced via fission) typically occupy oxygen vacancies inside ZrO₂ with a tiny defect volume of 2.74 Å³. However, through radioactive beta decays, Te decays to I, Xe, and finally Cs. Over time, the lattice site is forced to accept atoms with significantly larger sizes, creating localized tensile stresses.";
+    }
+
+    function resetTransmutationStyles() {
+      document.querySelectorAll('.element-card').forEach(card => {
+        card.className = "element-card relative z-10 bg-slate-950 p-5 rounded-xl border-2 border-slate-800 flex flex-col items-center space-y-3 shadow-lg transition-all duration-300 opacity-60 scale-100";
+      });
+      // Te starts visible
+      const te = document.getElementById('element-te');
+      te.classList.remove('opacity-60');
+    }
+
+    // --- Tab 2: Brouwer Diagram dynamic plotter ---
+    async function loadBrouwerDataset(datasetId) {
+      currentBrouwerDataset = datasetId;
+
+      // Update UI button highlights
+      document.querySelectorAll('.brouwer-env-btn').forEach(btn => {
+        btn.className = "brouwer-env-btn w-full text-left px-3.5 py-2.5 rounded-lg text-xs font-semibold text-slate-400 hover:bg-slate-800/50 hover:text-white border-l-4 border-transparent";
+      });
+      const activeBtn = document.getElementById(`btn-env-${datasetId}`);
+      if (activeBtn) {
+        activeBtn.className = "brouwer-env-btn w-full text-left px-3.5 py-2.5 rounded-lg text-xs font-semibold bg-slate-800 border-l-4 border-zirconia-500 text-white shadow";
+      }
+
+      // Update title text
+      const titles = {
+        intrinsic_tet: 'Intrinsic Tetragonal Zirconia',
+        'te_tet_10-3': 'Tetragonal ZrO₂ with Te (10⁻³)',
+        'xe_tet_10-3': 'Tetragonal ZrO₂ with Xe (10⁻³)',
+        'cs_tet_10-3': 'Tetragonal ZrO₂ with Cs (10⁻³)'
+      };
+      document.getElementById('chart-title').innerText = `Brouwer Diagram: ${titles[datasetId]}`;
+
+      try {
+        const response = await fetch(`dat/${datasetId}.dat`);
+        if (!response.ok) throw new Error(`Could not load dat/${datasetId}.dat file.`);
+        const text = await response.text();
+        parseBrouwerData(text);
+      } catch (err) {
+        console.error(err);
+      }
+    }
+
+    function parseBrouwerData(rawText) {
+      const lines = rawText.split('\n').map(l => l.trim()).filter(l => l.length > 0);
+      if (lines.length === 0) return;
+
+      const headers = lines[0].split(/\s+/);
+      const dataPoints = [];
+
+      for (let i = 1; i < lines.length; i++) {
+        const parts = lines[i].split(/\s+/).map(Number);
+        if (parts.length === headers.length) {
+          const point = {};
+          headers.forEach((h, index) => {
+            point[h] = parts[index];
+          });
+          dataPoints.push(point);
+        }
+      }
+
+      loadedBrouwerData = {
+        headers: headers,
+        points: dataPoints
+      };
+
+      populateDefectSeriesList();
+      renderBrouwerChart();
+    }
+
+    function populateDefectSeriesList() {
+      const container = document.getElementById('series-checkboxes-container');
+      container.innerHTML = '';
+
+      if (!loadedBrouwerData) return;
+
+      // Filter headers to only include toggleable concentrations
+      const excludelist = ['pO2', 'mew_e', 'Stoich'];
+      const printableHeaders = loadedBrouwerData.headers.filter(h => !excludelist.includes(h));
+
+      // Choose default active ones (electrons, holes, main vacancies)
+      const defaultActive = ['electrons', 'holes', 'VO{2}', 'Oi{-2}', 'TesubO{2}', 'TesubO{1}', 'XesubZr{-4}', 'CssubZr{-3}'];
+
+      printableHeaders.forEach(h => {
+        const isActive = defaultActive.includes(h) || h.startsWith('Te') || h.startsWith('Xe') || h.startsWith('Cs');
+        const color = getSeriesColor(h);
+
+        const wrapper = document.createElement('label');
+        wrapper.className = "flex items-center space-x-2.5 py-1 px-1.5 rounded hover:bg-slate-800/40 cursor-pointer text-slate-300 transition-colors duration-100";
+        wrapper.innerHTML = `
+          <input type="checkbox" value="${h}" ${isActive ? 'checked' : ''} onchange="renderBrouwerChart()" class="defect-checkbox h-3.5 w-3.5 rounded bg-slate-950 border-slate-800 accent-zirconia-500">
+          <span class="inline-block w-2.5 h-2.5 rounded-full" style="background-color: ${color}"></span>
+          <span class="text-xs font-mono font-medium">${h}</span>
+        `;
+        container.appendChild(wrapper);
+      });
+    }
+
+    function toggleAllDefectSeries(state) {
+      document.querySelectorAll('.defect-checkbox').forEach(cb => cb.checked = state);
+      renderBrouwerChart();
+    }
+
+    function renderBrouwerChart() {
+      if (!loadedBrouwerData) return;
+
+      const isDark = document.documentElement.classList.contains('dark');
+      const gridColor = isDark ? 'rgba(255, 255, 255, 0.08)' : 'rgba(0, 0, 0, 0.06)';
+      const textColor = isDark ? '#94a3b8' : '#475569';
+
+      // Get active checkboxes
+      const selectedSeries = Array.from(document.querySelectorAll('.defect-checkbox'))
+        .filter(cb => cb.checked)
+        .map(cb => cb.value);
+
+      const xData = loadedBrouwerData.points.map(p => p.pO2);
+
+      const datasets = selectedSeries.map(s => {
+        const color = getSeriesColor(s);
+        return {
+          label: s,
+          data: loadedBrouwerData.points.map(p => p[s]),
+          borderColor: color,
+          backgroundColor: color + '15',
+          borderWidth: 2,
+          pointRadius: 0,
+          pointHoverRadius: 5,
+          tension: 0.1,
+          fill: false
+        };
+      });
+
+      if (brouwerChartInstance) {
+        brouwerChartInstance.destroy();
+      }
+
+      const ctx = document.getElementById('brouwerChart').getContext('2d');
+      brouwerChartInstance = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: xData,
+          datasets: datasets
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              display: false // We use our own list for legend
+            },
+            tooltip: {
+              mode: 'index',
+              intersect: false,
+              backgroundColor: isDark ? '#0f172a' : '#ffffff',
+              titleColor: isDark ? '#f8fafc' : '#0f172a',
+              bodyColor: isDark ? '#cbd5e1' : '#334155',
+              borderColor: isDark ? '#1e293b' : '#e2e8f0',
+              borderWidth: 1
+            }
+          },
+          scales: {
+            x: {
+              type: 'linear',
+              position: 'bottom',
+              title: {
+                display: true,
+                text: 'Oxygen Partial Pressure (log₁₀ pO₂)',
+                color: textColor,
+                font: { size: 11, weight: 'bold' }
+              },
+              grid: { color: gridColor },
+              ticks: { color: textColor }
+            },
+            y: {
+              title: {
+                display: true,
+                text: 'Concentration (log₁₀ Site Fraction)',
+                color: textColor,
+                font: { size: 11, weight: 'bold' }
+              },
+              grid: { color: gridColor },
+              ticks: { color: textColor },
+              min: -25,
+              max: 0
+            }
+          }
+        }
+      });
+    }
+  </script>
+</body>
 </html>
