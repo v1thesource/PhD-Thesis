@@ -795,10 +795,10 @@
 
     // Animation target states for Tellurium, Iodine, Xenon, Cesium
     const decayTargetStates = {
-      te: { radius: 0.55, strain: 0.0, color: 0xe07a5f, text: "Te (precursor)" },
-      i:  { radius: 0.82, strain: 0.15, color: 0x8ecae6, text: "I (Decay 1)" },
-      xe: { radius: 1.25, strain: 0.42, color: 0x4895ef, text: "Xe (Decay 2)" },
-      cs: { radius: 1.10, strain: 0.33, color: 0x06d6a0, text: "Cs (Final)" }
+      te: { radius: 0.55, strain: 0.0, color: 0xe07a5f, text: "Te (precursor)", sitePos: { x: 0, y: 1.0, z: 1.4 } },
+      i:  { radius: 0.82, strain: 0.15, color: 0x8ecae6, text: "I (Decay 1)", sitePos: { x: 0, y: 1.0, z: 1.4 } },
+      xe: { radius: 1.25, strain: 0.42, color: 0x4895ef, text: "Xe (Decay 2)", sitePos: { x: 0, y: 0, z: 2.8 } },
+      cs: { radius: 1.10, strain: 0.33, color: 0x06d6a0, text: "Cs (Final)", sitePos: { x: 0, y: 0, z: 2.8 } }
     };
 
     let animationState = {
@@ -807,7 +807,9 @@
       currentStrain: 0.0,
       targetStrain: 0.0,
       currentColor: new THREE.Color(0xe07a5f),
-      targetColor: new THREE.Color(0xe07a5f)
+      targetColor: new THREE.Color(0xe07a5f),
+      currentPos: new THREE.Vector3(0, 1.0, 1.4),
+      targetPos: new THREE.Vector3(0, 1.0, 1.4)
     };
 
     function init3DLattice() {
@@ -892,27 +894,28 @@
         zrCationSpheres.push({ mesh, basePos: pos });
       });
 
-      // Generate Oxygen Anions (O) - Red Spheres
+      // Generate Oxygen Anions (O) - Red Spheres (excluding vacancy site at {0, 1.0, 1.4})
       const oGeometry = new THREE.SphereGeometry(0.25, 32, 32);
       const oMaterial = new THREE.MeshStandardMaterial({ color: 0xef4444, roughness: 0.4 });
       baseAtomPositions.anions.forEach(pos => {
+        if (pos.x === 0 && pos.y === 1.0 && pos.z === 1.4) return; // Anion site occupied by dopant
         const mesh = new THREE.Mesh(oGeometry, oMaterial);
         mesh.position.set(pos.x, pos.y, pos.z);
         latticeGroup.add(mesh);
         oAnionSpheres.push({ mesh, basePos: pos });
       });
 
-      // Generate Central Dopant Defect Atom (starts as Tellurium)
+      // Generate Dopant Defect Atom (starts at Oxygen Anion site {0, 1.0, 1.4})
       const dopantGeometry = new THREE.SphereGeometry(1.0, 32, 32); // Radius scaled by anim state
       const dopantMaterial = new THREE.MeshStandardMaterial({ color: 0xe07a5f, roughness: 0.3, metalness: 0.3 });
       centralDopantAtom = new THREE.Mesh(dopantGeometry, dopantMaterial);
-      centralDopantAtom.position.set(0, 0, 0); // At the central vacancy site
+      centralDopantAtom.position.copy(animationState.currentPos);
       latticeGroup.add(centralDopantAtom);
 
       // Draw tension lines from Central Dopant to nearest Oxygen Anions
       baseAtomPositions.anions.forEach((pos, idx) => {
         const lineGeo = new THREE.BufferGeometry().setFromPoints([
-          new THREE.Vector3(0, 0, 0),
+          animationState.currentPos.clone(),
           new THREE.Vector3(pos.x, pos.y, pos.z)
         ]);
         const lineMat = new THREE.LineBasicMaterial({ color: 0xe07a5f, transparent: true, opacity: 0.6 });
@@ -950,13 +953,15 @@
         latticeGroup.rotation.x += (targetRotationX - latticeGroup.rotation.x) * 0.1;
       }
 
-      // Smooth interpolation (lerp) towards target radii and strain states
+      // Smooth interpolation (lerp) towards target radii, positions and strain states
       animationState.currentRadius += (animationState.targetRadius - animationState.currentRadius) * 0.08;
       animationState.currentStrain += (animationState.targetStrain - animationState.currentStrain) * 0.08;
       animationState.currentColor.lerp(animationState.targetColor, 0.08);
+      animationState.currentPos.lerp(animationState.targetPos, 0.08);
 
-      // Apply scaled values to Central Dopant
+      // Apply scaled values and position to Dopant Atom
       if (centralDopantAtom) {
+        centralDopantAtom.position.copy(animationState.currentPos);
         centralDopantAtom.scale.setScalar(animationState.currentRadius);
         centralDopantAtom.material.color.copy(animationState.currentColor);
       }
@@ -981,7 +986,7 @@
         );
       });
 
-      // Update strain/force lines coordinates and change colors based on tension (green/orange -> intense red)
+      // Update strain/force lines coordinates and change colors based on tension
       strainLines.forEach(sLine => {
         const factor = 1.0 + animationState.currentStrain * 0.8;
         const currentEnd = new THREE.Vector3(
@@ -989,7 +994,7 @@
           sLine.basePos.y * factor,
           sLine.basePos.z * factor
         );
-        sLine.line.geometry.setFromPoints([new THREE.Vector3(0,0,0), currentEnd]);
+        sLine.line.geometry.setFromPoints([animationState.currentPos.clone(), currentEnd]);
 
         // Color transition based on strain
         const strainRatio = Math.min(1.0, Math.max(0.0, animationState.currentStrain / 0.42));
@@ -1310,6 +1315,9 @@
       animationState.targetRadius = data.state.radius;
       animationState.targetStrain = data.state.strain;
       animationState.targetColor = new THREE.Color(data.state.color);
+      if (data.state.sitePos) {
+        animationState.targetPos = new THREE.Vector3(data.state.sitePos.x, data.state.sitePos.y, data.state.sitePos.z);
+      }
 
       // 4. Update strain value display
       document.getElementById('lattice-strain-val').innerText = `${(data.state.strain * 100).toFixed(2)}%`;
