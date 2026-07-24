@@ -944,19 +944,13 @@
           sLine.basePos.y * factor,
           sLine.basePos.z * factor
         );
-
-        // Avoid recreation of float buffer attribute on every frame
-        const posAttr = sLine.line.geometry.attributes.position;
-        if (posAttr) {
-          posAttr.setXYZ(1, currentEnd.x, currentEnd.y, currentEnd.z);
-          posAttr.needsUpdate = true;
-        }
+        sLine.line.geometry.setFromPoints([new THREE.Vector3(0,0,0), currentEnd]);
 
         // Color transition based on strain
-        const glowColor = new THREE.Color().lerpColors(
+        const glowColor = new THREE.Color().interpolateColors(
           new THREE.Color(0x334155), // Neutral slate
           new THREE.Color(0xef4444), // Intense Red
-          Math.min(1, Math.max(0, animationState.currentStrain / 0.42)) // Xenon has max strain (0.42)
+          animationState.currentStrain / 0.42 // Xenon has max strain (0.42)
         );
         sLine.line.material.color.copy(glowColor);
         sLine.line.material.opacity = 0.3 + animationState.currentStrain * 1.5;
@@ -974,12 +968,7 @@
       buildIsotopeTable();
       calculateIodine();
       buildFiguresGallery();
-
-      // Delay initialization slightly to let Tailwind finish layout reflow
-      setTimeout(() => {
-        init3DLattice(); // Load 3D WebGL crystal Lattice
-        onLatticeResize(); // Ensure correct size assessment on initial load
-      }, 50);
+      init3DLattice(); // Load 3D WebGL crystal Lattice
     });
 
     function buildIsotopeTable() {
