@@ -8,6 +8,8 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- Chart.js CDN -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- Three.js for 3D Visuals -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <!-- FontAwesome CDN for Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <script>
@@ -186,7 +188,7 @@
             <div>
               <h3 class="text-lg font-bold text-white flex items-center space-x-2">
                 <i class="fa-solid fa-repeat text-nuclear-500 animate-spin-slow"></i>
-                <span>Interactive Transmutational Defect Simulator</span>
+                <span>Interactive 3D Transmutational Defect Simulator</span>
               </h3>
               <p class="text-slate-400 text-xs mt-1">Implantation and radioactive decay within the zirconia crystal lattice.</p>
             </div>
@@ -203,74 +205,108 @@
             </div>
           </div>
 
-          <!-- The Visual Decay Line -->
-          <div class="grid grid-cols-1 md:grid-cols-4 gap-6 relative">
-            <!-- Connecting Arrow Backgrounds -->
-            <div class="hidden md:block absolute top-1/2 left-0 right-0 h-0.5 bg-slate-800 -translate-y-1/2 z-0"></div>
-
-            <!-- Element 1: Tellurium -->
-            <div id="element-te" class="element-card relative z-10 bg-slate-950 p-5 rounded-xl border-2 border-slate-800 flex flex-col items-center space-y-3 shadow-lg transition-all duration-300 scale-100">
-              <div class="absolute -top-3 left-3 bg-slate-800 text-[10px] uppercase font-bold px-2 py-0.5 rounded text-slate-400 border border-slate-700">Initial</div>
-              <div class="h-14 w-14 rounded-full bg-orange-600/20 text-orange-500 border border-orange-500/30 flex items-center justify-center text-xl font-black">Te</div>
-              <div class="text-center">
-                <div class="text-sm font-bold text-white">Tellurium</div>
-                <div class="text-[11px] text-slate-400 mt-0.5">Precursor Fission Product</div>
+          <!-- Split Layout: Left 3D Viewer, Right Element info cards -->
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            <!-- 3D Canvas Column -->
+            <div class="lg:col-span-5 bg-slate-950 rounded-xl border border-slate-800 relative h-96 flex flex-col justify-between overflow-hidden">
+              <div class="absolute top-3 left-3 bg-slate-900/90 text-slate-300 border border-slate-800 text-[10px] px-2.5 py-1 rounded font-bold uppercase tracking-wider z-20 flex items-center space-x-1.5">
+                <i class="fa-solid fa-cube text-zirconia-500"></i>
+                <span>3D ZrO₂ Lattice Cation Cell</span>
               </div>
-              <div class="w-full border-t border-slate-800/80 pt-3 text-[11px] text-slate-400 space-y-1">
-                <div class="flex justify-between"><span>Site preference:</span> <span class="font-semibold text-orange-400">Oxygen site</span></div>
-                <div class="flex justify-between"><span>Relaxation Vol:</span> <span class="font-semibold text-slate-300">2.74 Å³</span></div>
+              <div class="absolute top-3 right-3 bg-slate-900/90 text-slate-300 border border-slate-800 text-[10px] px-2.5 py-1 rounded font-bold uppercase tracking-wider z-20 flex items-center space-x-1.5">
+                <span>Lattice Strain:</span>
+                <span id="lattice-strain-val" class="font-bold text-nuclear-400">0.00%</span>
+              </div>
+
+              <!-- 3D Canvas element -->
+              <div id="lattice-3d-container" class="w-full h-full flex-1"></div>
+
+              <!-- Strain Legend overlay -->
+              <div class="absolute bottom-3 left-3 right-3 bg-slate-900/80 backdrop-blur-sm border border-slate-800/80 rounded-lg p-2.5 text-[10px] text-slate-400 flex items-center justify-between z-20">
+                <div class="flex items-center space-x-1.5">
+                  <span class="inline-block w-2.5 h-2.5 rounded-full bg-slate-500"></span>
+                  <span>Zr Cations</span>
+                </div>
+                <div class="flex items-center space-x-1.5">
+                  <span class="inline-block w-2.5 h-2.5 rounded-full bg-red-600"></span>
+                  <span>Oxygen Anions</span>
+                </div>
+                <div class="flex items-center space-x-1.5">
+                  <span class="inline-block w-2.5 h-2.5 rounded-full bg-orange-500" id="legend-defect-color"></span>
+                  <span id="legend-defect-text">Dopant (Te)</span>
+                </div>
               </div>
             </div>
 
-            <!-- Element 2: Iodine -->
-            <div id="element-i" class="element-card relative z-10 bg-slate-950 p-5 rounded-xl border-2 border-slate-800 flex flex-col items-center space-y-3 shadow-lg transition-all duration-300 opacity-60">
-              <div class="absolute -top-3 left-3 bg-orange-600 text-[10px] uppercase font-bold px-2 py-0.5 rounded text-white border border-orange-500 shadow-md">Decay 1</div>
-              <div class="h-14 w-14 rounded-full bg-violet-600/10 text-violet-400 border border-violet-500/20 flex items-center justify-center text-xl font-black">I</div>
-              <div class="text-center">
-                <div class="text-sm font-bold text-white">Iodine</div>
-                <div class="text-[11px] text-slate-400 mt-0.5">Highly Corrosive Agent</div>
+            <!-- Detail Cards Column -->
+            <div class="lg:col-span-7 flex flex-col justify-between gap-6">
+              <!-- The Visual Decay Line -->
+              <div class="grid grid-cols-2 md:grid-cols-4 gap-4 relative">
+                <!-- Element 1: Tellurium -->
+                <div id="element-te" class="element-card relative bg-slate-950 p-4 rounded-xl border-2 border-slate-800 flex flex-col items-center space-y-2.5 shadow-lg transition-all duration-300 opacity-100 scale-100">
+                  <div class="absolute -top-3 left-3 bg-slate-800 text-[9px] uppercase font-bold px-1.5 py-0.5 rounded text-slate-400 border border-slate-700">Initial</div>
+                  <div class="h-11 w-14 rounded-full bg-orange-600/20 text-orange-500 border border-orange-500/30 flex items-center justify-center text-sm font-black">Te</div>
+                  <div class="text-center">
+                    <div class="text-xs font-bold text-white">Tellurium</div>
+                    <div class="text-[10px] text-slate-400 mt-0.5">Precursor Product</div>
+                  </div>
+                  <div class="w-full border-t border-slate-800/80 pt-2 text-[10px] text-slate-400 space-y-0.5">
+                    <div class="flex justify-between"><span>Site Pref:</span> <span class="font-semibold text-orange-400 text-[9px]">O site</span></div>
+                    <div class="flex justify-between"><span>Strain Vol:</span> <span class="font-semibold text-slate-300 text-[9px]">2.74 Å³</span></div>
+                  </div>
+                </div>
+
+                <!-- Element 2: Iodine -->
+                <div id="element-i" class="element-card relative bg-slate-950 p-4 rounded-xl border-2 border-slate-800 flex flex-col items-center space-y-2.5 shadow-lg transition-all duration-300 opacity-60">
+                  <div class="absolute -top-3 left-3 bg-orange-600 text-[9px] uppercase font-bold px-1.5 py-0.5 rounded text-white border border-orange-500 shadow-md">Decay 1</div>
+                  <div class="h-11 w-14 rounded-full bg-violet-600/10 text-violet-400 border border-violet-500/20 flex items-center justify-center text-sm font-black">I</div>
+                  <div class="text-center">
+                    <div class="text-xs font-bold text-white">Iodine</div>
+                    <div class="text-[10px] text-slate-400 mt-0.5">Corrosive Agent</div>
+                  </div>
+                  <div class="w-full border-t border-slate-800/80 pt-2 text-[10px] text-slate-400 space-y-0.5">
+                    <div class="flex justify-between"><span>Site Pref:</span> <span class="font-semibold text-violet-400 text-[9px]">O site</span></div>
+                    <div class="flex justify-between"><span>Strain Vol:</span> <span class="font-semibold text-slate-300 text-[9px]">29.90 Å³</span></div>
+                  </div>
+                </div>
+
+                <!-- Element 3: Xenon -->
+                <div id="element-xe" class="element-card relative bg-slate-950 p-4 rounded-xl border-2 border-slate-800 flex flex-col items-center space-y-2.5 shadow-lg transition-all duration-300 opacity-60">
+                  <div class="absolute -top-3 left-3 bg-violet-600 text-[9px] uppercase font-bold px-1.5 py-0.5 rounded text-white border border-violet-500 shadow-md">Decay 2</div>
+                  <div class="h-11 w-14 rounded-full bg-sky-600/10 text-sky-400 border border-sky-500/20 flex items-center justify-center text-sm font-black">Xe</div>
+                  <div class="text-center">
+                    <div class="text-xs font-bold text-white">Xenon</div>
+                    <div class="text-[10px] text-slate-400 mt-0.5">Noble Inert Gas</div>
+                  </div>
+                  <div class="w-full border-t border-slate-800/80 pt-2 text-[10px] text-slate-400 space-y-0.5">
+                    <div class="flex justify-between"><span>Site Pref:</span> <span class="font-semibold text-sky-400 text-[9px]">Zr site</span></div>
+                    <div class="flex justify-between"><span>Strain Vol:</span> <span class="font-semibold text-red-400 text-[9px]">115.50 Å³</span></div>
+                  </div>
+                </div>
+
+                <!-- Element 4: Cesium -->
+                <div id="element-cs" class="element-card relative bg-slate-950 p-4 rounded-xl border-2 border-slate-800 flex flex-col items-center space-y-2.5 shadow-lg transition-all duration-300 opacity-60">
+                  <div class="absolute -top-3 left-3 bg-sky-600 text-[9px] uppercase font-bold px-1.5 py-0.5 rounded text-white border border-sky-500 shadow-md">Final</div>
+                  <div class="h-11 w-14 rounded-full bg-emerald-600/10 text-emerald-400 border border-emerald-500/20 flex items-center justify-center text-sm font-black">Cs</div>
+                  <div class="text-center">
+                    <div class="text-xs font-bold text-white">Cesium</div>
+                    <div class="text-[10px] text-slate-400 mt-0.5">Reactive Metal</div>
+                  </div>
+                  <div class="w-full border-t border-slate-800/80 pt-2 text-[10px] text-slate-400 space-y-0.5">
+                    <div class="flex justify-between"><span>Site Pref:</span> <span class="font-semibold text-emerald-400 text-[9px]">Zr site</span></div>
+                    <div class="flex justify-between"><span>Strain Vol:</span> <span class="font-semibold text-slate-300 text-[9px]">90.37 Å³</span></div>
+                  </div>
+                </div>
               </div>
-              <div class="w-full border-t border-slate-800/80 pt-3 text-[11px] text-slate-400 space-y-1">
-                <div class="flex justify-between"><span>Site preference:</span> <span class="font-semibold text-violet-400">Oxygen site</span></div>
-                <div class="flex justify-between"><span>Relaxation Vol:</span> <span class="font-semibold text-slate-300">29.90 Å³</span></div>
+
+              <!-- Explanation box -->
+              <div class="p-4 rounded-xl bg-slate-950 border border-slate-800/60 text-xs leading-relaxed text-slate-300 flex items-start space-x-3">
+                <i class="fa-solid fa-circle-info text-zirconia-500 mt-0.5 text-base"></i>
+                <p id="transmutation-explainer">
+                  Tellurium atoms (produced via fission) typically occupy oxygen vacancies inside ZrO₂ with a tiny defect volume of 2.74 Å³. However, through radioactive beta minus decays, Te decays to I, Xe, and finally Cs. Over time, the lattice site is forced to accept atoms with significantly larger sizes. This transmutation increases defect relaxation volumes significantly, accumulating massive internal lattice stresses and leading to crack propagation inside the claddings.
+                </p>
               </div>
             </div>
-
-            <!-- Element 3: Xenon -->
-            <div id="element-xe" class="element-card relative z-10 bg-slate-950 p-5 rounded-xl border-2 border-slate-800 flex flex-col items-center space-y-3 shadow-lg transition-all duration-300 opacity-60">
-              <div class="absolute -top-3 left-3 bg-violet-600 text-[10px] uppercase font-bold px-2 py-0.5 rounded text-white border border-violet-500 shadow-md">Decay 2</div>
-              <div class="h-14 w-14 rounded-full bg-sky-600/10 text-sky-400 border border-sky-500/20 flex items-center justify-center text-xl font-black">Xe</div>
-              <div class="text-center">
-                <div class="text-sm font-bold text-white">Xenon</div>
-                <div class="text-[11px] text-slate-400 mt-0.5">Noble Inert Gas</div>
-              </div>
-              <div class="w-full border-t border-slate-800/80 pt-3 text-[11px] text-slate-400 space-y-1">
-                <div class="flex justify-between"><span>Site preference:</span> <span class="font-semibold text-sky-400">Zr site</span></div>
-                <div class="flex justify-between"><span>Relaxation Vol:</span> <span class="font-semibold text-red-400">115.50 Å³</span></div>
-              </div>
-            </div>
-
-            <!-- Element 4: Cesium -->
-            <div id="element-cs" class="element-card relative z-10 bg-slate-950 p-5 rounded-xl border-2 border-slate-800 flex flex-col items-center space-y-3 shadow-lg transition-all duration-300 opacity-60">
-              <div class="absolute -top-3 left-3 bg-sky-600 text-[10px] uppercase font-bold px-2 py-0.5 rounded text-white border border-sky-500 shadow-md">Final</div>
-              <div class="h-14 w-14 rounded-full bg-emerald-600/10 text-emerald-400 border border-emerald-500/20 flex items-center justify-center text-xl font-black">Cs</div>
-              <div class="text-center">
-                <div class="text-sm font-bold text-white">Cesium</div>
-                <div class="text-[11px] text-slate-400 mt-0.5">Highly Reactive Metal</div>
-              </div>
-              <div class="w-full border-t border-slate-800/80 pt-3 text-[11px] text-slate-400 space-y-1">
-                <div class="flex justify-between"><span>Site preference:</span> <span class="font-semibold text-emerald-400">Zr site</span></div>
-                <div class="flex justify-between"><span>Relaxation Vol:</span> <span class="font-semibold text-slate-300">90.37 Å³</span></div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Explanation box -->
-          <div class="p-4 rounded-xl bg-slate-950 border border-slate-800/60 text-xs leading-relaxed text-slate-300 flex items-start space-x-3">
-            <i class="fa-solid fa-circle-info text-zirconia-500 mt-0.5 text-base"></i>
-            <p id="transmutation-explainer">
-              Tellurium atoms (produced via fission) typically occupy oxygen vacancies inside ZrO₂ with a tiny defect volume of 2.74 Å³. However, through radioactive beta minus decays, Te decays to I, Xe, and finally Cs. Over time, the lattice site is forced to accept atoms with significantly larger sizes. This transmutation increases defect relaxation volumes significantly, accumulating massive internal lattice stresses and leading to crack propagation inside the claddings.
-            </p>
           </div>
         </div>
 
@@ -715,12 +751,224 @@
       return `hsl(${h}, 80%, 60%)`;
     }
 
+    // --- Three.js 3D Lattice Simulator ---
+    let latticeScene, latticeCamera, latticeRenderer;
+    let centralDopantAtom;
+    let zrCationSpheres = [];
+    let oAnionSpheres = [];
+    let strainLines = [];
+    let latticeGroup;
+
+    // Initial relaxed positions for tetragonal ZrO2 unit cell
+    const baseAtomPositions = {
+      cations: [
+        { x: -2.0, y: -2.0, z: -2.8 },
+        { x: 2.0, y: -2.0, z: -2.8 },
+        { x: -2.0, y: 2.0, z: -2.8 },
+        { x: 2.0, y: 2.0, z: -2.8 },
+        { x: -2.0, y: -2.0, z: 2.8 },
+        { x: 2.0, y: -2.0, z: 2.8 },
+        { x: -2.0, y: 2.0, z: 2.8 },
+        { x: 2.0, y: 2.0, z: 2.8 },
+        { x: 0, y: 0, z: -2.8 },
+        { x: 0, y: 0, z: 2.8 }
+      ],
+      anions: [
+        { x: -1.0, y: 0, z: -1.4 },
+        { x: 1.0, y: 0, z: -1.4 },
+        { x: 0, y: -1.0, z: 1.4 },
+        { x: 0, y: 1.0, z: 1.4 },
+        { x: -1.0, y: -1.0, z: 0 },
+        { x: 1.0, y: 1.0, z: 0 }
+      ]
+    };
+
+    // Animation target states for Tellurium, Iodine, Xenon, Cesium
+    const decayTargetStates = {
+      te: { radius: 0.55, strain: 0.0, color: 0xe07a5f, text: "Te (precursor)" },
+      i:  { radius: 0.82, strain: 0.15, color: 0x8ecae6, text: "I (Decay 1)" },
+      xe: { radius: 1.25, strain: 0.42, color: 0x4895ef, text: "Xe (Decay 2)" },
+      cs: { radius: 1.10, strain: 0.33, color: 0x06d6a0, text: "Cs (Final)" }
+    };
+
+    let animationState = {
+      currentRadius: 0.55,
+      targetRadius: 0.55,
+      currentStrain: 0.0,
+      targetStrain: 0.0,
+      currentColor: new THREE.Color(0xe07a5f),
+      targetColor: new THREE.Color(0xe07a5f)
+    };
+
+    function init3DLattice() {
+      const container = document.getElementById('lattice-3d-container');
+      if (!container) return;
+
+      // Create Scene
+      latticeScene = new THREE.Scene();
+      latticeScene.background = new THREE.Color(0x020617); // bg-slate-950
+
+      // Create Camera
+      latticeCamera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.1, 100);
+      latticeCamera.position.set(0, 5, 10);
+      latticeCamera.lookAt(0, 0, 0);
+
+      // Create Renderer
+      latticeRenderer = new THREE.WebGLRenderer({ antialias: true });
+      latticeRenderer.setSize(container.clientWidth, container.clientHeight);
+      latticeRenderer.setPixelRatio(window.devicePixelRatio);
+      container.appendChild(latticeRenderer.domElement);
+
+      // Create Lights
+      const ambientLight = new THREE.AmbientLight(0xffffff, 0.4);
+      latticeScene.add(ambientLight);
+
+      const dirLight1 = new THREE.DirectionalLight(0xffffff, 0.8);
+      dirLight1.position.set(5, 10, 7);
+      latticeScene.add(dirLight1);
+
+      const dirLight2 = new THREE.DirectionalLight(0x0ea5e9, 0.3); // sky blue accent
+      dirLight2.position.set(-5, -5, -5);
+      latticeScene.add(dirLight2);
+
+      // Main Group holding crystal structure
+      latticeGroup = new THREE.Group();
+      latticeScene.add(latticeGroup);
+
+      // Build Tetragonal unit cell boundaries (bonds/lines)
+      const borderMaterial = new THREE.LineBasicMaterial({ color: 0x334155, linewidth: 1 });
+      const borderGeometry = new THREE.BoxGeometry(4, 4, 5.6);
+      const wireframe = new THREE.WireframeGeometry(borderGeometry);
+      const borderLine = new THREE.LineSegments(wireframe, borderMaterial);
+      latticeGroup.add(borderLine);
+
+      // Generate Cations (Zr) - Silver/Grey Spheres
+      const zrGeometry = new THREE.SphereGeometry(0.35, 32, 32);
+      const zrMaterial = new THREE.MeshStandardMaterial({ color: 0x94a3b8, roughness: 0.2, metalness: 0.8 });
+      baseAtomPositions.cations.forEach(pos => {
+        const mesh = new THREE.Mesh(zrGeometry, zrMaterial);
+        mesh.position.set(pos.x, pos.y, pos.z);
+        latticeGroup.add(mesh);
+        zrCationSpheres.push({ mesh, basePos: pos });
+      });
+
+      // Generate Oxygen Anions (O) - Red Spheres
+      const oGeometry = new THREE.SphereGeometry(0.25, 32, 32);
+      const oMaterial = new THREE.MeshStandardMaterial({ color: 0xef4444, roughness: 0.4 });
+      baseAtomPositions.anions.forEach(pos => {
+        const mesh = new THREE.Mesh(oGeometry, oMaterial);
+        mesh.position.set(pos.x, pos.y, pos.z);
+        latticeGroup.add(mesh);
+        oAnionSpheres.push({ mesh, basePos: pos });
+      });
+
+      // Generate Central Dopant Defect Atom (starts as Tellurium)
+      const dopantGeometry = new THREE.SphereGeometry(1.0, 32, 32); // Radius scaled by anim state
+      const dopantMaterial = new THREE.MeshStandardMaterial({ color: 0xe07a5f, roughness: 0.3, metalness: 0.3 });
+      centralDopantAtom = new THREE.Mesh(dopantGeometry, dopantMaterial);
+      centralDopantAtom.position.set(0, 0, 0); // At the central vacancy site
+      latticeGroup.add(centralDopantAtom);
+
+      // Draw tension lines from Central Dopant to nearest Oxygen Anions
+      baseAtomPositions.anions.forEach((pos, idx) => {
+        const lineGeo = new THREE.BufferGeometry().setFromPoints([
+          new THREE.Vector3(0, 0, 0),
+          new THREE.Vector3(pos.x, pos.y, pos.z)
+        ]);
+        const lineMat = new THREE.LineBasicMaterial({ color: 0xe07a5f, transparent: true, opacity: 0.6 });
+        const line = new THREE.Line(lineGeo, lineMat);
+        latticeGroup.add(line);
+        strainLines.push({ line, targetPos: pos, basePos: pos });
+      });
+
+      // Start animation loop
+      animate3DLattice();
+
+      // Handle Resize
+      window.addEventListener('resize', onLatticeResize);
+    }
+
+    function onLatticeResize() {
+      const container = document.getElementById('lattice-3d-container');
+      if (!container || !latticeRenderer) return;
+      latticeCamera.aspect = container.clientWidth / container.clientHeight;
+      latticeCamera.updateProjectionMatrix();
+      latticeRenderer.setSize(container.clientWidth, container.clientHeight);
+    }
+
+    function animate3DLattice() {
+      requestAnimationFrame(animate3DLattice);
+
+      // Rotate crystal structure slowly
+      if (latticeGroup) {
+        latticeGroup.rotation.y += 0.005;
+        latticeGroup.rotation.x = 0.2; // slight tilt
+      }
+
+      // Smooth interpolation (lerp) towards target radii and strain states
+      animationState.currentRadius += (animationState.targetRadius - animationState.currentRadius) * 0.08;
+      animationState.currentStrain += (animationState.targetStrain - animationState.currentStrain) * 0.08;
+      animationState.currentColor.lerp(animationState.targetColor, 0.08);
+
+      // Apply scaled values to Central Dopant
+      if (centralDopantAtom) {
+        centralDopantAtom.scale.setScalar(animationState.currentRadius);
+        centralDopantAtom.material.color.copy(animationState.currentColor);
+      }
+
+      // Animate outward push on nearest neighboring Anions (Oxygen spheres)
+      oAnionSpheres.forEach(anion => {
+        const factor = 1.0 + animationState.currentStrain * 0.8; // Outward displacement scaling
+        anion.mesh.position.set(
+          anion.basePos.x * factor,
+          anion.basePos.y * factor,
+          anion.basePos.z * factor
+        );
+      });
+
+      // Animate outward push on nearest Cations
+      zrCationSpheres.forEach(cation => {
+        const factor = 1.0 + animationState.currentStrain * 0.3; // Smaller displacement for further metal ions
+        cation.mesh.position.set(
+          cation.basePos.x * factor,
+          cation.basePos.y * factor,
+          cation.basePos.z * factor
+        );
+      });
+
+      // Update strain/force lines coordinates and change colors based on tension (green/orange -> intense red)
+      strainLines.forEach(sLine => {
+        const factor = 1.0 + animationState.currentStrain * 0.8;
+        const currentEnd = new THREE.Vector3(
+          sLine.basePos.x * factor,
+          sLine.basePos.y * factor,
+          sLine.basePos.z * factor
+        );
+        sLine.line.geometry.setFromPoints([new THREE.Vector3(0,0,0), currentEnd]);
+
+        // Color transition based on strain
+        const glowColor = new THREE.Color().interpolateColors(
+          new THREE.Color(0x334155), // Neutral slate
+          new THREE.Color(0xef4444), // Intense Red
+          animationState.currentStrain / 0.42 // Xenon has max strain (0.42)
+        );
+        sLine.line.material.color.copy(glowColor);
+        sLine.line.material.opacity = 0.3 + animationState.currentStrain * 1.5;
+      });
+
+      // Render Scene
+      if (latticeRenderer) {
+        latticeRenderer.render(latticeScene, latticeCamera);
+      }
+    }
+
     // Initialize Page
     window.addEventListener('DOMContentLoaded', () => {
       switchTab('overview');
       buildIsotopeTable();
       calculateIodine();
       buildFiguresGallery();
+      init3DLattice(); // Load 3D WebGL crystal Lattice
     });
 
     function buildIsotopeTable() {
@@ -977,38 +1225,78 @@
       ];
 
       const elements = ['te', 'i', 'xe', 'cs'];
+      const states = [decayTargetStates.te, decayTargetStates.i, decayTargetStates.xe, decayTargetStates.cs];
+
       transmutationInterval = setInterval(() => {
         if (transmutationStep >= elements.length) {
           clearInterval(transmutationInterval);
           return;
         }
 
-        // Highlight active element
-        document.querySelectorAll('.element-card').forEach(card => card.classList.add('opacity-60', 'scale-95'));
-        const activeCard = document.getElementById(`element-${elements[transmutationStep]}`);
-        activeCard.classList.remove('opacity-60', 'scale-95');
-        activeCard.classList.add('scale-105', 'border-nuclear-500', 'shadow-nuclear-500/20');
+        const elId = elements[transmutationStep];
+        const state = states[transmutationStep];
 
-        // Explainer text update
+        // 1. Highlight active element card
+        document.querySelectorAll('.element-card').forEach(card => card.classList.add('opacity-60', 'scale-95'));
+        const activeCard = document.getElementById(`element-${elId}`);
+        if (activeCard) {
+          activeCard.classList.remove('opacity-60', 'scale-95');
+          activeCard.classList.add('scale-105', 'border-nuclear-500', 'shadow-nuclear-500/20');
+        }
+
+        // 2. Explainer text update
         document.getElementById('transmutation-explainer').innerText = explainers[transmutationStep];
 
+        // 3. Trigger 3D target state transition
+        animationState.targetRadius = state.radius;
+        animationState.targetStrain = state.strain;
+        animationState.targetColor = new THREE.Color(state.color);
+
+        // 4. Update strain value display
+        document.getElementById('lattice-strain-val').innerText = `${(state.strain * 100).toFixed(2)}%`;
+
+        // 5. Update legend indicator
+        const legendColor = document.getElementById('legend-defect-color');
+        const legendText = document.getElementById('legend-defect-text');
+        if (legendColor && legendText) {
+          legendColor.style.backgroundColor = '#' + state.color.toString(16).padStart(6, '0');
+          legendText.innerText = `Dopant (${elId.toUpperCase()})`;
+        }
+
         transmutationStep++;
-      }, 2000);
+      }, 2500);
     }
 
     function resetTransmutation() {
       if (transmutationInterval) clearInterval(transmutationInterval);
       resetTransmutationStyles();
-      document.getElementById('transmutation-explainer').innerText = "Tellurium atoms (produced via fission) typically occupy oxygen vacancies inside ZrO₂ with a tiny defect volume of 2.74 Å³. However, through radioactive beta decays, Te decays to I, Xe, and finally Cs. Over time, the lattice site is forced to accept atoms with significantly larger sizes, creating localized tensile stresses.";
+      document.getElementById('transmutation-explainer').innerText = "Tellurium atoms (produced via fission) typically occupy oxygen vacancies inside ZrO₂ with a tiny defect volume of 2.74 Å³. However, through radioactive beta minus decays, Te decays to I, Xe, and finally Cs. Over time, the lattice site is forced to accept atoms with significantly larger sizes. This transmutation increases defect relaxation volumes significantly, accumulating massive internal lattice stresses and leading to crack propagation inside the claddings.";
     }
 
     function resetTransmutationStyles() {
       document.querySelectorAll('.element-card').forEach(card => {
-        card.className = "element-card relative z-10 bg-slate-950 p-5 rounded-xl border-2 border-slate-800 flex flex-col items-center space-y-3 shadow-lg transition-all duration-300 opacity-60 scale-100";
+        card.className = "element-card relative bg-slate-950 p-4 rounded-xl border-2 border-slate-800 flex flex-col items-center space-y-2.5 shadow-lg transition-all duration-300 opacity-60 scale-100";
       });
       // Te starts visible
       const te = document.getElementById('element-te');
-      te.classList.remove('opacity-60');
+      if (te) te.classList.remove('opacity-60');
+
+      // Reset 3D targets to default Te
+      animationState.targetRadius = decayTargetStates.te.radius;
+      animationState.targetStrain = decayTargetStates.te.strain;
+      animationState.targetColor = new THREE.Color(decayTargetStates.te.color);
+
+      // Reset strain indicator
+      const strainVal = document.getElementById('lattice-strain-val');
+      if (strainVal) strainVal.innerText = '0.00%';
+
+      // Reset legend
+      const legendColor = document.getElementById('legend-defect-color');
+      const legendText = document.getElementById('legend-defect-text');
+      if (legendColor && legendText) {
+        legendColor.style.backgroundColor = '#e07a5f';
+        legendText.innerText = 'Dopant (Te)';
+      }
     }
 
     // --- Tab 2: Brouwer Diagram dynamic plotter ---
