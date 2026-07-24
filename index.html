@@ -582,13 +582,13 @@
               <i class="fa-solid fa-file-pdf text-red-500"></i>
               <span>Original PhD Thesis PDF Document</span>
             </h3>
-            <a href="https://github.com/v1thesource/PhD-Thesis/raw/master/thesis.pdf" target="_blank" class="px-3.5 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded text-xs font-semibold flex items-center space-x-1.5 transition">
+            <a href="thesis_ak7310_sep_2019.pdf" download="thesis_ak7310_sep_2019.pdf" class="px-3.5 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded text-xs font-semibold flex items-center space-x-1.5 transition">
               <i class="fa-solid fa-download"></i>
               <span>Download PDF</span>
             </a>
           </div>
           <!-- PDF Iframe -->
-          <iframe src="https://github.com/v1thesource/PhD-Thesis/raw/master/thesis.pdf" class="w-full flex-1 rounded-lg border border-slate-800" title="PhD Thesis PDF Viewer"></iframe>
+          <iframe id="pdf-iframe" src="about:blank" class="w-full flex-1 rounded-lg border border-slate-800" title="PhD Thesis PDF Viewer"></iframe>
         </div>
       </section>
 
@@ -944,6 +944,13 @@
       // Special Tab Initiations
       if (tabId === 'brouwer' && !loadedBrouwerData) {
         loadBrouwerDataset(currentBrouwerDataset);
+      }
+
+      if (tabId === 'reader') {
+        const iframe = document.getElementById('pdf-iframe');
+        if (iframe && (iframe.src === 'about:blank' || iframe.getAttribute('src') === 'about:blank')) {
+          iframe.src = 'thesis_ak7310_sep_2019.pdf';
+        }
       }
 
       // Close mobile drawer if open
