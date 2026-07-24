@@ -194,11 +194,15 @@
             </div>
             <!-- Transmutation Controls -->
             <div class="flex items-center gap-2">
-              <button onclick="startTransmutation()" class="px-4 py-2 bg-nuclear-600 hover:bg-nuclear-500 text-white rounded-lg text-xs font-semibold shadow-lg shadow-nuclear-600/10 flex items-center space-x-2 transition-all duration-200">
-                <i class="fa-solid fa-play"></i>
-                <span>Trigger Decay Chain</span>
+              <button onclick="prevTransmutationStep()" class="px-3 py-2 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-lg text-xs font-semibold flex items-center space-x-1.5 transition-all duration-200" title="Previous Step">
+                <i class="fa-solid fa-backward-step"></i>
+                <span class="hidden sm:inline">Prev</span>
               </button>
-              <button onclick="resetTransmutation()" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-lg text-xs font-semibold flex items-center space-x-2 transition-all duration-200">
+              <button onclick="nextTransmutationStep()" class="px-4 py-2 bg-nuclear-600 hover:bg-nuclear-500 text-white rounded-lg text-xs font-semibold shadow-lg shadow-nuclear-600/10 flex items-center space-x-2 transition-all duration-200">
+                <i class="fa-solid fa-forward-step"></i>
+                <span id="step-btn-text">Next Decay Step (1/4)</span>
+              </button>
+              <button onclick="resetTransmutation()" class="px-3 py-2 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-lg text-xs font-semibold flex items-center space-x-1.5 transition-all duration-200" title="Reset to Te">
                 <i class="fa-solid fa-rotate-left"></i>
                 <span>Reset</span>
               </button>
@@ -243,7 +247,7 @@
               <!-- The Visual Decay Line -->
               <div class="grid grid-cols-2 md:grid-cols-4 gap-4 relative">
                 <!-- Element 1: Tellurium -->
-                <div id="element-te" class="element-card relative bg-slate-950 p-4 rounded-xl border-2 border-slate-800 flex flex-col items-center space-y-2.5 shadow-lg transition-all duration-300 opacity-100 scale-100">
+                <div id="element-te" onclick="applyTransmutationStep(0)" class="element-card relative bg-slate-950 p-4 rounded-xl border-2 border-slate-800 flex flex-col items-center space-y-2.5 shadow-lg transition-all duration-300 opacity-100 scale-100 cursor-pointer hover:border-slate-700">
                   <div class="absolute -top-3 left-3 bg-slate-800 text-[9px] uppercase font-bold px-1.5 py-0.5 rounded text-slate-400 border border-slate-700">Initial</div>
                   <div class="h-11 w-14 rounded-full bg-orange-600/20 text-orange-500 border border-orange-500/30 flex items-center justify-center text-sm font-black">Te</div>
                   <div class="text-center">
@@ -257,7 +261,7 @@
                 </div>
 
                 <!-- Element 2: Iodine -->
-                <div id="element-i" class="element-card relative bg-slate-950 p-4 rounded-xl border-2 border-slate-800 flex flex-col items-center space-y-2.5 shadow-lg transition-all duration-300 opacity-60">
+                <div id="element-i" onclick="applyTransmutationStep(1)" class="element-card relative bg-slate-950 p-4 rounded-xl border-2 border-slate-800 flex flex-col items-center space-y-2.5 shadow-lg transition-all duration-300 opacity-60 cursor-pointer hover:border-slate-700">
                   <div class="absolute -top-3 left-3 bg-orange-600 text-[9px] uppercase font-bold px-1.5 py-0.5 rounded text-white border border-orange-500 shadow-md">Decay 1</div>
                   <div class="h-11 w-14 rounded-full bg-violet-600/10 text-violet-400 border border-violet-500/20 flex items-center justify-center text-sm font-black">I</div>
                   <div class="text-center">
@@ -271,7 +275,7 @@
                 </div>
 
                 <!-- Element 3: Xenon -->
-                <div id="element-xe" class="element-card relative bg-slate-950 p-4 rounded-xl border-2 border-slate-800 flex flex-col items-center space-y-2.5 shadow-lg transition-all duration-300 opacity-60">
+                <div id="element-xe" onclick="applyTransmutationStep(2)" class="element-card relative bg-slate-950 p-4 rounded-xl border-2 border-slate-800 flex flex-col items-center space-y-2.5 shadow-lg transition-all duration-300 opacity-60 cursor-pointer hover:border-slate-700">
                   <div class="absolute -top-3 left-3 bg-violet-600 text-[9px] uppercase font-bold px-1.5 py-0.5 rounded text-white border border-violet-500 shadow-md">Decay 2</div>
                   <div class="h-11 w-14 rounded-full bg-sky-600/10 text-sky-400 border border-sky-500/20 flex items-center justify-center text-sm font-black">Xe</div>
                   <div class="text-center">
@@ -285,7 +289,7 @@
                 </div>
 
                 <!-- Element 4: Cesium -->
-                <div id="element-cs" class="element-card relative bg-slate-950 p-4 rounded-xl border-2 border-slate-800 flex flex-col items-center space-y-2.5 shadow-lg transition-all duration-300 opacity-60">
+                <div id="element-cs" onclick="applyTransmutationStep(3)" class="element-card relative bg-slate-950 p-4 rounded-xl border-2 border-slate-800 flex flex-col items-center space-y-2.5 shadow-lg transition-all duration-300 opacity-60 cursor-pointer hover:border-slate-700">
                   <div class="absolute -top-3 left-3 bg-sky-600 text-[9px] uppercase font-bold px-1.5 py-0.5 rounded text-white border border-sky-500 shadow-md">Final</div>
                   <div class="h-11 w-14 rounded-full bg-emerald-600/10 text-emerald-400 border border-emerald-500/20 flex items-center justify-center text-sm font-black">Cs</div>
                   <div class="text-center">
@@ -1251,94 +1255,90 @@
     }
 
     // --- Tab 1: Transmutation Simulator logic ---
-    let transmutationStep = 0;
-    let transmutationInterval = null;
+    let transmutationStep = 0; // 0: Te, 1: I, 2: Xe, 3: Cs
 
-    function startTransmutation() {
-      if (transmutationInterval) clearInterval(transmutationInterval);
-      transmutationStep = 0;
-      resetTransmutationStyles();
+    const transmutationData = [
+      {
+        id: 'te',
+        name: 'Te',
+        fullName: 'Tellurium',
+        explainer: "Tellurium (Te) initial state: occupying oxygen vacancies. Atomic volume mismatch is minimal (2.74 Å³). It behaves similarly to standard lattice oxygen.",
+        state: decayTargetStates.te
+      },
+      {
+        id: 'i',
+        name: 'I',
+        fullName: 'Iodine',
+        explainer: "Te decays to Iodine (I): defect preference remains on Oxygen Site but relaxation volume skyrockets to 29.90 Å³ (an increase of over 10x!). Cladding lattice experiences massive initial outward stress.",
+        state: decayTargetStates.i
+      },
+      {
+        id: 'xe',
+        name: 'Xe',
+        fullName: 'Xenon',
+        explainer: "Iodine subsequently decays to Xenon (Xe): the giant inert gas cannot fit on an O site. It migrates preferentially to a Zirconium cation site, creating a massive relaxation volume expansion of 115.50 Å³, creating peak micro-tensile stresses.",
+        state: decayTargetStates.xe
+      },
+      {
+        id: 'cs',
+        name: 'Cs',
+        fullName: 'Cesium',
+        explainer: "Finally, Xenon decays to Cesium (Cs): highly reactive Cs remains stable on Zr sites with a relaxation volume of 90.37 Å³, leaving behind permanently stressed, cracked, and damaged cladding matrices.",
+        state: decayTargetStates.cs
+      }
+    ];
 
-      const explainers = [
-        "Tellurium (Te) initial state: occupying oxygen vacancies. Atomic volume mismatch is minimal (2.74 Å³). It behaves similarly to standard lattice oxygen.",
-        "Te decays to Iodine (I): defect preference remains on Oxygen Site but relaxation volume skyrockets to 29.90 Å³ (an increase of over 10x!). Cladding lattice experiences massive initial outward stress.",
-        "Iodine subsequently decays to Xenon (Xe): the giant inert gas cannot fit on an O site. It migrates preferentially to a Zirconium cation site, creating a massive relaxation volume expansion of 115.50 Å³, creating peak micro-tensile stresses.",
-        "Finally, Xenon decays to Cesium (Cs): highly reactive Cs remains stable on Zr sites with a relaxation volume of 90.37 Å³, leaving behind permanently stressed, cracked, and damaged cladding matrices."
-      ];
+    function applyTransmutationStep(stepIndex) {
+      transmutationStep = (stepIndex + transmutationData.length) % transmutationData.length;
+      const data = transmutationData[transmutationStep];
 
-      const elements = ['te', 'i', 'xe', 'cs'];
-      const states = [decayTargetStates.te, decayTargetStates.i, decayTargetStates.xe, decayTargetStates.cs];
-
-      transmutationInterval = setInterval(() => {
-        if (transmutationStep >= elements.length) {
-          clearInterval(transmutationInterval);
-          return;
-        }
-
-        const elId = elements[transmutationStep];
-        const state = states[transmutationStep];
-
-        // 1. Highlight active element card
-        document.querySelectorAll('.element-card').forEach(card => card.classList.add('opacity-60', 'scale-95'));
-        const activeCard = document.getElementById(`element-${elId}`);
-        if (activeCard) {
-          activeCard.classList.remove('opacity-60', 'scale-95');
-          activeCard.classList.add('scale-105', 'border-nuclear-500', 'shadow-nuclear-500/20');
-        }
-
-        // 2. Explainer text update
-        document.getElementById('transmutation-explainer').innerText = explainers[transmutationStep];
-
-        // 3. Trigger 3D target state transition
-        animationState.targetRadius = state.radius;
-        animationState.targetStrain = state.strain;
-        animationState.targetColor = new THREE.Color(state.color);
-
-        // 4. Update strain value display
-        document.getElementById('lattice-strain-val').innerText = `${(state.strain * 100).toFixed(2)}%`;
-
-        // 5. Update legend indicator
-        const legendColor = document.getElementById('legend-defect-color');
-        const legendText = document.getElementById('legend-defect-text');
-        if (legendColor && legendText) {
-          legendColor.style.backgroundColor = '#' + state.color.toString(16).padStart(6, '0');
-          legendText.innerText = `Dopant (${elId.toUpperCase()})`;
-        }
-
-        transmutationStep++;
-      }, 2500);
-    }
-
-    function resetTransmutation() {
-      if (transmutationInterval) clearInterval(transmutationInterval);
-      resetTransmutationStyles();
-      document.getElementById('transmutation-explainer').innerText = "Tellurium atoms (produced via fission) typically occupy oxygen vacancies inside ZrO₂ with a tiny defect volume of 2.74 Å³. However, through radioactive beta minus decays, Te decays to I, Xe, and finally Cs. Over time, the lattice site is forced to accept atoms with significantly larger sizes. This transmutation increases defect relaxation volumes significantly, accumulating massive internal lattice stresses and leading to crack propagation inside the claddings.";
-    }
-
-    function resetTransmutationStyles() {
+      // 1. Highlight active element card
       document.querySelectorAll('.element-card').forEach(card => {
-        card.className = "element-card relative bg-slate-950 p-4 rounded-xl border-2 border-slate-800 flex flex-col items-center space-y-2.5 shadow-lg transition-all duration-300 opacity-60 scale-100";
+        card.classList.add('opacity-60');
+        card.classList.remove('scale-105', 'border-nuclear-500', 'shadow-nuclear-500/20');
       });
-      // Te starts visible
-      const te = document.getElementById('element-te');
-      if (te) te.classList.remove('opacity-60');
+      const activeCard = document.getElementById(`element-${data.id}`);
+      if (activeCard) {
+        activeCard.classList.remove('opacity-60');
+        activeCard.classList.add('scale-105', 'border-nuclear-500', 'shadow-nuclear-500/20');
+      }
 
-      // Reset 3D targets to default Te
-      animationState.targetRadius = decayTargetStates.te.radius;
-      animationState.targetStrain = decayTargetStates.te.strain;
-      animationState.targetColor = new THREE.Color(decayTargetStates.te.color);
+      // 2. Explainer text update
+      document.getElementById('transmutation-explainer').innerText = data.explainer;
 
-      // Reset strain indicator
-      const strainVal = document.getElementById('lattice-strain-val');
-      if (strainVal) strainVal.innerText = '0.00%';
+      // 3. Trigger 3D target state transition
+      animationState.targetRadius = data.state.radius;
+      animationState.targetStrain = data.state.strain;
+      animationState.targetColor = new THREE.Color(data.state.color);
 
-      // Reset legend
+      // 4. Update strain value display
+      document.getElementById('lattice-strain-val').innerText = `${(data.state.strain * 100).toFixed(2)}%`;
+
+      // 5. Update legend indicator
       const legendColor = document.getElementById('legend-defect-color');
       const legendText = document.getElementById('legend-defect-text');
       if (legendColor && legendText) {
-        legendColor.style.backgroundColor = '#e07a5f';
-        legendText.innerText = 'Dopant (Te)';
+        legendColor.style.backgroundColor = '#' + data.state.color.toString(16).padStart(6, '0');
+        legendText.innerText = `Dopant (${data.id.toUpperCase()})`;
       }
+
+      // 6. Update step button text
+      const stepBtnText = document.getElementById('step-btn-text');
+      if (stepBtnText) {
+        stepBtnText.innerText = `Next Decay Step (${transmutationStep + 1}/4)`;
+      }
+    }
+
+    function nextTransmutationStep() {
+      applyTransmutationStep(transmutationStep + 1);
+    }
+
+    function prevTransmutationStep() {
+      applyTransmutationStep(transmutationStep - 1);
+    }
+
+    function resetTransmutation() {
+      applyTransmutationStep(0);
     }
 
     // --- Tab 2: Brouwer Diagram dynamic plotter ---
