@@ -41,7 +41,7 @@
   <!-- KaTeX for LaTeX Math & Crystallographic Symbols -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {delimiters:[{left: '$', right: '$', display: false}, {left: '$$', right: '$$', display: true}]});"></script>
   <style>
     /* Premium glassmorphism scrollbar */
     ::-webkit-scrollbar {
@@ -336,7 +336,7 @@
             </h3>
             <ul class="text-slate-300 text-xs space-y-2 list-disc list-inside">
               <li>Iodine defects preferentially adopt +1 or -1 oxidation states in monoclinic and tetragonal zirconia structures.</li>
-              <li>At high oxygen partial pressures ($p_{O_{2}}$), iodine defects in tetragonal Zirconia fall significantly due to competition.</li>
+              <li>At high oxygen partial pressures (<i>p</i>O<sub>2</sub>), iodine defects in tetragonal Zirconia fall significantly due to competition.</li>
               <li>Steady-state reactor calculations confirm significant Average Iodine populations (approx 1.3g per assembly).</li>
             </ul>
           </div>
@@ -400,7 +400,7 @@
             <div class="p-3 bg-slate-950 rounded-lg text-slate-400 text-[11px] leading-relaxed flex items-start space-x-2">
               <i class="fa-solid fa-circle-question text-zirconia-500 mt-0.5"></i>
               <span>
-                <strong>Understanding Brouwer Diagrams:</strong> This chart plots defect concentration (log₁₀ of site fraction) versus the oxygen partial pressure $pO_{2}$ (representing atmospheric conditions). Under oxidizing conditions (high $pO_{2}$), metal vacancies or oxygen interstitials dominate, while under reducing conditions (low $pO_{2}$), electrons and oxygen vacancies ($V_O^{\bullet\bullet}$) rise. Check/uncheck series on the sidebar to filter specific defects.
+                <strong>Understanding Brouwer Diagrams:</strong> This chart plots defect concentration (log₁₀ of site fraction) versus the oxygen partial pressure <i>p</i>O<sub>2</sub> (representing atmospheric conditions). Under oxidizing conditions (high <i>p</i>O<sub>2</sub>), metal vacancies or oxygen interstitials dominate, while under reducing conditions (low <i>p</i>O<sub>2</sub>), electrons and oxygen vacancies (V<sub>O</sub><sup>••</sup>) rise. Check/uncheck series on the sidebar to filter specific defects.
               </span>
             </div>
           </div>
@@ -425,7 +425,7 @@
               <!-- Electrical Power -->
               <div class="space-y-2">
                 <div class="flex justify-between text-xs">
-                  <span class="text-slate-300">Electrical Power ($P_e$)</span>
+                  <span class="text-slate-300">Electrical Power (<i>P</i><sub>e</sub>)</span>
                   <span class="text-zirconia-400 font-bold" id="pe-val">1000 MWe</span>
                 </div>
                 <input type="range" id="param-pe" min="300" max="1800" step="50" value="1000" oninput="calculateIodine()" class="w-full h-1 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-zirconia-500">
@@ -434,7 +434,7 @@
               <!-- Thermal Efficiency -->
               <div class="space-y-2">
                 <div class="flex justify-between text-xs">
-                  <span class="text-slate-300">Thermal Efficiency ($\eta_t$)</span>
+                  <span class="text-slate-300">Thermal Efficiency (&eta;<sub>t</sub>)</span>
                   <span class="text-zirconia-400 font-bold" id="eta-val">33.3%</span>
                 </div>
                 <input type="range" id="param-eta" min="20" max="50" step="0.5" value="33.33" oninput="calculateIodine()" class="w-full h-1 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-zirconia-500">
@@ -443,7 +443,7 @@
               <!-- Thermal Flux -->
               <div class="space-y-2">
                 <div class="flex justify-between text-xs">
-                  <span class="text-slate-300">Thermal Neutron Flux ($\phi$)</span>
+                  <span class="text-slate-300">Thermal Neutron Flux (&phi;)</span>
                   <span class="text-zirconia-400 font-bold" id="flux-val">5.47 × 10¹³ n/cm²s</span>
                 </div>
                 <input type="range" id="param-flux" min="1" max="10" step="0.05" value="5.47" oninput="calculateIodine()" class="w-full h-1 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-zirconia-500">
@@ -488,9 +488,9 @@
                 <thead class="bg-slate-950 text-slate-400 uppercase text-[10px] tracking-wider border-b border-slate-800">
                   <tr>
                     <th class="px-4 py-3">Isotope</th>
-                    <th class="px-4 py-3">Yield ($y_{Te} + y_I$) %</th>
-                    <th class="px-4 py-3">Half-Life ($T_{1/2}$)</th>
-                    <th class="px-4 py-3">Decay Constant ($\lambda$) s⁻¹</th>
+                    <th class="px-4 py-3">Yield (<i>y</i><sub>Te</sub> + <i>y</i><sub>I</sub>) %</th>
+                    <th class="px-4 py-3">Half-Life (<i>T</i><sub>1/2</sub>)</th>
+                    <th class="px-4 py-3">Decay Constant (&lambda;) s⁻¹</th>
                     <th class="px-4 py-3 text-right">Steady-State Mass (g)</th>
                   </tr>
                 </thead>
@@ -570,9 +570,9 @@
                 <img src="images/coordination.png" alt="Monoclinic structure coordinate" class="h-32 object-contain filter drop-shadow-md">
               </div>
               <div class="text-xs space-y-1.5 text-slate-300">
-                <div class="flex justify-between border-b border-slate-800/50 pb-1.5"><span>Space Group:</span> <span class="text-white font-medium">$P2_1/c$</span></div>
+                <div class="flex justify-between border-b border-slate-800/50 pb-1.5"><span>Space Group:</span> <span class="text-white font-medium font-mono"><i>P</i>2<sub>1</sub>/<i>c</i></span></div>
                 <div class="flex justify-between border-b border-slate-800/50 pb-1.5"><span>Coordination:</span> <span class="text-white font-medium">Zr: 7-fold, O: 3 & 4-fold</span></div>
-                <div class="flex justify-between pb-1"><span>Iodine behavior:</span> <span class="text-slate-400">Adopt +1/ -1 oxidation state. Small changes with $pO_{2}$</span></div>
+                <div class="flex justify-between pb-1"><span>Iodine behavior:</span> <span class="text-slate-400">Adopt +1/ -1 oxidation state. Small changes with <i>p</i>O<sub>2</sub></span></div>
               </div>
             </div>
 
@@ -589,7 +589,7 @@
                 <img src="images/zr_centre_tet.png" alt="Tetragonal coordination" class="h-32 object-contain filter drop-shadow-md">
               </div>
               <div class="text-xs space-y-1.5 text-slate-300">
-                <div class="flex justify-between border-b border-slate-800/50 pb-1.5"><span>Space Group:</span> <span class="text-white font-medium">$P4_2/nmc$</span></div>
+                <div class="flex justify-between border-b border-slate-800/50 pb-1.5"><span>Space Group:</span> <span class="text-white font-medium font-mono"><i>P</i>4<sub>2</sub>/<i>nmc</i></span></div>
                 <div class="flex justify-between border-b border-slate-800/50 pb-1.5"><span>Coordination:</span> <span class="text-white font-medium">Zr: 8-fold, O: 4-fold</span></div>
                 <div class="flex justify-between pb-1"><span>Iodine behavior:</span> <span class="text-slate-400">Significant drop under oxidizing conditions. Highly stable.</span></div>
               </div>
@@ -608,7 +608,7 @@
                 <img src="images/cubic_unitcell.png" alt="Cubic unitcell" class="h-32 object-contain filter drop-shadow-md">
               </div>
               <div class="text-xs space-y-1.5 text-slate-300">
-                <div class="flex justify-between border-b border-slate-800/50 pb-1.5"><span>Space Group:</span> <span class="text-white font-medium">$Fm\bar{3}m$</span></div>
+                <div class="flex justify-between border-b border-slate-800/50 pb-1.5"><span>Space Group:</span> <span class="text-white font-medium font-mono"><i>Fm</i><span style="text-decoration: overline;">3</span><i>m</i></span></div>
                 <div class="flex justify-between border-b border-slate-800/50 pb-1.5"><span>Coordination:</span> <span class="text-white font-medium">Zr: 8-fold, O: 4-fold</span></div>
                 <div class="flex justify-between pb-1"><span>Iodine behavior:</span> <span class="text-slate-400">Extremely sensitive to defect cluster symmetry breaks.</span></div>
               </div>
