@@ -38,6 +38,10 @@
       }
     }
   </script>
+  <!-- KaTeX for LaTeX Math & Crystallographic Symbols -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
   <style>
     /* Premium glassmorphism scrollbar */
     ::-webkit-scrollbar {
@@ -56,7 +60,7 @@
     }
   </style>
 </head>
-<body class="bg-slate-950 text-slate-100 font-sans min-h-screen flex flex-col md:flex-row transition-colors duration-200">
+<body class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 font-sans min-h-screen flex flex-col md:flex-row transition-colors duration-200">
 
   <!-- Sidebar Component -->
   <aside id="sidebar" class="fixed inset-y-0 left-0 z-40 w-72 bg-slate-900/95 border-r border-slate-800 flex flex-col justify-between transform -translate-x-full md:translate-x-0 md:static transition-transform duration-300">
@@ -1459,7 +1463,7 @@
         const color = getSeriesColor(s);
         return {
           label: s,
-          data: loadedBrouwerData.points.map(p => p[s]),
+          data: loadedBrouwerData.points.map(p => ({ x: p.pO2, y: p[s] })),
           borderColor: color,
           backgroundColor: color + '15',
           borderWidth: 2,
