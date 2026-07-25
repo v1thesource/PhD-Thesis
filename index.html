@@ -1022,15 +1022,10 @@
     // Initialize Page
     window.addEventListener('DOMContentLoaded', () => {
       switchTab('overview');
-      buildIsotopeTable();
       calculateIodine();
       buildFiguresGallery();
       init3DLattice(); // Load 3D WebGL crystal Lattice
     });
-
-    function buildIsotopeTable() {
-      // Stub if table rows are fully reactive
-    }
 
     function calculateIodine() {
       const Pe = parseFloat(document.getElementById('param-pe').value);
