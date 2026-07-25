@@ -1423,10 +1423,10 @@
       const printableHeaders = loadedBrouwerData.headers.filter(h => !excludelist.includes(h));
 
       // Choose default active ones (electrons, holes, main vacancies)
-      const defaultActive = ['electrons', 'holes', 'VO{2}', 'Oi{-2}', 'TesubO{2}', 'TesubO{1}', 'XesubZr{-4}', 'CssubZr{-3}'];
+      const defaultActive = new Set(['electrons', 'holes', 'VO{2}', 'Oi{-2}', 'TesubO{2}', 'TesubO{1}', 'XesubZr{-4}', 'CssubZr{-3}']);
 
       printableHeaders.forEach(h => {
-        const isActive = defaultActive.includes(h) || h.startsWith('Te') || h.startsWith('Xe') || h.startsWith('Cs');
+        const isActive = defaultActive.has(h) || h.startsWith('Te') || h.startsWith('Xe') || h.startsWith('Cs');
         const color = getSeriesColor(h);
 
         const wrapper = document.createElement('label');
