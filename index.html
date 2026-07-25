@@ -756,7 +756,9 @@
         hash = name.charCodeAt(i) + ((hash << 5) - hash);
       }
       const h = Math.abs(hash % 360);
-      return `hsl(${h}, 80%, 60%)`;
+      const color = `hsl(${h}, 80%, 60%)`;
+      defectColors[name] = color;
+      return color;
     }
 
     // --- Three.js 3D Lattice Simulator ---
