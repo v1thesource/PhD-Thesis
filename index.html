@@ -525,7 +525,7 @@
             <span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
               <i class="fa-solid fa-magnifying-glass"></i>
             </span>
-            <input type="text" id="gallery-search" oninput="filterGallery()" placeholder="Search figures..." class="w-full pl-9 pr-4 py-2 bg-slate-950 border border-slate-800 rounded-lg text-xs text-white focus:outline-none focus:border-zirconia-500 transition-colors">
+            <input type="text" id="gallery-search" oninput="buildFiguresGallery()" placeholder="Search figures..." class="w-full pl-9 pr-4 py-2 bg-slate-950 border border-slate-800 rounded-lg text-xs text-white focus:outline-none focus:border-zirconia-500 transition-colors">
           </div>
 
           <!-- Filter tags -->
@@ -1159,9 +1159,6 @@
       buildFiguresGallery();
     }
 
-    function filterGallery() {
-      buildFiguresGallery();
-    }
 
     function openLightbox(fig) {
       const tagNames = { crystal: 'Crystallography Reference', reactor: 'Reactor Physics & Fission Yields', defects: 'Materials Defects & Cracking' };
