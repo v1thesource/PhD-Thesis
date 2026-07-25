@@ -1431,11 +1431,26 @@
 
         const wrapper = document.createElement('label');
         wrapper.className = "flex items-center space-x-2.5 py-1 px-1.5 rounded hover:bg-slate-800/40 cursor-pointer text-slate-300 transition-colors duration-100";
-        wrapper.innerHTML = `
-          <input type="checkbox" value="${h}" ${isActive ? 'checked' : ''} onchange="renderBrouwerChart()" class="defect-checkbox h-3.5 w-3.5 rounded bg-slate-950 border-slate-800 accent-zirconia-500">
-          <span class="inline-block w-2.5 h-2.5 rounded-full" style="background-color: ${color}"></span>
-          <span class="text-xs font-mono font-medium">${h}</span>
-        `;
+
+        const input = document.createElement('input');
+        input.type = 'checkbox';
+        input.value = h;
+        input.checked = isActive;
+        input.onchange = renderBrouwerChart;
+        input.className = 'defect-checkbox h-3.5 w-3.5 rounded bg-slate-950 border-slate-800 accent-zirconia-500';
+
+        const colorSpan = document.createElement('span');
+        colorSpan.className = 'inline-block w-2.5 h-2.5 rounded-full';
+        colorSpan.style.backgroundColor = color;
+
+        const textSpan = document.createElement('span');
+        textSpan.className = 'text-xs font-mono font-medium';
+        textSpan.textContent = h;
+
+        wrapper.appendChild(input);
+        wrapper.appendChild(colorSpan);
+        wrapper.appendChild(textSpan);
+
         container.appendChild(wrapper);
       });
     }
